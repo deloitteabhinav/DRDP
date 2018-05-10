@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>DRDW_SendEmailBefore30DaysOnInQueueH</name>
+    <style>none</style>
+    <subject>Alert! Your Study Initiation Form is due in 30 days</subject>
+    <textOnly>Hi,
+
+RESUBMISSION REQUIRED: Your {!DRDW_Cap_Request__c.Related_Project_Name__c}, {!DRDW_Cap_Request__c.Study_Title__c} is still in Queue and projected to start in 30 days. The Study Initiation Form has not been completed in its entirety and your study has been canceled on the GO schedule. You are now required to resubmit your Study Initiation Form for review and potentially scheduled at a later date.
+Related Project : {!DRDW_Cap_Request__c.Related_Project_Name__c}
+
+Thank you,
+Elanco R&amp;D</textOnly>
+    <type>custom</type>
+</EmailTemplate>

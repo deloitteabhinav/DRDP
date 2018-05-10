@@ -1,0 +1,8 @@
+Hi,
+<br/><br/>
+Your {!DRDW_Cap_Request__c.Related_Project_Name__c}, {!DRDW_Cap_Request__c.Study_Title__c} is still in Draft and projected to start in 120 days. Please complete minimally the critical information in Study Initiation Form within the next 30 days in order for your study to be considered for scheduling by GO.
+<br/>
+Related Project : <a href="{!DRDW_Cap_Request__c.Related_Project_link__c} ">{!DRDW_Cap_Request__c.Related_Project_Name__c}</a>
+<br/><br/>
+Thank you, <br/> 
+Elanco R&D

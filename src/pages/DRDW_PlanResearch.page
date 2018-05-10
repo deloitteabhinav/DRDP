@@ -1,0 +1,85 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" controller="DRDW_CheckLeaderShip">
+ 
+    <head>
+    <title>Create Research Idea/Project</title>
+    <c:DRDW_QFOR_Styles />
+    <c:DRDW_IndexNew />
+    </head>
+        
+     <div class='df_drdw content'>
+       <div class="df_drdw-createstudy df_drdw-bp-interim">
+        <header>
+            <div class="pattern"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 banner-properties">
+                        <div class="container">
+                        <h1>Create Research Idea/Project</h1>
+                        <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+        
+            <div class="request-types-container ">
+                <div class="col-md-6 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Ideation</span>
+                    <p class="description font-s">Capture the scientific hypothesis and justification for portfolio entry. Ideation will include a technical feasibility assessment that identifies gaps and forms the basis for an Evaluation Project plan presented for a Decision to Evaluation (DTE).  Successful DTE decisions will result in the creation of an Evaluation Project.  DTE decisions can result from internal ideation or external opportunity evaluations.</p>
+                    <apex:outputPanel rendered="{!isPMorScientist}">
+                    <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_CreateNewIdea">Create</apex:outputlink>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!!isPMorScientist}">
+                    <apex:outputlink styleclass="navigate-to-link disabled" value="/apex/DRDW_CreateNewIdea">Create</apex:outputlink>
+                    </apex:outputPanel>
+                    </div>
+                </div>
+                <div class="col-md-6 request-item">
+                     <div class="hover-wrapper">
+                     <span class="name bold font-m">Evaluation Project</span>
+                     <p class="description font-s">Evaluation Projects are to be created after a successful DTE.Evaluation Projects can be linked to an existing IDEATION or result from an early external opportunity with DTE.  Evaluation Projects should provide information on resources, estimated time and budget forecast necessary to de-risk gaps in preparation for portfolio advancement at Decision to Generate (DTG). Evaluation Projects are created for internal and early external portfolio opportunities.</p>
+                     <apex:outputPanel rendered="{!!isLeader}">
+                     <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_SelectCreateEvaluationPrj">Create</apex:outputlink>
+                     </apex:outputPanel>
+                     <apex:outputPanel rendered="{!isLeader}">
+                     <apex:outputlink styleclass="navigate-to-link disabled" value="/apex/DRDW_SelectCreateEvaluationPrj">Create</apex:outputlink>
+                     </apex:outputPanel>
+                     </div>
+                </div>
+            </div>
+            <div class="request-types-container ">
+                <div class="col-md-6 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Generation Project</span>
+                    <p class="description font-s">Generation Projects are activated after a successful DTG.The DTG is based on a project plan that provides information on resources, estimated time, PoP and budget forecast necessary to de-risk gaps in preparation for portfolio advancement at Decision to Assess (DTA).Generation Projects are created for internal and external portfolio opportunities based on available data.Generation Projects will be linked to their corresponding Evaluation Project where applicable.</p>
+                    <apex:outputPanel rendered="{!!isLeader}">
+                    <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_SelectCreateGenPrj">Create</apex:outputlink>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!isLeader}">
+                    <apex:outputlink styleclass="navigate-to-link disabled" value="/apex/DRDW_SelectCreateGenPrj">Create</apex:outputlink>
+                    </apex:outputPanel> 
+                    </div>
+                </div>
+                <div class="col-md-6 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Assessment Project</span>
+                    <p class="description font-s">Assessment Projects are activated after a successful DTA.The DTA is based on a project plan that provides information on resources, estimated time, POC study and budget forecast necessary to de-risk gaps in preparation for portfolio advancement at Decision to Pursue (DP1 gate).Assessment Projects are created for internal and external portfolio opportunities based on available data.Assessment Projects will be linked to their corresponding Generation Project where applicable.</p>
+                    <apex:outputPanel rendered="{!!isLeader}">
+                    <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_SelectCreateAssessment">Create</apex:outputlink>
+                    </apex:outputPanel>
+                    <apex:outputPanel rendered="{!isLeader}">
+                    <apex:outputlink styleclass="navigate-to-link disabled" value="/apex/DRDW_SelectCreateAssessment">Create</apex:outputlink>
+                    </apex:outputPanel> 
+                    </div>
+                </div>                
+            </div>
+            
+           
+        </main>
+        </div>
+        </div>
+       <c:DRDW_SR2_FooterComponent />
+       <c:DRDW_QFOR_Scripts />
+</apex:page>

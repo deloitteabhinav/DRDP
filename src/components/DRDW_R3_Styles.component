@@ -1,0 +1,8 @@
+<apex:component >
+  <head>
+      <apex:stylesheet value="{!URLFOR($Resource.DRDW_KMSR,'vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css')}"/>   
+    <apex:stylesheet value="{!URLFOR($Resource.DRDW_R3Style,'vendor/bootstrap/bootstrap.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DRDW_R3Style,'vendor/jqueryui/themes/base/jquery-ui.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DRDW_R3Style,'assets/drdw-1.0.0.css')}" />
+  </head>
+</apex:component>

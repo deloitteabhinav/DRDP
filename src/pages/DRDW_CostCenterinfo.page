@@ -1,0 +1,86 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" standardController="DRDW_Cost_Center__c" extensions="DRDW_CostCenter" id="thePage">
+ 
+    <head>
+    <title>Cost Center</title>
+    <c:DRDW_QFOR_Styles />
+    <c:DRDW_IndexNew />
+    </head>
+    <style>
+    .lookupInput input{
+        width: 0px;
+        border: none;
+    }
+    </style>
+    <script>
+    $(document).ready(function(){
+    var anchor = $('.lookupInput a');
+    var img = $('.lookupInput img');
+    anchor.addClass('navigate-to-link');
+    anchor.html('Lookup Cost Center');
+    img.remove();
+    
+    });
+    
+    </script>
+        
+     <div class='df_drdw content'>
+       <div class="df_drdw-createstudy df_drdw-bp-interim df_drdw-admin-interim">
+        <header>
+            <div class="pattern"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 banner-properties">
+                        <div class="container">
+                        <h1>Create/Update Cost Center</h1>
+                        <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+        <apex:form >
+            <div class="request-types-container ">
+                <div class="col-md-6 request-item" Style="height:100%">
+                     <div class="hover-wrapper">
+                     <span class="name bold font-m">Create New</span>
+                     <p class="description font-s" Style="margin-bottom:15px">Here we can Create Cost Center.</p>
+                     <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_CostCenter">Create</apex:outputlink>
+                     </div>
+                </div>
+                <!-- <div class="col-md-6 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Update Cost Center</span>
+                    <p class="description font-s">Here we can Update Cost Center.</p>
+                    <apex:outputPanel >
+                    <apex:inputField value="{!oCost.Cost_Center__c}" onchange="redirect();"/>
+                    <apex:actionFunction action="{!copyField}" name="redirect"/>
+                    </apex:outputPanel>
+                    </div>
+                </div> -->
+                
+                <div class="col-md-6 request-item" Style="height:100%">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Update Cost Center</span>
+                    <p class="description font-s">Here we can Update Cost Center.</p>  
+                    <apex:selectList value="{!selectedCostcntr}" size="1" styleClass="navigation-picklist" >
+                        <apex:selectOptions value="{!Costcenters}"/>
+                        <apex:actionSupport action="{!RedirectCostcenter}" event="onchange"/>
+                    </apex:selectList><p/>                  
+                   <!-- <div class="select-wrapper">
+                        <div class="selected">Choose Cost Center<span class="caret"></span></div>
+                        <apex:selectList value="{!selectedCostcntr}" size="0" Styleclass="custom-select-box" Style="text-align-last:center">
+                            <apex:selectOptions value="{!Costcenters}"/>
+                            <apex:actionSupport action="{!RedirectCostcenter}" event="onchange"/>
+                        </apex:selectList>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+         </apex:form>   
+        </main>
+        </div>
+        </div>
+       <c:DRDW_SR2_FooterComponent />
+        <c:DRDW_QFOR_Scripts />
+</apex:page>

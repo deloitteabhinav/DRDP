@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assigned</fullName>
+                    <default>false</default>
+                    <label>Assigned</label>
+                </value>
+                <value>
+                    <fullName>Unassigned</fullName>
+                    <default>false</default>
+                    <label>Unassigned</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>ERL</fullName>
+                    <default>false</default>
+                    <label>ERL</label>
+                </value>
+                <value>
+                    <fullName>GO</fullName>
+                    <default>false</default>
+                    <label>GO</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+	<fields>
+        <fullName>Related_Project_bck__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Project</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Activity_Project__c</fullName>
+        <externalId>false</externalId>
+        <formula>Related_Project__r.Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Actual_End_Date__c</fullName>
+        <description>Actual End Date</description>
+        <externalId>false</externalId>
+        <label>Actual End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_Resource__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned Resource</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Capabilities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Capability_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Area</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Capability__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Duration__c</fullName>
+        <externalId>false</externalId>
+        <label>Duration</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1 Week</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2 Weeks</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3 Weeks</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4 Weeks</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2 Months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3 Months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>6 Months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>9 Months</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>12 Months</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ERL_Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>ERL Primary Contact</description>
+        <externalId>false</externalId>
+        <label>ERL Primary Contact</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Capabilities2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Go_No_Go__c</fullName>
+        <externalId>false</externalId>
+        <label>Go/No Go</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Go</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Go</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Invitro_Invivo__c</fullName>
+        <externalId>false</externalId>
+        <label>In silico/In vitro/In vivo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In vitro</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In vivo</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In silico</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Number_of_Hours_Per_Week__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Hours Per Week</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+	 <fields>
+        <fullName>DRDW_Request__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related ERL Request</label>
+        <referenceTo>DRDW_Cap_Request__c</referenceTo>
+        <relationshipLabel>DRDW Activities</relationshipLabel>
+        <relationshipName>DRDW_Activities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Planned_End_Date__c</fullName>
+        <description>Planned End Date</description>
+        <externalId>false</externalId>
+        <label>Planned End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Decision to Evaluate (DTE):</inlineHelpText>
+        <label>Planned Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Related_Idea__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Evaluation Project</label>
+        <referenceTo>DRDW_Project__c</referenceTo>
+        <relationshipName>Capabilities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Project</label>
+        <referenceTo>DRDW_Project__c</referenceTo>
+        <relationshipName>Capabilities1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Research_Project_Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Research Project Lead</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Capabilities1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	 <fields>
+        <fullName>Title_ex__c</fullName>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Target_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS(TEXT(Duration__c),&apos;Week&apos;),
+( 7 * VALUE(LEFT(TEXT(Duration__c),1)) + Actual_Start_Date__c)
+,DATE(
+    YEAR( Actual_Start_Date__c ) +
+    FLOOR((VALUE(LEFT(TEXT(Duration__c),1)) + MONTH(Actual_Start_Date__c)) / 12) -
+    IF (MOD(MONTH(Actual_Start_Date__c) + VALUE(LEFT(TEXT(Duration__c),1)), 12) = 0,
+        1,
+        0),
+
+    MOD((VALUE(LEFT(TEXT(Duration__c),1)) + MONTH(Actual_Start_Date__c) - 1), 12) + 1,
+
+    DAY(Actual_Start_Date__c)
+))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Target End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_budget__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Total budget of associated budget masters</description>
+        <externalId>false</externalId>
+        <label>Total budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+	<fields>
+        <fullName>UniqueProjActTitle__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>UniqueProjActTitle</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+</fields>
+	 <fields>
+        <fullName>Project_Business_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Business Unit</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+  <fields>
+        <fullName>Proposed_Start_Date__c</fullName>
+        <description>The proposed start date of the activity. If this date shifts forward or backward, the resource assignment also shifts accordingly.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The proposed start date of the activity. If this date shifts forward or backward, the resource assignment also shifts accordingly.</inlineHelpText>
+        <label>Proposed Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>DRDW Activity</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CAP-{0000}</displayFormat>
+        <label>Capability Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>DRDW Activities</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>External_Activity</fullName>
+        <active>true</active>
+        <label>External Activity</label>
+        <picklistValues>
+            <picklist>Duration__c</picklist>
+            <values>
+                <fullName>1 Week</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9 Months</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Go_No_Go__c</picklist>
+            <values>
+                <fullName>Go</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Go</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invitro_Invivo__c</picklist>
+            <values>
+                <fullName>In silico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vivo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>ERL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Idea_Capability</fullName>
+        <active>true</active>
+        <label>Idea Capability</label>
+        <picklistValues>
+            <picklist>Duration__c</picklist>
+            <values>
+                <fullName>1 Week</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9 Months</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Go_No_Go__c</picklist>
+            <values>
+                <fullName>Go</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Go</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invitro_Invivo__c</picklist>
+            <values>
+                <fullName>In vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vivo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Study_Activity</fullName>
+        <active>true</active>
+        <description>This record type is used in relation with the GO request associated to the Projects</description>
+        <label>Study Activity</label>
+        <picklistValues>
+            <picklist>Duration__c</picklist>
+            <values>
+                <fullName>1 Week</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9 Months</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Go_No_Go__c</picklist>
+            <values>
+                <fullName>Go</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Go</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invitro_Invivo__c</picklist>
+            <values>
+                <fullName>In silico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vivo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unassigned</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>ERL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+	 <recordTypes>
+        <fullName>Request_Activity</fullName>
+        <active>true</active>
+        <label>Request Activity</label>
+        <picklistValues>
+            <picklist>Duration__c</picklist>
+            <values>
+                <fullName>1 Week</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9 Months</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Go_No_Go__c</picklist>
+            <values>
+                <fullName>Go</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Go</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invitro_Invivo__c</picklist>
+            <values>
+                <fullName>In silico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vivo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Assigned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unassigned</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>ERL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GO</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Project_Capability</fullName>
+        <active>true</active>
+        <label>Project Capability</label>
+        <picklistValues>
+            <picklist>Duration__c</picklist>
+            <values>
+                <fullName>12 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9 Months</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Go_No_Go__c</picklist>
+            <values>
+                <fullName>Go</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Go</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invitro_Invivo__c</picklist>
+            <values>
+                <fullName>In silico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In vivo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Title__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Capability_Area__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Capability__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Related_Project_bck__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Title__c</searchResultsAdditionalFields>
+    </searchLayouts>
+	<sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>DRDW_Capability_Share__c</fullName>
+        <label>Capability Share</label>
+    </sharingReasons>
+    <validationRules>
+        <fullName>Actual_Start_date_less_then_End_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>Actual_Start_Date__c &gt; Actual_End_Date__c</errorConditionFormula>
+        <errorDisplayField>Actual_End_Date__c</errorDisplayField>
+        <errorMessage>Actual End Date Can&apos;t less than Actual start date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Planned_Start_Date_prior_to_DTE</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(AND(RecordType.DeveloperName == &apos;Idea_Capability&apos;, Planned_Start_Date__c &lt;  Related_Idea__r.Decision_to_Evaluate_DTE__c ),true,false)</errorConditionFormula>
+        <errorDisplayField>Planned_Start_Date__c</errorDisplayField>
+        <errorMessage>Entered date is prior to DTE</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Project_Planned_date</fullName>
+        <active>true</active>
+        <description>The planned end date should not be less then planned start date</description>
+        <errorConditionFormula>Planned_End_Date__c &lt; Planned_Start_Date__c</errorConditionFormula>
+        <errorDisplayField>Planned_End_Date__c</errorDisplayField>
+        <errorMessage>Planned end date cannot be less then planned start date</errorMessage>
+    </validationRules>
+</CustomObject>

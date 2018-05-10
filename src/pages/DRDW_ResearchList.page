@@ -1,0 +1,484 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" controller="DRDW_IdeaListCntlr" readonly="true" id="thePage">
+   <script type='text/javascript'>
+        function isValidSearchString(searchString) {
+            var SEARCH_TRIGGER_THRESHOLD = 2;
+            var trimmedSearchString = searchString.trim();
+
+                if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+                    return true;
+                } else {
+                    return false;
+                }
+        }
+        
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                var searchString = (document.getElementsByClassName("keyword_Study_Search_Text"))[0].value;
+                if (isValidSearchString(searchString)){
+                    doSearchAf();
+                }
+                return false;
+             } else {
+                  return true;
+             }
+         }
+   </script>      
+   <head>  
+       <title>Research List</title>
+       <c:DRDW_R3_Styles />
+   </head>
+   <body>
+       <c:DRDW_IndexNew />
+       <apex:form id="theForm">
+       <div class='content'>
+
+        
+                    <apex:actionFunction name="doSearchAf" action="{!FetchDataForCriteria}" oncomplete="drdw.listView.handlerSeeMoreFilters();" rerender="newIdearesults,Idearesults,Projectresults,therapueticareaCol,resultsize" />
+                    <apex:actionFunction name="toggleflagoff" action="{!toggleOff}" oncomplete="drdw.listView.handlerSeeMoreFilters();" rerender="newIdearesults,Idearesults,Projectresults,therapueticareaCol,resultsize" />
+                    <apex:actionFunction name="toggleflagoff2" action="{!toggleOff2}" oncomplete="drdw.listView.handlerSeeMoreFilters();" rerender="newIdearesults,Idearesults,Projectresults,therapueticareaCol,resultsize" />
+                    <apex:actionFunction name="toggleflagoff3" action="{!toggleOff3}" oncomplete="drdw.listView.handlerSeeMoreFilters();" rerender="newIdearesults,Idearesults,Projectresults,therapueticareaCol,resultsize" />
+                    <!-- Start of Fixed Container -->
+            
+            <div class='fixed-container global-search'> 
+                <!-- Filter wrapper -->
+                <div class='filters-wrapper'>
+                
+                    <!-- Header section -->
+                    
+                        <div class="filter-header container">
+                            <apex:outputpanel id="resultsize">
+                                <span class='result-count'>{!cResearchListCntlr.ResultSize+cIdeasListCntlr.ResultSize+cNewIdeasListCntlr.ResultSize} Research Items</span>
+                            </apex:outputpanel>
+                            <apex:outputlink value="/apex/DRDW_PlanResearch" styleClass="create-new enabled l-blue hidden-xs">Create Idea/Research Project</apex:outputlink>
+                            <span class='icon-large-caret down'></span>
+                            <span class="caret-state pull-right">Show Filter</span>
+                        </div>
+                    
+                    <!-- Header section -->
+                    
+                    <!-- Filters -->
+                   
+                            <div class='filter-container container'>
+            
+                                <!--Start of Output Panel-->
+                                <apex:outputpanel id="therapueticareaCol">
+
+                                        <!--Phase field filter checkboxes-->                  
+                                        <div class='filter-column-wrapper col-md-3'>
+                                            <ul class='{!IF(bShowMoreFlag2,"filter-column","filter-column show-scroll")}'>
+                                                <li >Phase</li>
+                                                <apex:repeat value="{!mResearchStructure['Phase__c']}" var="activity">
+                                                    <li>
+                                                    <div class="col-md-12" style="padding-left:0px">
+                                                    <div class="col-md-1" style="padding-left:0px">
+                                                        <apex:inputCheckbox value="{!activity.isSelected}">
+                                                            <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="newIdearesults,newideacount,therapueticareaCol,Idearesults,Projectresults,resultsize,ideacount,projectcount" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                        </apex:inputCheckbox>
+                                                        </div>
+                                                        <div class="col-md-10" style="padding-left:0px">
+                                                        <label>{!activity.Label} ({!mCategoyCount[activity.Label]})</label>
+                                                        </div>
+                                                        </div>
+                                                    </li>
+                                                </apex:repeat>
+                                            </ul>
+                                        </div>
+            
+                                        <!--Therapuetic Area field filter checkboxes-->
+                                        <div class='filter-column-wrapper col-md-3'>
+                                            <ul class='{!IF(bShowMoreFlag,"filter-column","filter-column show-scroll")}'>
+                                                <li >Therapeutic Area</li>
+                                                <apex:repeat value="{!mResearchStructure['Therapeutic_Area__c']}" var="area">
+                                                    <li>
+                                                    <div class="col-md-12" style="padding-left:0px">
+                                                    <div class="col-md-1" style="padding-left:0px">
+                                                        <apex:inputCheckbox value="{!area.isSelected}">
+                                                            <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="newIdearesults,newideacount,therapueticareaCol,Idearesults,Projectresults,resultsize,ideacount,projectcount" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                        </apex:inputCheckbox>
+                                                        </div>
+                                                        <div class="col-md-10" style="padding-left:0px">
+                                                        <label>{!area.Label} ({!mCategoyCount[area.Label]})</label>
+                                                        </div>
+                                                        </div>
+                                                    </li>
+                                                </apex:repeat>
+                                            </ul>
+                                            <apex:outputPanel rendered="{!bShowMoreFlag}">
+                                                <a class="see-more-filters pull-left" onclick="toggleflagoff();">See more Filters...</a>
+                                            </apex:outputPanel>
+                                         </div>
+                                            
+                                       
+                                        
+                                        <!-- Species field filter checkboxes -->     
+                                        <div class='filter-column-wrapper col-md-2'>
+                                            <ul class='{!IF(bShowMoreFlag3,"filter-column","filter-column show-scroll")}'>
+                                                <li >Species</li>
+                                                <apex:repeat value="{!mResearchStructure['Species__c']}" var="activity">
+                                                    <li>
+                                                        <apex:inputCheckbox value="{!activity.isSelected}">
+                                                            <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="newIdearesults,newideacount,therapueticareaCol,Idearesults,Projectresults,resultsize,ideacount,projectcount" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                        </apex:inputCheckbox>
+                                                        <label>{!activity.Label}</label>
+                                                    </li>
+                                                </apex:repeat>
+                                            </ul>
+                                            <apex:outputPanel rendered="{!bShowMoreFlag3}">
+                                                <a class="see-more-filters pull-left" onclick="toggleflagoff3();">See more Filters...</a>
+                                            </apex:outputPanel>
+                                        </div>
+                                        
+                                         <!--Business Unit field filter checkboxes-->                  
+                                        <div class='filter-column-wrapper col-md-4'>
+                                            <ul class='{!IF(bShowMoreFlag2,"filter-column","filter-column show-scroll")}'>
+                                                <li >Business Unit</li>
+                                                <apex:repeat value="{!mResearchStructure['Business_Unit__c']}" var="duration">
+                                                    <li>
+                                                        <apex:inputCheckbox value="{!duration.isSelected}">
+                                                            <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="newIdearesults,newideacount,therapueticareaCol,Idearesults,Projectresults,resultsize,ideacount,projectcount" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                        </apex:inputCheckbox>
+                                                        <label>{!duration.Label} ({!mCategoyCount[duration.Label]})</label>
+                                                    </li>
+                                                </apex:repeat>
+                                            </ul>
+                                            <apex:outputPanel rendered="{!bShowMoreFlag2}">
+                                                <a class="see-more-filters pull-left" onclick="toggleflagoff2();">See more Filters...</a>
+                                            </apex:outputPanel> 
+                                        </div>
+            
+                                        <!--End of Output Panel-->
+                                </apex:outputpanel>
+                            </div>    
+                           
+                    <!-- Filters end -->
+                    
+                </div> 
+                <!-- Filter wrapper -->    
+                       
+                <!-- Search wrapper -->
+                <div class='type-ahead-search-wrapper container'>
+                    <div class='type-ahead-search-wrapper container'>
+                        <span class='icon-find'></span>
+                        <apex:inputtext value="{!sSearchWord}" html-placeholder="Search Researches" onkeypress="return noenter(event);" styleClass="keyword_Partnership_Search_Text"/>
+                        <apex:commandButton Value="Go" action="{!FetchDataForCriteria}" Styleclass="button create-new l-blue" disabled="false" rerender="newIdearesults,newideacount,Idearesults,Projectresults,therapueticareaCol,resultsize,ideacount,projectcount" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                        <apex:outputlink value="/apex/DRDW_ResearchList" StyleClass="filter-reset">Clear All</apex:outputlink>
+                    </div>
+                </div>
+                <!-- Search wrapper -->
+                
+                <!-- Search wrapper -->
+            
+        <div class="tab-wrapper">
+                    <div class="container tabs">
+                        <div class="row">
+                            <div class="col-xs-12 tab-well">
+                                 <input id="tab3" type="radio" name="tabs" checked="checked"></input>
+                                <label for="tab3" data-id="content3" class="l-blue" >Ideas&nbsp;&nbsp;<apex:outputpanel id="newideacount">({!cNewIdeasListCntlr.ResultSize})</apex:outputpanel></label>
+                                <input id="tab1" type="radio" name="tabs" checked="checked"></input>
+                                <label for="tab1" data-id="content1" class="l-blue" >Evaluation Projects&nbsp;&nbsp;<apex:outputpanel id="ideacount">({!cIdeasListCntlr.ResultSize})</apex:outputpanel></label>
+                                <input id="tab2" type="radio" name="tabs"></input>
+                                <label for="tab2" data-id="content2" class="l-blue" >Generation/Assessment Projects&nbsp;&nbsp;<apex:outputpanel id="projectcount">({!cResearchListCntlr.ResultSize})</apex:outputpanel></label>
+                                
+                                <section id="content3">
+                                 <apex:outputpanel id="newideassHeaderOfResults">
+                    <div class="results-header l-blue col-md-12">
+                        <div class="result-header-item sort-by col-md-3">
+                            <apex:commandlink value="Idea Name" action="{!sort}" rerender="newideassHeaderOfResults,newIdearesults">
+                                <apex:param name="New_Idea_Name__c" value="New_Idea_Name__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='New_Idea_Name__c'}"/>    
+                        </div>
+                        
+                       
+                        <div class='result-header-item col-md-3 sort-by hidden-xs'>
+                            <apex:commandlink value="ERL Primary Contact" action="{!sort}" rerender="newideassHeaderOfResults,newIdearesults">
+                                <apex:param name="ERL_Primary_Contact__c" value="ERL_Primary_Contact__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='ERL_Primary_Contact__c'}"/>
+                        </div>
+                        
+                        <div class='result-header-item col-md-2 sort-by hidden-xs'>
+                            <apex:commandlink value="Date Initiated" action="{!sort}" rerender="newideassHeaderOfResults,newIdearesults">
+                                <apex:param name="Date_Initiated__c" value="Date_Initiated__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Date_Initiated__c'}"/>
+                        </div>
+                        
+                        <div class='result-header-item col-md-2 sort-by hidden-xs'>
+                            <apex:commandlink value="Business Unit" action="{!sort}" rerender="newideassHeaderOfResults,newIdearesults">
+                                <apex:param name="Business_Unit__c" value="Business_Unit__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Business_Unit__c'}"/>
+                        </div>
+                        
+                        <div class='result-header-item col-md-2 sort-by hidden-xs'>
+                            <apex:commandlink value="Status" action="{!sort}" rerender="newideassHeaderOfResults,newIdearesults">
+                                <apex:param name="New_Status__c" value="New_Status__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='New_Status__c'}"/>
+                        </div>
+                        
+                        
+                       
+                       
+                    </div>
+                </apex:outputpanel>
+                     </section>            
+                                
+                                
+                                
+                                <section id="content1">
+                                 <apex:outputpanel id="ideassHeaderOfResults">
+                    <div class="results-header l-blue col-md-12">
+                        <div class="result-header-item sort-by col-md-3">
+                            <apex:commandlink value="Project Name" action="{!sort}" rerender="ideassHeaderOfResults,Idearesults">
+                                <apex:param name="Idea_Name__c" value="Idea_Name__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Idea_Name__c'}"/>    
+                        </div>
+                         <div class="result-header-item col-md-3 sort-by">
+                            <apex:commandlink value="Related Idea" action="{!sort}" rerender="ideassHeaderOfResults,Idearesults">
+                                <apex:param name="Related_Idea__r.New_Idea_Name__c" value="Related_Idea__r.New_Idea_Name__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Related_Idea__r.New_Idea_Name__c'}"/>
+                        </div>
+                        <div class="result-header-item col-md-2 sort-by">
+                            <apex:commandlink value="Decision to Evaluate(DTE)" action="{!sort}" rerender="ideassHeaderOfResults,Idearesults">
+                                <apex:param name="Decision_to_Evaluate_DTE__c" value="Decision_to_Evaluate_DTE__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Decision_to_Evaluate_DTE__c'}"/>
+                        </div>
+                        <div class='result-header-item col-md-2 sort-by hidden-xs'>
+                            <apex:commandlink value="Duration" action="{!sort}" rerender="ideassHeaderOfResults,Idearesults">
+                                <apex:param name="Duration__c" value="Duration__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Duration__c'}" />
+                            
+                        </div>
+                        <div class='result-header-item col-md-2 sort-by hidden-xs'>
+                            <apex:commandlink value="ERL Primary Contact" action="{!sort}" rerender="ideassHeaderOfResults,Idearesults">
+                                <apex:param name="ERL_Primary_Contact__c" value="ERL_Primary_Contact__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='ERL_Primary_Contact__c'}"/>
+                        </div>
+                       
+                       
+                    </div>
+                </apex:outputpanel>
+                     </section>            
+                     
+                           <section id="content2">
+                                 <apex:outputpanel id="projectHeaderOfResults">
+                    <div class="results-header l-blue col-md-12">
+                        <div class="result-header-item sort-by col-md-2">
+                            <apex:commandlink value="Project Name" action="{!sort}" rerender="projectHeaderOfResults,Projectresults">
+                                <apex:param name="Project_Name__c" value="Project_Name__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Project_Name__c'}"/>    
+                        </div>
+                        <div class="result-header-item sort-by col-md-2">
+                            <apex:commandlink value="Business Unit" action="{!sort}" rerender="projectHeaderOfResults,Projectresults">
+                                <apex:param name="Business_Unit__c" value="Business_Unit__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Business_Unit__c'}"/>    
+                        </div>
+                        <div class="result-header-item col-md-2 sort-by">
+                            <apex:commandlink value="Phase" action="{!sort}" rerender="projectHeaderOfResults,Projectresults">
+                                <apex:param name="Phase__c" value="Phase__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Phase__c'}"/>
+                        </div>
+                        <div class='result-header-item col-md-2 sort-by hidden-xs'>
+                            <apex:commandlink value="Disease Area" action="{!sort}" rerender="projectHeaderOfResults,Projectresults">
+                                <apex:param name="Disease_Area__c" value="Disease_Area__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Disease_Area__c'}" />
+                            
+                        </div>
+                        <div class='result-header-item col-md-2 sort-by hidden-xs'>
+                            <apex:commandlink value="Species" rerender="projectHeaderOfResults,Projectresults">
+                                
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Species__c'}"/>
+                        </div>
+                       <div class='result-header-item col-md-2 sort-by hidden-xs'>
+                            <apex:commandlink value="Status Report">
+                                
+                            </apex:commandlink>
+                            
+                        </div>
+                        
+                       
+                    </div>
+                </apex:outputpanel>
+                     </section>            
+                     
+                     
+                     
+                     
+                            </div>
+                         </div>
+                     </div>
+                 </div>           
+                
+                
+                </div>
+                
+               
+                
+         
+            <!-- End of Fixed Container -->
+            <!-- Results -->
+            
+<div class='search-results-container container-fluid'>
+    <main class="container">
+        <div class="row">
+            <div class="col-xs-12 tab-content">
+            
+                 <section data-id="content3" style="display:block;">
+                    <apex:outputpanel id="newIdearesults"> 
+                       <div class="results container">
+                            <apex:repeat value="{!lNewIdeaRecordWrap}" var="OIdea">
+                                <div class='result-item col-md-12'>
+                                    <div class='col-md-3'> <apex:outputLink rendered="{!IF(OIdea.recordtype.name == 'Idea',true,false) }" value="/apex/DRDW_CreateNewIdea?id={!OIdea.id}&isEdit=false" target="_blank">{!OIdea.New_Idea_Name__c}</apex:outputlink></div>
+                                    <div class='col-md-3'>{!OIdea.ERL_Primary_Contact__r.Name}</div>
+                                    <div class='col-md-2 hidden-xs'>
+                                        <apex:outputText value="{0, date, d MMM yyyy}">
+                                            <apex:param value="{!OIdea.Date_Initiated__c}" /> 
+                                        </apex:outputText>
+                                    </div>
+                                    <div class='col-md-2 hidden-xs'>{!OIdea.Business_Unit__c}</div>
+                                    <div class='col-md-2 hidden-xs'>{!OIdea.New_Status__c}</div>                              
+                                </div>
+                            </apex:repeat>  
+                            <apex:outputPanel rendered="{!if(lNewIdeaRecordWrap.size==0,true,false)}">
+                                <div class='result-item col-md-12'>No Ideas/Projects Found</div> 
+                            </apex:outputPanel>                                                                                        
+                        </div>
+                        <!--<apex:outputPanel rendered="{!if(lNewIdeaRecordWrap.size>20,true,false)}">-->
+                        <div class='pagination container'>                    
+                            <span class='col-md-12'>Displaying{!((cNewIdeasListCntlr.pagenumber-1)*cNewIdeasListCntlr.pagesize)+1}-{!IF(cNewIdeasListCntlr.ResultSize < ((cNewIdeasListCntlr.pagenumber)*cNewIdeasListCntlr.pagesize),cNewIdeasListCntlr.ResultSize,((cNewIdeasListCntlr.pagenumber)*cNewIdeasListCntlr.pagesize))} of {!cNewIdeasListCntlr.ResultSize}</span>
+                            <div class='indicator-container col-md-12'>
+                                <apex:actionregion >
+                                    <apex:commandlink styleClass="indicator icon-arrow left" action="{!PreviousNewIdeaPageSeries}" rendered="{!IF(AND(lNewIdeaPageNumbers.size <> 0,lNewIdeaPageNumbers[0]!=1),true,false)}"  rerender="newIdearesults"/>
+                                        
+                                    <apex:repeat value="{!lNewIdeaPageNumbers}" var="obj">
+                                        <apex:commandlink styleClass="{!if(obj==cNewIdeasListCntlr.pagenumber,'indicator current','indicator')}" value="{!obj}" action="{!GoToNewIdeaPageNumber}" rerender="newIdearesults">
+                                            <apex:param name="{!obj}" value="{!obj}" assignTo="{!iPageNumber}" />
+                                        </apex:commandlink>
+                                    </apex:repeat>
+                                    <apex:commandlink styleClass="indicator icon-arrow right" action="{!NextNewIdeaPageSeries}" rendered="{!IF(AND(lNewIdeaPageNumbers.size <> 0,dNewIdeaPageCount> lNewIdeaPageNumbers[lNewIdeaPageNumbers.size-1]),true,false)}" rerender="newIdearesults" />
+                                        
+                                </apex:actionregion>
+                            </div>
+                        </div>
+                    <!--</apex:outputPanel>-->
+                        
+                    </apex:outputPanel>             
+                </section>
+
+                <section data-id="content1">
+                    <apex:outputpanel id="Idearesults"> 
+                       <div class="results container">
+                            <apex:repeat value="{!lIdeaRecordWrap}" var="OIdea">
+                                <div class='result-item col-md-12'>
+                                    <div class='col-md-3'> <apex:outputLink rendered="{!IF(OIdea.recordtype.name == 'Idea Project',true,false) }" value="/apex/DRDW_CreateIdea?id={!OIdea.id}&isEdit=false" target="_blank">{!OIdea.Idea_Name__c}</apex:outputlink></div>
+                                    <div class='col-md-3'>{!OIdea.Related_Idea__r.New_Idea_Name__c}</div>
+                                    <div class='col-md-2'>
+                                        <apex:outputText value="{0, date, d MMM yyyy}">
+                                            <apex:param value="{!OIdea.Decision_to_Evaluate_DTE__c}" /> 
+                                        </apex:outputText>
+                                    </div>
+                                    <div class='col-md-2 hidden-xs'>{!OIdea.Duration__c}</div>
+                                    <div class='col-md-2 hidden-xs'>{!OIdea.ERL_Primary_Contact__r.Name }</div>
+                                                                  
+                                </div>
+                            </apex:repeat>  
+                            <apex:outputPanel rendered="{!if(lIdeaRecordWrap.size==0,true,false)}">
+                                <div class='result-item col-md-12'>No Ideas/Projects Found</div> 
+                            </apex:outputPanel>                                                                                        
+                        </div>
+                        <!--<apex:outputPanel rendered="{!if(lIdeaRecordWrap.size>20,true,false)}">-->
+                        <div class='pagination container'>                    
+                            <span class='col-md-12'>Displaying{!((cIdeasListCntlr.pagenumber-1)*cIdeasListCntlr.pagesize)+1}-{!IF(cIdeasListCntlr.ResultSize < ((cIdeasListCntlr.pagenumber)*cIdeasListCntlr.pagesize),cIdeasListCntlr.ResultSize,((cIdeasListCntlr.pagenumber)*cIdeasListCntlr.pagesize))} of {!cIdeasListCntlr.ResultSize}</span>
+                            <div class='indicator-container col-md-12'>
+                                <apex:actionregion >
+                                    <apex:commandlink styleClass="indicator icon-arrow left" action="{!PreviousIdeaPageSeries}" rendered="{!IF(AND(lIdeaPageNumbers.size <> 0,lIdeaPageNumbers[0]!=1),true,false)}"  rerender="Idearesults"/>
+                                        
+                                    <apex:repeat value="{!lIdeaPageNumbers}" var="obj">
+                                        <apex:commandlink styleClass="{!if(obj==cIdeasListCntlr.pagenumber,'indicator current','indicator')}" value="{!obj}" action="{!GoToIdeaPageNumber}" rerender="Idearesults">
+                                            <apex:param name="{!obj}" value="{!obj}" assignTo="{!iPageNumber}" />
+                                        </apex:commandlink>
+                                    </apex:repeat>
+                                    <apex:commandlink styleClass="indicator icon-arrow right" action="{!NextIdeaPageSeries}" rendered="{!IF(AND(lIdeaPageNumbers.size <> 0,dIdeaPageCount> lIdeaPageNumbers[lIdeaPageNumbers.size-1]),true,false)}" rerender="Idearesults" />
+                                        
+                                </apex:actionregion>
+                            </div>
+                        </div>
+                    <!--</apex:outputPanel>-->
+                        
+                    </apex:outputPanel>             
+                </section>
+                
+                 <section data-id="content2">
+                    <apex:outputpanel id="Projectresults"> 
+                       <div class="results container">
+                            <apex:repeat value="{!lResearchRecordWrap}" var="oProject">
+                                <div class='result-item col-md-12'>
+                                    <div class='col-md-2'>
+                                   <apex:outputLink rendered="{!IF(oProject.recordtype.name == 'Assessment Project',true,false) }" value="/apex/DRDW_CreateAssessment?id={!oProject.id}" target="_blank">{!oProject.Project_Name__c}</apex:outputlink>
+  <apex:outputLink rendered="{!IF(oProject.recordtype.name == 'Generation Project',true,false) }" value="/apex/DRDW_CreateGeneration?id={!oProject.id}" target="_blank">{!oProject.Project_Name__c}</apex:outputlink>
+   <apex:outputLink rendered="{!IF(oProject.recordtype.name == 'DP1 Project',true,false) }" value="#" target="_blank">{!oProject.Project_Name__c}</apex:outputlink>
+    <apex:outputLink rendered="{!IF(oProject.recordtype.name == 'DP2 Project',true,false) }" value="#" target="_blank">{!oProject.Project_Name__c}</apex:outputlink>
+     <apex:outputLink rendered="{!IF(oProject.recordtype.name == 'Idea Project',true,false) }" value="/apex/DRDW_CreateIdea?id={!oProject.id}" target="_blank">{!oProject.Project_Name__c}</apex:outputlink>
+                                    </div>
+                                    <div class='col-md-2'>{!oProject.Business_Unit__c}</div>
+                                    <div class='col-md-2 hidden-xs'>{!oProject.Phase__c}</div>
+                                    <div class='col-md-2 hidden-xs'>{!oProject.Disease_Area__c }</div>
+                                    <div class='col-md-2 hidden-xs'>{!oProject.Species__c}</div> 
+                                    <div class='col-md-2 hidden-xs'>
+                                        <apex:outputLink styleClass="tableau-url" rendered="{!IF(oProject.recordtype.name == 'Assessment Project',true,false) }" value="https://tableau-z1-d.am.lilly.com/#/views/AssessmentWorkbook/AssessmentDashboard?Id (DRDW Research)={!oProject.id}" target="_blank" html-data-link-type="assessment_workbooks">Status Report <apex:inputHidden value="{!oProject.id}"/></apex:outputlink>
+                                          <apex:outputLink styleClass="tableau-url" html-data-link-type="generation_workbooks" rendered="{!IF(oProject.recordtype.name == 'Generation Project',true,false) }" value="https://tableau-z1-d.am.lilly.com/#/views/GenerationWorkbook/GenerationDashboard?Id (DRDW Research)={!oProject.id}" target="_blank">Status Report <apex:inputHidden value="{!oProject.id}"/></apex:outputlink>
+                                        
+                                        
+                                    </div>                              
+                                </div>
+                            </apex:repeat>  
+                            <apex:outputPanel rendered="{!if(lResearchRecordWrap.size==0,true,false)}">
+                                <div class='result-item col-md-12'>No Ideas/Projects Found</div> 
+                            </apex:outputPanel>                                                                                        
+                        </div>
+                        <!--<apex:outputPanel rendered="{!if(lResearchRecordWrap.size>20,true,false)}">-->
+                        <div class='pagination container'>                    
+                            <span class='col-md-12'>Displaying{!((cResearchListCntlr.pagenumber-1)*cResearchListCntlr.pagesize)+1}-{!IF(cResearchListCntlr.ResultSize < ((cResearchListCntlr.pagenumber)*cResearchListCntlr.pagesize),cResearchListCntlr.ResultSize,((cResearchListCntlr.pagenumber)*cResearchListCntlr.pagesize))} of {!cResearchListCntlr.ResultSize}</span>
+                            <div class='indicator-container col-md-12'>
+                                <apex:actionregion >
+                                    <apex:commandlink styleClass="indicator icon-arrow left" action="{!PreviousProjectPageSeries}" rendered="{!IF(AND(lProjectPageNumbers.size <> 0,lProjectPageNumbers[0]!=1),true,false)}"  rerender="Projectresults"/>
+                                        
+                                    <apex:repeat value="{!lProjectPageNumbers}" var="obj">
+                                        <apex:commandlink styleClass="{!if(obj==cResearchListCntlr.pagenumber,'indicator current','indicator')}" value="{!obj}" action="{!GoToProjectPageNumber}" rerender="Projectresults">
+                                            <apex:param name="{!obj}" value="{!obj}" assignTo="{!iPageNumber}" />
+                                        </apex:commandlink>
+                                    </apex:repeat>
+                                    <apex:commandlink styleClass="indicator icon-arrow right" action="{!NextProjectPageSeries}" rendered="{!IF(AND(lProjectPageNumbers.size <> 0,dProjectPageCount> lProjectPageNumbers[lProjectPageNumbers.size-1]),true,false)}" rerender="Projectresults" />
+                                        
+                                </apex:actionregion>
+                            </div>
+                        </div>
+                    <!--</apex:outputPanel>-->
+                       
+                    </apex:outputPanel>             
+                </section>
+            
+            
+           </div>  
+        </div>  
+        </main>    
+       </div>  
+       </div>   
+       <c:DRDW_FooterComponent /> 
+       <c:DRDW_R3_Scripts />
+       <!--<c:DRDW_SR2_FooterComponent />-->
+       </apex:form>   
+   </body> 
+</apex:page>

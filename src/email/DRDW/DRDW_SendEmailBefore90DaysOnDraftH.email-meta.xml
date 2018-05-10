@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>DRDW_SendEmailBefore90DaysOnDraftH</name>
+    <style>none</style>
+    <subject>Reminder : Your Study initiation form is due in 90 days.</subject>
+    <textOnly>Hi,
+
+Your {!DRDW_Cap_Request__c.Related_Project_Name__c}, {!DRDW_Cap_Request__c.Study_Title__c} is still in Draft and projected to start in 90 days. Please immediately complete the critical information on the Study Initiation Form and submit, or else your study is in jeopardy of being considered for scheduling. In addition, the SIF needs to be completed in its entirety within the next 30 days to be locked into the schedule.
+Related Project : {!DRDW_Cap_Request__c.Related_Project_Name__c}
+
+Thank you,
+Elanco R&amp;D</textOnly>
+    <type>custom</type>
+</EmailTemplate>

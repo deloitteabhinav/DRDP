@@ -1,3 +1,0 @@
-<apex:page controller="TRAK_PlanningPokerFromSprint" action="{!insertPlanningPokerSession}" showHeader="false" sidebar="false">
-
-</apex:page>

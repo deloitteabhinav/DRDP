@@ -1,2 +1,0 @@
-<apex:page standardController="Related_Data_Asset__c" extensions="RedirectOnSave" action="{!onloadFromStudy}" >
-</apex:page>

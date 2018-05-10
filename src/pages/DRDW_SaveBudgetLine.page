@@ -1,0 +1,226 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" controller="DRDW_SaveBudgetLine" action="{!showdata}">
+    <head>
+        <title>Workbench Data Load</title>
+        <c:DRDW_QFOR_Styles />
+    </head>  
+    <body>
+    <style>
+    <!--Intermediate header styles for the demo. To be removed when new header component is in place-->
+    .profile-dropdown .profile-menu:hover {
+    color: #92d400 !important;
+    }
+   .profile-dropdown .profile-menu{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    text-transform: none;
+    }
+    
+    .btn-override{
+     color:black !important;
+    }
+    </style>
+        <div class='df_drdw content'>
+            <!--Using QFORs Index component for the Top Header -->
+            <c:DRDW_IndexNew />
+              <!-- <header>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                               
+                                    <h1>Data Load</h1>
+                                    <p></p>                                                              
+                            </div>
+                        </div>
+                    </div>
+                    
+                </header> -->
+            
+    <apex:form >
+        <div class="df_drdw-view-bench df_drdw-createstudy budget-related-page vertical-compress">
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1>Data Load</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+    <main class="container-fluid">
+        <div class="row">
+            
+            <Apex:outputPanel id="tableView">
+            <div class="table-container">
+                <h3>New Line Items</h3>
+                <apex:pageMessages />
+                    
+                <table class="table table-hover table-striped table-condensed table-fixed">
+                    <thead>
+                        <tr>
+                            <th>Budget Master</th>
+                            <th>Cost Center</th>
+                            <th>PO</th>
+                            <th>Project</th>
+                            <th>Activity</th>
+                            <th>Posting Date</th>
+                            <th>Actual Amount</th>
+                            <th class="large-text">PO Description</th>
+                            <th>Vendor</th>
+                            <th class="small-text">
+                                <span style="visibility:hidden">Save</span>
+                            </th>
+                            <th class="small-text">
+                                <span style="visibility:hidden">Save &amp; Lock</span>
+                            </th>
+                            <th class="small-text">
+                                <span style="visibility:hidden">Delete</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     <apex:repeat value="{!newbdgli}" var="bdgli">
+                        <tr class="{!IF(bdgli.isChanged__c,'match-found','')}">
+                            <td><apex:inputField value="{!bdgli.Related_To__c}">
+                            <apex:actionSupport action="{!updateLists}" event="onchange" reRender="tableView">
+                             <apex:param name="Budgetid" value="{!bdgli.id}" assignTo="{!RecId}"/>
+                            </apex:actionSupport>
+                            </apex:inputField></td>
+                            <td>{!bdgli.DRDW_Cost_Center__c}</td>
+                            <td>{!bdgli.PO__c}</td>                            
+                            <td><apex:inputField value="{!bdgli.Project_Idea__c}" /></td>                                
+                            <td><apex:inputField value="{!bdgli.DRDW_Capability__c}"/></td>
+                            <td><apex:inputField value="{!bdgli.Posting_Date__c}"/></td>
+                            <td><apex:inputField value="{!bdgli.Actual_Amount__c}"/></td>                                                       
+                            <td class="large-text"><apex:inputField value="{!bdgli.PO_Description__c}"/></td>
+                            <td><apex:inputField value="{!bdgli.Vendor__c}"/></td>
+                            <td class="small-text">  
+                                
+                                <apex:commandLink action="{!savebdg}" value="Save" reRender="tableView" onclick="df_drdw.globalEvents.showWaitSpinner();" oncomplete="df_drdw.globalEvents.hideWaitSpinner();">
+                                    <apex:param name="bdgid" value="{!bdgli.Id}" assignTo="{!RecId}" />
+                                </apex:commandLink>                                
+                            </td>
+                            <td class="small-text">
+                                <apex:commandLink action="{!saveandLockNew}" value="Save & Lock" reRender="tableView" onclick="df_drdw.globalEvents.showWaitSpinner();" oncomplete="df_drdw.globalEvents.hideWaitSpinner();">
+                                    <apex:param name="bdgid" value="{!bdgli.Id}" assignTo="{!RecId}" />
+                                </apex:commandLink>
+                            </td>
+                            <td class="small-text">
+                                <apex:commandLink action="{!DeleteBdgNew}" value="Delete" reRender="tableView" onclick="df_drdw.globalEvents.showWaitSpinner();" oncomplete="df_drdw.globalEvents.hideWaitSpinner();">
+                                    <apex:param name="bdgid" value="{!bdgli.Id}" assignTo="{!RecId}" />
+                                </apex:commandLink>
+                            </td>
+                        </tr>
+                      </apex:repeat>  
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-container">
+                <h3>Updated Line Items</h3>
+                <table class="table table-hover table-striped table-condensed table-fixed">
+                    <thead>
+                        <tr>
+                            <th>Budget Master</th>
+                            <th>Cost Center</th>
+                            <th>PO</th>
+                            <th>Project</th>
+                            <th>Activity</th>
+                            <th>Posting Date</th>
+                            <th>Actual Amount</th>
+                            <th class="large-text">PO Description</th>
+                            <th>Vendor</th>
+                            <th class="small-text">
+                                <span style="visibility:hidden">Save</span>
+                            </th>
+                            <th class="small-text">
+                                <span style="visibility:hidden">Save &amp; Lock</span>
+                            </th>
+                            <th class="small-text">
+                                <span style="visibility:hidden">Delete</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <apex:repeat value="{!oldbdgli}" var="obdgli">
+                        <tr class="{!IF(obdgli.isChanged__c,'match-found','')}">
+                           
+                            <td><apex:inputField value="{!obdgli.Related_To__c}">
+                            <apex:actionSupport action="{!updateLists}" event="onchange" reRender="tableView">
+                             <apex:param name="Budgetid" value="{!obdgli.id}" assignTo="{!RecId}"/>
+                            </apex:actionSupport>
+                            </apex:inputField></td>
+                            <td>{!obdgli.DRDW_Cost_Center__c}</td>
+                            <td>{!obdgli.PO__c}</td>                            
+                            <td><apex:inputField value="{!obdgli.Project_Idea__c}" /></td>                                
+                            <td><apex:inputField value="{!obdgli.DRDW_Capability__c}"/></td>
+                            <td Class="{!if(obdgli.isPosting__c,'change','')}"><apex:inputField value="{!obdgli.Posting_Date__c}"/></td>
+                            <td Class="{!if(obdgli.isAmount__c,'change','')}"><apex:inputField value="{!obdgli.Actual_Amount__c}"/></td>                                                       
+                            <td Class="large-text"><apex:inputField styleClass="{!if(obdgli.isPoDesc__c,'change','')}" value="{!obdgli.PO_Description__c}"/></td>
+                            <td Class="{!if(obdgli.isVendor__c,'change','')}"><apex:inputField value="{!obdgli.Vendor__c}"/></td>
+                            <td class="small-text">  
+                                
+                                <apex:commandLink action="{!SaveUpdatebdg}" value="Save" reRender="tableView" onclick="df_drdw.globalEvents.showWaitSpinner();" oncomplete="df_drdw.globalEvents.hideWaitSpinner();">
+                                    <apex:param name="bdgid" value="{!obdgli.Id}" assignTo="{!RecId}" />
+                                </apex:commandLink>                                
+                            </td>
+                            <td class="small-text">
+                                <apex:commandLink action="{!oldsaveNlock}" value="Save & Lock" reRender="tableView" onclick="df_drdw.globalEvents.showWaitSpinner();" oncomplete="df_drdw.globalEvents.hideWaitSpinner();">
+                                    <apex:param name="bdgid" value="{!obdgli.Id}" assignTo="{!RecId}" />
+                                </apex:commandLink>
+                            </td>
+                            <td class="small-text">
+                                <apex:commandLink action="{!DeleteoldBdg}" value="Delete" reRender="tableView" onclick="df_drdw.globalEvents.showWaitSpinner();" oncomplete="df_drdw.globalEvents.hideWaitSpinner();">
+                                    <apex:param name="bdgid" value="{!obdgli.Id}" assignTo="{!RecId}" />
+                                </apex:commandLink>
+                            </td>
+                        </tr>
+                      </apex:repeat> 
+                    </tbody>
+                </table>
+                               
+            </div>
+            </Apex:outputPanel> 
+        </div>
+
+    </main>
+</div>
+                    <!-- Modal for spinner starts -->
+                            <div id="loading-results">
+                                    <div class="loading-message">
+                                        <apex:image value="{!URLFOR($Resource.DRDW_QFOR_R1Style,'assets/img/rolling.gif')}" />
+                                    </div>
+                            </div>
+                            <!-- Modal for spinner ends -->
+
+    </apex:form>
+    
+
+         </div>
+         <c:DRDW_SR2_FooterComponent />
+         <c:DRDW_QFOR_Scripts />
+     </body>       
+
+
+</apex:page>

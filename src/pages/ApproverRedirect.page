@@ -1,2 +1,0 @@
-<apex:page standardcontroller="Approver__c" extensions="ExpertMemberRedirect" action="{!Redirect}">
- </apex:page>

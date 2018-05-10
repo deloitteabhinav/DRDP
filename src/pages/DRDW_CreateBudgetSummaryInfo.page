@@ -1,0 +1,680 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" Standardcontroller="DRDW_Budget_Summary__c" extensions="DRDW_CreateBudgetSummary" >
+<head>
+        <title>Create Budget Summary</title>
+        <c:DRDW_QFOR_Styles />
+    </head>  
+    <body>
+    <style>
+    <!--Intermediate header styles for the demo. To be removed when new header component is in place-->
+    .profile-dropdown .profile-menu:hover {
+    color: #92d400 !important;
+    }
+   .profile-dropdown .profile-menu{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    text-transform: none;
+    }
+    
+    .btn-override{
+     color:black !important;
+    }
+    
+    input.hidebox 
+  {
+     display:none;
+  }
+    
+    </style>
+   
+    
+        <div class='df_drdw content'>
+            <!--Using QFORs Index component for the Top Header -->
+            <c:DRDW_IndexNew />
+            <div class="df_drdw-createstudy budget-related-page vertical-compress columns-compressed">
+                
+                <header>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id == NULL,true,false)}">
+                                    <h1><apex:outputLink value="{!IF(isEval,'/apex/DRDW_CreateIdea?id='+PrjId+'&isEdit=false&section=#Project_Budgets',IF(isGen,'/apex/DRDW_CreateGeneration?id='+PrjId+'&isEdit=false&section=#Project_Budgets','/apex/DRDW_CreateAssessment?id='+PrjId+'&isEdit=false&section=#Project_Budgets'))}">{!ParentName}</apex:outputLink> : Create Budget Summary</h1>
+                                    <p></p>                                
+                                    </apex:outputpanel>  
+                                    <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id != NULL,true,false)}">
+                                    <h1>Budget Summary for 
+                                        <apex:outputLink value="{!IF(isEval,'/apex/DRDW_CreateIdea?id='+oMaster.DRDW_Budget_Master__r.Related_To__c+'&isEdit=false&section=#Project_Budgets',IF(isGen,'/apex/DRDW_CreateGeneration?id='+oMaster.DRDW_Budget_Master__r.Related_To__c+'&isEdit=false&section=#Project_Budgets','/apex/DRDW_CreateAssessment?id='+oMaster.DRDW_Budget_Master__r.Related_To__c+'&isEdit=false&section=#Project_Budgets'))}">{!oMaster.DRDW_Budget_Master__r.Title__c}</apex:outputLink>
+                                    </h1>
+                                    <p></p>                                
+                                    </apex:outputpanel>                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </header>
+                <main class="container">
+                    <apex:pageMessages />
+                 
+                       <apex:outputpanel rendered="{!IF(OR($CurrentPage.parameters.id == NULL,AND($CurrentPage.parameters.id != NULL,$CurrentPage.parameters.isEdit=='true')),true,false)}">
+                       
+                       <apex:form Styleclass="create-study-form accordion">
+                        
+                        <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit">
+                                <div class="col-xs-12">
+                                <input type="button" class="btn button submit-form-button" value="Save"/>
+                                    <apex:actionFunction Name="doSubmit" action="{!save}"/>
+                                   <!-- <apex:commandButton styleClass="btn button" value="Save" action="{!save}" /> -->
+                                    <apex:outputlink styleClass="btn button" value="/apex/DRDW_CreateBudgetMaster?id={!budgetMasterId}&isEdit=false&section=#Budget_Summary">Cancel</apex:outputlink>
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                       
+                       <section class="row">
+                       
+                                <div class="col-xs-12">
+                                        <h2 class="accordion-parent">Budget Summary Details
+                                        <span class="icon-large-caret pull-right down"></span>
+                                        <a href='#Budget_summary_detail'/></h2>
+                                        <fieldset class="accordion-child" id="Budget_summary_detail"> 
+                                                <div class="row">
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Quarter__c.Label}</label><span class="required-label"> *</span>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Quarter__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Quarter__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id != NULL,$CurrentPage.parameters.isEdit=='true'),true,false)}">
+                                                                <apex:outputField value="{!oMaster.Quarter__c}" styleclass="required"></apex:outputField>
+                                                            </apex:outputpanel>
+                                                            <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id == NULL,true,false)}">
+                                                                <apex:inputField value="{!oMaster.Quarter__c}" styleclass="required" style="width:100%"></apex:inputField>
+                                                            </apex:outputpanel>
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Year__c.Label}</label><span class="required-label"> *</span>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Year__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Year__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                             <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id != NULL,$CurrentPage.parameters.isEdit=='true'),true,false)}">
+                                                                <apex:outputField value="{!oMaster.Year__c}" styleclass="required"></apex:outputField>
+                                                            </apex:outputpanel>
+                                                            <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id == NULL,true,false)}">
+                                                                <apex:inputField value="{!oMaster.Year__c}" styleclass="required" style="width:100%"></apex:inputField>
+                                                            </apex:outputpanel>                                         
+                                                        </div>
+                                                </div>                                                
+                                                 <div class="row">
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Owner__c.Label}</label><span class="required-label"> *</span>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Owner__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Owner__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper hide-user-select lookupreadonly">
+                                                          <apex:inputField value="{!oMaster.Owner__c}" styleClass="select-based-lookup required"></apex:inputField>                                               
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Description__c.Label}</label><span class="required-label"> *</span>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Description__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Description__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:inputField value="{!oMaster.Description__c}" styleclass="required"/> 
+                                                        </div>
+                                                </div>
+                                                <div class="row">
+                                                        
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.F_X_Forecast__c.Label}</label><span class="required-label"> *</span>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.F_X_Forecast__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.F_X_Forecast__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="FX" value="{!oMaster.F_X_Forecast__c}" />
+                                                        <div class="{!IF((FX!= null && FX < 0),'col-xs-3 field-wrapper left-aligned red-color-text','col-xs-3 field-wrapper left-aligned')}">
+                                                        <apex:outputpanel rendered="{!if(((forecateEdit && oMaster.F_X_Forecast__c == 0) && (isFinancial || isAdmin)),true,false)}">
+                                                            <apex:inputField value="{!oMaster.F_X_Forecast__c}" styleclass="required"></apex:inputField> 
+                                                        </apex:outputpanel> 
+                                                        <apex:outputpanel rendered="{!if(AND(forecateEdit,oMaster.F_X_Forecast__c == 0),false,true)}" styleClass="currency-round-off">
+                                                            <apex:outputText value="{!oMaster.F_X_Forecast__c}" >$</apex:outputText> 
+                                                        </apex:outputpanel>
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Business_Plan__c.Label}</label><span class="required-label"> *</span>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Business_Plan__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Business_Plan__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="BP" value="{!oMaster.Business_Plan__c}" />
+                                                        <div class="{!IF((BP!= null && BP < 0),'col-xs-3 field-wrapper left-aligned red-color-text','col-xs-3 field-wrapper left-aligned')}">
+                                                            <apex:outputpanel rendered="{!if(((oMaster.Business_Plan__c == 0 || oMaster.Business_Plan__c == null) && (isFinancial || isAdmin)),true,false)}">
+                                                                <apex:inputField value="{!oMaster.Business_Plan__c}" styleclass="required"></apex:inputField> 
+                                                            </apex:outputpanel> 
+                                                            <apex:outputpanel rendered="{!if(oMaster.Business_Plan__c != 0 && oMaster.Business_Plan__c != null,true,false)}" styleClass="currency-round-off">
+                                                                <apex:outputText value="{!oMaster.Business_Plan__c}" >$</apex:outputText> 
+                                                            </apex:outputpanel> 
+                                                        </div>
+                                                </div>
+                                                 <div class="row">
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Total_Actuals__c.Label}</label>    
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Total_Actuals__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Total_Actuals__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <!-- <div class="col-xs-4 field-wrapper currency-round-off">
+                                                            <apex:outputText value="{!oMaster.Q_Total_Actuals__c}" ></apex:outputText>
+                                                        </div> -->
+                                                        <apex:variable var="amount" value="{!oMaster.Q_Total_Actuals__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.Q_Total_Actuals__c}" >$</apex:outputText>
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Rolling_Forecast__c.Label}</label><apex:outputPanel rendered="{!if(OR(isFinancial,isAdmin),true,false)}"><span class="required-label"> *</span></apex:outputPanel> 
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Rolling_Forecast__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Rolling_Forecast__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:outputPanel rendered="{!if(OR(isFinancial,isAdmin),true,false)}">
+                                                            <apex:inputField value="{!oMaster.Rolling_Forecast__c}" styleclass="required"></apex:inputField>   
+                                                        </apex:outputPanel> 
+                                                        <apex:outputPanel rendered="{!if(!OR(isFinancial,isAdmin),true,false)}" styleClass="currency-round-off">
+                                                            <apex:outputText value="{!oMaster.Rolling_Forecast__c}" ></apex:outputText>   
+                                                        </apex:outputPanel> 
+                                                        </div>
+                                                </div>                                                
+                                                 <div class="row">
+                                                        
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="amount" value="{!oMaster.Q_Actual__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.Q_Actual__c}" >$</apex:outputText>
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="amount" value="{!oMaster.Q_Actual_vs_Rolling_Forecast__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.Q_Actual_vs_Rolling_Forecast__c}" >$</apex:outputText>
+                                                        </div>
+                                                        <!-- <div class="col-xs-4 field-wrapper currency-round-off">
+                                                            <apex:outputText value="{!oMaster.Q_Actual_vs_Rolling_Forecast__c}" ></apex:outputText>                                           
+                                                        </div> -->
+                                                </div>                                                
+                                                <!--div class="row">
+                                                        <div class="col-xs-2 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Done__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Done__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Done__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-4 field-wrapper">
+                                                            <apex:inputField value="{!oMaster.Q_Done__c}" ></apex:inputField>
+                                                        </div>
+                                                </div>-->
+                                                <!--div class="row">
+                                                        <div class="col-xs-2 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-4 field-wrapper left-aligned">
+                                                            <apex:inputField value="{!oMaster.Q_Actual_vs_Rolling_Forecast__c}" ></apex:inputField>                                         
+                                                        </div>
+                                                </div> -->
+                                                
+                                                <div class="row">
+                                                        
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Priority_of_Invoice__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Priority_of_Invoice__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Priority_of_Invoice__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Q_Priority_of_Invoice__c}" ></apex:outputField>
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Buy_Up__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Buy_Up__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Buy_Up__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Q_Buy_Up__c}" ></apex:outputField>                                          
+                                                        </div>
+                                                </div>
+                                        </fieldset>
+                                </div>
+                       
+                       </section>
+                       
+                        <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit with-top-margin">
+                                <div class="col-xs-12">
+                                <input type="button" class="btn button submit-form-button" value="Save"/>
+                                    <apex:actionFunction Name="doSubmit" action="{!save}"/>
+                                   <!-- <apex:commandButton styleClass="btn button" value="Save" action="{!save}" /> -->
+                                    <apex:outputlink styleClass="btn button" value="/apex/DRDW_CreateBudgetMaster?id={!budgetMasterId}&isEdit=false&section=#Budget_Summary">Cancel</apex:outputlink>
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                        
+                       
+                       </apex:form>
+                       
+                       </apex:outputpanel>
+                        
+                        <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id != NULL,OR($CurrentPage.parameters.isEdit=='false',$CurrentPage.parameters.isEdit==NULL)),true,false)}">
+                        <apex:form Styleclass="create-study-form accordion">
+                         <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit">
+                                <div class="col-xs-12">
+                                   <apex:outputPanel rendered="{!IF(OR(isAdmin,isFinancial),true,false)}">
+                                    <apex:commandButton styleClass="btn button" value="Edit" action="{!Edit}" />
+                                 
+                                      <a class="btn button" onClick="df_drdw.createStudy.showDeleteConfirmModal();">Delete</a> 
+                                    </apex:outputPanel>
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                         <section class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Budget Summary Details
+                                        <span class="icon-large-caret pull-right down"></span>
+                                    <a href='#Budget_summary_detail'/></h2>
+                                    
+                                    <fieldset class="accordion-child" id="Budget_summary_detail">
+                                            <apex:outputPanel id="master">
+                                             <div class="row">
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Quarter__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Quarter__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Quarter__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Quarter__c}" ></apex:outputField>                                          
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Year__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Year__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Year__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Year__c}" ></apex:outputField>                                          
+                                                        </div>
+                                                </div>                                               
+                                                 <div class="row">
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Owner__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Owner__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Owner__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                          <apex:outputField value="{!oMaster.Owner__c}" ></apex:outputField>                                                                         
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Description__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Description__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Description__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Description__c}"/> 
+                                                        </div>
+                                                        
+                                                </div>                                                        
+                                                <div class="row">
+                                                        
+                                                        <!-- <div class="col-xs-4 field-wrapper left-aligned">
+                                                            
+                                                                <apex:outputText value="{!oMaster.Business_Plan__c}" ></apex:outputText> 
+                                                        </div> -->
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.F_X_Forecast__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.F_X_Forecast__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.F_X_Forecast__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="amount" value="{!oMaster.F_X_Forecast__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.F_X_Forecast__c}" >$</apex:outputText>
+                                                        </div>
+                                                        <!-- <div class="col-xs-4 field-wrapper left-aligned">
+                                                            <apex:outputText value="{!oMaster.F_X_Forecast__c}" ></apex:outputText> 
+                                                        </div> -->
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Business_Plan__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Business_Plan__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Business_Plan__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="amount" value="{!oMaster.Business_Plan__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.Business_Plan__c}" >$</apex:outputText>
+                                                        </div>
+                                                        
+                                                </div>
+                                                 <div class="row">
+                                                        
+                                                        <!-- <div class="col-xs-4 field-wrapper left-aligned">
+                                                            <apex:outputText value="{!oMaster.Rolling_Forecast__c}" ></apex:outputText>
+                                                        </div> -->
+                                                         <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Total_Actuals__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Total_Actuals__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Total_Actuals__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="amount" value="{!oMaster.Q_Total_Actuals__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.Q_Total_Actuals__c}" >$</apex:outputText>
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Rolling_Forecast__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Rolling_Forecast__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Rolling_Forecast__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="amount" value="{!oMaster.Rolling_Forecast__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.Rolling_Forecast__c}" >$</apex:outputText>
+                                                        </div>
+                                                        
+                                                </div>                                               
+                                                 <div class="row">
+                                                        
+                                                        <!-- <div class="col-xs-4 field-wrapper left-aligned">
+                                                            <apex:outputText value="{!oMaster.Q_Actual_vs_Rolling_Forecast__c}" ></apex:outputText>                                           
+                                                        </div> -->
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="amount" value="{!oMaster.Q_Actual__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.Q_Actual__c}" >$</apex:outputText>
+                                                        </div>
+                                                        <!-- <div class="col-xs-4 field-wrapper left-aligned">
+                                                            <apex:outputText value="{!oMaster.Q_Actual__c}" ></apex:outputText>                                           
+                                                        </div> -->
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <apex:variable var="amount" value="{!oMaster.Q_Actual_vs_Rolling_Forecast__c}" />
+                                                        <div class="{!IF((amount!= null && amount < 0),'currency-round-off col-xs-3 field-wrapper left-aligned red-color-text','currency-round-off col-xs-3 field-wrapper left-aligned')}">
+                                                             <apex:outputText value="{!oMaster.Q_Actual_vs_Rolling_Forecast__c}" >$</apex:outputText>
+                                                        </div>
+                                                        
+                                                </div>                                                                                              
+                                                <!--div class="row">
+                                                        <div class="col-xs-6 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Done__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Done__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Done__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-6 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Q_Done__c}" ></apex:outputField>
+                                                        </div>
+                                                </div>
+                                                 <div class="row">
+                                                        <div class="col-xs-6 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Actual_vs_Rolling_Forecast__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-6 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Q_Actual_vs_Rolling_Forecast__c}" ></apex:outputField>                                         
+                                                        </div>
+                                                </div>-->
+                                                
+                                                <div class="row">
+                                                        
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Priority_of_Invoice__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Priority_of_Invoice__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Priority_of_Invoice__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Q_Priority_of_Invoice__c}" ></apex:outputField>
+                                                        </div>
+                                                        <div class="col-xs-3 label-wrapper left-aligned">
+                                                            <label>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Buy_Up__c.Label}</label>
+                                                            <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Budget_Summary__c.Fields.Q_Buy_Up__c.inlinehelptext != NULL,true,false)}">
+                                                                <div class="helpOrb tooltip">
+                                                                    <span>{!$ObjectType.DRDW_Budget_Summary__c.Fields.Q_Buy_Up__c.inlinehelptext}</span>
+                                                                </div>          
+                                                            </apex:outputpanel>      
+                                                        </div>
+                                                        <div class="col-xs-3 field-wrapper left-aligned">
+                                                            <apex:outputField value="{!oMaster.Q_Buy_Up__c}" ></apex:outputField>                                          
+                                                        </div>
+                                                </div>  
+                                                </apex:outputPanel>                                                
+                                    </fieldset>
+                                      
+                                </div>
+                                 <apex:outputPanel rendered="{!IF($CurrentPage.parameters.id != NULL,true,false)}"> 
+                                 <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Related Budget Summary Details
+                                        <span class="icon-large-caret pull-right down"></span>
+                                        <a href='#Budget_summary_detail_child'/></h2>
+                                    <fieldset class="accordion-child" id="Budget_summary_detail_child">
+                                        <section class="row no-flex"> 
+                                                <apex:outputPanel id="lineitem">
+                                                        
+                                                        <div class="accordion-content">
+                                                            <div class="row">
+                                                                <div class="col-xs-3 label-wrapper left-aligned">
+                                                                    <label>Total Summary Details</label>
+                                                                </div>
+                                                                <div class="col-xs-3 field-wrapper left-aligned">
+                                                                    <span>{!oItems.size} </span>
+                                                                </div>
+                                                                <div class="col-xs-6 zero-right-padding">
+                                                                    <apex:outputPanel rendered="{!IF(OR(isAdmin,isFinancial),true,false)}">
+                                                                           <apex:outputlink styleClass="btn button btn-create-new-related-item pull-right" value="/apex/DRDW_CreateBudgetSummaryDetail?budgetSummaryID={!oMaster.id}">Add New Budget Summary Detail</apex:outputLink> 
+                                                                    </apex:outputpanel>
+                                                                </div>
+                                                            </div>
+
+                                                        <apex:outputpanel id="lineTable">
+                                                        
+                                                        <apex:outputpanel rendered="{!oItems.size >0}">
+                                                        <apex:pageBlock >
+                                                            <apex:pageBlockTable value="{!oItems}" var="item">
+                                                             <apex:column >
+                                                               <apex:facet name="header">Budget Summary ID</apex:facet>
+                                                               <apex:outputLink value="/apex/DRDW_CreateBudgetSummaryDetail?id={!item.id}"> {!item.Name}</apex:outputLink></apex:column>
+                                                                 <apex:column value="{!item.Month__c}"/>
+                                                                <apex:column value="{!item.Year__c}"/>
+                                                                    <apex:column headerValue="M Actual">
+                                                                        <apex:variable var="amount" value="{!item.M_Actual__c}" />
+                                                                            <div class="{!IF((amount!= null && amount < 0),'currency-round-off red-color-text','currency-round-off')}">
+                                                                                 <apex:outputText value="{!item.M_Actual__c}" >$</apex:outputText>
+                                                                            </div>
+                                                                    </apex:column>
+                                                                    
+                                                                <apex:column rendered="{!if(OR(isAdmin,isFinancial),true,false)}">
+                                                                    <apex:facet name="header">Action</apex:facet>
+                                                                    <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveBudgetDetail}" 
+                                                                    onclick="df_drdw.globalEvents.showWaitSpinner();" oncomplete="df_drdw.globalEvents.hideWaitSpinner();" rerender="lineitem,noLine,master">
+                                                                        <apex:param name="genericID" value="{!item.Id}" assignTo="{!genericID}" />
+                                                                    </apex:commandlink>
+                                                                </apex:column>
+                                                                    
+                                                            </apex:pageBlockTable>
+                                                        </apex:pageBlock>
+                                                        </apex:outputpanel>
+                                                        </apex:outputpanel>
+                                                        
+                                                         <apex:outputpanel id="noLine">
+                                                            <apex:outputpanel rendered="{!oItems.size==0}">
+                                                            <span class="content"><strong>No Budget Summary Details</strong></span>
+                                                            </apex:outputpanel>
+                                                        </apex:outputpanel>   
+                                                        
+                                                        </div>                                                      
+                                                        
+                                                </apex:outputPanel>
+                                        </section>
+                                    </fieldset>
+                                </div>
+                                </apex:outputpanel> 
+                               
+                       
+                       </section>
+                       
+                        <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit with-top-margin">
+                                <div class="col-xs-12">
+                                 <apex:outputPanel rendered="{!IF(OR(isAdmin,isFinancial),true,false)}">
+                                    <apex:commandButton styleClass="btn button" value="Edit" action="{!Edit}" />
+                                   
+                                    <a class="btn button" onClick="df_drdw.createStudy.showDeleteConfirmModal();">Delete</a> 
+                                    </apex:outputPanel>
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                         <!-- Modal for Delete confirmation start -->
+                            <div class="modal fade rejected" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel">
+                              <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header approved">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h1 class="modal-title rejected" id="confirmDeleteModalLabelRejected">Confirm delete</h1>
+                                  </div>
+                                  <div class="modal-body">
+                                    <!-- start -->
+                                    <p>Are you sure you want to delete?</p>
+                                    <!-- end -->
+                                  </div>
+                                  <!-- modal-body ends -->
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn button cancel-action" data-dismiss="modal">Cancel</button>
+                                    <apex:commandLink styleClass="btn button confirm-action" value="Delete" action="{!DeleteRecord}" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Modal for Delete confirmation start -->
+                         <!-- Modal for spinner starts -->
+                            <div id="loading-results">
+                                    <div class="loading-message">
+                                        <apex:image value="{!URLFOR($Resource.DRDW_QFOR_R1Style,'assets/img/rolling.gif')}" />
+                                    </div>
+                            </div>
+                            <!-- Modal for spinner ends -->
+                        </apex:form>
+                       
+                       </apex:outputpanel>
+                       
+                </main>
+                </div>
+         </div>
+         <c:DRDW_SR2_FooterComponent />
+          <c:DRDW_QFOR_Scripts />
+     </body>       
+
+
+</apex:page>

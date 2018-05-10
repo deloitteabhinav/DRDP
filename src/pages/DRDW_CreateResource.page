@@ -1,0 +1,364 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" Standardcontroller="DRDW_Resource__c" extensions="DRDW_CreateResource">
+<head>
+        <title>Create Resource</title>
+        <c:DRDW_QFOR_Styles />
+        
+    </head>  
+    <body>
+    <style>
+    <!--Intermediate header styles for the demo. To be removed when new header component is in place-->
+    .profile-dropdown .profile-menu:hover {
+    color: #92d400 !important;
+    }
+   .profile-dropdown .profile-menu{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    text-transform: none;
+    }
+    
+    .btn-override{
+     color:black !important;
+    }
+    </style>
+        <div class='df_drdw content'>
+            <!--Using QFORs Index component for the Top Header -->
+            <c:DRDW_IndexNew />
+            <div class="df_drdw-createstudy admin-related-page vertical-compress columns-compressed">
+                
+                <header>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id == NULL,true,false)}">
+                                    <h1>Create Resource</h1>
+                                    <p></p>
+                                </apex:outputpanel> 
+                                <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id != NULL,true,false)}">
+                                    <h1>{!oResource.Role__c}</h1>
+                                    <p></p>
+                                </apex:outputpanel> 
+                                                                                            
+                            </div>
+                        </div>
+                    </div>
+                    
+                </header>
+                <main class="container">
+                 
+                       <apex:outputpanel rendered="{!IF(OR($CurrentPage.parameters.id == NULL,AND($CurrentPage.parameters.id != NULL,$CurrentPage.parameters.isEdit=='true')),true,false)}">
+                        <apex:form Styleclass="create-study-form accordion">
+                         <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit">
+                                <div class="col-xs-12">
+                                <input type="button" class="btn button submit-form-button" value="Save"/>
+                                    <apex:actionFunction Name="doSubmit" action="{!save}"/>
+                                   <!-- <apex:commandButton styleClass="btn button" value="Save" action="{!save}" /> -->
+                                    <apex:outputLink styleClass="btn button" value="{!IF($CurrentPage.parameters.id == NULL,'/apex/DRDW_ResourceList','/apex/DRDW_CreateResource?id='+currentRecordID+'&isEdit=false')}">Cancel</apex:outputLink>
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                             <section class="row">
+                             <apex:pagemessages ></apex:pagemessages>
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Resource Details
+                                    <span class = "mandatory-fields-indicator-badge"/>
+                                        <span class="icon-large-caret pull-right down"></span></h2>
+                                    <fieldset class="accordion-child">
+                                    <apex:outputPanel id="resourceform">
+                                        <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Name__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Name__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Name__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned hide-user-select">
+                                                <apex:inputField value="{!oResource.Name__c}" id="User" styleclass="select-based-lookup required lookupreadonly">
+                                                    
+                                                    <apex:actionSupport event="onchange" reRender="resourceform"/>
+                                                </apex:inputField>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Type__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Type__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Type__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:actionSupport reRender="resourceform" event="onchange">
+                                                <apex:inputField value="{!oResource.Type__c}" styleclass="required"/>
+                                                </apex:actionSupport>
+                                            </div>
+                                        </div> 
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Department__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Department__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Department__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oResource.Department__c}" styleclass="required"/>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Role__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Role__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Role__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oResource.Role__c}" styleclass="required" />
+                                            </div>
+                                        </div> 
+                                        
+                                          <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Hours_Available_Per_Day__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Hours_Available_Per_Day__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Hours_Available_Per_Day__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oResource.Hours_Available_Per_Day__c}"/>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Status__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Status__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Status__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oResource.Status__c}" styleclass="required"/>
+                                            </div>
+                                          
+                                         
+                                        </div> 
+                                       
+                                              <apex:outputPanel rendered="{!IF(oResource.Type__c == 'GO',true,false)}">
+                                               <div class="row">
+                                             <div class="col-xs-3 label-wrapper left-aligned">                                              
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Days_Per_Week__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Days_Per_Week__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Days_Per_Week__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oResource.Days_Per_Week__c}"  styleclass="required"/>                                                
+                                            </div>
+                                              </div>
+                                           </apex:outputPanel>
+                                      
+                                        
+                                    </apex:outputPanel>                                                                                   
+                                    </fieldset>
+                                        </div>
+                             </section>
+                             
+                          <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit with-top-margin">
+                                <div class="col-xs-12">
+                                <input type="button" class="btn button submit-form-button" value="Save"/>
+                                    <apex:actionFunction Name="doSubmit" action="{!save}"/>
+                                   <!-- <apex:commandButton styleClass="btn button" value="Save" action="{!save}" /> -->
+                                    <apex:outputLink styleClass="btn button" value="{!IF($CurrentPage.parameters.id == NULL,'/apex/DRDW_ResourceList','/apex/DRDW_CreateResource?id='+currentRecordID+'&isEdit=false')}">Cancel</apex:outputLink>
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->    
+                            </apex:form>
+                            </apex:outputpanel>
+                            
+                               <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id != NULL,OR($CurrentPage.parameters.isEdit=='false',$CurrentPage.parameters.isEdit==NULL)),true,false)}">
+                        <apex:form Styleclass="create-study-form accordion">
+                        <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit with-top-margin">
+                                <div class="col-xs-12">
+                                    <apex:commandButton styleClass="btn button" value="Edit" action="{!Edit}" />
+                               <!--     <apex:outputPanel rendered="{!isAdmin}">
+                                        <a class="btn button" onClick="df_drdw.createStudy.showDeleteConfirmModal();">Delete</a>
+                                    </apex:outputPanel> -->
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                             <section class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Resource Details
+                                   
+                                        <span class="icon-large-caret pull-right down"></span></h2>
+                                    <fieldset class="accordion-child">
+                                          <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Name__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Name__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Name__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oResource.Name__c}"/>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Type__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Type__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Type__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oResource.Type__c}" />
+                                            </div>
+                                        </div> 
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Department__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Department__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Department__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oResource.Department__c}"/>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Role__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Role__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Role__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oResource.Role__c}" />
+                                            </div>
+                                        </div> 
+                                         <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Hours_Available_Per_Day__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Hours_Available_Per_Day__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Hours_Available_Per_Day__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oResource.Hours_Available_Per_Day__c}"/>
+                                            </div>
+                                            
+                                              <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Status__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Status__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Status__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oResource.Status__c}"/>
+                                            </div>
+                                           
+                                        </div> 
+                                        
+                                          <apex:outputPanel rendered="{!IF(oResource.Type__c == 'GO',true,false)}">
+                                               <div class="row">
+                                             <div class="col-xs-3 label-wrapper left-aligned">                                              
+                                                <label>{!$ObjectType.DRDW_Resource__c.Fields.Days_Per_Week__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Resource__c.Fields.Days_Per_Week__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Resource__c.Fields.Days_Per_Week__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oResource.Days_Per_Week__c}"  styleclass="required"/>                                                
+                                            </div>
+                                              </div>
+                                           </apex:outputPanel>
+                                        
+                                    </fieldset>
+                                        </div>
+                             </section>
+                              <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit with-top-margin">
+                                <div class="col-xs-12">
+                                    <apex:commandButton styleClass="btn button" value="Edit" action="{!Edit}" />
+                               <!--     <apex:outputPanel rendered="{!isAdmin}">
+                                        <a class="btn button" onClick="df_drdw.createStudy.showDeleteConfirmModal();">Delete</a>
+                                    </apex:outputPanel> -->
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                           
+                             
+                              <!-- Modal for Delete confirmation start -->
+                            <div class="modal fade rejected" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel">
+                              <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header approved">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h1 class="modal-title rejected" id="confirmDeleteModalLabelRejected">Confirm delete</h1>
+                                  </div>
+                                  <div class="modal-body">
+                                    <!-- start -->
+                                    <p>Are you sure you want to delete?</p>
+                                    <!-- end -->
+                                  </div>
+                                  <!-- modal-body ends -->
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn button cancel-action" data-dismiss="modal">Cancel</button>
+                                    <apex:commandLink styleClass="btn button confirm-action" value="Delete" action="{!DeleteRecord}" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Modal for Delete confirmation start -->
+                             
+                             
+                            </apex:form>
+                            </apex:outputpanel>
+                            
+                </main>
+                </div>
+         </div>
+         <c:DRDW_SR2_FooterComponent />
+         <c:DRDW_QFOR_Scripts />
+     </body>     
+</apex:page>

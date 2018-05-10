@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <recordTypes>
+        <fullName>DRDW_Elanco_Capability</fullName>
+        <active>true</active>
+        <label>Elanco Capability</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>DRDW_Elanco_Capability_Area</fullName>
+        <active>true</active>
+        <label>Elanco Capability Area</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>DRDW_Elanco_Impacted_Project_Timeline_Activity</fullName>
+        <active>true</active>
+        <label>Elanco Impacted Project Timeline Activity</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>DRDW_Elanco_Risk_Details</fullName>
+        <active>true</active>
+        <label>Elanco Risk Details</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>DRDW_Elanco_Simplified_Project_Name</fullName>
+        <active>true</active>
+        <label>Elanco Simplified Project Name</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>DRDW_Elanco_Termination_Reason</fullName>
+        <active>true</active>
+        <label>Elanco Termination Reason</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>DRDW_Samples_To_Collect</fullName>
+        <active>true</active>
+        <label>DRDW Samples To Collect</label>
+    </recordTypes>
+	 <recordTypes>
+        <fullName>DRDW_Elanco_Go_sub_Activity</fullName>
+        <active>true</active>
+        <label>Elanco Go-sub Activity</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>DRDW_Elanco_Group</fullName>
+        <active>true</active>
+        <label>Elanco Group</label>
+    </recordTypes>
+</CustomObject>
+

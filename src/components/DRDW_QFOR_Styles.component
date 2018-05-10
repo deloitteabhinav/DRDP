@@ -1,0 +1,9 @@
+<apex:component >
+  <head>
+    <apex:stylesheet value="{!URLFOR($Resource.DRDW_QFOR_R1Style,'vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DRDW_QFOR_R1Style,'vendor/jquery.fancytree/dist/skin-bootstrap/ui.fancytree.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DRDW_QFOR_R1Style,'vendor/DataTables/datatables.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DRDW_QFOR_R1Style,'vendor/DataTables/datatables.bootstrap.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DRDW_QFOR_R1Style,'assets/DigitalFoundry-1.0.0.css')}" />
+  </head>
+</apex:component>

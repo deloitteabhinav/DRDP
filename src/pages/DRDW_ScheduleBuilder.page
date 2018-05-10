@@ -1,0 +1,230 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" controller="DRDW_StudyScheduleBuilder">
+<head>
+        <title>Study Schedule Builder</title>
+    </head>  
+    <body>
+    <style>
+    <!--Intermediate header styles for the demo. To be removed when new header component is in place-->
+    .profile-dropdown .profile-menu:hover {
+    color: #92d400 !important;
+    }
+   .profile-dropdown .profile-menu{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    text-transform: none;
+    }
+    
+    .btn-override{
+     color:black !important;
+    }
+    </style>
+        <div class='df_drdw content'>
+            <!--Using QFORs Index component for the Top Header -->
+            <c:DRDW_QFOR_Styles />
+            <c:DRDW_IndexNew />
+            <apex:stylesheet value="{!URLFOR($Resource.DRDW_Chosen,'chosen.css')}"/>
+            <div class="df_drdw-createstudy vertical-compress columns-compressed">
+                
+                <header>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">                               
+                                    <h1>Study Title: {!oRequest.Study_Title__c} </h1>
+                                    <p></p>                                                                                            
+                            </div>
+                        </div>
+                    </div>                    
+                </header>
+                 <main class="container">
+                 <apex:form Styleclass="create-study-form accordion">
+                 <apex:actionFunction name="saveEvent" action="{!saveEvent}" reRender="activitylist" oncomplete="$('.chosen-select').chosen();">
+                  <apex:param name="indexname" value="" assignTo="{!index}"/>                 
+                 </apex:actionFunction> 
+                     <apex:outputpanel rendered="{!IF($CurrentPage.parameters.reqid != NULL,true,false)}" id="xyz">                                                        
+                              <section class="row">
+                                <apex:pageMessages />                           
+                                  <div class="col-xs-12">
+                                  <h2 class="accordion-parent">Study Schedule Builder
+                                    <span class = "mandatory-fields-indicator-badge"/>
+                                        <span class="icon-large-caret pull-right down"></span></h2>
+                                   <fieldset class="accordion-child">
+                                    <div id="capacity-freq-error" style="display:none"></div> 
+                                      <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Cap_Request__c.Fields.Planned_Study_Start_Date__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Cap_Request__c.Fields.Planned_Study_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Cap_Request__c.Fields.Planned_Study_Start_Date__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-2 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oRequest.Planned_Study_Start_Date__c}" />
+                                            </div>
+                                             <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Cap_Request__c.Fields.Planned_Study_End_Date__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Cap_Request__c.Fields.Planned_Study_End_Date__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Cap_Request__c.Fields.Planned_Study_End_Date__c.inlinehelptext}</span>
+                                                    </div>          
+                                                </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-2 field-wrapper left-aligned">
+                                                <apex:outputField value="{!oRequest.Planned_Study_End_Date__c}" />
+                                            </div>
+                                            <div class="col-xs-2 zero-right-padding contains-erl-activities-table">
+                                             <apex:commandLink value="Add Event" action="{!addEventRow}" reRender="activitylist" styleClass="btn button add-activity-row pull-right" oncomplete="$('.chosen-select').chosen();"/>
+                                           </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-xs-12">
+                                         <apex:outputPanel id="capArea" styleClass="contains-erl-activities-table">
+                                          <!--  <div class="row">
+                                                 <div class="col-xs-12 zero-right-padding">
+                                                     <apex:commandLink value="Add Row" action="{!addEventRow}" reRender="activitylist" styleClass="btn button add-activity-row pull-right" oncomplete="df_drdw.globalEvents.fixDatepicker();"/>
+                                                   </div>
+                                            </div> -->
+                                           
+                                            <apex:pageBlock id="activitylist">
+                                                   <apex:pageMessages /> 
+                                                    
+                                                    <apex:pageBlockTable value="{!leventwrapper}" var="oWrapper">
+                                                        <apex:column >
+                                                            <apex:facet name="header">Study Events</apex:facet>
+                                                             <apex:outputField value="{!oWrapper.eventObject.Event_Type__c}"  styleclass="required" rendered="{!oWrapper.issaved}"/>                                                           
+                                                           <!-- <apex:inputField value="{!oWrapper.eventObject.Event_Type__c}"  styleclass="required" rendered="{!if(oWrapper.issaved != true,true,false)}"/> -->
+                                                           <apex:selectList value="{!oWrapper.eventObject.Event_Type__c}"  multiselect="false" size="1" rendered="{!if(oWrapper.issaved != true,true,false)}">
+                                                                <apex:selectOptions value="{!lStudyevents}"/>                                                        
+                                                        </apex:selectList>
+                                                         </apex:column>
+                                                         <apex:column styleClass="wrap-text-field">
+                                                            <apex:facet name="header">Study Day</apex:facet>
+                                                             
+                                                             <apex:outputField value="{!oWrapper.eventObject.Frequency_UI__c }" styleclass="frequencyInput"  rendered="{!oWrapper.issaved}"/>                                                           
+                                                            <apex:inputField value="{!oWrapper.eventObject.Frequency_UI__c }"  styleclass="frequencyInput" rendered="{!if(oWrapper.issaved != true,true,false)}"/>
+                                                         </apex:column>                                                         
+                                                         <apex:column rendered="{!isAccess}">
+                                                            <apex:facet name="header">GO Sub-Activities</apex:facet>
+                                                            <apex:variable value="{!SUBSTITUTE(oWrapper.eventObject.Go_Sub_Activities__c,'[','')}" var="subact" />
+                                                            <apex:variable value="{!SUBSTITUTE(subact,']','')}" var="subact1" />
+                                                            <apex:variable value="{!SUBSTITUTE(JSENCODE(subact1),',','<br/>')}" var="subact2"/>
+                                                             <apex:outputtext value="{!subact2}" rendered="{!if(AND(oWrapper.issaved == true,oWrapper.isEdit==false),true,false)}" escape="false"/>    
+                                                             <apex:outputPanel rendered="{!if(oWrapper.issaved != true,true,false)}">   
+                                                               <div style="width: fit-content;" data-toggle="tooltip" data-placement="right" title="You can select multiple options">                                                                                                              
+                                                                <apex:selectList id="ImpactedPick1" styleClass="chosen-select" tabindex="4" style="color:Black;" value="{!oWrapper.subActList}"  multiselect="true">
+                                                                    <apex:selectOptions value="{!lSubEvents}"/>                                                        
+                                                                </apex:selectList>
+                                                               </div> 
+                                                              </apex:outputPanel> 
+                                                               <apex:outputPanel rendered="{!if(AND(oWrapper.issaved == true,oWrapper.isEdit==true),true,false)}">   
+                                                               <div style="width: fit-content;" data-toggle="tooltip" data-placement="right" title="You can select multiple options">                                                                                                              
+                                                                <apex:selectList id="ImpactedPick" styleClass="chosen-select" tabindex="4" style="color:Black;" value="{!oWrapper.subActList}"  multiselect="true">
+                                                                    <apex:selectOptions value="{!lSubEvents}"/>                                                        
+                                                                </apex:selectList>
+                                                               </div> 
+                                                              </apex:outputPanel>                                                                                                                                                                                             
+                                                         </apex:column>
+                                                         <apex:column >
+                                                          <apex:facet name="header">Action</apex:facet>
+                                                            <apex:commandButton value="Save" rendered="{!if(OR(oWrapper.issaved != true),true,false)}" styleClass="button save-button" onclick="savebutton({!oWrapper.index})" reRender="none">                                                                                                                            
+                                                               
+                                                            </apex:commandButton>
+                                                            <apex:commandButton value="Save" rendered="{!if(AND(oWrapper.issaved == true,oWrapper.isEdit==true),true,false)}" styleClass="button save-button" action="{!saveEvent}" reRender="activitylist" oncomplete="$('.chosen-select').chosen();">                                                                                                                            
+                                                               <apex:param name="indexnamesub" value="{!oWrapper.index}" assignTo="{!index}"/>
+                                                            </apex:commandButton>
+                                                           <!-- <input type="button" onclick="df_drdw.capacity.customValidate(event,'frequency')" class="btn button save-button" value="Save"/>  -->                                                      
+                                                          <!--  <apex:commandButton value="Edit" action="{!EditActivities}" rendered="{!if(oWrapper.issaved == true,true,false)}" reRender="activitylist" styleClass="button save-button" oncomplete="df_drdw.globalEvents.fixDatepicker();">
+                                                                <apex:param name="indexname" value="{!WrapperObject.index}" assignTo="{!index}"/>
+                                                            </apex:commandButton>  -->
+                                                             <apex:commandButton title="Delete Row" value="-" styleClass="button remove-row-button remove-adjust" action="{!subEventRow}" rendered="{!if(AND(oWrapper.issaved == true,oWrapper.isEdit==false),true,false)}" reRender="activitylist" onclick="df_drdw.globalEvents.showWaitSpinner();"  oncomplete="$('.chosen-select').chosen();df_drdw.globalEvents.hideWaitSpinner();">
+                                                                 <apex:param name="indexnamesub" value="{!oWrapper.index}" assignTo="{!index}"/>
+                                                            </apex:commandButton>
+                                                          <!--  <apex:outputPanel rendered="{!if(oWrapper.issaved == true,true,false)}">
+                                                                <a href="#" class="btn btn-info btn-lg">
+                                                                          <span class="glyphicon glyphicon-pencil"></span> 
+                                                                        </a>
+                                                                        
+                                                            </apex:outputPanel>   -->    
+                                                          <!--   <apex:commandButton styleClass="button add-activity-row edit-icon-overlap"  style="color:#fff" rendered="{!if(AND(oWrapper.issaved == true,AND(oWrapper.eventObject.Go_Sub_Activities__c=='[]',AND(oWrapper.isEdit == false,isAccess))),true,false)}" reRender="activitylist" oncomplete="$('.chosen-select').chosen();">
+                                                                 <apex:param name="eventedit" value="true" assignTo="{!oWrapper.isEdit}"/> 
+                                                                 <i class="glyphicon glyphicon-pencil pencil-style"></i>                                                               
+                                                            </apex:commandButton>  -->
+                                                            
+                                                             <apex:commandLink styleClass="button add-activity-row pencil-style" style="color:#fff" action="{!editSubAct}" rendered="{!if(AND(oWrapper.issaved == true,AND(oWrapper.isEdit == false,isAccess)),true,false)}" reRender="activitylist" oncomplete="$('.chosen-select').chosen();">
+                                                             <apex:param name="eventedit" value="true" assignTo="{!oWrapper.isEdit}"/> 
+                                                             <apex:param name="indexnamesub" value="{!oWrapper.index}" assignTo="{!index}"/>
+                                                             <i class="glyphicon glyphicon-pencil "></i>  
+                                                             </apex:commandLink>
+                                                                                                  
+                                                        </apex:column>
+                                                    </apex:pageBlockTable>
+                                             </apex:pageBlock>                                                
+                                         </apex:outputPanel>      
+                                         </div>         
+                                         </div>                            
+                                    </fieldset>     
+                                  </div>                                 
+                              </section>
+                              <section class="row submit with-top-margin">
+                                <div class="col-xs-12">
+                                    <apex:outputPanel >
+                                             <apex:outputLink styleClass="btn button pull-right" value="/apex/DRDW_CreateGORequest?id={!oRequest.id}&projid={!oRequest.Project__c}&section=#Request_Study">Done</apex:outputLink>    
+                                      </apex:outputPanel>
+                                </div>
+                            </section>                         
+                     </apex:outputPanel>
+                      <!-- Modal for spinner starts -->
+                            <div id="loading-results">
+                                    <div class="loading-message">
+                                        <apex:image value="{!URLFOR($Resource.DRDW_QFOR_R1Style,'assets/img/rolling.gif')}" />
+                                    </div>
+                            </div>
+                     <!-- Modal for spinner ends -->
+                     </apex:form>
+                 </main>                            
+                </div>
+         </div>
+         <c:DRDW_SR2_FooterComponent />
+         <c:DRDW_QFOR_Scripts />
+         <apex:includeScript value="{!URLFOR($Resource.DRDW_Chosen,'chosen.jquery.js')}" />
+         <script>
+          //$.noConflict();
+            $( document ).ready(function(){
+                console.log('in ready');
+                $('.chosen-select').chosen();
+            });
+            
+            function savebutton(index){
+           var valid =   df_drdw.capacity.customValidate(event,'frequency');
+            console.log('Index'+index);
+            if(valid){
+            saveEvent(index);
+            }
+            }
+           
+         </script>
+     </body>       
+
+
+</apex:page>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>DRDW_BU_Business_Development_Risk_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW BU Business Development Risk Sharing</label>
+        <sharedTo>
+            <group>DRDW_BU_Business_Development</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>Business Development</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_CA_Parasitology_Risk_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW CA Parasitology Risk Sharing</label>
+        <sharedTo>
+            <group>DRDW_BU_CA_Parasitology</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>Companion Animal - Parasitology</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_CA_Therapeutics_Risk_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW CA Therapeutics Risk Sharing</label>
+        <sharedTo>
+            <group>DRDW_BU_CA_Therapeutics</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>Companion Animal - Therapeutics</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_CA_Vaccines_Risk_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW CA Vaccines Risk Sharing</label>
+        <sharedTo>
+            <group>DRDW_BU_CA_Vaccines</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>Companion Animal - Vaccines</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_External_Innovation_Risk_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW External Innovation Risk Shring</label>
+        <sharedTo>
+            <group>DRDW_BU_External_Innovation</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>External Innovation</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_FA_Therapeutics_Risk_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW FA - Therapeutics Risk Sharing</label>
+        <sharedTo>
+            <group>DRDW_BU_FA_Therapeutics</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>Food Animal - Therapeutics</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_Food_Animal_Parasitology_Sharing_Setting</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW Food Animal - Parasitology Sharing Setting</label>
+        <sharedTo>
+            <group>DRDW_BU_FA_Parasitology</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>Food Animal - Parasitology</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_Food_Animal_Vaccines_Risk_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW Food Animal - Vaccines Risk Sharing</label>
+        <sharedTo>
+            <group>DRDW_BU_FA_Vaccines</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>Food Animal - Vaccines</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_Nutritionals_Sharing_Risk</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW Nutritionals Sharing Risk</label>
+        <sharedTo>
+            <group>DRDW_BU_Nutritionals</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Project_Business_Unit__c</field>
+            <operation>contains</operation>
+            <value>Nutritionals</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

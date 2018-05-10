@@ -1,0 +1,65 @@
+<apex:page standardStylesheets="true" readOnly="true" showHeader="false" sidebar="false" cache="false" controller="DRDW_Budget_YearlyQuatery_Report" action="{!executeWrapperGenerator}">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Budget Report</title>
+    <c:DRDW_QFOR_Styles />
+    <!-- Styles -->
+
+  </head>
+  <body>
+
+    <div class='df_drdw content'>
+      <!-- body partial, used for adding pages to layout -->
+<c:DRDW_IndexNew />
+
+
+<div class="page-title report">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Budget Report</h1>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="container-fluid">
+        <div class="row page-meta">
+            <div class="col-xs-12">
+                <h3>Select Year</h3>
+                 <apex:form >
+                <apex:actionFunction oncomplete="df_drdw.reports.initialize('budget', {!jsonString},{!selectedYear});" action="{!executeWrapperGenerator}" name="setValue" reRender="report"/>
+                 <apex:selectList onchange="setValue(this.value)" size="1" value="{!selectedYear}">
+                        <apex:selectOptions value="{!YearList}"/>
+                    </apex:selectList> 
+                    <apex:outputPanel rendered="{!if(OR(isAdmin,isFin),true,false)}">
+                       <apex:outputLink styleClass="btn button btn-success" value="/apex/DRDW_DataLoad">Load Budget Data</apex:outputLink>
+                       <apex:outputLink styleClass="btn button btn-success" value="/apex/DRDW_CreateBudgetMaster?isReport=true">Create Budget Record</apex:outputLink>
+                    </apex:outputPanel>
+                 </apex:form>  
+                
+            </div>
+        </div>
+        <div class="row">
+        <apex:outputPanel id="report">     
+            <div class="col-xs-12 budgetReports">
+            </div>
+         </apex:outputPanel>   
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+       df_drdw.reports.initialize("budget", {!jsonString},{!jsencode(selectedYear)})
+    }, false);
+</script>
+    </div>
+   
+    <c:DRDW_SR2_FooterComponent />
+     <c:DRDW_QFOR_Scripts />
+  </body>
+</apex:page>

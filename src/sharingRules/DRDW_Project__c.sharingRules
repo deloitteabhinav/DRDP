@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>DRDW_Business_Development</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW Business Development</label>
+        <sharedTo>
+            <group>DRDW_BU_Business_Development</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Business Development</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_CA_Parasitology</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW CA - Parasitology</label>
+        <sharedTo>
+            <group>DRDW_BU_CA_Parasitology</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Companion Animal - Parasitology</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_CA_Therapeutics</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW CA - Therapeutics</label>
+        <sharedTo>
+            <group>DRDW_BU_CA_Therapeutics</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Companion Animal - Therapeutics</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_CA_Vaccines</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW CA - Vaccines</label>
+        <sharedTo>
+            <group>DRDW_BU_CA_Vaccines</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Companion Animal - Vaccines</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_External_Innovation</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW External Innovation</label>
+        <sharedTo>
+            <group>DRDW_BU_External_Innovation</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>External Innovation</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_FA_Parasitology</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW FA - Parasitology</label>
+        <sharedTo>
+            <group>DRDW_BU_FA_Parasitology</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Food Animal - Parasitology</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_FA_Therapeutics</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW FA - Therapeutics</label>
+        <sharedTo>
+            <group>DRDW_BU_FA_Therapeutics</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Food Animal - Therapeutics</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_Food_Animal_Vaccines</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW Food Animal - Vaccines</label>
+        <sharedTo>
+            <group>DRDW_BU_FA_Vaccines</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Food Animal - Vaccines</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_Idea_Share</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>This Sharing rule shares all the research records with an &apos;Idea&apos; recordtype to the DRDW_Project_Managers group with Read/Write access.</description>
+        <label>DRDW Idea Share</label>
+        <sharedTo>
+            <group>DRDW_Project_Managers</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Idea</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DRDW_Nutritionals</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DRDW Nutritionals</label>
+        <sharedTo>
+            <group>DRDW_BU_Nutritionals</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Nutritionals</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

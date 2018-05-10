@@ -1,0 +1,38 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" controller="DRDW_ERLProjectViewCtrl" cache="true" contentType="application/vnd.ms-excel#ERLProjectViewExport.xls" >
+
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!lActivity}" var="oativity">
+                <apex:column >
+                    <apex:facet name="header">Project Name</apex:facet>
+                    <apex:outputField value="{!oativity.DRDW_Request__r.Project__r.Name__c}"  />
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Request ID</apex:facet>
+                    <apex:outputField value="{!oativity.DRDW_Request__r.Name}"  />
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Activity Title</apex:facet>
+                    <apex:outputField value="{!oativity.Title__c}"  />
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Activity Start Date</apex:facet>
+                    <apex:outputField value="{!oativity.Actual_Start_Date__c}" rendered="{!if(oativity.Actual_Start_Date__c <> null,true,false)}" />
+                    <apex:outputField value="{!oativity.Planned_Start_Date__c}" rendered="{!if(oativity.Actual_Start_Date__c == null,true,false)}" />                    
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Activity End Date</apex:facet>
+                    <apex:outputField value="{!oativity.Actual_End_Date__c}" rendered="{!if(oativity.Actual_End_Date__c <> null,true,false)}" />
+                    <apex:outputField value="{!oativity.Planned_End_Date__c}" rendered="{!if(oativity.Actual_End_Date__c == null,true,false)}" />                    
+                </apex:column>                
+                <apex:column >
+                    <apex:facet name="header">Activity Status</apex:facet>
+                    <apex:outputField value="{!oativity.Status__c}"  />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+   
+    </apex:form>
+    
+    
+</apex:page>

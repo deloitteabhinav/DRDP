@@ -1,0 +1,347 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" controller="DRDW_ResearchReportCntlr" readonly="true" id="thePage" contentType="{!if($CurrentPage.parameters.IsExcel!=null,'application/vnd.ms-excel#ProjectReport.xls','')}">
+   <script type='text/javascript'>
+        function isValidSearchString(searchString) {
+            var SEARCH_TRIGGER_THRESHOLD = 2;
+            var trimmedSearchString = searchString.trim();
+
+                if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+                    return true;
+                } else {
+                    return false;
+                }
+        }
+        
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                var searchString = (document.getElementsByClassName("keyword_Study_Search_Text"))[0].value;
+                if (isValidSearchString(searchString)){
+                    doSearchAf();
+                }
+                return false;
+             } else {
+                  return true;
+             }
+         }
+         
+
+   </script>      
+   <head>  
+       <title>Research List</title>
+       <c:DRDW_R3_Styles />
+   </head>
+   <body> 
+       <apex:outputPanel rendered="{!$CurrentPage.parameters.IsExcel==null}">
+           <c:DRDW_IndexNew />
+       </apex:outputPanel>
+       <apex:form id="theForm">
+       <div class='content'>
+
+        <apex:outputpanel rendered="{!$CurrentPage.parameters.IsExcel==null}">
+        <apex:actionFunction name="doSearchAf" action="{!FetchDataForCriteria}" oncomplete="drdw.listView.handlerSeeMoreFilters();" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+        <apex:actionFunction name="toggleflagoff" action="{!toggleOff}" oncomplete="drdw.listView.handlerSeeMoreFilters();" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+        <apex:actionFunction name="toggleflagoff2" action="{!toggleOff2}" oncomplete="drdw.listView.handlerSeeMoreFilters();" rerender="PaginationPanel,resultsize" />
+        </apex:outputPanel>
+        <!-- Start of Fixed Container -->
+            
+            <div class='fixed-container list-view'> 
+                <!-- Filter wrapper -->
+                <apex:outputpanel rendered="{!$CurrentPage.parameters.IsExcel==null}">
+                <div class='filters-wrapper'>
+                    <!-- Header section -->
+                    <div class ="accordion-parent">
+                    <div class="filter-header container">
+                        <apex:outputpanel id="resultsize">
+                            <!--<span class='result-count'>{!cResearchListCntlr.ResultSize} Projects</span>-->
+                            <span class='result-count'>Leadership Project Report</span>
+                        </apex:outputpanel>
+                        <!--<apex:outputlink value="" styleClass="create-new enabled l-blue hidden-xs">Export Report</apex:outputlink>-->
+                        <apex:commandLink styleClass="create-new enabled l-blue hidden-xs" action="{!ExportToExcel}"><span class="ico-full-icon-file-excel"></span>Export to Excel</apex:commandLink>                                    
+                        <span class='icon-large-caret down'></span>
+                    </div>
+                    </div>
+                    <!-- Header section -->
+                    
+                    <!-- Filters -->
+                    <div class="accordion-child">
+                    <div class='filter-container container'>
+    
+                        <!--Start of Output Panel-->
+                        <apex:outputpanel id="therapueticareaCol">
+    
+                                <div class='filter-column-wrapper col-md-3'>
+                                    <ul class='{!IF(bShowMoreFlag2,"filter-column","filter-column show-scroll")}'>
+                                    <li>   Organization Units</li>
+                                    <!-- New code for sub filter -->
+                                            <li>
+                                                <apex:inputCheckbox styleclass="has-child-filter"/>
+                                                <label for="parent1">Research</label>
+                                                <ul class="filter-column child-filter-column hidden">
+                                                    <apex:repeat value="{!mResearchStructure['RSubRecordType']}" var="area">
+                                                        <li class="col-xs-12">
+                                                            <apex:inputCheckbox value="{!area.isSelected}">
+                                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,resultsize" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                            </apex:inputCheckbox>
+                                                            <label>{!area.Label}</label>
+                                                        </li>
+                                                    </apex:repeat>
+                                                </ul>                                                
+                                            </li>
+                                            <li>
+                                                <apex:inputCheckbox disabled="true"/>
+                                                <label for="parent1">Development</label>
+                                            </li>    
+                                            <!-- <li class="col-xs-12">
+                                                <apex:inputCheckbox styleclass="has-child-filter"/>
+                                                <label for="parent1">Development</label>
+                                                <ul class="filter-column child-filter-column hidden">
+                                                    <apex:repeat value="{!mResearchStructure['DSubRecordType']}" var="area">
+                                                        <li class="col-xs-12">
+                                                            <apex:inputCheckbox value="{!area.isSelected}">
+                                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,resultsize" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                            </apex:inputCheckbox>
+                                                            <label>{!area.Label}</label>
+                                                        </li>
+                                                    </apex:repeat>
+                                                </ul>                                                
+                                            </li> -->
+                                        <!-- hardcoded filters
+                                        <li class="col-xs-12">
+                                                <input type="checkbox" id="parent1" class="has-child-filter"/>
+                                                <label for="parent1">Research</label>
+                                                <ul class="filter-column child-filter-column hidden">
+                                                    <li class="col-xs-12">
+                                                        <input type="checkbox" id="child11"/>
+                                                        <label for="child11">Generation Projects</label>
+                                                    </li>
+                                                    <li class="col-xs-12">
+                                                        <input type="checkbox" id="child12"/>
+                                                        <label for="child12">Assessment Projects</label>
+                                                    </li>
+                                                </ul>
+                                        </li>
+                                        <li class="col-xs-12">
+                                                <input type="checkbox" id="parent2" class="has-child-filter"/>
+                                                <label for="parent2">Development</label>
+                                                <ul class="filter-column child-filter-column hidden">
+                                                    <li class="col-xs-12">
+                                                        <input type="checkbox" id="Child21"/>
+                                                        <label for="Child21">Early Development Projects</label>
+                                                    </li>
+                                                    <li class="col-xs-12">
+                                                        <input type="checkbox" id="Child22"/>
+                                                        <label for="Child22">Full Development Projects</label>
+                                                    </li>
+                                                </ul>
+                                        </li>
+                                    -->
+                                        <!-- new code ends -->
+                                        <!-- <li >Organizational Units</li>
+                                        <apex:repeat value="{!mResearchStructure['RecordType']}" var="activity">
+                                            <li>
+                                            <div class="col-md-12" style="padding-left:0px">
+                                            <div class="col-md-1" style="padding-left:0px">
+                                                <apex:inputCheckbox value="{!activity.isSelected}">
+                                                    <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="therapueticareaCol,PaginationPanel,resultsize" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                </apex:inputCheckbox>
+                                                </div>
+                                                <div class="col-md-10" style="padding-left:0px">
+                                                <label>{!activity.Label}</label> <!--({!mCategoyCount[activity.Label]})-->
+                                                <!-- </div>
+                                                </div>
+                                            </li>
+                                        </apex:repeat> -->
+                                    </ul>
+                                </div>
+
+                                <!--Sub Record Type field filter checkboxes  
+                                 <div class='filter-column-wrapper col-md-2'>
+                                    <ul class='{!IF(bShowMoreFlag2,"filter-column","filter-column show-scroll")}'>
+                                        <li >Functional Area</li>
+                                        <apex:repeat value="{!mResearchStructure['SubRecordType']}" var="area">
+                                            <li>
+                                            <div class="col-md-12" style="padding-left:0px">
+                                            <div class="col-md-1" style="padding-left:0px">
+                                                <apex:inputCheckbox value="{!area.isSelected}">
+                                                    <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="therapueticareaCol,PaginationPanel,resultsize" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                </apex:inputCheckbox>
+                                                </div>
+                                                <div class="col-md-10" style="padding-left:0px">
+                                                <label>{!area.Label}</label><!--({!mCategoyCount[area.Label]})-->
+                                                <!-- </div>
+                                                </div>
+                                            </li>
+                                        </apex:repeat>
+                                    </ul>
+                                 </div>  -->
+                                <!--Business Unit field filter checkboxes-->                  
+                                <div class='filter-column-wrapper col-md-4'>
+                                    <ul class='{!IF(bShowMoreFlag2,"filter-column","filter-column show-scroll")}'>
+                                        <li >Business Unit</li>
+                                        <apex:repeat value="{!mResearchStructure['Business_Unit__c']}" var="duration">
+                                            <li>
+                                                <apex:inputCheckbox value="{!duration.isSelected}">
+                                                    <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,resultsize" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                </apex:inputCheckbox>
+                                                <label>{!duration.Label}</label><!--({!mCategoyCount[duration.Label]})-->
+                                            </li>
+                                        </apex:repeat>
+                                    </ul>
+                                    <apex:outputPanel rendered="{!bShowMoreFlag2}">
+                                        <a class="see-more-filters pull-left" onclick="toggleflagoff2();">See more Filters...</a>
+                                    </apex:outputPanel>
+                                </div>
+                                
+                                <!--Therapuetic Area field filter checkboxes-->
+                                <div class='filter-column-wrapper col-md-3'>
+                                    <ul class='{!IF(bShowMoreFlag2,"filter-column","filter-column show-scroll")}'>
+                                        <li >Functional Area</li>
+                                        <apex:repeat value="{!mResearchStructure['Functional_Area__c']}" var="area">
+                                            <li>
+                                            <div class="col-md-12" style="padding-left:0px">
+                                            <div class="col-md-1" style="padding-left:0px">
+                                                <apex:inputCheckbox value="{!area.isSelected}">
+                                                    <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,resultsize" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                                                </apex:inputCheckbox>
+                                                </div>
+                                                <div class="col-md-10" style="padding-left:0px">
+                                                <label>{!area.Label}</label><!--({!mCategoyCount[area.Label]})-->
+                                                </div>
+                                                </div>
+                                            </li>
+                                        </apex:repeat>
+                                    </ul>
+                                 </div>
+        
+                                
+    
+                                <!--End of Output Panel-->
+                        </apex:outputpanel>
+                    </div>    
+                    </div>  
+                    <!-- Filters end -->
+                    
+                </div> 
+                </apex:outputpanel>
+                <!-- Filter wrapper -->    
+                       
+                <!-- Search wrapper -->
+                <apex:outputPanel rendered="{!$CurrentPage.parameters.IsExcel==null}">
+                <div class='type-ahead-search-wrapper container'>
+                    <div class='type-ahead-search-wrapper container'>
+                        <span class='icon-find'></span>
+                        <apex:inputtext value="{!sSearchWord}" html-placeholder="Search Researches" onkeypress="return noenter(event);" styleClass="keyword_Partnership_Search_Text"/>
+                        <apex:commandButton Value="Go" action="{!FetchDataForCriteria}" Styleclass="button create-new l-orange" disabled="false" rerender="PaginationPanel,therapueticareaCol,resultsize" oncomplete="drdw.listView.handlerSeeMoreFilters();"/>
+                        <apex:outputlink value="/apex/DRDW_ResearchReport" StyleClass="filter-reset">Clear All</apex:outputlink>
+                    </div>
+                </div>
+                </apex:outputPanel>
+                <!-- Search wrapper -->
+                
+                <!-- Search wrapper -->
+                <apex:outputpanel id="Listcontent">
+                       
+                    <!--Results container HTML-->
+                    <div class='results-header with-comparo container l-blue'>
+
+                        <!-- Selection of records -->
+                        <!--Name column of the results displayed-->
+                        <!--<div class='result-header-item col-md-2 sort-by' >
+                            <apex:commandlink value="Name" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Name" value="Name" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Name'}"/>
+                        </div>-->
+                        
+                        <!--Business Unit column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by' >
+                            <apex:commandlink value="Functional Area" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Functional_Area__c" value="Functional_Area__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Functional_Area__c'}" />
+                            
+                        </div>
+
+                        <!--Phase column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by' >
+                            <apex:commandlink value="Phase" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Phase__c" value="Phase__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Phase__c'}"/>
+                        </div>
+                        
+                        <!--Disease Area of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by' >
+                            <apex:commandlink value="Disease Area" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Disease_Area__c" value="Disease_Area__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Disease_Area__c'}"/>
+                        </div>
+                        
+                        <!-- Species column of the results displayed -->
+                        <div class='result-header-item col-md-2 sort-by' >
+                            <apex:commandlink value="Species" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Species__c" value="Species__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Species__c'}"/>
+                        </div>
+                        
+                        <!-- Project Name column of the results displayed -->
+                        <div class='result-header-item col-md-2 sort-by' >
+                            <apex:commandlink value="Project Name" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Project_Name__c" value="Project_Name__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Project_Name__c'}"/>
+                        </div>
+
+                        <!-- Project Health column of the results displayed -->
+                        <div class='result-header-item col-md-2 sort-by' >
+                            <apex:commandlink value="Project Health" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Project_Health__c" value="Project_Health__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Project_Health__c'}"/>
+                        </div>
+
+
+                    </div>
+
+                    <!--End of Output Panel which contains Results after filter search-->
+                </apex:outputpanel>
+                <!-- Search wrapper -->
+                
+            </div>
+            <!-- End of Fixed Container -->
+            <!-- Results -->
+                <div class='results-wrapper'>
+
+                <apex:outputpanel id="PaginationPanel">
+                <a href="#" class='create-new enabled l-orange compare-data-assets hidden floating-action-button' data-toggle="modal" data-target="#horizontal-filter-modal">Compare</a>
+
+                    <div class='results with-comparo container'>
+                    
+                        <apex:repeat value="{!lResearchRecordWrap}" var="oPRWrap">
+                            <div class='result-item col-md-12 '>
+                                <!-- <div class='col-md-1'><apex:inputCheckbox value="{!oPRWrap.isSelected}"></apex:inputCheckbox></div>  -->
+                                <!--<div class='col-md-2' ><apex:outputLink value="/{!oPRWrap.oResearch.Id}" target="_blank">{!oPRWrap.oResearch.Name}</apex:outputLink></div>-->
+                                <div class='col-md-2' >{!oPRWrap.oResearch.Functional_Area__c}</div>
+                                <div class='col-md-2' >{!oPRWrap.oResearch.Phase__c }</div>
+                                <div class='col-md-2' >{!oPRWrap.oResearch.Disease_Area__c }</div>
+                                <div class='col-md-2' >{!oPRWrap.oResearch.Species__c }</div>
+                                <div class='col-md-2' >{!oPRWrap.oResearch.Project_Name__c }</div>
+                                <div class='col-md-2' >{!oPRWrap.oResearch.Project_Health_new__c }</div>
+                            </div>
+                        </apex:repeat>
+                        
+                    </div>
+                </apex:outputpanel>
+                
+                </div>    
+            <!-- Results end -->
+            
+       </div>  
+       <c:DRDW_FooterComponent /> 
+       <c:DRDW_R3_Scripts />
+       <!--<c:DRDW_SR2_FooterComponent />-->
+       </apex:form>   
+   </body> 
+</apex:page>

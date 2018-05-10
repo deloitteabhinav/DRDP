@@ -1,0 +1,580 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" controller="DRDW_ERLProjectViewCtrl" extensions="DRDW_ERLResourceViewCtrl"
+    cache="false" action="{!executeWrapperGeneratorERL}" docType="html-5.0">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta content="width=device-width, initial-scale=1" name="viewport" />
+            <title>Capacity | ERL</title>
+            <!-- compiled CSS -->
+            <c:DRDW_QFOR_Styles />
+        </head>
+        <body>
+            
+            <div class='qfor content capacity-page'>
+                <!-- body partial, used for adding pages to layout -->
+                <c:DRDW_IndexNew />
+                <div class="page-title capacity">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h1>Capacity Management : ERL</h1>
+                                <apex:outputPanel rendered="{!showGOButton}">
+                                    <a class="page-tab" href="/apex/DRDW_GOView" >GO</a>
+                                </apex:outputPanel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main capacity">
+                    <div class="container">
+                        <!-- <div class="row page-tabs">
+                            <apex:outputPanel rendered="{!showGOButton}">
+                                <a class="col-xs-6 p-tab active">
+                                    <span>ERL</span>
+                                </a>                        
+                                <a class="col-xs-6 p-tab ">
+                                    <span>GO</span>
+                                </a>
+                            </apex:outputPanel>
+                            </div> -->
+                        <apex:form >
+                            <apex:actionFunction name="assignResourceJS"  action="{!assignResource}" oncomplete="{!if(iserroredAssign,false,'reloadresoview();')}" reRender="assignRes,secondpage">
+                                <apex:param name="selectedResource" value="" />
+                            </apex:actionFunction>
+                            <apex:actionFunction action="{!initilizeAssignResource}" name="ini" reRender="modalrerender,resourceId,firstpagepanel"/>
+                            <apex:actionFunction action="{!initilizeActivity}" name="initilizeAct" reRender="capArea"/>
+                            <apex:actionFunction oncomplete="hidedisplay({!jsonString});" action="{!executeWrapperGeneratorERL}"
+                                name="reloadprojview" reRender="projectviewpanel" />
+                            <apex:actionFunction oncomplete="hidedisplayassign({!resourceViewObject.jsonStringResource});" action="{!resourceViewObject.executeWrapperGeneratorOnLoad}"
+                                name="reloadresoview" reRender="projectviewpanel" />
+                            <apex:actionFunction oncomplete="initResourceTree({!resourceViewObject.jsonStringResource});"
+                                action="{!resourceViewObject.executeWrapperGeneratorOnLoad}" name="generateResourceTree" reRender="xyz"/>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <ul class="nav nav-tabs view-tabs">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#projectView" data-src="erlDataProject.json" data-populate="project-tree">Project View</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#resourceView" data-src="erlDataResource.json" data-populate="resource-tree">Resource View</a>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="tab-content">
+                                        <div id="projectView" class="tab-pane fade in active">
+                                            <div class="tab-meta form-group form-inline">
+                                                <label for="status">Status: </label>
+                                                <apex:actionFunction oncomplete="df_drdw.capacity.reinitialize('project-tree', {!jsonString});" action="{!executeWrapperGeneratorERL}"
+                                                    name="setValue" reRender="xyz" />
+                                                <apex:selectList onchange="setValue(this.value)" size="1" value="{!activitStatus}">
+                                                    <apex:selectOptions value="{!StatusList}" />
+                                                </apex:selectList>
+                                                <span class="action-btns">
+                                                    <apex:outputPanel rendered="{!showActivityButton}">
+                                                        <a class="btn btn-primary" data-toggle="modal" href="#capacity-modal" onclick="initilizeAct();">Add Activity</a>
+                                                    </apex:outputPanel>
+                                                    <!--<button class="btn">Export Report</button>-->
+                                                    <apex:commandLink styleClass="btn" action="{!export}">Export Report</apex:commandLink>
+                                                </span>
+                                            </div>
+                                            <table id="project-tree" class="table table-bordered table-condensed table-striped">
+                                                <colgroup>
+                                                    <col width="300px">
+                                                    </col>
+                                                    <col width="100px">
+                                                    </col>
+                                                    <col width="100px">
+                                                    </col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Project</th>
+                                                        <th>Dates</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="resourceView" class="tab-pane fade">
+                                            <div class="tab-meta form-group form-inline">
+                                                <label for="status">Activity Area: </label>
+                                                <apex:actionFunction oncomplete="reinitResourceTree({!resourceViewObject.jsonStringResource});"
+                                                    action="{!resourceViewObject.executeWrapperGenerator}" name="setValueArea" reRender="xyz" />
+                                                <apex:selectList onchange="setValueArea(this.value)" size="1" value="{!resourceViewObject.activitArea}">
+                                                    <apex:selectOptions value="{!ActivityAreaList}" />
+                                                </apex:selectList>
+                                                <span class="action-btns">
+                                                    <apex:outputPanel rendered="{!showActivityButton}">
+                                                        <a class="btn btn-primary" data-toggle="modal" href="#resource-modal" onclick="ini();localStorage.clear();">Assign Resource</a>
+                                                    </apex:outputPanel>
+                                                    <!--<button class="btn btn-primary" data-toggle="modal" data-target="#capacity-modal"></button>-->
+                                                    <!--<button class="btn">Export Report</button>-->
+                                                    <apex:commandLink styleClass="btn" action="{!resourceViewObject.exportResource}">Export Report</apex:commandLink>
+                                                </span>
+                                            </div>
+                                            <table id="resource-tree" class="table table-bordered table-condensed table-striped">
+                                                <colgroup>
+                                                    <col width="300px">
+                                                    </col>
+                                                    <col width="150px">
+                                                    </col>
+                                                    <col width="100px">
+                                                    </col>
+                                                    <col width="100px">
+                                                    </col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Resource</th>
+                                                        <th>Dates</th>
+                                                        <th>Hours</th>
+                                                        <th>Cumulative Allocation Percentage</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:form>
+                    </div>
+                </div>
+                <!-- Modal for Add Activity -->
+                <div class="modal fade report-modal" id="capacity-modal" tabindex="-1" role="dialog" aria-labelledby="ActivityModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <apex:form >
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h1 class="modal-title">Add Activity</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- start -->
+                                    <apex:outputPanel id="capArea">
+                                        <apex:pageMessages />
+                                        <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label class="required">{!$ObjectType.DRDW_Capability__c.Fields.Title__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Capability__c.Fields.Title__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Capability__c.Fields.Title__c.inlinehelptext}</span>
+                                                    </div>
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oactivity.Title__c}" styleclass="required"/>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label class="required">Request</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Capability__c.Fields.DRDW_Request__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Capability__c.Fields.DRDW_Request__c.inlinehelptext}</span>
+                                                    </div>
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper hide-user-select left-aligned">
+                                                <apex:inputField value="{!oactivity.DRDW_Request__c}" styleclass="required"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label class="required">{!$ObjectType.DRDW_Capability__c.Fields.Capability_Area__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Capability__c.Fields.Capability_Area__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Capability__c.Fields.Status__c.inlinehelptext}</span>
+                                                    </div>
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:selectList id="chooseField" size="1" style="color:Black;" value="{!oactivity.Capability_Area__c}" styleclass="required">
+                                                    <apex:selectOptions value="{!lAreaPicklist}"/>
+                                                    <apex:actionSupport event="onchange" reRender="capArea">                                                                              
+                                                    </apex:actionSupport>
+                                                </apex:selectList>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label class="required">{!$ObjectType.DRDW_Capability__c.Fields.Capability__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Capability__c.Fields.Capability__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Capability__c.Fields.Capability__c.inlinehelptext}</span>
+                                                    </div>
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:variable var="Act" value="{!oactivity.Capability_Area__c}" />
+                                                <apex:outputPanel rendered="{!if(Act <> 'Other',true,false)}">
+                                                    <apex:selectList id="chooseField1" size="1" style="color:Black;" value="{!oactivity.Capability__c}" styleclass="required" >
+                                                        <apex:selectOptions value="{!if(Act == Null,mAreaPicklist['Analytical & Assay Development'],mAreaPicklist[Act])}"/>
+                                                    </apex:selectList>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!if(Act == 'Other',true,false)}">
+                                                    <apex:inputField value="{!oactivity.Capability__c}"  styleclass="required" />
+                                                </apex:outputPanel>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label class="required">{!$ObjectType.DRDW_Capability__c.Fields.Planned_Start_Date__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Capability__c.Fields.Planned_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Capability__c.Fields.Planned_Start_Date__c.inlinehelptext}</span>
+                                                    </div>
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oactivity.Planned_Start_Date__c}"  styleclass="required"/>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label class="required">{!$ObjectType.DRDW_Capability__c.Fields.Planned_End_Date__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Capability__c.Fields.Planned_End_Date__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Capability__c.Fields.Planned_End_Date__c.inlinehelptext}</span>
+                                                    </div>
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oactivity.Planned_End_Date__c}" styleclass="required"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Capability__c.Fields.Actual_Start_Date__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Capability__c.Fields.Actual_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Capability__c.Fields.Actual_Start_Date__c.inlinehelptext}</span>
+                                                    </div>
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oactivity.Actual_Start_Date__c}"/>
+                                            </div>
+                                            <div class="col-xs-3 label-wrapper left-aligned">
+                                                <label>{!$ObjectType.DRDW_Capability__c.Fields.Actual_End_Date__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Capability__c.Fields.Actual_End_Date__c.inlinehelptext != NULL,true,false)}">
+                                                    <div class="helpOrb tooltip">
+                                                        <span>{!$ObjectType.DRDW_Capability__c.Fields.Actual_End_Date__c.inlinehelptext}</span>
+                                                    </div>
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-3 field-wrapper left-aligned">
+                                                <apex:inputField value="{!oactivity.Actual_End_Date__c}"/>
+                                            </div>
+                                        </div>
+                                    </apex:OutputPanel>
+                                    <!-- end -->
+                                </div>
+                                <!-- modal-body ends -->
+                                <div class="modal-footer">
+                                    <a href="#" class="button cancel-action" data-dismiss="modal">Cancel</a>
+                                    <!--<button type="button" class="btn button confirm-action">Save</button>-->
+                                    <apex:commandLink oncomplete="{!if(iserrored,false,'reloadprojview();')}"  styleClass="button confirm-action" action="{!saveActivity}" reRender="capArea">Save</apex:commandLink>
+                                </div>
+                            </apex:form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal for Add Resource -->
+                <div class="modal fade report-modal" id="resource-modal" tabindex="-1" role="dialog" aria-labelledby="ActivityModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <apex:form >
+                                <apex:outputPanel id="modalrerender" >
+                                    <apex:outputPanel id="firstpagepanel" rendered="{!iserroredNext || firstPage}">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h1 class="modal-title">Assign Resource</h1>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- start -->
+                                            <apex:outputPanel id="capAreaRes">
+                                                <apex:pageMessages />
+                                                <div class="row">
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label class="required">Activity Title</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.DRDW_Activity__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.DRDW_Activity__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:actionRegion >
+                                                            <apex:inputField value="{!oAssignResource.DRDW_Activity__c}" styleclass="required">
+                                                                <apex:actionSupport event="onchange" action="{!validateActivityArea}" reRender="capAreaRes"/>
+                                                            </apex:inputField>
+                                                        </apex:actionRegion>
+                                                    </div>
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Activity_Area__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.Activity_Area__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Activity_Area__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:outputField value="{!oAssignResource.Activity_Area__c}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label class="required">{!$ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_Start_Date__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_Start_Date__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:inputField value="{!oAssignResource.Allocation_Start_Date__c}"  styleclass="required"/>
+                                                    </div>
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label class="required">{!$ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_End_Date__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_End_Date__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_End_Date__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:inputField value="{!oAssignResource.Allocation_End_Date__c}" styleclass="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label class="required">{!$ObjectType.DRDW_Assign_Resource__c.Fields.Hours_Per_Day__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.Hours_Per_Day__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Hours_Per_Day__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:inputField value="{!oAssignResource.Hours_Per_Day__c}" styleclass="required"/>
+                                                    </div>
+                                                </div>
+                                            </apex:OutputPanel>
+                                            <!-- end -->
+                                        </div>
+                                        <!-- modal-body ends -->
+                                        <div class="modal-footer">
+                                            <a href="#" class="button cancel-action" data-dismiss="modal">Cancel</a>
+                                            <!--<button type="button" class="btn button confirm-action">Save</button>-->
+                                            <apex:actionFunction name="callNext" action="{!next}" reRender="firstpagepanel,modalrerender">
+                                                <apex:param name="ResourceId" value=""/>
+                                            </apex:actionFunction>
+                                            <apex:commandLink styleClass="button confirm-action" onClick="setResourceIdAndNext();" reRender="none">Next</apex:commandLink>
+                                        </div>
+                                    </apex:outputPanel>
+                                    <!-- second page-->
+                                    <apex:outputPanel id="secondpagepanel" rendered="{!not(iserroredNext) && not(firstPage)}">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h1 class="modal-title">Assign Resource</h1>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- start -->
+                                            <apex:outputPanel id="assignRes">
+                                                <apex:pageMessages />
+                                                <div class="row">
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label>Activity Title</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.DRDW_Activity__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.DRDW_Activity__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                      <!--  <apex:outputField value="{!oAssignResource.DRDW_Activity__c}" /> -->
+                                                        <apex:outputLink value="/apex/DRDW_ViewActivity?id={!oAssignResource.DRDW_Activity__c}&isEdit=false">{!selectedActivity.Name}</apex:outputLink>
+                                                    </div>
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Activity_Area__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.Activity_Area__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Activity_Area__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:outputField value="{!oAssignResource.Activity_Area__c}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Hours_Per_Day__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.Hours_Per_Day__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Hours_Per_Day__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:outputField value="{!oAssignResource.Hours_Per_Day__c}" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_Start_Date__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_Start_Date__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:outputField value="{!oAssignResource.Allocation_Start_Date__c}" />
+                                                    </div>
+                                                    <div class="col-xs-3 label-wrapper left-aligned">
+                                                        <label>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_End_Date__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_End_Date__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.DRDW_Assign_Resource__c.Fields.Allocation_End_Date__c.inlinehelptext}</span>
+                                                            </div>
+                                                        </apex:outputpanel>
+                                                    </div>
+                                                    <div class="col-xs-3 field-wrapper left-aligned">
+                                                        <apex:outputField value="{!oAssignResource.Allocation_End_Date__c}" />
+                                                    </div>
+                                                </div>
+                                            </apex:OutputPanel>
+                                            <!-- end -->
+                                            <section class="row">
+                                                <div class="col-xs-12">
+                                                    <fieldset class="accordion-child resourceTable">
+                                                        <apex:pageBlock >
+                                                            <apex:pageBlockTable value="{!lResourceWrapper}" var="item" rendered="{!(lResourceWrapper.size != 0)}">
+                                                                <apex:column html-data-id="{!item.ResId}">
+                                                                    <apex:facet name="header">Select</apex:facet>
+                                                                    <!-- <apex:selectRadio value="{!selectedResource}" html-name ="Selectrad">
+                                                                        <apex:selectOption itemvalue="{!item.ResId}"/>
+                                                                        </apex:selectRadio> -->
+                                                                    <input value="{!item.ResId}" type="radio" name="selectRadio">
+                                                                    </input>  
+                                                                </apex:column>
+                                                                <apex:column >
+                                                                    <apex:facet name="header">Resources</apex:facet>
+                                                                    {!item.Name}
+                                                                </apex:column>
+                                                                <apex:column >
+                                                                    <apex:facet name="header">Allocation Percentage</apex:facet>
+                                                                    <apex:variable var="amount" value="{!item.alloc}" />
+                                                                    <div class="{!IF((amount!= null && amount > 75),'color red',IF((amount!= null && amount > 50),'color yellow','color green'))}">
+                                                                        {!item.alloc}%                             
+                                                                    </div>
+                                                                </apex:column>
+                                                                <apex:column >
+                                                                    <apex:facet name="header">
+                                                                        Potential Conflicts
+                                                                        <div class="helpOrb tooltip-sfdc tooltip-left"><span>Resource is allocated over 75% on these dates</span></div>
+                                                                    </apex:facet>
+                                                                    {!item.conflicts}                                                
+                                                                </apex:column>
+                                                            </apex:pageBlockTable>
+                                                            <apex:outputText rendered="{!lResourceWrapper.size==0}" value="You cannot assign this resource to this activity."></apex:outputText>
+                                                        </apex:pageBlock>
+                                                    </fieldset>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <!-- modal-body ends -->
+                                        <div class="modal-footer">
+                                            <a href="#" class="button cancel-action" data-dismiss="modal">Cancel</a>
+                                            <!--<button type="button" class="btn button confirm-action">Save</button>-->
+                                            <apex:commandLink onclick="getSelectedResource();" styleClass="button confirm-action" reRender="xyz">Assign</apex:commandLink>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                            </apex:form>
+                        </div>
+                    </div>
+                </div>
+                <!--temp chnage script-->
+            </div>
+            <c:DRDW_SR2_FooterComponent />
+            <c:DRDW_QFOR_Scripts />
+            <script>
+                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                    e.target // newly activated tab
+                    e.relatedTarget // previous active tab
+                    if (!$(e.target).hasClass("initialized")) {
+                        generateResourceTree();
+                        $(e.target).addClass("initialized");
+                    }
+                })
+                
+                // Capacity Modal Callback on Show
+                $('#capacity-modal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget) // Button that triggered the modal
+                    // var recipient = button.data('whatever') // Extract info from data-* attributes
+                
+                    // Call Modal Function Here
+                    
+                    console.log();
+                });
+                
+                function setResourceIdAndNext(){
+                    var resourceId = localStorage.getItem('sfdcID');
+                    callNext(resourceId);
+                }
+                
+                // Resource Modal Callback on Show
+                $('#resource-modal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget) // Button that triggered the modal
+                    // var recipient = button.data('whatever') // Extract info from data-* attributes
+                
+                    // Call Modal Function Here
+                    
+                    console.log('test');
+                });
+                
+                // Get Data
+                document.addEventListener('DOMContentLoaded', function () {
+                    df_drdw.capacity.initialize("project-tree", {!jsonString});
+                        //generateResourceTree();
+                    //df_drdw.capacity.initialize("resource-tree", {!resourceViewObject.jsonStringResource});
+                    $('a[data-toggle="tab"][href="#projectView"').addClass("initialized");
+                }, false);
+                
+                // All tree JSON functions fail in IE if called directly from action functions. Hence wrapper functions are written in the document to pass the values onto the static resource functions
+                function initResourceTree(jsonString) {
+                    df_drdw.capacity.initialize("resource-tree", jsonString);
+                }
+                function reinitResourceTree(jsonString) {
+                    df_drdw.capacity.reinitialize("resource-tree", jsonString);
+                }
+                
+                function hidedisplay(jsonstring){
+                    $('#capacity-modal').modal('hide');
+                    df_drdw.capacity.reinitialize("project-tree", jsonstring);
+                    
+                } 
+                function hidedisplayassign(jsonstring){
+                    $('#resource-modal').modal('hide');
+                    df_drdw.capacity.reinitialize("resource-tree", jsonstring);
+                    
+                }
+                function getSelectedResource()
+                    {
+                        console.log('test22222');
+                        var id = $('input[name=selectRadio]:checked').val();        
+                        assignResourceJS(id);            
+                    }
+                function setResourceIdAndGetGroup(){
+                }
+                
+            </script>
+        </body>
+    </html>
+</apex:page>

@@ -1,0 +1,8 @@
+Hi,
+<br/><br/>
+DECLINED: Thank you for your submission of the Study Initiation Form. Your submission for {!DRDW_Cap_Request__c.Related_Project_Name__c}, {!DRDW_Cap_Request__c.Study_Title__c} has been reviewed and declined due to resource constraints at the Iowa Site. 
+<br/>
+Related Project : <a href="{!DRDW_Cap_Request__c.Related_Project_link__c}">{!DRDW_Cap_Request__c.Related_Project_Name__c}</a>
+<br/><br/>
+Thank you,<br/>
+Elanco R&D

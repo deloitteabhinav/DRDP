@@ -1,0 +1,68 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" standardController="DRDW_Project__c" extensions="DRDW_CreateIdeaController" id="thePage">
+ 
+    <head>
+    <title>Plan Evaluation Project</title>
+    <c:DRDW_QFOR_Styles />
+    <c:DRDW_IndexNew />
+    </head>
+    <style>
+    .lookupInput input{
+        width: 0px;
+        border: none;
+    }
+    </style>
+    <script>
+    $(document).ready(function(){
+    var anchor = $('.lookupInput a');
+    var img = $('.lookupInput img');
+    anchor.addClass('navigate-to-link');
+    anchor.html('Lookup Idea');
+    img.remove();
+    
+    });
+    
+    </script>
+        
+     <div class='df_drdw content'>
+       <div class="df_drdw-createstudy df_drdw-bp-interim">
+        <header>
+            <div class="pattern"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 banner-properties">
+                        <div class="container">
+                        <h1>Create Evaluation Project</h1>
+                        <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+        <apex:form >
+            <div class="request-types-container ">
+                <div class="col-md-6 request-item">
+                     <div class="hover-wrapper">
+                     <span class="name bold font-m">Create New</span>
+                     <p class="description font-s">Evaluation Projects are to be created after successfully passing the DTE gate. Projects can be generated from internal and external sources. If an Evaluation Project is related to an existing Idea, the Idea can be associated with the Evaluation Project upon creation.</p>
+                     <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_CreateIdea">Create</apex:outputlink>
+                     </div>
+                </div>
+                <div class="col-md-6 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Use Existing Idea</span>
+                    <p class="description font-s">Use Existing Idea to Create new Evaluation Project.Using this will populate few Evaluation projects field from the selected Idea.</p>
+                    <apex:outputPanel >
+                    <apex:inputField value="{!oIdea.Related_Idea__c}" onchange="redirect();"/>
+                    <apex:actionFunction action="{!copyFieldsfromEvaluation}" name="redirect"/>
+                    </apex:outputPanel>
+                    </div>
+                </div>
+            </div>
+         </apex:form>   
+        </main>
+        </div>
+        </div>
+       <c:DRDW_SR2_FooterComponent />
+       <c:DRDW_QFOR_Scripts />
+</apex:page>

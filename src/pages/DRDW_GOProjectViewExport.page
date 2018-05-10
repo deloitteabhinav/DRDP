@@ -1,0 +1,46 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" controller="DRDW_GOProjectViewCtrl" cache="true" contentType="application/vnd.ms-excel#GOProjectViewExport.xls" >
+
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!levent}" var="oevent">
+                <apex:column >
+                    <apex:facet name="header">Project Name</apex:facet>
+                    <apex:outputField value="{!oevent.DRDW_Activity__r.DRDW_Request__r.Project__r.Name__c}"  />
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Request ID</apex:facet>
+                    <apex:outputField value="{!oevent.DRDW_Activity__r.DRDW_Request__r.Name}"  />
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Event Type</apex:facet>
+                    <apex:outputField value="{!oevent.Event_Type__c}"  />
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Study Start Date</apex:facet>
+                    <apex:outputField value="{!oevent.DRDW_Activity__r.DRDW_Request__r.GO_Preferred_Start_Date__c}" rendered="{!if(oevent.DRDW_Activity__r.DRDW_Request__r.Preferred_Start_Date_Locked__c == true,true,false)}" />
+                    <apex:outputField value="{!oevent.DRDW_Activity__r.DRDW_Request__r.Planned_Study_Start_Date__c}" rendered="{!if(oevent.DRDW_Activity__r.DRDW_Request__r.Preferred_Start_Date_Locked__c == false,true,false)}" />                    
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Study End Date</apex:facet>
+                    <apex:outputField value="{!oevent.DRDW_Activity__r.DRDW_Request__r.GO_Preferred_End_Date__c}" rendered="{!if(oevent.DRDW_Activity__r.DRDW_Request__r.Preferred_Start_Date_Locked__c == true,true,false)}" />
+                    <apex:outputField value="{!oevent.DRDW_Activity__r.DRDW_Request__r.Planned_Study_End_Date__c}" rendered="{!if(oevent.DRDW_Activity__r.DRDW_Request__r.Preferred_Start_Date_Locked__c == false,true,false)}" />                    
+                </apex:column> 
+                <apex:column >
+                    <apex:facet name="header">Event Dates</apex:facet>
+                    <apex:outputField value="{!oevent.Event_Dates__c}"  />
+                </apex:column>               
+                <apex:column >
+                    <apex:facet name="header">Request Status</apex:facet>
+                    <apex:outputField value="{!oevent.Status__c}"  />
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Event Status</apex:facet>
+                    <apex:outputField value="{!oevent.DRDW_Activity__r.DRDW_Request__r.Request_Status__c}"  />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+   
+    </apex:form>
+    
+    
+</apex:page>

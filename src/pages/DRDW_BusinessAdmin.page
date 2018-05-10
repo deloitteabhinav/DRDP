@@ -1,0 +1,80 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" controller="DRDW_BusinessAdmin">
+ 
+    <head>
+    <title>Admin</title>
+    <c:DRDW_QFOR_Styles />
+    </head>
+        
+    <c:DRDW_IndexNew />
+     <div class='df_drdw content'>
+       <div class="df_drdw-createstudy df_drdw-admin-interim">
+        <header>
+            <div class="pattern"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 banner-properties">
+                        <div class="container">
+                        <h1>Admin Features</h1>
+                        <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+            <div class="request-types-container">
+                <div class="col-md-4 request-item">
+                     <div class="hover-wrapper">
+                     <span class="name bold font-m">Cycle Time Standard</span>
+                     <p class="description font-s">Here we can update the Cycle Time Standard values within the system.</p>
+                     <apex:outputPanel rendered="{!isFinancialAdmin}">
+                     <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_Redirect">Update</apex:outputlink>
+                     </apex:outputPanel>
+                     </div>
+                </div> 
+                <div class="col-md-4 request-item">
+                     <div class="hover-wrapper">
+                     <span class="name bold font-m">Global Lists Of Values</span>
+                     <p class="description font-s">Here we can update the global lists of values within the system.</p>
+                     <apex:outputPanel rendered="{!isFinancialAdmin}">
+                     <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_AddPicklists">Create/Update</apex:outputlink>
+                     </apex:outputPanel>
+                     </div>
+                </div>  
+                 <div class="col-md-4 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Cost Center</span>
+                    <p class="description font-s">Here we can Create or Update the Cost Center within the system.</p>
+                    <apex:outputPanel rendered="{!isFinancialAdmin}">
+                    <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_CostCenterinfo">Create/Update</apex:outputlink>
+                    </apex:outputPanel>
+                    </div>
+                </div>                                
+            </div>
+            <div class="request-types-container">                                                
+                <div class="col-md-4 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Non-Discretionary Budget</span>
+                    <p class="description font-s">Here we can Create Non-Discretionary Budget within the system.</p>
+                    <apex:outputPanel rendered="{!isFinancialAdmin}">
+                    <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_NonDiscretionary">Create/Update</apex:outputlink>
+                    </apex:outputPanel>
+                    </div>
+                </div>
+                <div class="col-md-4 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Roster</span>
+                    <p class="description font-s">Here we can update the Roster of resources for capacity management.</p>
+                    <apex:outputPanel rendered="{!IF(OR(isAdmin,isFinancialAdmin),true,false)}">
+                    <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDW_ResourceList">Create/Update</apex:outputlink>
+                    </apex:outputPanel>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+        </div>
+        </div>
+       <c:DRDW_SR2_FooterComponent />
+       <c:DRDW_QFOR_Scripts />
+</apex:page>

@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Activity_Area__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Activity Area</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Activity_Title__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Activity Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Allocation_End_Date__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Allocation End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Allocation_Start_Date__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Allocation Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DRDW_Activity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>DRDW Activity</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>(1 AND 2) OR (3 AND 4)</booleanFilter>
+            <filterItems>
+                <field>DRDW_Capability__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Request Activity</value>
+            </filterItems>
+            <filterItems>
+                <field>DRDW_Capability__c.DRDW_Request__r.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ERL</value>
+            </filterItems>
+            <filterItems>
+                <field>DRDW_Capability__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Study Activity</value>
+            </filterItems>
+            <filterItems>
+                <field>DRDW_Capability__c.DRDW_Request__r.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>GO</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>DRDW_Capability__c</referenceTo>
+        <relationshipLabel>DRDW Assign Resources</relationshipLabel>
+        <relationshipName>DRDW_Assign_Resources</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DRDW_Event__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>DRDW Event</label>
+        <referenceTo>DRDW_Event__c</referenceTo>
+        <relationshipLabel>DRDW Assign Resources</relationshipLabel>
+        <relationshipName>DRDW_Assign_Resources</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DRDW_Resources__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>DRDW Resource</label>
+        <referenceTo>DRDW_Resource__c</referenceTo>
+        <relationshipLabel>DRDW Assign Resources</relationshipLabel>
+        <relationshipName>DRDW_Assign_Resources</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Frequency_UI__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Frequency</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Frequency__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Frequency Backend</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Go_Sub_Activities__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>GO Sub-Activities</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Animal Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FD Laboratory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FD Study Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FD Veterinary Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Study Execution</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hours_Per_Day__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours Per Day</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Task__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Other Task</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task__c</fullName>
+        <externalId>false</externalId>
+        <label>Task</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Group__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Bacterial Isolation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Binder/Documentation Prep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Challenge</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Challenge Material Propagation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Challenge Prep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Challenge Titrations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cleaning</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enrichment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equipment Maintenance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Growth Study</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hematology</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Husbandry and/or Handling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inventory Management</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Necropsy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Observations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ordering</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PCR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Place Animals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Protocol Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reagent Preparation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sample Collection</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sample Shipment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scheduling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Serological Assays</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Set Up</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Socialization</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tear Down</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Temps</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tissue Culture</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transfer Animals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vaccination/IVP Administration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vaccination Titrations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vaccine Prep</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Veterinary Care</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Veterinary Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vet Tech Support</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Virus Isolation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Welfare Checks</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Animal Care</controllingFieldValue>
+                <valueName>Husbandry and/or Handling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Animal Care</controllingFieldValue>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <controllingFieldValue>FD Study Management</controllingFieldValue>
+                <controllingFieldValue>FD Veterinary Support</controllingFieldValue>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Animal Care</controllingFieldValue>
+                <valueName>Set Up</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Animal Care</controllingFieldValue>
+                <valueName>Tear Down</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Bacterial Isolation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Binder/Documentation Prep</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Challenge Material Propagation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Challenge Prep</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Challenge Titrations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Cleaning</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Data Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Equipment Maintenance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Growth Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Hematology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Inventory Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Ordering</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>PCR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Protocol Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Reagent Preparation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Sample Shipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Scheduling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Serological Assays</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Tissue Culture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Vaccination Titrations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Vaccine Prep</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Laboratory</controllingFieldValue>
+                <valueName>Virus Isolation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Veterinary Support</controllingFieldValue>
+                <valueName>Enrichment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Veterinary Support</controllingFieldValue>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Observations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Veterinary Support</controllingFieldValue>
+                <valueName>Socialization</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Veterinary Support</controllingFieldValue>
+                <valueName>Veterinary Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Veterinary Support</controllingFieldValue>
+                <valueName>Veterinary Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Veterinary Support</controllingFieldValue>
+                <valueName>Vet Tech Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FD Veterinary Support</controllingFieldValue>
+                <valueName>Welfare Checks</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Challenge</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Necropsy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Place Animals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Sample Collection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Temps</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Transfer Animals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study Execution</controllingFieldValue>
+                <valueName>Vaccination/IVP Administration</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <label>DRDW Assign Resource</label>
+    <nameField>
+        <displayFormat>AssRes-{0000}</displayFormat>
+        <label>DRDW Assign Res</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>DRDW Assign Resources</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
