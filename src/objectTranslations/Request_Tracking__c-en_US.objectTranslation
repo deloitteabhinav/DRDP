@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Request Tracking</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Request Trackings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Complete Date --></label>
+        <name>Estimated_Complete_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Start Date --></label>
+        <name>Estimated_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request --></label>
+        <name>RWE_Request__c</name>
+        <relationshipLabel><!-- Request Trackings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Request Stage --></label>
+        <name>Request_Stage__c</name>
+        <picklistValues>
+            <masterLabel>Analysis</masterLabel>
+            <translation><!-- Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultation</masterLabel>
+            <translation><!-- Consultation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contracting</masterLabel>
+            <translation><!-- Contracting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exploration</masterLabel>
+            <translation><!-- Exploration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Governance</masterLabel>
+            <translation><!-- Governance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Launch</masterLabel>
+            <translation><!-- Launch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Additional Information/Review</masterLabel>
+            <translation><!-- Pending Additional Information/Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending RWE Inc. Action</masterLabel>
+            <translation><!-- Pending RWE Inc. Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Requestor Action</masterLabel>
+            <translation><!-- Pending Requestor Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Analysis</masterLabel>
+            <translation><!-- Ready for Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Validation</masterLabel>
+            <translation><!-- Ready for Validation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scientific Assessment</masterLabel>
+            <translation><!-- Scientific Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Assessment</masterLabel>
+            <translation><!-- Technical Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation</masterLabel>
+            <translation><!-- Validation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>​Initial Assessment</masterLabel>
+            <translation><!-- ​Initial Assessment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Request Status --></label>
+        <name>Request_Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Archived</masterLabel>
+            <translation><!-- Archived --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deleted</masterLabel>
+            <translation><!-- Deleted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Action</masterLabel>
+            <translation><!-- Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Note</masterLabel>
+            <translation><!-- Note --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Update</masterLabel>
+            <translation><!-- Update --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Request Tracking</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Estimate Complete Date cannot be before Estimate Start Date. --></errorMessage>
+        <name>Date_Validation</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -4,6 +4,7 @@
     <description>Start Here</description>
     <formFactors>Large</formFactors>
     <label>Force.com</label>
-    <logo>SharedDocuments/Foundry_Logo.png</logo>
     <tab>standard-Chatter</tab>
+    <tab>DRDP_Configuration__c</tab>
+    <tab>Contracts__c</tab>
 </CustomApplication>

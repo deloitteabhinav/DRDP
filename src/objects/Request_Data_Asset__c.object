@@ -49,6 +49,7 @@
     <description>Join object relating RWE Data Assets to Requests.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -109,4 +110,5 @@
         <errorConditionFormula>AND(TEXT(Request__r.Request_Status__c) &lt;&gt; &apos;New&apos;)</errorConditionFormula>
         <errorMessage>You cannot add Data Asset. Request status is not &quot;New&quot;.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

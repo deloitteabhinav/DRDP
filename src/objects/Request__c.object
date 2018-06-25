@@ -49,6 +49,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -71,16 +72,19 @@
                     <fullName>Internal</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Internal</label>
                 </value>
                 <value>
                     <fullName>External</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>External</label>
                 </value>
                 <value>
                     <fullName>No Longer Accessible</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>No Longer Accessible</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -111,30 +115,37 @@
                 <value>
                     <fullName>Animal Health</fullName>
                     <default>false</default>
+                    <label>Animal Health</label>
                 </value>
                 <value>
                     <fullName>Biotech</fullName>
                     <default>false</default>
+                    <label>Biotech</label>
                 </value>
                 <value>
                     <fullName>Consumer Health</fullName>
                     <default>false</default>
+                    <label>Consumer Health</label>
                 </value>
                 <value>
                     <fullName>Generics</fullName>
                     <default>false</default>
+                    <label>Generics</label>
                 </value>
                 <value>
                     <fullName>Medical Devices</fullName>
                     <default>false</default>
+                    <label>Medical Devices</label>
                 </value>
                 <value>
                     <fullName>Pharmaceuticals</fullName>
                     <default>false</default>
+                    <label>Pharmaceuticals</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -154,26 +165,32 @@
                 <value>
                     <fullName>Deprioritized</fullName>
                     <default>false</default>
+                    <label>Deprioritized</label>
                 </value>
                 <value>
                     <fullName>Discontinued</fullName>
                     <default>false</default>
+                    <label>Discontinued</label>
                 </value>
                 <value>
                     <fullName>Outsourcing Services</fullName>
                     <default>false</default>
+                    <label>Outsourcing Services</label>
                 </value>
                 <value>
                     <fullName>Scope change/no services needed</fullName>
                     <default>false</default>
+                    <label>Scope change/no services needed</label>
                 </value>
                 <value>
                     <fullName>Molecule development cancelled</fullName>
                     <default>false</default>
+                    <label>Molecule development cancelled</label>
                 </value>
                 <value>
                     <fullName>Other - please provide a description in Chatter</fullName>
                     <default>false</default>
+                    <label>Other - please provide a description in Chatter</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -204,14 +221,17 @@
                 <value>
                     <fullName>Brief (conversations w/o draft review)</fullName>
                     <default>false</default>
+                    <label>Brief (conversations w/o draft review)</label>
                 </value>
                 <value>
                     <fullName>Short Term (1-3 meetings including draft review)</fullName>
                     <default>false</default>
+                    <label>Short Term (1-3 meetings including draft review)</label>
                 </value>
                 <value>
                     <fullName>Long Term (&gt;3 meetings including draft review)</fullName>
                     <default>false</default>
+                    <label>Long Term (&gt;3 meetings including draft review)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -375,6 +395,43 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Partner_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Partner Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Requests</relationshipLabel>
+        <relationshipName>Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Partner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Partner Organization Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>DRDP_Partners</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Requests</relationshipLabel>
+        <relationshipName>Requests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Partnership_Exploration_Initiator__c</fullName>
         <externalId>false</externalId>
         <label>Initiator for Partnership Exploration</label>
@@ -389,10 +446,12 @@
                 <value>
                     <fullName>Internal</fullName>
                     <default>false</default>
+                    <label>Internal</label>
                 </value>
                 <value>
                     <fullName>Potential Partner</fullName>
                     <default>false</default>
+                    <label>Potential Partner</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -412,18 +471,22 @@
                 <value>
                     <fullName>Federal Funding</fullName>
                     <default>false</default>
+                    <label>Federal Funding</label>
                 </value>
                 <value>
                     <fullName>Industry Funding</fullName>
                     <default>false</default>
+                    <label>Industry Funding</label>
                 </value>
                 <value>
                     <fullName>Joint Ventury (Industry)</fullName>
                     <default>false</default>
+                    <label>Joint Ventury (Industry)</label>
                 </value>
                 <value>
                     <fullName>Joint Ventury (Academia)</fullName>
                     <default>false</default>
+                    <label>Joint Ventury (Academia)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -443,18 +506,22 @@
                 <value>
                     <fullName>Evaluated and Not Pursued</fullName>
                     <default>false</default>
+                    <label>Evaluated and Not Pursued</label>
                 </value>
                 <value>
                     <fullName>Exploring</fullName>
                     <default>false</default>
+                    <label>Exploring</label>
                 </value>
                 <value>
                     <fullName>Approved and Active</fullName>
                     <default>false</default>
+                    <label>Approved and Active</label>
                 </value>
                 <value>
                     <fullName>Approved and Pursuing</fullName>
                     <default>false</default>
+                    <label>Approved and Pursuing</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -499,14 +566,17 @@
                 <value>
                     <fullName>High (&lt;1 week)</fullName>
                     <default>false</default>
+                    <label>High (&lt;1 week)</label>
                 </value>
                 <value>
                     <fullName>Medium (&lt;1 month)</fullName>
                     <default>false</default>
+                    <label>Medium (&lt;1 month)</label>
                 </value>
                 <value>
                     <fullName>Low (&lt;2 months)</fullName>
                     <default>false</default>
+                    <label>Low (&lt;2 months)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -549,30 +619,36 @@
                     <fullName>Asia Pacific</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Asia Pacific</label>
                 </value>
                 <value>
                     <fullName>Emerging Markets</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Emerging Markets</label>
                 </value>
                 <value>
                     <fullName>EMEA</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>EMEA</label>
                 </value>
                 <value>
                     <fullName>Latin America</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>Latin America</label>
                 </value>
                 <value>
                     <fullName>Global (Multiple Regions)</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
+                    <label>Global (Multiple Regions)</label>
                 </value>
                 <value>
                     <fullName>North America</fullName>
                     <default>false</default>
+                    <label>North America</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -665,36 +741,43 @@
                     <fullName>New</fullName>
                     <color>#0B6FCE</color>
                     <default>true</default>
+                    <label>New</label>
                 </value>
                 <value>
                     <fullName>Accepted</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Accepted</label>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Completed</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>Completed</label>
                 </value>
                 <value>
                     <fullName>Archived</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
+                    <label>Archived</label>
                 </value>
                 <value>
                     <fullName>Cancelled</fullName>
                     <color>#A53711</color>
                     <default>false</default>
+                    <label>Cancelled</label>
                 </value>
                 <value>
                     <fullName>Deleted</fullName>
                     <color>#66E9BD</color>
                     <default>false</default>
+                    <label>Deleted</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -718,36 +801,43 @@
                     <fullName>Submitted</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
+                    <label>Submitted</label>
                 </value>
                 <value>
                     <fullName>Pending Requestor Action</fullName>
                     <color>#8F6429</color>
                     <default>false</default>
+                    <label>Pending Requestor Action</label>
                 </value>
                 <value>
                     <fullName>Pending Action</fullName>
                     <color>#EFAE73</color>
                     <default>false</default>
+                    <label>Pending Action</label>
                 </value>
                 <value>
                     <fullName>Exploration</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Exploration</label>
                 </value>
                 <value>
                     <fullName>Governance</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Governance</label>
                 </value>
                 <value>
                     <fullName>Contracting</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>Contracting</label>
                 </value>
                 <value>
                     <fullName>Launch</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>Launch</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -797,38 +887,47 @@
                 <value>
                     <fullName>Clinical_Studies</fullName>
                     <default>false</default>
+                    <label>Clinical_Studies</label>
                 </value>
                 <value>
                     <fullName>Discovery</fullName>
                     <default>false</default>
+                    <label>Discovery</label>
                 </value>
                 <value>
                     <fullName>Forecasting</fullName>
                     <default>false</default>
+                    <label>Forecasting</label>
                 </value>
                 <value>
                     <fullName>Joint Venture</fullName>
                     <default>false</default>
+                    <label>Joint Venture</label>
                 </value>
                 <value>
                     <fullName>Market Research</fullName>
                     <default>false</default>
+                    <label>Market Research</label>
                 </value>
                 <value>
                     <fullName>Medical Affairs</fullName>
                     <default>false</default>
+                    <label>Medical Affairs</label>
                 </value>
                 <value>
                     <fullName>Pre-Clinical Studies</fullName>
                     <default>false</default>
+                    <label>Pre-Clinical Studies</label>
                 </value>
                 <value>
                     <fullName>Patient Enrollment</fullName>
                     <default>false</default>
+                    <label>Patient Enrollment</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1042,62 +1141,77 @@
                 <value>
                     <fullName>Autoimmune Diseases</fullName>
                     <default>false</default>
+                    <label>Autoimmune Diseases</label>
                 </value>
                 <value>
                     <fullName>Cardiovascular</fullName>
                     <default>false</default>
+                    <label>Cardiovascular</label>
                 </value>
                 <value>
                     <fullName>Dermatology</fullName>
                     <default>false</default>
+                    <label>Dermatology</label>
                 </value>
                 <value>
                     <fullName>Diabetes</fullName>
                     <default>false</default>
+                    <label>Diabetes</label>
                 </value>
                 <value>
                     <fullName>Endocrinology</fullName>
                     <default>false</default>
+                    <label>Endocrinology</label>
                 </value>
                 <value>
                     <fullName>Gastroenterology</fullName>
                     <default>false</default>
+                    <label>Gastroenterology</label>
                 </value>
                 <value>
                     <fullName>Gynecology</fullName>
                     <default>false</default>
+                    <label>Gynecology</label>
                 </value>
                 <value>
                     <fullName>Immunology</fullName>
                     <default>false</default>
+                    <label>Immunology</label>
                 </value>
                 <value>
                     <fullName>Neurology</fullName>
                     <default>false</default>
+                    <label>Neurology</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Psychiatry &amp; Pain</fullName>
                     <default>false</default>
+                    <label>Psychiatry &amp; Pain</label>
                 </value>
                 <value>
                     <fullName>Rheumatology</fullName>
                     <default>false</default>
+                    <label>Rheumatology</label>
                 </value>
                 <value>
                     <fullName>Urology</fullName>
                     <default>false</default>
+                    <label>Urology</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
                 <value>
                     <fullName>Non-Therapeutic Area Specific</fullName>
                     <default>false</default>
+                    <label>Non-Therapeutic Area Specific</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1117,54 +1231,67 @@
                 <value>
                     <fullName>Academic medical center</fullName>
                     <default>false</default>
+                    <label>Academic medical center</label>
                 </value>
                 <value>
                     <fullName>Consultancy firm</fullName>
                     <default>false</default>
+                    <label>Consultancy firm</label>
                 </value>
                 <value>
                     <fullName>Government entity</fullName>
                     <default>false</default>
+                    <label>Government entity</label>
                 </value>
                 <value>
                     <fullName>Healthcare IT/Informatics</fullName>
                     <default>false</default>
+                    <label>Healthcare IT/Informatics</label>
                 </value>
                 <value>
                     <fullName>Integrated health system</fullName>
                     <default>false</default>
+                    <label>Integrated health system</label>
                 </value>
                 <value>
                     <fullName>Non-profit</fullName>
                     <default>false</default>
+                    <label>Non-profit</label>
                 </value>
                 <value>
                     <fullName>Patient advocacy group</fullName>
                     <default>false</default>
+                    <label>Patient advocacy group</label>
                 </value>
                 <value>
                     <fullName>Payer</fullName>
                     <default>false</default>
+                    <label>Payer</label>
                 </value>
                 <value>
                     <fullName>Pharma company</fullName>
                     <default>false</default>
+                    <label>Pharma company</label>
                 </value>
                 <value>
                     <fullName>Pharmacy benefit manager</fullName>
                     <default>false</default>
+                    <label>Pharmacy benefit manager</label>
                 </value>
                 <value>
                     <fullName>Professional society</fullName>
                     <default>false</default>
+                    <label>Professional society</label>
                 </value>
                 <value>
                     <fullName>Research network</fullName>
                     <default>false</default>
+                    <label>Research network</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1210,6 +1337,42 @@
         <label>All</label>
     </listViews>
     <listViews>
+        <fullName>DRDP_Deleted_Records_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Deleted Records</label>
+        <queue>DRDP_Deleted_Records</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DRDP_Partnership_Exploration_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Partnership Exploration</label>
+        <queue>DRDP_Partnership_Exploration</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DRDP_Research_Study_Consultation_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Research Study Consultation</label>
+        <queue>DRDP_Research_Study_Consultation</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DRDP_Scientific_Technology_Request</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Scientific Technology</label>
+        <queue>DRDP_Scientific_Technology</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>QUE_Data_Sourcing_Request</fullName>
         <filterScope>Queue</filterScope>
         <label>Data Sourcing</label>
@@ -1230,7 +1393,7 @@
     <listViews>
         <fullName>QUE_RWA_Asmnt_Request</fullName>
         <filterScope>Queue</filterScope>
-        <label>RWA Assessment</label>
+        <label>Assessment</label>
         <queue>QUE_RWA_Asmnt</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
@@ -1248,7 +1411,7 @@
     <listViews>
         <fullName>QUE_RWD_Analysis_Request</fullName>
         <filterScope>Queue</filterScope>
-        <label>Data Mart Project</label>
+        <label>Scientific Asset</label>
         <queue>QUE_RWD_Analysis</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
@@ -1257,7 +1420,7 @@
     <listViews>
         <fullName>QUE_RWD_Operations_Request</fullName>
         <filterScope>Queue</filterScope>
-        <label>RWD Operations</label>
+        <label>Operations</label>
         <queue>QUE_RWD_Operations</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
@@ -1266,44 +1429,8 @@
     <listViews>
         <fullName>QUE_RWD_Technical_Team_Request</fullName>
         <filterScope>Queue</filterScope>
-        <label>RWD Technical Team</label>
+        <label>Technical Team</label>
         <queue>QUE_RWD_Technical_Team</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>QUE_RWE_PFO_SRC_Review_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>PFO SRC Review</label>
-        <queue>DRDP_Research_Study_Consultation</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>QUE_RWE_Partnership_Exploration_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Partnership Exploration</label>
-        <queue>DRDP_Partnership_Exploration</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>QUE_Strategic_Consultants_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Strategic Consultants</label>
-        <queue>DRDP_Scientific_Technology</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>RWE_Deleted_Records_Request</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Deleted Records</label>
-        <queue>DRDP_Deleted_Records</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
@@ -1317,6 +1444,410 @@
     <pluralLabel>Requests</pluralLabel>
     <recordTypeTrackFeedHistory>true</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Partnership_Collab_Space_Request</fullName>
+        <active>true</active>
+        <description>This type of request is used by Partner Space Admin requesting to add Internal/External Member to the community</description>
+        <label>Partnership Collab Space Request</label>
+        <picklistValues>
+            <picklist>Access_Method__c</picklist>
+            <values>
+                <fullName>External</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Accessible</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit_Primary__c</picklist>
+            <values>
+                <fullName>Animal Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotech</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmaceuticals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vaccines</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cancellation_Reason__c</picklist>
+            <values>
+                <fullName>Deprioritized</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discontinued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Molecule development cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other - please provide a description in Chatter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outsourcing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scope change%2Fno services needed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Consultant_Resource_Effort__c</picklist>
+            <values>
+                <fullName>Brief %28conversations w%2Fo draft review%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term %28%3E3 meetings including draft review%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Short Term %281-3 meetings including draft review%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partnership_Exploration_Initiator__c</picklist>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Potential Partner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partnership_Sponsor__c</picklist>
+            <values>
+                <fullName>Federal Funding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industry Funding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Ventury %28Academia%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Ventury %28Industry%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partnership_Status__c</picklist>
+            <values>
+                <fullName>Approved and Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved and Pursuing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Evaluated and Not Pursued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exploring</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>High %28%3C1 week%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low %28%3C2 months%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium %28%3C1 month%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Region__c</picklist>
+            <values>
+                <fullName>Asia Pacific</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMEA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emerging Markets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global %28Multiple Regions%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Latin America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>North America</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Request_Status__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Archived</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deleted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Request_Sub_Status__c</picklist>
+            <values>
+                <fullName>Contracting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exploration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Governance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Action</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Requestor Action</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Requestor_Functional_Area__c</picklist>
+            <values>
+                <fullName>Clinical_Studies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forecasting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Venture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Affairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Enrollment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Clinical Studies</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Therapeutic_Area_Primary__c</picklist>
+            <values>
+                <fullName>Autoimmune Diseases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Endocrinology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gynecology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immunology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Therapeutic Area Specific</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Psychiatry %26 Pain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rheumatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vaccines</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Partner__c</picklist>
+            <values>
+                <fullName>Academic medical center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultancy firm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare IT%2FInformatics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Integrated health system</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient advocacy group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharma company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacy benefit manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional society</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Research network</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>Partnership_Exploration</fullName>
         <active>true</active>
@@ -1557,10 +2088,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Requestor_Functional_Area__c</picklist>
-            <values>
-                <fullName>Clinical Studies</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Discovery</fullName>
                 <default>false</default>
@@ -1946,10 +2473,6 @@
         <picklistValues>
             <picklist>Requestor_Functional_Area__c</picklist>
             <values>
-                <fullName>Clinical Studies</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Discovery</fullName>
                 <default>false</default>
             </values>
@@ -2334,10 +2857,6 @@
         <picklistValues>
             <picklist>Requestor_Functional_Area__c</picklist>
             <values>
-                <fullName>Clinical Studies</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Discovery</fullName>
                 <default>false</default>
             </values>
@@ -2521,6 +3040,7 @@
         <errorDisplayField>Cancellation_Reason__c</errorDisplayField>
         <errorMessage>Please provide a cancellation reason.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Submit</fullName>
         <availability>online</availability>

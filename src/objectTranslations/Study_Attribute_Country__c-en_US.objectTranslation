@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Study Attribute Country</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Study Attribute Countries</value>
+    </caseValues>
+    <fields>
+        <label><!-- Country --></label>
+        <name>RWE_Country__c</name>
+        <relationshipLabel><!-- Study Attribute Countries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Study Attribute --></label>
+        <name>Study_Attribute__c</name>
+        <relationshipLabel><!-- Study Attribute Countries --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

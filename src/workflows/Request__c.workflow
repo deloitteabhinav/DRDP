@@ -32,6 +32,32 @@
         <template>Email_Templates/DRDP_ST_New_Request_Submitted</template>
     </alerts>
     <alerts>
+        <fullName>Partner_Collaboration_Request_approval_notification</fullName>
+        <description>Partner Collaboration Request approval notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Partner_Onboarding_Team</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>DRDP_Email_Templates/Partner_Collab_Request_Approval_Acknowledgement</template>
+    </alerts>
+    <alerts>
+        <fullName>Partnership_Request_approval_notification</fullName>
+        <description>Partnership Request approval notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Partner_Onboarding_Team</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <field>Requestor__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>DRDP_Email_Templates/Partnership_Request_Approval_Acknowledgement</template>
+    </alerts>
+    <alerts>
         <fullName>ResearchStudy_Email_confirmation_to_Queue</fullName>
         <description>ResearchStudy Email confirmation to Queue</description>
         <protected>false</protected>
@@ -188,6 +214,44 @@
         <active>true</active>
         <formula>TRUE</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>WF_Notify_Onboarding_PartnerColloborationRequest</fullName>
+        <actions>
+            <name>Partner_Collaboration_Request_approval_notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Request__c.Partnership_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved and Active</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Request__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Partnership Collab Space Request</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>WF_Notify_Requestor_PartnerOnboardingteam</fullName>
+        <actions>
+            <name>Partnership_Request_approval_notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Request__c.Partnership_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved and Active</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Request__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Partnership Exploration Request</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>WF_Partnership_Exploration_Submit</fullName>

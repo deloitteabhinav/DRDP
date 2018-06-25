@@ -19,7 +19,9 @@ Public with sharing class PartnerShipList {
     public Decimal dPageCount {get;set;}
     public string previousSField {get;set;}
     Public boolean bShowMoreFlag {get;set;}
-
+    public boolean bShowCollobButton {get;set;}
+    Public List<PermissionSetAssignment> lCurrentUserPemissionSet{get; set;}
+    public Id iPermissionSetId;
 
 
     //Loading the constructor the page
@@ -31,7 +33,21 @@ Public with sharing class PartnerShipList {
         sOrder = 'ASC NULLS FIRST';
         bShowMoreFlag= true;
         mPartnershipStructure = new Map < String, List < wFilterWrapper >> ();
+        lCurrentUserPemissionSet = [SELECT PermissionSetId FROM PermissionSetAssignment where AssigneeId =: UserInfo.getUserId()];
+        bShowCollobButton = false;
+        if(lCurrentUserPemissionSet.size()>0)
+        {
+            iPermissionSetId = [select id from PermissionSet where Name='PartnerSpace_Admin'].Id;
+            for(PermissionSetAssignment oPSA : lCurrentUserPemissionSet)
+            {
+                if(oPSA.PermissionSetId == iPermissionSetId){
+                    bShowCollobButton = true;
+                    break;
+                }
+            }
 
+            }
+       
 
         // Methods for call
         DescribeObjectWithDetails();

@@ -1,6 +1,72 @@
 <apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" controller="InformationLandscapeList" readonly="true" id="thePage">
 
+    <!--  
+    <style>
+        /* Homepage Styles */
+        #wrap.homepage {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin-bottom: -80px;
+            padding-bottom: 80px;
+        }
 
+        .homepage #main {
+            padding-bottom: 0 !important;
+            display: flex;
+            flex: 1 0 auto;
+            flex-direction: column;
+        }
+
+        .homepage section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+            padding: 15px;
+            justify-content: center;
+        }
+    
+    .side-menu {
+        margin-top: 5px;
+    }
+    .profile-dropdown-div{
+        margin-left: -120px;
+        margin-top: 4px;
+     }
+    .profile-dropdown {
+        margin-left:30px;
+    }
+    .profile-dropdown .profile-menu{
+        background: transparent;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 180px;      
+    }
+    .profile-dropdown .dropdown-menu {
+        background: black;
+        color: white;
+    }
+    .profile-dropdown.open .profile-menu {
+        color: #92d400;
+    }
+    .profile-dropdown .profile-menu:hover{
+        color: #92d400;
+    }
+    .profile-dropdown.open .profile-menu:hover{
+        color: #92d400;
+    }
+    .profile-dropdown .dropdown-menu li a{
+        background: black;
+        color: white;
+        padding-bottom: 5px;
+    }
+    .profile-dropdown .dropdown-menu li a:hover{
+        background: black;
+        color: #92d400;
+    }
+    </style>
+    -->
     <script type='text/javascript'>
         function isValidSearchString(searchString) {
             var SEARCH_TRIGGER_THRESHOLD = 2;
@@ -29,7 +95,7 @@
     <title>Information Sources</title>
 
     <c:DRDP_IndexNew />
-
+    <c:R3_Styles />
     <apex:form id="theForm">
 
         <apex:actionFunction name="doSearchAf" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
@@ -43,10 +109,11 @@
                     <!--The below page logic will display the total number of data assets per filter-->
                     <div class="filter-header container">
                         <apex:outputpanel id="resultsize">
-                            <span class='result-count'>{!cLandscapeListController.ResultSize} Information Sources</span>
+                            <span class='result-count'>{!cLandscapeListController.ResultSize} Applications</span>
                         </apex:outputpanel>   
-                        <apex:outputlink value="/apex/DRDP_CreateLandscape?isEdit=true" styleClass="create-new enabled l-gold-2 hidden-xs">Create an Information Source</apex:outputlink>
-                        <a href="#" class='create-new enabled l-gold-2 hidden-xs' data-toggle="modal" data-target="#horizontal-organization-modal">Compare Organizations</a>                        
+                        <apex:outputlink value="/apex/DRDP_CreateLandscape?isEdit=true" styleClass="create-new enabled l-gold-2 hidden-xs">Create an Application</apex:outputlink>
+                        <a href="#" class='create-new enabled l-gold-2 hidden-xs' data-toggle="modal" data-target="#horizontal-organization-modal">Compare across organizations</a>                        
+                    &nbsp;    <apex:outputLink value="/apex/DRDP_Upload" styleClass="create-new enabled l-gold-2 hidden-xs" rendered="{!isAdmin}">Upload Application File</apex:outputLink>               
                         <span class='icon-large-caret down'></span>
                     </div>
 
@@ -58,8 +125,8 @@
 
                             <div class='filter-column-wrapper col-md-3'>
                                 <ul class='filter-column'>
-                                    <li>Source Type</li>
-                                    <apex:repeat value="{!mInfoLandscapeStructure['Source_Type__c']}" var="SourceType">
+                                    <li>Client Functional Group</li>
+                                    <apex:repeat value="{!mInfoLandscapeStructure['Client_Functional_Group__c']}" var="SourceType">
                                         <li>
                                             <apex:inputCheckbox value="{!SourceType.isSelected}">
                                                 <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" oncomplete="drdw.listViewComparo.handlers();" />
@@ -72,8 +139,8 @@
 
                             <div class='filter-column-wrapper col-md-3'>
                                 <ul class='filter-column'>
-                                    <li>Information Type</li>
-                                    <apex:repeat value="{!mInfoLandscapeStructure['Information_Type__c']}" var="InfoType">
+                                    <li>Application Type</li>
+                                    <apex:repeat value="{!mInfoLandscapeStructure['Application_Type__c']}" var="InfoType">
                                         <li>
                                             <apex:inputCheckbox value="{!InfoType.isSelected}">
                                                 <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" oncomplete="drdw.listViewComparo.handlers();" />
@@ -86,8 +153,8 @@
 
                             <div class='filter-column-wrapper col-md-3'>
                                 <ul class='filter-column'>
-                                    <li>Regulatory Type</li>
-                                    <apex:repeat value="{!mInfoLandscapeStructure['Regulatory_Indicator__c']}" var="Reg">
+                                    <li>App Retention Decision</li>
+                                    <apex:repeat value="{!mInfoLandscapeStructure['App_Retention_Decision__c']}" var="Reg">
                                         <li>
                                             <apex:inputCheckbox value="{!Reg.isSelected}">
                                                 <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" oncomplete="drdw.listViewComparo.handlers();" />
@@ -98,10 +165,11 @@
                                 </ul>
                             </div>
 
+                            <!-- HIDING FILTER AS WE DONT HAVE THIS FIELD ANYMORE 
                             <div class='filter-column-wrapper col-md-2'>
                                 <ul class='filter-column'>
-                                    <li>Sensitivity</li>
-                                    <apex:repeat value="{!mInfoLandscapeStructure['Sensitivity__c']}" var="Sen">
+                                    <li>Contract Decision/Contract Integration Decision</li>
+                                    <apex:repeat value="{!mInfoLandscapeStructure['Contract_Decision_Contract_Integration_D__c']}" var="Sen">
                                         <li>
                                             <apex:inputCheckbox value="{!Sen.isSelected}">
                                                 <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" oncomplete="drdw.listViewComparo.handlers();" />
@@ -111,10 +179,10 @@
                                     </apex:repeat>
                                 </ul>
                             </div>
-
+                            -->
                             <!--Pivot for Owner Types-->
                             
-                            <div class='pivot-container col-md-12'>
+                     <!--       <div class='pivot-container col-md-12'>
                                 <span class='label'>{!oLandscapeOptions.size-1} SDLC Classification</span>
                                 <label>
                                     <apex:selectList multiselect="false" size="1" value="{!sAccessDetailType}">
@@ -122,7 +190,7 @@
                                         <apex:selectOptions value="{!oLandscapeOptions}" />
                                     </apex:selectList>
                                 </label>
-                            </div> 
+                            </div>  -->
 
                             <!--End of Output Panel-->
                         </apex:outputpanel>
@@ -135,7 +203,7 @@
                 <!--Below page logic contains local search Bar-->
                 <div class='type-ahead-search-wrapper container'>
                     <span class='icon-find'></span>
-                    <apex:inputtext value="{!sSearchWord}" html-placeholder="Search Information Source" onkeypress=".listViewComparo.handlers(),return noenter(event);" styleClass="keyword_DataAsset_Search_Text" />
+                    <apex:inputText value="{!sSearchWord}" html-placeholder="Search Applications" onkeypress=".listViewComparo.handlers(),return noenter(event);" styleClass="keyword_DataAsset_Search_Text" />
                     <apex:commandButton Value="Go" action="{!FetchDataForCriteria}" Styleclass="button create-new l-gold-2" disabled="false" rerender="PaginationPanel,therapueticareaCol,resultsize" oncomplete="drdw.listViewComparo.handlers();" />
                     <apex:outputlink value="/apex/DRDP_InformationLandscapeList" StyleClass="filter-reset">Clear All</apex:outputlink>
                 </div>
@@ -149,54 +217,58 @@
 
                         <!-- Selection of Landscapes -->
                         
+                        <!--  HIDING SELECT COLUMN -->
                         <div class='result-header-item col-md-1'>
                            Select
-                        </div>
+                        </div> 
+                        
 
                         <!--Name column of the results displayed-->
                         <div class='result-header-item col-md-2 sort-by'>
-                            <apex:commandlink value="Name" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
+                            <apex:commandlink value="Application Name" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
                                 <apex:param name="Name" value="Name" assignTo="{!sField}" />
                             </apex:commandlink>
                             <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Name'}" />
                         </div>
 
                         <!--Therapeutic Area column of the results displayed-->
-                        <div class='result-header-item col-md-3 sort-by'>
-                            <apex:commandlink value="Description" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
-                                <apex:param name="Source_Description__c" value="Source_Description__c" assignTo="{!sField}" />
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Vendor" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
+                                <apex:param name="Vendor__c" value="Vendor__c" assignTo="{!sField}" />
                             </apex:commandlink>
-                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up ","icon-arrow down ")}" rendered="{!sField='Source_Description__c'}" />
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up ","icon-arrow down ")}" rendered="{!sField='Vendor__c'}" />
                         </div>
 
 
                         <!--Database Type column of the results displayed-->
                         <div class='result-header-item col-md-2 sort-by hidden-xs'>
-                            <apex:commandlink value="Group Name" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
-                                <apex:param name="Group_Name__c" value="Group_Name__c" assignTo="{!sField}" />
+                            <apex:commandlink value="Product" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
+                                <apex:param name="Product__c" value="Product__c" assignTo="{!sField}" />
                             </apex:commandlink>
 
-                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up ","icon-arrow down ")}" rendered="{!sField='Group_Name__c'}" />
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up ","icon-arrow down ")}" rendered="{!sField='Product__c'}" />
 
                         </div>
 
                         <!--Access method column of the results displayed-->
                         <div class='result-header-item col-md-2 sort-by hidden-xs'>
-                            <apex:commandlink value="Target Decommission Indicator" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
-                                <apex:param name="Target_Decommissioning_Indicator__c" value="Target_Decommissioning_Indicator__c" assignTo="{!sField}" />
+                            <apex:commandlink value="Client Functional Area" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
+                                <apex:param name="Client_Functional_Area__c" value="Client_Functional_Area__c" assignTo="{!sField}" />
                             </apex:commandlink>
-                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up ","icon-arrow down ")}" rendered="{!sField='Target_Decommissioning_Indicator__c'}" />
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up ","icon-arrow down ")}" rendered="{!sField='Client_Functional_Area__c'}" />
                         </div>
 
 
 
                         <!--Asset Status column of the results displayed-->
                         <div class='result-header-item col-md-2 sort-by hidden-xs'>
-                            <apex:commandlink value="Integration Mechanism" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
-                                <apex:param name="Integration_Mechanism__c" value="Integration_Mechanism__c" assignTo="{!sField}" />
+                            <apex:commandlink value="App Disposition Time Frame" action="{!sort}" rerender="Listcontent,PaginationPanel" oncomplete="drdw.listViewComparo.handlers();">
+                                <apex:param name="App_Disposition_Timeframe__c" value="App_Disposition_Timeframe__c" assignTo="{!sField}" />
                             </apex:commandlink>
-                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up ","icon-arrow down ")}" rendered="{!sField='Integration_Mechanism__c'}" />
+                            <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up ","icon-arrow down ")}" rendered="{!sField='App_Disposition_Timeframe__c'}" />
                         </div>
+
+                        
 
                     </div>
 
@@ -212,20 +284,22 @@
                    <div class='results with-comparo container'>
                         <apex:repeat value="{!lLandscapeRecordWrap}" var="Landscape">
                             <div class='result-item col-md-12'>
+                                <!-- HIDING SELECTION OF APPs TO COMPARE -->
                                 <div class='col-md-1'>
                                     <apex:inputCheckbox value="{!Landscape.IsSelected}"></apex:inputCheckbox>
-                                </div>
-                                <div class='col-md-2'><apex:outputLink value="/apex/DRDP_CreateLandscape?Id={!Landscape.oLandscape.Id}&IsEdit=false" target="_blank">{!Landscape.oLandscape.Name}</apex:outputLink></div>
-                                <div class='col-md-3'>{!Landscape.oLandscape.Source_Description__c}</div>
-                                <div class='col-md-2 hidden-xs'>{!Landscape.oLandscape.Group_Name__c}</div>
-                                <div class='col-md-2 hidden-xs'>{!Landscape.oLandscape.Target_Decommissioning_Indicator__c}</div>
-                                <div class='col-md-2 hidden-xs'>{!Landscape.oLandscape.Integration_Mechanism__c}</div>
+                                </div> 
+                                <div class='col-md-2'><apex:outputLink value="/apex/DRDP_CreateLandscape?Id={!Landscape.oLandscape.Id}&IsEdit=false" target="_blank">{!Landscape.oLandscape.Name}</apex:outputLink></div> 
+                                <div class='col-md-2 hidden-xs'><apex:outputLink value="/{!Landscape.oLandscape.Vendor__c}" target="_blank">{!Landscape.oLandscape.Vendor__r.Name}</apex:outputLink></div>
+                                <div class='col-md-2 hidden-xs'>{!Landscape.oLandscape.Product__c}</div>
+                                <div class='col-md-2 hidden-xs'>{!Landscape.oLandscape.Client_Functional_Area__c}</div>
+                                <div class='col-md-2 hidden-xs'>{!Landscape.oLandscape.App_Retention_Decision__c}</div>
                             </div>
                         </apex:repeat>
                     </div>
 
                     <apex:outputPanel rendered="{!cLandscapeListController.ResultSize>0}">
-                        <div class='pagination container'>
+                       <div align="center">
+                        <div class='pagination container'>                       
                             <span class='col-md-12'>Displaying {!((cLandscapeListController.pagenumber-1)*cLandscapeListController.pagesize)+1}-{!IF(cLandscapeListController.ResultSize < ((cLandscapeListController.pagenumber)*cLandscapeListController.pagesize),cLandscapeListController.ResultSize,((cLandscapeListController.pagenumber)*cLandscapeListController.pagesize))} of {!cLandscapeListController.ResultSize}</span>
                             <div class='indicator-container col-md-12'>
                                 <apex:actionregion >
@@ -239,6 +313,7 @@
                                 </apex:actionregion>
                             </div>
                         </div>
+                       </div> 
                         <c:DRDP_FooterComponent />
                     </apex:outputPanel>
                 </apex:outputpanel>
@@ -257,12 +332,12 @@
                                 <apex:repeat value="{!lSections}" var="s">
                                     <div class="row">
                                         <h2>{!s}</h2>
-                                        <apex:repeat value="{!FieldList}" var="f">
-                                            <apex:outputPanel rendered="{!If(f.Section==s,true,false)}" id="SelectFields">
+                                        <apex:repeat value="{!FieldList}" var="f1">
+                                            <apex:outputPanel rendered="{!If(f1.Section==s,true,false)}" id="SelectFields">
                                                 <div class="col-xs-3">
-                                                    <apex:inputCheckbox styleClass="{!If(f.Label == 'Source Name','js-preselected','')}" value="{!f.fSelected}">
+                                                    <apex:inputCheckbox styleClass="{!If(f1.Label == 'Source Name','js-preselected','')}" value="{!f1.fSelected}">
                                                     </apex:inputCheckbox>
-                                                    <label for='{!f.Label}'>{!f.Label}</label>
+                                                    <label for='{!f1.Label}'>{!f1.Label}</label>
                                                 </div>
                                             </apex:outputPanel>
                                         </apex:repeat>
@@ -294,11 +369,11 @@
                             <div class='filter-container container-fluid'>
                                     <div class="row">
                                         <h2>Organizations</h2>
-                                        <apex:repeat value="{!lwOrganisation }" var="f">
+                                        <apex:repeat value="{!lwOrganisation }" var="f2">
                                                 <div class="col-xs-3">
-                                                    <apex:inputCheckbox value="{!f.bSelected}" onchange="CheckItemSelect();">
+                                                    <apex:inputCheckbox value="{!f2.bSelected}" onchange="CheckItemSelect();">
                                                     </apex:inputCheckbox>
-                                                    <label for='{!f.oAccount.Name}'>{!f.oAccount.Name}</label>
+                                                    <label for='{!f2.oAccount.Name}'>{!f2.oAccount.Name}</label>
                                                 </div>
                                         </apex:repeat>
                                     </div>
@@ -319,4 +394,5 @@
         </div>
 
     </apex:form>
+    <c:R3_Scripts /> 
 </apex:page>

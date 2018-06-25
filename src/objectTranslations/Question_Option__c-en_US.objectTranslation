@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Question Option</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Question Options</value>
+    </caseValues>
+    <fields>
+        <help><!-- Used in workflow. Back end field. --></help>
+        <label><!-- Question_TF --></label>
+        <name>Question_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question --></label>
+        <name>Question_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question --></label>
+        <name>Question__c</name>
+        <relationshipLabel><!-- Question Options --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>DRDP Question Option Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Question --></label>
+            <section>Question</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

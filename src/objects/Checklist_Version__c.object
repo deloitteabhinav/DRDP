@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -93,74 +94,92 @@
                 <value>
                     <fullName>Clinical Study</fullName>
                     <default>false</default>
+                    <label>Clinical Study</label>
                 </value>
                 <value>
                     <fullName>Applied</fullName>
                     <default>false</default>
+                    <label>Applied</label>
                 </value>
                 <value>
                     <fullName>Theoretical</fullName>
                     <default>false</default>
+                    <label>Theoretical</label>
                 </value>
                 <value>
                     <fullName>Therapy Study</fullName>
                     <default>false</default>
+                    <label>Therapy Study</label>
                 </value>
                 <value>
                     <fullName>Prognostic Study</fullName>
                     <default>false</default>
+                    <label>Prognostic Study</label>
                 </value>
                 <value>
                     <fullName>Diagnostic Study</fullName>
                     <default>false</default>
+                    <label>Diagnostic Study</label>
                 </value>
                 <value>
                     <fullName>Observational Study w/ Drugs</fullName>
                     <default>false</default>
+                    <label>Observational Study w/ Drugs</label>
                 </value>
                 <value>
                     <fullName>Secondary Data Analysis</fullName>
                     <default>false</default>
+                    <label>Secondary Data Analysis</label>
                 </value>
                 <value>
                     <fullName>Case Series</fullName>
                     <default>false</default>
+                    <label>Case Series</label>
                 </value>
                 <value>
                     <fullName>Single Case Report</fullName>
                     <default>false</default>
+                    <label>Single Case Report</label>
                 </value>
                 <value>
                     <fullName>Experimental</fullName>
                     <default>false</default>
+                    <label>Experimental</label>
                 </value>
                 <value>
                     <fullName>Observational</fullName>
                     <default>false</default>
+                    <label>Observational</label>
                 </value>
                 <value>
                     <fullName>Meta Analysis</fullName>
                     <default>false</default>
+                    <label>Meta Analysis</label>
                 </value>
                 <value>
                     <fullName>Review</fullName>
                     <default>false</default>
+                    <label>Review</label>
                 </value>
                 <value>
                     <fullName>Systematic</fullName>
                     <default>false</default>
+                    <label>Systematic</label>
                 </value>
                 <value>
                     <fullName>Simple (Narrative)</fullName>
                     <default>false</default>
+                    <label>Simple (Narrative)</label>
                 </value>
                 <value>
                     <fullName>In Vivo</fullName>
                     <default>false</default>
+                    <label>In Vivo</label>
                 </value>
                 <value>
                     <fullName>In Vitro</fullName>
                     <default>false</default>
+                    <label>In Vitro</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -197,6 +216,7 @@
         <errorConditionFormula>AND(ISCHANGED(Checklists__c ),  Active__c ==TRUE)</errorConditionFormula>
         <errorMessage>Cannot Add/Delete Checklist Items from an already Activated Checklist Master version.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Clone_Checklist</fullName>
         <availability>online</availability>

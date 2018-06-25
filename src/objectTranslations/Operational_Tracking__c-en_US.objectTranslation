@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Actual</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Actuals</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Amount --></label>
+        <name>Actual_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Date of Payment --></label>
+        <name>Acutal_Date_of_payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Planning ID --></label>
+        <name>Business_Planning_ID__c</name>
+        <relationshipLabel><!-- Actuals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contracted Amount --></label>
+        <name>Contracted_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contracted Date of Payment --></label>
+        <name>Contracted_Date_of_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecast Amount --></label>
+        <name>Estimate_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecast Date of Payment --></label>
+        <name>Estimated_Date_of_payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- HCP ID --></label>
+        <name>HCP_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Number --></label>
+        <name>Invoice_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Milestone Category --></label>
+        <name>Milestone_Category__c</name>
+        <picklistValues>
+            <masterLabel>Amendment</masterLabel>
+            <translation><!-- Amendment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consent Forms</masterLabel>
+            <translation><!-- Consent Forms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Analysis</masterLabel>
+            <translation><!-- Data Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Collection</masterLabel>
+            <translation><!-- Data Collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft Deliverable</masterLabel>
+            <translation><!-- Draft Deliverable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execution</masterLabel>
+            <translation><!-- Execution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fee</masterLabel>
+            <translation><!-- Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final Deliverable</masterLabel>
+            <translation><!-- Final Deliverable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCP Consulting</masterLabel>
+            <translation><!-- HCP Consulting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCP Payment Other</masterLabel>
+            <translation><!-- HCP Payment Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCP Professional Services</masterLabel>
+            <translation><!-- HCP Professional Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IRB/ERB Approval</masterLabel>
+            <translation><!-- IRB/ERB Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initial Payment</masterLabel>
+            <translation><!-- Initial Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kickoff</masterLabel>
+            <translation><!-- Kickoff --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Writing</masterLabel>
+            <translation><!-- Medical Writing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass Thru</masterLabel>
+            <translation><!-- Pass Thru --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Planning</masterLabel>
+            <translation><!-- Project Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protocol Draft</masterLabel>
+            <translation><!-- Protocol Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protocol Final</masterLabel>
+            <translation><!-- Protocol Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review</masterLabel>
+            <translation><!-- Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAP</masterLabel>
+            <translation><!-- SAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TFLs</masterLabel>
+            <translation><!-- TFLs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Translation</masterLabel>
+            <translation><!-- Translation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Quarter_Actuals_TF --></label>
+        <name>Quarter_Actuals_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quarter (Actuals) --></label>
+        <name>Quarter_Actuals__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quarter_Contracted_TF --></label>
+        <name>Quarter_Contracted_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quarter (Contracted) --></label>
+        <name>Quarter_Contracted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quarter_Estimate_TF --></label>
+        <name>Quarter_Estimate_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quarter (Forecast) --></label>
+        <name>Quarter_Estimate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quarter Indication - Actuals --></label>
+        <name>Quarter_Indication_Actuals_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quarter Indication - Estimates --></label>
+        <name>Quarter_Indication_Estimates_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Milestone --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Variance Comments --></label>
+        <name>Variance_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Variance Reason --></label>
+        <name>Variance_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Operational in our control</masterLabel>
+            <translation><!-- Operational in our control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational out of our control</masterLabel>
+            <translation><!-- Operational out of our control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic in our control</masterLabel>
+            <translation><!-- Strategic in our control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic out of our control</masterLabel>
+            <translation><!-- Strategic out of our control --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Variance --></label>
+        <name>Variance__c</name>
+    </fields>
+    <layouts>
+        <layout>RWE Business Planning Financial Layout</layout>
+        <sections>
+            <label><!-- Actuals Details --></label>
+            <section>Actuals Details</section>
+        </sections>
+        <sections>
+            <label><!-- Contracted Details --></label>
+            <section>Contracted Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Forecasted Details --></label>
+            <section>Forecasted Details</section>
+        </sections>
+        <sections>
+            <label><!-- Variance Details --></label>
+            <section>Variance Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Milestones cannot have a date that is after the Anticipated End Date of the Study.  Please update the Anticipated End Date of the study/project to a later date. --></errorMessage>
+        <name>Valid_Milestone_dates</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- EditOperationalForecasts --></label>
+        <name>EditOperationalForecasts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Operational_Forecasts --></label>
+        <name>Generate_Operational_Forecasts</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Related Data Asset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Data Assets</value>
+    </caseValues>
+    <fields>
+        <label><!-- RWD Data Asset --></label>
+        <name>RWD_Data_Asset__c</name>
+        <relationshipLabel><!-- TPO Locations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- TPO Location --></label>
+        <name>RWE_TPO_Location__c</name>
+        <relationshipLabel><!-- Related Data Assets --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,1649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Business Planning</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Business Planning</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Contracted Budget Comment --></label>
+        <name>Actual_Contracted_Budget_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Contracted Budget --></label>
+        <name>Actual_Contracted_Budget__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the date that effort begins on the study/project. --></help>
+        <label><!-- Actual Start Date --></label>
+        <name>Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approver Comment --></label>
+        <name>Approver_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approver_Sort_TF --></label>
+        <name>Approver_Sort_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approver --></label>
+        <name>Approver_Table__c</name>
+        <relationshipLabel><!-- Business Planning --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Approver Name --></label>
+        <name>Approver__c</name>
+        <relationshipLabel><!-- Business Planning (Approver Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Business Plan classification --></help>
+        <label><!-- Classification --></label>
+        <name>BPType__c</name>
+        <picklistValues>
+            <masterLabel>Non-Research Project</masterLabel>
+            <translation><!-- Non-Research Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research Project</masterLabel>
+            <translation><!-- Research Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study</masterLabel>
+            <translation><!-- Study --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Indicate whether this item is funded under a molecule, multi-molecule, or non-molecule category. --></help>
+        <label><!-- Budget Category --></label>
+        <name>Budget_Category__c</name>
+        <picklistValues>
+            <masterLabel>Molecule</masterLabel>
+            <translation><!-- Molecule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multi-Molecule</masterLabel>
+            <translation><!-- Multi-Molecule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Molecule</masterLabel>
+            <translation><!-- Non-Molecule --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- How does it help the brand? What is the impact? It is required based on country or regulatory requirements? --></help>
+        <label><!-- Business Critical Rationale --></label>
+        <name>Business_Critical_Rationale__c</name>
+    </fields>
+    <fields>
+        <help><!-- If part of business planning, the year in which the planning occurs.  NOT the study start year --></help>
+        <label><!-- Business Plan Year --></label>
+        <name>Business_Plan_Year__c</name>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation><!-- 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2018</masterLabel>
+            <translation><!-- 2018 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2019</masterLabel>
+            <translation><!-- 2019 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2020</masterLabel>
+            <translation><!-- 2020 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Business Planning Approval Status --></label>
+        <name>Business_Planning_Approval_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approved/Reprioritize</masterLabel>
+            <translation><!-- Approved/Reprioritize --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BP Review Period</masterLabel>
+            <translation><!-- BP Review Period --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Discussion</masterLabel>
+            <translation><!-- In Discussion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Process</masterLabel>
+            <translation><!-- In Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Review</masterLabel>
+            <translation><!-- In Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Waiting</masterLabel>
+            <translation><!-- In-Waiting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval</masterLabel>
+            <translation><!-- Pending Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Approval</masterLabel>
+            <translation><!-- Ready for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for BP Approval</masterLabel>
+            <translation><!-- Submitted for BP Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for BP session</masterLabel>
+            <translation><!-- Submitted for BP session --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Choose whether this item is being planned as part of a business planning cycle or if it added outside of a business planning cycle (a drop-in) --></help>
+        <label><!-- Business Planning Cycle Type --></label>
+        <name>Business_Planning_Cycle_Type__c</name>
+        <picklistValues>
+            <masterLabel>In Business Planning Cycle</masterLabel>
+            <translation><!-- In Business Planning Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Out of Business Planning Cycle</masterLabel>
+            <translation><!-- Out of Business Planning Cycle --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Business Unit (Primary) --></label>
+        <name>Business_Unit_Primary__c</name>
+        <picklistValues>
+            <masterLabel>Diabetes (DBU)</masterLabel>
+            <translation><!-- Diabetes (DBU) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMBU</masterLabel>
+            <translation><!-- EMBU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elanco</masterLabel>
+            <translation><!-- Elanco --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Business Unit Specific</masterLabel>
+            <translation><!-- Non Business Unit Specific --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>Classification__c</name>
+        <picklistValues>
+            <masterLabel>Basic Research</masterLabel>
+            <translation><!-- Basic Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Research</masterLabel>
+            <translation><!-- Clinical Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Epidemiological Research</masterLabel>
+            <translation><!-- Epidemiological Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Clinical Research</masterLabel>
+            <translation><!-- Pre-Clinical Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secondary Research</masterLabel>
+            <translation><!-- Secondary Research --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Completed Date TF --></label>
+        <name>Completed_Date_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conducted with an RWE partner? --></label>
+        <name>Conducted_with_an_RWE_partner__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contracted Date --></label>
+        <name>Contracted_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contracted? --></label>
+        <name>Contracted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Center --></label>
+        <name>Cost_Center__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter a comprehensive description that would include keywords that other users might use to search. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disease State --></label>
+        <name>Disease_State__c</name>
+        <picklistValues>
+            <masterLabel>Alopecia Areata</masterLabel>
+            <translation><!-- Alopecia Areata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alzheimer’s Disease</masterLabel>
+            <translation><!-- Alzheimer’s Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alzheimer’s Disease Psychosis</masterLabel>
+            <translation><!-- Alzheimer’s Disease Psychosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anemia</masterLabel>
+            <translation><!-- Anemia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anxiety</masterLabel>
+            <translation><!-- Anxiety --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Atopic Dermatitis</masterLabel>
+            <translation><!-- Atopic Dermatitis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attention Deficit-Hyperactivity Disorder</masterLabel>
+            <translation><!-- Attention Deficit-Hyperactivity Disorder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AxSpA (Axial Spondyloarthritis)</masterLabel>
+            <translation><!-- AxSpA (Axial Spondyloarthritis) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bladder Cancer</masterLabel>
+            <translation><!-- Bladder Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bone and Soft Tissue Cancers</masterLabel>
+            <translation><!-- Bone and Soft Tissue Cancers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breast Cancer</masterLabel>
+            <translation><!-- Breast Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular Disease</masterLabel>
+            <translation><!-- Cardiovascular Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chronic Kidney Disease</masterLabel>
+            <translation><!-- Chronic Kidney Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chronic Pain</masterLabel>
+            <translation><!-- Chronic Pain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cluster Headache</masterLabel>
+            <translation><!-- Cluster Headache --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colorectal Cancer</masterLabel>
+            <translation><!-- Colorectal Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crohn’s Disease</masterLabel>
+            <translation><!-- Crohn’s Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Depression</masterLabel>
+            <translation><!-- Depression --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disuse Atrophy</masterLabel>
+            <translation><!-- Disuse Atrophy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Erectile Dysfunction</masterLabel>
+            <translation><!-- Erectile Dysfunction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gastrointestinal Cancer</masterLabel>
+            <translation><!-- Gastrointestinal Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Genitourinary Cancer</masterLabel>
+            <translation><!-- Genitourinary Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gynecologic Cancer</masterLabel>
+            <translation><!-- Gynecologic Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head and Neck Cancer</masterLabel>
+            <translation><!-- Head and Neck Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hematologic Cancer</masterLabel>
+            <translation><!-- Hematologic Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hepatocellular Cancer</masterLabel>
+            <translation><!-- Hepatocellular Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High Risk Vascular Disease</masterLabel>
+            <translation><!-- High Risk Vascular Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Juvenile Idiopathic Arthritis</masterLabel>
+            <translation><!-- Juvenile Idiopathic Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lung and Thoracic Cancer</masterLabel>
+            <translation><!-- Lung and Thoracic Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lupus</masterLabel>
+            <translation><!-- Lupus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mesothelioma Cancer</masterLabel>
+            <translation><!-- Mesothelioma Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migraine</masterLabel>
+            <translation><!-- Migraine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mild Cognitive Impairment</masterLabel>
+            <translation><!-- Mild Cognitive Impairment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAFLD</masterLabel>
+            <translation><!-- NAFLD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NASH</masterLabel>
+            <translation><!-- NASH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Alzheimer’s Dementia</masterLabel>
+            <translation><!-- Non-Alzheimer’s Dementia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Applicable</masterLabel>
+            <translation><!-- Not Applicable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Osteoporosis</masterLabel>
+            <translation><!-- Osteoporosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parkinson’s Disease</masterLabel>
+            <translation><!-- Parkinson’s Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psoriasis</masterLabel>
+            <translation><!-- Psoriasis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psoriatic Arthritis</masterLabel>
+            <translation><!-- Psoriatic Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rheumatoid Arthritis</masterLabel>
+            <translation><!-- Rheumatoid Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schizophrenia</masterLabel>
+            <translation><!-- Schizophrenia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sjogren&apos;s Syndrome</masterLabel>
+            <translation><!-- Sjogren&apos;s Syndrome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testosterone replacement</masterLabel>
+            <translation><!-- Testosterone replacement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type I Diabetes</masterLabel>
+            <translation><!-- Type I Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type II Diabetes</masterLabel>
+            <translation><!-- Type II Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ulcerative Colitis</masterLabel>
+            <translation><!-- Ulcerative Colitis --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The approximate date that you think the study will be completed.  May also use the target date for certain deliverables if required for submission, critical chain etc. --></help>
+        <label><!-- Anticipated End Date --></label>
+        <name>Estimated_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Choose the date that effort is anticipated to begin on the study/project (this is NOT the expected contracting date) --></help>
+        <label><!-- Anticipated Start Date --></label>
+        <name>Estimated_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- The function that the owner belongs to that will be conducting the study/project. --></help>
+        <label><!-- Executing Function For Project --></label>
+        <name>Executing_Function__c</name>
+        <picklistValues>
+            <masterLabel>GPORWE</masterLabel>
+            <translation><!-- GPORWE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GPS</masterLabel>
+            <translation><!-- GPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan Affiliate</masterLabel>
+            <translation><!-- Japan Affiliate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs - EMBU</masterLabel>
+            <translation><!-- Medical Affairs - EMBU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs - EUCAN</masterLabel>
+            <translation><!-- Medical Affairs - EUCAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs - Global/Corporate</masterLabel>
+            <translation><!-- Medical Affairs - Global/Corporate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs - US</masterLabel>
+            <translation><!-- Medical Affairs - US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Executing Year --></label>
+        <name>Executing_Year__c</name>
+    </fields>
+    <fields>
+        <help><!-- Choose the function that is providing the budget for the study/project --></help>
+        <label><!-- Function funding the study/project --></label>
+        <name>Function_funding_the_study_project__c</name>
+        <picklistValues>
+            <masterLabel>GPORWE</masterLabel>
+            <translation><!-- GPORWE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GPS</masterLabel>
+            <translation><!-- GPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs - EMBU</masterLabel>
+            <translation><!-- Medical Affairs - EMBU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs - EUCAN</masterLabel>
+            <translation><!-- Medical Affairs - EUCAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs - Global/Corporate</masterLabel>
+            <translation><!-- Medical Affairs - Global/Corporate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs - US</masterLabel>
+            <translation><!-- Medical Affairs - US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub-Function --></label>
+        <name>GPORWE_Functional_Area__c</name>
+        <picklistValues>
+            <masterLabel>Biomedicines</masterLabel>
+            <translation><!-- Biomedicines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COE</masterLabel>
+            <translation><!-- COE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China</masterLabel>
+            <translation><!-- China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>France Hub</masterLabel>
+            <translation><!-- France Hub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Germany Hub</masterLabel>
+            <translation><!-- Germany Hub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HTA-CE</masterLabel>
+            <translation><!-- HTA-CE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HTA-EMBU/J</masterLabel>
+            <translation><!-- HTA-EMBU/J --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italy Hub</masterLabel>
+            <translation><!-- Italy Hub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korea</masterLabel>
+            <translation><!-- Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LBM-AI/BMJ</masterLabel>
+            <translation><!-- LBM-AI/BMJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LBM-CV/URO</masterLabel>
+            <translation><!-- LBM-CV/URO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LBM-NS</masterLabel>
+            <translation><!-- LBM-NS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PMO</masterLabel>
+            <translation><!-- PMO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRO</masterLabel>
+            <translation><!-- PRO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spain Hub</masterLabel>
+            <translation><!-- Spain Hub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taiwan</masterLabel>
+            <translation><!-- Taiwan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK Hub</masterLabel>
+            <translation><!-- UK Hub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Biomedicines</masterLabel>
+            <translation><!-- US Biomedicines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Diabetes</masterLabel>
+            <translation><!-- US Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Oncology</masterLabel>
+            <translation><!-- US Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USHO</masterLabel>
+            <translation><!-- USHO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Indicate the type of support needed for publications --></help>
+        <label><!-- Writing Support for Publications --></label>
+        <name>GSC_Support__c</name>
+        <picklistValues>
+            <masterLabel>GPORWE resources at LCCI</masterLabel>
+            <translation><!-- GPORWE resources at LCCI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GSC managed writing support</masterLabel>
+            <translation><!-- GSC managed writing support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No writing support needed</masterLabel>
+            <translation><!-- No writing support needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TPO executing study will support publications</masterLabel>
+            <translation><!-- TPO executing study will support publications --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Will the study/project be fully or partially outsourced to a TPO? Or will the study/project be conducted using internal resources (e.g. Data Mart, functionally sourced studies, etc.) --></help>
+        <label><!-- How will the Study/Project be executed? --></label>
+        <name>How_will_the_Study_be_executed__c</name>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TPO</masterLabel>
+            <translation><!-- TPO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- In Waiting? --></label>
+        <name>In_Waiting__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field indicates which indication the study/project is connected to or is primarily supporting.  If externally contracted, this line will be the PLI line in SAP upon which the money is budgeted. Contact your PM if you are unsure. --></help>
+        <label><!-- Indication --></label>
+        <name>Indication__c</name>
+        <relationshipLabel><!-- Business Planning --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Initial Anticipated Start Date --></label>
+        <name>Initial_Anticipated_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the estimated cost of the study/project.  See the related Budget Estimate Guidance for further information on typical study costs. --></help>
+        <label><!-- Budget Estimate --></label>
+        <name>Initial_budget_estimate_for_each_item__c</name>
+    </fields>
+    <fields>
+        <help><!-- Days between &quot;Initial Anticipated Start Date&quot; to &quot;Actual Start Date&quot; --></help>
+        <label><!-- Initial to Actual --></label>
+        <name>Initial_to_Actual__c</name>
+    </fields>
+    <fields>
+        <help><!-- Days between &quot;Initial Anticipated Start Date&quot; to &quot;Anticipated Start Date&quot; --></help>
+        <label><!-- Initial to Anticipated --></label>
+        <name>Initial_to_Anticipated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicate if statistical programming support is needed --></help>
+        <label><!-- Internal Statistical Programming Support --></label>
+        <name>Internal_Statistical_Programming_Support__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Indicate if any statistical support is needed and what kind --></help>
+        <label><!-- Internal Statistician Support --></label>
+        <name>Internal_Statistician_Support__c</name>
+        <picklistValues>
+            <masterLabel>Full Support – Internal Stats</masterLabel>
+            <translation><!-- Full Support – Internal Stats --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Support</masterLabel>
+            <translation><!-- No Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oversight – Review Work from the Vendor</masterLabel>
+            <translation><!-- Oversight – Review Work from the Vendor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- IsEmail --></label>
+        <name>IsEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsPMError --></label>
+        <name>IsPMError__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsSubmit --></label>
+        <name>IsSubmit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Approved? --></label>
+        <name>Is_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is the Data Asset Known? --></label>
+        <name>Is_the_Data_Asset_Known__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Prevents any changes to the item. Item must be frozen before changing to &quot;Ready for Approval&quot; --></help>
+        <label><!-- Freeze --></label>
+        <name>Lock__c</name>
+    </fields>
+    <fields>
+        <label><!-- Molecule Name --></label>
+        <name>Molecule_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study Details --></label>
+        <name>Observational_Study_Details__c</name>
+        <picklistValues>
+            <masterLabel>Chart Review</masterLabel>
+            <translation><!-- Chart Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Mart</masterLabel>
+            <translation><!-- Data Mart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Impact to Treatment</masterLabel>
+            <translation><!-- Direct Impact to Treatment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Source (including Data Broker)</masterLabel>
+            <translation><!-- External Source (including Data Broker) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal - Other</masterLabel>
+            <translation><!-- Internal - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lilly Trial Data</masterLabel>
+            <translation><!-- Lilly Trial Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Direct Impact to Treatment</masterLabel>
+            <translation><!-- No Direct Impact to Treatment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-site Based</masterLabel>
+            <translation><!-- Non-site Based --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purpose - Non-Regulatory</masterLabel>
+            <translation><!-- Purpose - Non-Regulatory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purpose - Regulatory</masterLabel>
+            <translation><!-- Purpose - Regulatory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registries</masterLabel>
+            <translation><!-- Registries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site Based</masterLabel>
+            <translation><!-- Site Based --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TPO Managed Data</masterLabel>
+            <translation><!-- TPO Managed Data --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Technical Field to Store Org Address. Used in 3 BP Email Templates. --></help>
+        <label><!-- OrgAddress TF --></label>
+        <name>OrgAddress_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Sub-Function --></label>
+        <name>Other_Sub_Function__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overall Variance Against Vo --></label>
+        <name>Overall_Variance_Against_Vo__c</name>
+    </fields>
+    <fields>
+        <help><!-- Add the Project Manager or facilitator that supports your area.  Their name will be added to the study team by adding it to this field. --></help>
+        <label><!-- PM --></label>
+        <name>PM__c</name>
+        <relationshipLabel><!-- Business Planning (PM) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PO Number --></label>
+        <name>PO_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Does the Study/Project contribute to the Holistic Evidence Plan (HEP) for the asset? --></help>
+        <label><!-- Part of Holistic Evidence Plan (HEP)? --></label>
+        <name>Part_of_Holistic_Evidence_Plan_HEP__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Indicate the person, organization or company being compensated. --></help>
+        <label><!-- Payee Description --></label>
+        <name>Payee_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phase --></label>
+        <name>Phase__c</name>
+        <picklistValues>
+            <masterLabel>Phase I</masterLabel>
+            <translation><!-- Phase I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phase II</masterLabel>
+            <translation><!-- Phase II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phase III</masterLabel>
+            <translation><!-- Phase III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Launch</masterLabel>
+            <translation><!-- Post Launch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-clinical Development</masterLabel>
+            <translation><!-- Pre-clinical Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submission/Registration</masterLabel>
+            <translation><!-- Submission/Registration --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Purpose of the Study/Project --></label>
+        <name>Primary_Purpose__c</name>
+        <picklistValues>
+            <masterLabel>Advancing Health Economics and Outcomes Research (HEOR) Methods</masterLabel>
+            <translation><!-- Advancing Health Economics and Outcomes Research (HEOR) Methods --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advancing Health Policy Environment</masterLabel>
+            <translation><!-- Advancing Health Policy Environment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefit Risk Assessment</masterLabel>
+            <translation><!-- Benefit Risk Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Outcome Assessment Measure Development</masterLabel>
+            <translation><!-- Clinical Outcome Assessment Measure Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Commitment</masterLabel>
+            <translation><!-- Commercial Commitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FDAMA 114</masterLabel>
+            <translation><!-- FDAMA 114 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HTA Toolkit</masterLabel>
+            <translation><!-- HTA Toolkit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local Payer Dossier/HTA Submission</masterLabel>
+            <translation><!-- Local Payer Dossier/HTA Submission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Communications</masterLabel>
+            <translation><!-- Medical Communications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory Commitment</masterLabel>
+            <translation><!-- Regulatory Commitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory Strategy</masterLabel>
+            <translation><!-- Regulatory Strategy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Input</masterLabel>
+            <translation><!-- Strategic Input --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Value Area --></label>
+        <name>Primary_Value_Area__c</name>
+        <picklistValues>
+            <masterLabel>Access &amp; Reimbursement</masterLabel>
+            <translation><!-- Access &amp; Reimbursement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial/Marketing</masterLabel>
+            <translation><!-- Commercial/Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drug/Clinical Development</masterLabel>
+            <translation><!-- Drug/Clinical Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Customer Support</masterLabel>
+            <translation><!-- Medical Customer Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Safety &amp; Risk Management</masterLabel>
+            <translation><!-- Safety &amp; Risk Management --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Prioritization Rank --></label>
+        <name>Prioritization_Rank__c</name>
+        <picklistValues>
+            <masterLabel>A (Critical)</masterLabel>
+            <translation><!-- A (Critical) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B (High Importance)</masterLabel>
+            <translation><!-- B (High Importance) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C (Nice to have)</masterLabel>
+            <translation><!-- C (Nice to have) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Search either by Name or Capability. After selecting lookup, change search choice to &quot;All Fields&quot; to search on capabilities.
+If TPO is not listed, search and select *Other* from the list. --></help>
+        <label><!-- Selected TPO --></label>
+        <name>Proposed_TPO__c</name>
+        <relationshipLabel><!-- Business Planning --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Lookup and add the RWE Partnership related to this Business Planning. Only Approved &amp; Active RWE Partnerships can be selected. --></help>
+        <label><!-- RWE Partner --></label>
+        <name>RWE_Partner__c</name>
+        <relationshipLabel><!-- Business Planning --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Rank Order --></label>
+        <name>Rank_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study Sub Type --></label>
+        <name>Secondary_Study_Type__c</name>
+        <picklistValues>
+            <masterLabel>Analytical Measurement Procedure</masterLabel>
+            <translation><!-- Analytical Measurement Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Animal Study</masterLabel>
+            <translation><!-- Animal Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biochemistry</masterLabel>
+            <translation><!-- Biochemistry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biometric Procedure</masterLabel>
+            <translation><!-- Biometric Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Control Study</masterLabel>
+            <translation><!-- Case Control Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cell Study</masterLabel>
+            <translation><!-- Cell Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cohort Study - Historical</masterLabel>
+            <translation><!-- Cohort Study - Historical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cohort Study - Prospective</masterLabel>
+            <translation><!-- Cohort Study - Prospective --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cross-Sectional Study</masterLabel>
+            <translation><!-- Cross-Sectional Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Description with registry data</masterLabel>
+            <translation><!-- Description with registry data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ecological Study</masterLabel>
+            <translation><!-- Ecological Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Genetic Engineering</masterLabel>
+            <translation><!-- Genetic Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Genetic Studies</masterLabel>
+            <translation><!-- Genetic Studies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Imaging Procedure</masterLabel>
+            <translation><!-- Imaging Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intervention Study - Field Study</masterLabel>
+            <translation><!-- Intervention Study - Field Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intervention Study - Group Study</masterLabel>
+            <translation><!-- Intervention Study - Group Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Material Development</masterLabel>
+            <translation><!-- Material Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Method Development</masterLabel>
+            <translation><!-- Method Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monitoring, surveillance</masterLabel>
+            <translation><!-- Monitoring, surveillance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacodynamics (PD)</masterLabel>
+            <translation><!-- Pharmacodynamics (PD) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacokinetics (PK)</masterLabel>
+            <translation><!-- Pharmacokinetics (PK) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phase I</masterLabel>
+            <translation><!-- Phase I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phase II</masterLabel>
+            <translation><!-- Phase II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phase III</masterLabel>
+            <translation><!-- Phase III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phase IV</masterLabel>
+            <translation><!-- Phase IV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Development Assessment Procedure</masterLabel>
+            <translation><!-- Test Development Assessment Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toxicology</masterLabel>
+            <translation><!-- Toxicology --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SkipValidation --></label>
+        <name>SkipValidation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Study/Project --></label>
+        <name>Source_Business_Plan__c</name>
+        <relationshipLabel><!-- Business Planning --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Days between Anticipated Start Date to Today, or until the Study moved to Active Status. --></help>
+        <label><!-- Start Date Difference --></label>
+        <name>Start_Date_Difference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Information --></label>
+        <name>Status_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Study_Description__c</name>
+        <picklistValues>
+            <masterLabel>Applied</masterLabel>
+            <translation><!-- Applied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Series</masterLabel>
+            <translation><!-- Case Series --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Study</masterLabel>
+            <translation><!-- Clinical Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diagnostic Study</masterLabel>
+            <translation><!-- Diagnostic Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experimental</masterLabel>
+            <translation><!-- Experimental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Vitro</masterLabel>
+            <translation><!-- In Vitro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Vivo</masterLabel>
+            <translation><!-- In Vivo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meta Analysis</masterLabel>
+            <translation><!-- Meta Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Observational</masterLabel>
+            <translation><!-- Observational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Observational Study w/ Drugs</masterLabel>
+            <translation><!-- Observational Study w/ Drugs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prognostic Study</masterLabel>
+            <translation><!-- Prognostic Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review</masterLabel>
+            <translation><!-- Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secondary Data Analysis</masterLabel>
+            <translation><!-- Secondary Data Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simple (Narrative)</masterLabel>
+            <translation><!-- Simple (Narrative) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Case Report</masterLabel>
+            <translation><!-- Single Case Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Systematic</masterLabel>
+            <translation><!-- Systematic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Theoretical</masterLabel>
+            <translation><!-- Theoretical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Therapy Study</masterLabel>
+            <translation><!-- Therapy Study --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Study/Project Stage --></label>
+        <name>Study_Project_Stage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Choose the region that benefits from the study/project.  If multiple regions benefit, then choose &quot;Global&quot;. --></help>
+        <label><!-- What region benefits from Study/Project? --></label>
+        <name>Study_Region__c</name>
+        <picklistValues>
+            <masterLabel>EUCAN</masterLabel>
+            <translation><!-- EUCAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emerging Markets</masterLabel>
+            <translation><!-- Emerging Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global (Multiple Regions)</masterLabel>
+            <translation><!-- Global (Multiple Regions) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US</masterLabel>
+            <translation><!-- US --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Choose the appropriate sub type depending on the type. --></help>
+        <label><!-- Study Sub Type --></label>
+        <name>Study_Sub_Type__c</name>
+        <picklistValues>
+            <masterLabel>BIM and CE</masterLabel>
+            <translation><!-- BIM and CE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Budget Impact Model</masterLabel>
+            <translation><!-- Budget Impact Model --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CE/Global Pharmacoeconomic Model</masterLabel>
+            <translation><!-- CE/Global Pharmacoeconomic Model --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Phase Economic Model</masterLabel>
+            <translation><!-- Early Phase Economic Model --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned</masterLabel>
+            <translation><!-- Planned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Hoc</masterLabel>
+            <translation><!-- Post Hoc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Data Collection</masterLabel>
+            <translation><!-- Primary Data Collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Data Collection and Secondary Use of Data</masterLabel>
+            <translation><!-- Primary Data Collection and Secondary Use of Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secondary Use of Data</masterLabel>
+            <translation><!-- Secondary Use of Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>With Drug</masterLabel>
+            <translation><!-- With Drug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Without Drug</masterLabel>
+            <translation><!-- Without Drug --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Choose the Type of Study or Project --></help>
+        <label><!-- Type --></label>
+        <name>Study_Type__c</name>
+        <picklistValues>
+            <masterLabel>Ad Board</masterLabel>
+            <translation><!-- Ad Board --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analysis</masterLabel>
+            <translation><!-- Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analysis Using Lilly Trial Data</masterLabel>
+            <translation><!-- Analysis Using Lilly Trial Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Section (HTA Toolkit)</masterLabel>
+            <translation><!-- Clinical Section (HTA Toolkit) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communication</masterLabel>
+            <translation><!-- Communication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultation</masterLabel>
+            <translation><!-- Consultation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Collection</masterLabel>
+            <translation><!-- Data Collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Purchase</masterLabel>
+            <translation><!-- Data Purchase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Phase Work</masterLabel>
+            <translation><!-- Early Phase Work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exploration</masterLabel>
+            <translation><!-- Exploration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HTA Advice</masterLabel>
+            <translation><!-- HTA Advice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HTA toolkit</masterLabel>
+            <translation><!-- HTA toolkit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT systems/Development</masterLabel>
+            <translation><!-- IT systems/Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meetings</masterLabel>
+            <translation><!-- Meetings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Membership</masterLabel>
+            <translation><!-- Membership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meta-Analysis</masterLabel>
+            <translation><!-- Meta-Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meta-Analysis &amp; Systematic Literature Review</masterLabel>
+            <translation><!-- Meta-Analysis &amp; Systematic Literature Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Model Adaptation</masterLabel>
+            <translation><!-- Model Adaptation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Model Update</masterLabel>
+            <translation><!-- Model Update --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modeling</masterLabel>
+            <translation><!-- Modeling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Observational Study</masterLabel>
+            <translation><!-- Observational Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payer Dossiers</masterLabel>
+            <translation><!-- Payer Dossiers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Placeholder</masterLabel>
+            <translation><!-- Placeholder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Policy</masterLabel>
+            <translation><!-- Policy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Launch Work</masterLabel>
+            <translation><!-- Post Launch Work --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pragmatic Trial</masterLabel>
+            <translation><!-- Pragmatic Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Publication</masterLabel>
+            <translation><!-- Publication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registry</masterLabel>
+            <translation><!-- Registry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory Intelligence</masterLabel>
+            <translation><!-- Regulatory Intelligence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategy</masterLabel>
+            <translation><!-- Strategy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription</masterLabel>
+            <translation><!-- Subscription --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Symposia</masterLabel>
+            <translation><!-- Symposia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Systematic Literature Review</masterLabel>
+            <translation><!-- Systematic Literature Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation</masterLabel>
+            <translation><!-- Validation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Link to approved Study/Project record --></help>
+        <label><!-- Study --></label>
+        <name>Study__c</name>
+        <relationshipLabel><!-- Business Planning --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- TPO will sub-contract --></label>
+        <name>TPO_will_sub_contract__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Audience --></label>
+        <name>Target_Audience__c</name>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Therapeutic Area (Primary) --></label>
+        <name>Therapeutic_Area_Primary__c</name>
+        <picklistValues>
+            <masterLabel>Alzheimer’s &amp; NDD</masterLabel>
+            <translation><!-- Alzheimer’s &amp; NDD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bone, Muscle, Joint</masterLabel>
+            <translation><!-- Bone, Muscle, Joint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular</masterLabel>
+            <translation><!-- Cardiovascular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immunology</masterLabel>
+            <translation><!-- Immunology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Therapeutic Area Specific</masterLabel>
+            <translation><!-- Non Therapeutic Area Specific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psychiatry &amp; Pain</masterLabel>
+            <translation><!-- Psychiatry &amp; Pain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urology and Men’s Health</masterLabel>
+            <translation><!-- Urology and Men’s Health --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter a descriptive title for the item (e.g. one that might be used for a journal article) --></help>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- Include any local identifiers used specifically for a function or area. i.e. the BCM ID --></help>
+        <label><!-- Unique Local Identifier --></label>
+        <name>Unique_Local_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Will HCPs be paid for participation? --></label>
+        <name>Will_HCPs_be_paid_for_participation__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Sure</masterLabel>
+            <translation><!-- Not Sure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- isEdit --></label>
+        <name>isEdit__c</name>
+    </fields>
+    <layouts>
+        <layout>RWE Business Planning Layout</layout>
+        <sections>
+            <label><!-- Budget Details --></label>
+            <section>Budget Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+        <sections>
+            <label><!-- Planning Team --></label>
+            <section>Planning Team</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Non Research Project Status only applies for &apos;Approved&apos; or &apos;Approved/Reprioritize&apos;  Non Research Projects Business Planning Items --></errorMessage>
+        <name>CheckNonResearchProjectApproved</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Do you have a time machine?  The Anticipated End Date cannot occur before the Anticipated Start Date. --></errorMessage>
+        <name>Date_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This person is not a PM, please chatter to @Pangaea Support for help in identifying the correct PM. Add Patricia Hines as the PM until correct PM is identified. --></errorMessage>
+        <name>PMErrorCheck</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Business Planning Type cannot be changed for an Approved Item. --></errorMessage>
+        <name>Valid_BpType</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot Change &quot;Type&quot; field of an Approved Business Planning item. --></errorMessage>
+        <name>Valid_Change_StudyType</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Update Failed. Business Planning record is Locked. Please contact your Administrator. --></errorMessage>
+        <name>Valid_Lock</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Oops, try again! Status must be Active or Completed to enter/update the Actual Start Date. --></errorMessage>
+        <name>Valid_VerifyStatus_ActualStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Do you have a time machine? The Actual Start Date cannot be a future date. --></errorMessage>
+        <name>Valid_Verify_ActualStartDate</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Auto_Distribute --></label>
+        <name>Auto_Distribute</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- BP_Home_Page --></label>
+        <name>BP_Home_Page</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Business_Unit_Dashboard --></label>
+        <name>Business_Unit_Dashboard</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Financial_Report --></label>
+        <name>Financial_Report</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_to_BP_UI_Page --></label>
+        <name>Link_to_BP_UI_Page</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Non_Financial_Report --></label>
+        <name>Non_Financial_Report</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Portfolio_Detail_Dashboard --></label>
+        <name>Portfolio_Detail_Dashboard</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Prioritize_Business_Items --></label>
+        <name>Prioritize_Business_Items</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Submit --></label>
+        <name>Submit</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Submit_for_Approval --></label>
+        <name>Submit_for_Approval</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Transparency_Report --></label>
+        <name>Transparency_Report</name>
+    </webLinks>
+</CustomObjectTranslation>

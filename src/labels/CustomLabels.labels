@@ -132,11 +132,25 @@
         <value>/home/home.jsp?tsid=</value>
     </labels>
     <labels>
+        <fullName>DRDP_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DRDP_Title</shortDescription>
+        <value>Digital Research Workbench</value>
+    </labels>
+    <labels>
+        <fullName>DRDP_Title_Description</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DRDP_Title_Description</shortDescription>
+        <value>Digitization of Research Processes - Process Automation, Electronic Data Capture and Linking Data</value>
+    </labels>
+    <labels>
         <fullName>DashboardLink</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>DashboardLink</shortDescription>
-        <value>01Z460000006CGx</value>
+        <value>01Zf4000000DBzk</value>
     </labels>
     <labels>
         <fullName>Date_of_Release</fullName>

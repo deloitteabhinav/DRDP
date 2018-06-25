@@ -38,24 +38,635 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Information_Source_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableFeeds>false</enableFeeds>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>DRDP_Information_Landscape</fullName>
+        <description>DRDP_CreateLandscape</description>
+        <displayedFields>
+            <field>Acquiree_IT_Owner1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_ACD_BT_Lead1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_BT_Application_Owner1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Business_Process_Owner1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Application_Lead1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Contract_Lead1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Acquiree_App_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Product__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Authentication_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Acquiree_Contract_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Addendum_Amendment_Misc__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Vendor_Contact__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Criticality__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Regulatory_Authority__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>GXP_Risk_Level__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Validated_System_Yes_No__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>COTS_Homegrown__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Information_Source_New_Custom_Field_H__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>No_of_Users__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hosting_Internal_or_External__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hosting_Location__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>No_of_Support_Personnel__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Effective_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Termination_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Duration_years__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Application_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Functional_Area__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Functional_Group__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Application_URL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Acquiree_Functional_Group__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Application_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Infrastructure_Server_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Baseline_Retirement_Plan__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>App_Retention_Decision__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>App_Retention_Rationale__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>App_Disposition_Timeframe__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Equivalent_App__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Application_Notes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Decision_Contract_Integration_D__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Notes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Category__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Specific_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Cost_of_this_purchase__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Data_Migration_Decision__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PAST_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ERIM_Submission_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Data_Migration_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>App_Disposition_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Total_2017_OpEx__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Total_2018_2019_OpEx__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Total_All_Yrs_OpEx__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>DRDP Information Landscape</label>
+    </fieldSets>
+    <fields>
+        <fullName>Acquiree_App_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Acquiree App ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Acquiree_Contract_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Acquiree Contract ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Acquiree_Functional_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Acquiree Functional Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Biometrics</fullName>
+                    <default>false</default>
+                    <label>Biometrics</label>
+                </value>
+                <value>
+                    <fullName>Clinical Ops</fullName>
+                    <default>false</default>
+                    <label>Clinical Ops</label>
+                </value>
+                <value>
+                    <fullName>Commercial</fullName>
+                    <default>false</default>
+                    <label>Commercial</label>
+                </value>
+                <value>
+                    <fullName>Corporate Services</fullName>
+                    <default>false</default>
+                    <label>Corporate Services</label>
+                </value>
+                <value>
+                    <fullName>Discovery</fullName>
+                    <default>false</default>
+                    <label>Discovery</label>
+                </value>
+                <value>
+                    <fullName>Enterprise</fullName>
+                    <default>false</default>
+                    <label>Enterprise</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>IT Security</fullName>
+                    <default>false</default>
+                    <label>IT Security</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs</fullName>
+                    <default>false</default>
+                    <label>Medical Affairs</label>
+                </value>
+                <value>
+                    <fullName>Pharma Ops</fullName>
+                    <default>false</default>
+                    <label>Pharma Ops</label>
+                </value>
+                <value>
+                    <fullName>Quality</fullName>
+                    <default>false</default>
+                    <label>Quality</label>
+                </value>
+                <value>
+                    <fullName>Regulatory</fullName>
+                    <default>false</default>
+                    <label>Regulatory</label>
+                </value>
+                <value>
+                    <fullName>Safety</fullName>
+                    <default>false</default>
+                    <label>Safety</label>
+                </value>
+                <value>
+                    <fullName>Tech Ops - Pharma Ops</fullName>
+                    <default>false</default>
+                    <label>Tech Ops - Pharma Ops</label>
+                </value>
+                <value>
+                    <fullName>Toxicology</fullName>
+                    <default>false</default>
+                    <label>Toxicology</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Acquiree_IT_Owner1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Acquiree IT Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Information_Sources4</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Addendum_Amendment_Misc__c</fullName>
+        <externalId>false</externalId>
+        <label>Addendum/Amendment/Misc.</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>App_Disposition_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>App Disposition Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>false</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>In Process</fullName>
+                    <default>false</default>
+                    <label>In Process</label>
+                </value>
+                <value>
+                    <fullName>Decommissioned</fullName>
+                    <default>false</default>
+                    <label>Decommissioned</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>App_Disposition_Timeframe__c</fullName>
+        <externalId>false</externalId>
+        <label>App Disposition Timeframe</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>App_Retention_Decision__c</fullName>
+        <externalId>false</externalId>
+        <label>App Retention Decision</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full App Retirement</fullName>
+                    <default>false</default>
+                    <label>Full App Retirement</label>
+                </value>
+                <value>
+                    <fullName>Retain App In Place</fullName>
+                    <default>false</default>
+                    <label>Retain App In Place</label>
+                </value>
+                <value>
+                    <fullName>Retire with Data Archive to PFE</fullName>
+                    <default>false</default>
+                    <label>Retire with Data Archive to PFE</label>
+                </value>
+                <value>
+                    <fullName>Retire with Data Migration to PFE</fullName>
+                    <default>false</default>
+                    <label>Retire with Data Migration to PFE</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>App_Retention_Rationale__c</fullName>
+        <externalId>false</externalId>
+        <label>App Retention Rationale</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Application_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Notes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Application_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Application_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Desktop</fullName>
+                    <default>false</default>
+                    <label>Desktop</label>
+                </value>
+                <value>
+                    <fullName>Benchtop</fullName>
+                    <default>false</default>
+                    <label>Benchtop</label>
+                </value>
+                <value>
+                    <fullName>On-Premise</fullName>
+                    <default>false</default>
+                    <label>On-Premise</label>
+                </value>
+                <value>
+                    <fullName>SaaS</fullName>
+                    <default>false</default>
+                    <label>SaaS</label>
+                </value>
+                <value>
+                    <fullName>Subscription-based</fullName>
+                    <default>false</default>
+                    <label>Subscription-based</label>
+                </value>
+                <value>
+                    <fullName>TBD</fullName>
+                    <default>false</default>
+                    <label>TBD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Application_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Application URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Authentication_Type__c</fullName>
         <externalId>false</externalId>
         <label>Authentication Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -65,19 +676,34 @@
                 <value>
                     <fullName>LDAP</fullName>
                     <default>false</default>
+                    <label>LDAP</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Baseline_Retirement_Plan__c</fullName>
+        <externalId>false</externalId>
+        <label>Baseline Retirement Plan</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Business_Unit__c</fullName>
         <externalId>false</externalId>
         <label>Business Unit</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -87,30 +713,678 @@
                 <value>
                     <fullName>Animal Health</fullName>
                     <default>false</default>
+                    <label>Animal Health</label>
                 </value>
                 <value>
                     <fullName>Biotech</fullName>
                     <default>false</default>
+                    <label>Biotech</label>
                 </value>
                 <value>
                     <fullName>Consumer Health</fullName>
                     <default>false</default>
+                    <label>Consumer Health</label>
                 </value>
                 <value>
                     <fullName>Generics</fullName>
                     <default>false</default>
+                    <label>Generics</label>
                 </value>
                 <value>
                     <fullName>Medical Devices</fullName>
                     <default>false</default>
+                    <label>Medical Devices</label>
                 </value>
                 <value>
                     <fullName>Pharmaceuticals</fullName>
                     <default>false</default>
+                    <label>Pharmaceuticals</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>COTS_Homegrown__c</fullName>
+        <externalId>false</externalId>
+        <label>COTS/ Homegrown</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>COTS</fullName>
+                    <default>false</default>
+                    <label>COTS</label>
+                </value>
+                <value>
+                    <fullName>Homegrown</fullName>
+                    <default>false</default>
+                    <label>Homegrown</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Client_ACD_BT_Lead1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client ACD BT Lead</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Information_Sources1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_Application_Lead1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client Application Lead</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Information_Sources5</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_BT_Application_Owner1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client BT Application Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Information_Sources2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_BT_Lead1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client BT Lead</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Information_Sources</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_BT_Lead_Email1__c</fullName>
+        <externalId>false</externalId>
+        <label>Client BT Lead Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_BT_Lead_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Client_BT_Lead1__r.Email</formula>
+        <label>Client BT Lead Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Business_Process_Owner1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client Business Process Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Information_Sources3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_Contract_Lead1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client Contract Lead</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Information_Sources6</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_Equivalent_App__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client Equivalent App</label>
+        <referenceTo>Information_Landscape__c</referenceTo>
+        <relationshipLabel>Information Sources (Client Equivalent App)</relationshipLabel>
+        <relationshipName>Information_Sources1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_Functional_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Functional Area</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Clinical</fullName>
+                    <default>false</default>
+                    <label>Clinical</label>
+                </value>
+                <value>
+                    <fullName>Regulatory</fullName>
+                    <default>false</default>
+                    <label>Regulatory</label>
+                </value>
+                <value>
+                    <fullName>Safety</fullName>
+                    <default>false</default>
+                    <label>Safety</label>
+                </value>
+                <value>
+                    <fullName>Research</fullName>
+                    <default>false</default>
+                    <label>Research</label>
+                </value>
+                <value>
+                    <fullName>Pharm Sci</fullName>
+                    <default>false</default>
+                    <label>Pharm Sci</label>
+                </value>
+                <value>
+                    <fullName>PDM</fullName>
+                    <default>false</default>
+                    <label>PDM</label>
+                </value>
+                <value>
+                    <fullName>Medical</fullName>
+                    <default>false</default>
+                    <label>Medical</label>
+                </value>
+                <value>
+                    <fullName>eLibrary</fullName>
+                    <default>false</default>
+                    <label>eLibrary</label>
+                </value>
+                <value>
+                    <fullName>Business Insights</fullName>
+                    <default>false</default>
+                    <label>Business Insights</label>
+                </value>
+                <value>
+                    <fullName>TBD</fullName>
+                    <default>false</default>
+                    <label>TBD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Client_Functional_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Functional Group</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Development</fullName>
+                    <default>false</default>
+                    <label>Development</label>
+                </value>
+                <value>
+                    <fullName>Research &amp; Pharm Sci</fullName>
+                    <default>false</default>
+                    <label>Research &amp; Pharm Sci</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>TBD</fullName>
+                    <default>false</default>
+                    <label>TBD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hardware</fullName>
+                    <default>false</default>
+                    <label>Hardware</label>
+                </value>
+                <value>
+                    <fullName>Software</fullName>
+                    <default>false</default>
+                    <label>Software</label>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                    <label>Service</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Decision_Contract_Integration_D__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Decision/Contract Integration D</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Keep until Contract End</fullName>
+                    <default>false</default>
+                    <label>Keep until Contract End</label>
+                </value>
+                <value>
+                    <fullName>Renew</fullName>
+                    <default>false</default>
+                    <label>Renew</label>
+                </value>
+                <value>
+                    <fullName>Terminate</fullName>
+                    <default>false</default>
+                    <label>Terminate</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Notes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Specific_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Specific Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Subscription</fullName>
+                    <default>false</default>
+                    <label>Subscription</label>
+                </value>
+                <value>
+                    <fullName>License</fullName>
+                    <default>false</default>
+                    <label>License</label>
+                </value>
+                <value>
+                    <fullName>Maintenance</fullName>
+                    <default>false</default>
+                    <label>Maintenance</label>
+                </value>
+                <value>
+                    <fullName>Support</fullName>
+                    <default>false</default>
+                    <label>Support</label>
+                </value>
+                <value>
+                    <fullName>Hosting</fullName>
+                    <default>false</default>
+                    <label>Hosting</label>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                    <label>Service</label>
+                </value>
+                <value>
+                    <fullName>Multiple</fullName>
+                    <default>false</default>
+                    <label>Multiple</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Renewed</fullName>
+                    <default>false</default>
+                    <label>Renewed</label>
+                </value>
+                <value>
+                    <fullName>Terminated</fullName>
+                    <default>false</default>
+                    <label>Terminated</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Termination_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Termination Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>License</fullName>
+                    <default>false</default>
+                    <label>License</label>
+                </value>
+                <value>
+                    <fullName>Agreement</fullName>
+                    <default>false</default>
+                    <label>Agreement</label>
+                </value>
+                <value>
+                    <fullName>SOW</fullName>
+                    <default>false</default>
+                    <label>SOW</label>
+                </value>
+                <value>
+                    <fullName>Inventory</fullName>
+                    <default>false</default>
+                    <label>Inventory</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Contracts__c</referenceTo>
+        <relationshipLabel>Information Sources</relationshipLabel>
+        <relationshipName>Information_Sources</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cost_of_this_purchase__c</fullName>
+        <externalId>false</externalId>
+        <label>Cost of this purchase</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Criticality__c</fullName>
+        <externalId>false</externalId>
+        <label>Criticality</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Data_Migration_Decision__c</fullName>
+        <externalId>false</externalId>
+        <label>Data Migration Decision</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Migrate Data</fullName>
+                    <default>false</default>
+                    <label>Migrate Data</label>
+                </value>
+                <value>
+                    <fullName>Archive Data</fullName>
+                    <default>false</default>
+                    <label>Archive Data</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Data_Migration_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Data Migration Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>false</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>Planning In Progress</fullName>
+                    <default>false</default>
+                    <label>Planning In Progress</label>
+                </value>
+                <value>
+                    <fullName>Migration In Progress</fullName>
+                    <default>false</default>
+                    <label>Migration In Progress</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Duration_years__c</fullName>
+        <externalId>false</externalId>
+        <label>Duration (years)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ERIM_Submission_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ERIM Submission Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>GXP_Risk_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>GXP Risk Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -121,6 +1395,7 @@
         <label>Group Division Name</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -131,6 +1406,7 @@
         <externalId>false</externalId>
         <label>Group Name</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -141,46 +1417,57 @@
                 <value>
                     <fullName>Discovery</fullName>
                     <default>false</default>
+                    <label>Discovery</label>
                 </value>
                 <value>
                     <fullName>Clinical</fullName>
                     <default>false</default>
+                    <label>Clinical</label>
                 </value>
                 <value>
                     <fullName>Pre-Clinical</fullName>
                     <default>false</default>
+                    <label>Pre-Clinical</label>
                 </value>
                 <value>
                     <fullName>Medical Affairs</fullName>
                     <default>false</default>
+                    <label>Medical Affairs</label>
                 </value>
                 <value>
                     <fullName>Regulatory Affairs</fullName>
                     <default>false</default>
+                    <label>Regulatory Affairs</label>
                 </value>
                 <value>
                     <fullName>Manufacturing</fullName>
                     <default>false</default>
+                    <label>Manufacturing</label>
                 </value>
                 <value>
                     <fullName>Sales</fullName>
                     <default>false</default>
+                    <label>Sales</label>
                 </value>
                 <value>
                     <fullName>Marketing</fullName>
                     <default>false</default>
+                    <label>Marketing</label>
                 </value>
                 <value>
                     <fullName>HR</fullName>
                     <default>false</default>
+                    <label>HR</label>
                 </value>
                 <value>
                     <fullName>Legal</fullName>
                     <default>false</default>
+                    <label>Legal</label>
                 </value>
                 <value>
                     <fullName>Shared Services (IT)</fullName>
                     <default>false</default>
+                    <label>Shared Services (IT)</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -189,8 +1476,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Discovery</valueName>
             </valueSettings>
             <valueSettings>
@@ -199,8 +1486,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Clinical</valueName>
             </valueSettings>
             <valueSettings>
@@ -209,8 +1496,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Pre-Clinical</valueName>
             </valueSettings>
             <valueSettings>
@@ -219,8 +1506,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Medical Affairs</valueName>
             </valueSettings>
             <valueSettings>
@@ -229,8 +1516,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Regulatory Affairs</valueName>
             </valueSettings>
             <valueSettings>
@@ -239,8 +1526,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Manufacturing</valueName>
             </valueSettings>
             <valueSettings>
@@ -249,8 +1536,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Sales</valueName>
             </valueSettings>
             <valueSettings>
@@ -259,8 +1546,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Marketing</valueName>
             </valueSettings>
             <valueSettings>
@@ -269,8 +1556,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>HR</valueName>
             </valueSettings>
             <valueSettings>
@@ -279,8 +1566,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Legal</valueName>
             </valueSettings>
             <valueSettings>
@@ -289,8 +1576,8 @@
                 <controllingFieldValue>Consumer Health</controllingFieldValue>
                 <controllingFieldValue>Generics</controllingFieldValue>
                 <controllingFieldValue>Medical Devices</controllingFieldValue>
-                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <controllingFieldValue>Pharmaceuticals</controllingFieldValue>
+                <controllingFieldValue>Vaccines</controllingFieldValue>
                 <valueName>Shared Services (IT)</valueName>
             </valueSettings>
         </valueSet>
@@ -301,6 +1588,61 @@
         <label>Group Sub-Division Name</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hosting_Internal_or_External__c</fullName>
+        <externalId>false</externalId>
+        <label>Hosting  (Internal or External)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                    <label>Internal</label>
+                </value>
+                <value>
+                    <fullName>External</fullName>
+                    <default>false</default>
+                    <label>External</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hosting_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Hosting Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Information_Source_New_Custom_Field_H__c</fullName>
+        <externalId>false</externalId>
+        <label>No Licenses/ HW of Purchase</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -311,6 +1653,7 @@
         <externalId>false</externalId>
         <label>Information Sub - Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -321,42 +1664,52 @@
                 <value>
                     <fullName>Relational</fullName>
                     <default>false</default>
+                    <label>Relational</label>
                 </value>
                 <value>
                     <fullName>Non-Relational</fullName>
                     <default>false</default>
+                    <label>Non-Relational</label>
                 </value>
                 <value>
                     <fullName>Proprietary</fullName>
                     <default>false</default>
+                    <label>Proprietary</label>
                 </value>
                 <value>
                     <fullName>Sharepoint</fullName>
                     <default>false</default>
+                    <label>Sharepoint</label>
                 </value>
                 <value>
                     <fullName>Box</fullName>
                     <default>false</default>
+                    <label>Box</label>
                 </value>
                 <value>
                     <fullName>Dropbox</fullName>
                     <default>false</default>
+                    <label>Dropbox</label>
                 </value>
                 <value>
                     <fullName>Sharefle</fullName>
                     <default>false</default>
+                    <label>Sharefle</label>
                 </value>
                 <value>
                     <fullName>Documentum</fullName>
                     <default>false</default>
+                    <label>Documentum</label>
                 </value>
                 <value>
                     <fullName>Three Tier Client Server</fullName>
                     <default>false</default>
+                    <label>Three Tier Client Server</label>
                 </value>
                 <value>
                     <fullName>Three Tier Web Application</fullName>
                     <default>false</default>
+                    <label>Three Tier Web Application</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -406,6 +1759,7 @@
         <externalId>false</externalId>
         <label>Information Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -415,23 +1769,39 @@
                 <value>
                     <fullName>Application</fullName>
                     <default>false</default>
+                    <label>Application</label>
                 </value>
                 <value>
                     <fullName>Database</fullName>
                     <default>false</default>
+                    <label>Database</label>
                 </value>
                 <value>
                     <fullName>Content</fullName>
                     <default>false</default>
+                    <label>Content</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Infrastructure_Server_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Infrastructure(Server Name)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Integration_Mechanism__c</fullName>
         <externalId>false</externalId>
         <label>Integration Mechanism</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -441,13 +1811,39 @@
                 <value>
                     <fullName>API</fullName>
                     <default>false</default>
+                    <label>API</label>
                 </value>
                 <value>
                     <fullName>Custom</fullName>
                     <default>false</default>
+                    <label>Custom</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>No_of_Support_Personnel__c</fullName>
+        <externalId>false</externalId>
+        <label>No. of Support Personnel</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_of_Users__c</fullName>
+        <externalId>false</externalId>
+        <label>No. of Users</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Number_of_Licenses__c</fullName>
@@ -456,6 +1852,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -466,45 +1863,112 @@
         <externalId>false</externalId>
         <label>Operating Costs</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
                     <fullName>Low &lt; $50K/year</fullName>
                     <default>false</default>
+                    <label>Low &lt; $50K/year</label>
                 </value>
                 <value>
                     <fullName>Medium &gt; $50K/year and &lt; $250K/year</fullName>
                     <default>false</default>
+                    <label>Medium &gt; $50K/year and &lt; $250K/year</label>
                 </value>
                 <value>
                     <fullName>High &gt; $250K/year</fullName>
                     <default>false</default>
+                    <label>High &gt; $250K/year</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
-        <fullName>Organization_Name__c</fullName>
+        <fullName>Organization_Owner__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Organization Name</label>
+        <label>Organization Owning</label>
         <referenceTo>Account</referenceTo>
-        <relationshipName>Information_Landscapes</relationshipName>
+        <relationshipLabel>Information Sources (Account)</relationshipLabel>
+        <relationshipName>Information_Sources1</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PAST_ID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>PAST ID#</label>
+        <referenceTo>Information_Landscape__c</referenceTo>
+        <relationshipLabel>Information Sources</relationshipLabel>
+        <relationshipName>Information_Sources</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Regulatory_Authority__c</fullName>
+        <externalId>false</externalId>
+        <label>Regulatory Authority</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GxP</fullName>
+                    <default>false</default>
+                    <label>GxP</label>
+                </value>
+                <value>
+                    <fullName>Operational</fullName>
+                    <default>false</default>
+                    <label>Operational</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Regulatory_Indicator__c</fullName>
         <externalId>false</externalId>
         <label>Regulatory Indicator</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -514,18 +1978,22 @@
                 <value>
                     <fullName>GLP</fullName>
                     <default>false</default>
+                    <label>GLP</label>
                 </value>
                 <value>
                     <fullName>GCP</fullName>
                     <default>false</default>
+                    <label>GCP</label>
                 </value>
                 <value>
                     <fullName>GMP</fullName>
                     <default>false</default>
+                    <label>GMP</label>
                 </value>
                 <value>
                     <fullName>non-GxP</fullName>
                     <default>false</default>
+                    <label>non-GxP</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -535,6 +2003,7 @@
         <externalId>false</externalId>
         <label>SDLC Classification</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -544,14 +2013,17 @@
                 <value>
                     <fullName>Custom</fullName>
                     <default>false</default>
+                    <label>Custom</label>
                 </value>
                 <value>
                     <fullName>Configurable</fullName>
                     <default>false</default>
+                    <label>Configurable</label>
                 </value>
                 <value>
                     <fullName>COTS</fullName>
                     <default>false</default>
+                    <label>COTS</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -561,6 +2033,7 @@
         <externalId>false</externalId>
         <label>Sensitivity</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -570,10 +2043,12 @@
                 <value>
                     <fullName>Confidential</fullName>
                     <default>false</default>
+                    <label>Confidential</label>
                 </value>
                 <value>
                     <fullName>Proprietary</fullName>
                     <default>false</default>
+                    <label>Proprietary</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -583,6 +2058,7 @@
         <externalId>false</externalId>
         <label>Source Content</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -592,14 +2068,17 @@
                 <value>
                     <fullName>Structured</fullName>
                     <default>false</default>
+                    <label>Structured</label>
                 </value>
                 <value>
                     <fullName>Semi-structured</fullName>
                     <default>false</default>
+                    <label>Semi-structured</label>
                 </value>
                 <value>
                     <fullName>Unstructured</fullName>
                     <default>false</default>
+                    <label>Unstructured</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -610,6 +2089,7 @@
         <label>Source Description</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -620,6 +2100,7 @@
         <externalId>false</externalId>
         <label>Source Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -629,10 +2110,12 @@
                 <value>
                     <fullName>Internal</fullName>
                     <default>false</default>
+                    <label>Internal</label>
                 </value>
                 <value>
                     <fullName>External</fullName>
                     <default>false</default>
+                    <label>External</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -645,6 +2128,7 @@
         <referenceTo>User</referenceTo>
         <relationshipName>DRDP_Information_Landscapes</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -654,6 +2138,7 @@
         <externalId>false</externalId>
         <label>Target Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -663,6 +2148,7 @@
         <externalId>false</externalId>
         <label>Target Decommissioning Indicator</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -672,10 +2158,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -685,102 +2173,201 @@
         <externalId>false</externalId>
         <label>Therapeutic Area (Primary)</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
                     <fullName>Autoimmune Diseases</fullName>
                     <default>false</default>
+                    <label>Autoimmune Diseases</label>
                 </value>
                 <value>
                     <fullName>Cardiovascular</fullName>
                     <default>false</default>
+                    <label>Cardiovascular</label>
                 </value>
                 <value>
                     <fullName>Dermatology</fullName>
                     <default>false</default>
+                    <label>Dermatology</label>
                 </value>
                 <value>
                     <fullName>Diabetes</fullName>
                     <default>false</default>
+                    <label>Diabetes</label>
                 </value>
                 <value>
                     <fullName>Endocrinology</fullName>
                     <default>false</default>
+                    <label>Endocrinology</label>
                 </value>
                 <value>
                     <fullName>Gastroenterology</fullName>
                     <default>false</default>
+                    <label>Gastroenterology</label>
                 </value>
                 <value>
                     <fullName>Gynecology</fullName>
                     <default>false</default>
+                    <label>Gynecology</label>
                 </value>
                 <value>
                     <fullName>Immunology</fullName>
                     <default>false</default>
+                    <label>Immunology</label>
                 </value>
                 <value>
                     <fullName>Neurology</fullName>
                     <default>false</default>
+                    <label>Neurology</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Psychiatry &amp; Pain</fullName>
                     <default>false</default>
+                    <label>Psychiatry &amp; Pain</label>
                 </value>
                 <value>
                     <fullName>Rheumatology</fullName>
                     <default>false</default>
+                    <label>Rheumatology</label>
                 </value>
                 <value>
                     <fullName>Urology</fullName>
                     <default>false</default>
+                    <label>Urology</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
                 <value>
                     <fullName>Non-Therapeutic Area Specific</fullName>
                     <default>false</default>
-                </value>
-                <value>
-                    <fullName>Critical Care</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                </value>
-                <value>
-                    <fullName>Osteoporosis</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                </value>
-                <value>
-                    <fullName>Surgery</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
+                    <label>Non-Therapeutic Area Specific</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Total_2017_OpEx__c</fullName>
+        <externalId>false</externalId>
+        <label>Total (2017) = OpEx</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_2018_2019_OpEx__c</fullName>
+        <externalId>false</externalId>
+        <label>Total (2018 - 2019) OpEx</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_All_Yrs_OpEx__c</fullName>
+        <externalId>false</externalId>
+        <label>Total (All Yrs) = OpEx</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Validated_System_Yes_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Validated System? (Yes / No)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Vendor_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Vendor Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.Account.Id</field>
+                <operation>equals</operation>
+                <valueField>$Source.Vendor__c</valueField>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Information Sources</relationshipLabel>
+        <relationshipName>Information_Sources</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Vendor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Vendor</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Information Sources (Vendor)</relationshipLabel>
+        <relationshipName>Information_Sources</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <label>Information Source</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Organization_Name__c</columns>
-        <columns>System_Owner__c</columns>
+        <columns>Vendor__c</columns>
+        <columns>Organization_Owner__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Source Name</label>
+        <label>Application Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
@@ -789,6 +2376,7 @@
         <listViewButtons>Import_Information_Sources</listViewButtons>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Import_Information_Sources</fullName>
         <availability>online</availability>

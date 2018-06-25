@@ -6,6 +6,8 @@
 *****************************************************************************************************************************************/
 Public with sharing class Index_Controller {
 
+    public String homeurl { get; set; }
+
 
     Public String searchWord {
         get;

@@ -7,4 +7,5 @@
     <style>none</style>
     <subject>Your {!Request__c.RecordType} Request: {!Request__c.Name} was Submitted</subject>
     <type>text</type>
+    <uiType>Aloha</uiType>
 </EmailTemplate>

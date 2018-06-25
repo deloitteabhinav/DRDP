@@ -23,26 +23,32 @@
                 <value>
                     <fullName>Biomedicines (LBM)</fullName>
                     <default>false</default>
+                    <label>Biomedicines (LBM)</label>
                 </value>
                 <value>
                     <fullName>Oncology (OBU)</fullName>
                     <default>false</default>
+                    <label>Oncology (OBU)</label>
                 </value>
                 <value>
                     <fullName>Diabetes (DBU)</fullName>
                     <default>false</default>
+                    <label>Diabetes (DBU)</label>
                 </value>
                 <value>
                     <fullName>EMBU</fullName>
                     <default>false</default>
+                    <label>EMBU</label>
                 </value>
                 <value>
                     <fullName>Elanco</fullName>
                     <default>false</default>
+                    <label>Elanco</label>
                 </value>
                 <value>
                     <fullName>Non Business Unit Specific</fullName>
                     <default>false</default>
+                    <label>Non Business Unit Specific</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -61,54 +67,67 @@
                 <value>
                     <fullName>ICD-9-CM</fullName>
                     <default>false</default>
+                    <label>ICD-9-CM</label>
                 </value>
                 <value>
                     <fullName>CPT-4</fullName>
                     <default>false</default>
+                    <label>CPT-4</label>
                 </value>
                 <value>
                     <fullName>NDC</fullName>
                     <default>false</default>
+                    <label>NDC</label>
                 </value>
                 <value>
                     <fullName>LOINC</fullName>
                     <default>false</default>
+                    <label>LOINC</label>
                 </value>
                 <value>
                     <fullName>MedDRA</fullName>
                     <default>false</default>
+                    <label>MedDRA</label>
                 </value>
                 <value>
                     <fullName>ICD-10-CM</fullName>
                     <default>false</default>
+                    <label>ICD-10-CM</label>
                 </value>
                 <value>
                     <fullName>READ</fullName>
                     <default>false</default>
+                    <label>READ</label>
                 </value>
                 <value>
                     <fullName>SNOMED</fullName>
                     <default>false</default>
+                    <label>SNOMED</label>
                 </value>
                 <value>
                     <fullName>HCPCS</fullName>
                     <default>false</default>
+                    <label>HCPCS</label>
                 </value>
                 <value>
                     <fullName>ATC</fullName>
                     <default>false</default>
+                    <label>ATC</label>
                 </value>
                 <value>
                     <fullName>GPI</fullName>
                     <default>false</default>
+                    <label>GPI</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
                 <value>
                     <fullName>Non-specific code type</fullName>
                     <default>false</default>
+                    <label>Non-specific code type</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -116,10 +135,6 @@
     </fields>
     <fields>
         <fullName>ContentSize</fullName>
-    </fields>
-    <fields>
-        <fullName>CurrencyIsoCode</fullName>
-        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Data_Asset_Refresh_Date__c</fullName>
@@ -135,74 +150,92 @@
                 <value>
                     <fullName>Q1</fullName>
                     <default>false</default>
+                    <label>Q1</label>
                 </value>
                 <value>
                     <fullName>Q2</fullName>
                     <default>false</default>
+                    <label>Q2</label>
                 </value>
                 <value>
                     <fullName>Q3</fullName>
                     <default>false</default>
+                    <label>Q3</label>
                 </value>
                 <value>
                     <fullName>Q4</fullName>
                     <default>false</default>
+                    <label>Q4</label>
                 </value>
                 <value>
                     <fullName>January</fullName>
                     <default>false</default>
+                    <label>January</label>
                 </value>
                 <value>
                     <fullName>February</fullName>
                     <default>false</default>
+                    <label>February</label>
                 </value>
                 <value>
                     <fullName>March</fullName>
                     <default>false</default>
+                    <label>March</label>
                 </value>
                 <value>
                     <fullName>April</fullName>
                     <default>false</default>
+                    <label>April</label>
                 </value>
                 <value>
                     <fullName>May</fullName>
                     <default>false</default>
+                    <label>May</label>
                 </value>
                 <value>
                     <fullName>June</fullName>
                     <default>false</default>
+                    <label>June</label>
                 </value>
                 <value>
                     <fullName>July</fullName>
                     <default>false</default>
+                    <label>July</label>
                 </value>
                 <value>
                     <fullName>August</fullName>
                     <default>false</default>
+                    <label>August</label>
                 </value>
                 <value>
                     <fullName>September</fullName>
                     <default>false</default>
+                    <label>September</label>
                 </value>
                 <value>
                     <fullName>October</fullName>
                     <default>false</default>
+                    <label>October</label>
                 </value>
                 <value>
                     <fullName>November</fullName>
                     <default>false</default>
+                    <label>November</label>
                 </value>
                 <value>
                     <fullName>December</fullName>
                     <default>false</default>
+                    <label>December</label>
                 </value>
                 <value>
                     <fullName>Annual</fullName>
                     <default>false</default>
+                    <label>Annual</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -292,18 +325,22 @@
                 <value>
                     <fullName>Monthly</fullName>
                     <default>false</default>
+                    <label>Monthly</label>
                 </value>
                 <value>
                     <fullName>Quarterly</fullName>
                     <default>false</default>
+                    <label>Quarterly</label>
                 </value>
                 <value>
                     <fullName>Annual</fullName>
                     <default>false</default>
+                    <label>Annual</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -322,94 +359,117 @@
                 <value>
                     <fullName>Pre-2000</fullName>
                     <default>false</default>
+                    <label>Pre-2000</label>
                 </value>
                 <value>
                     <fullName>2000-2020</fullName>
                     <default>false</default>
+                    <label>2000-2020</label>
                 </value>
                 <value>
                     <fullName>Ongoing</fullName>
                     <default>false</default>
+                    <label>Ongoing</label>
                 </value>
                 <value>
                     <fullName>2001</fullName>
                     <default>false</default>
+                    <label>2001</label>
                 </value>
                 <value>
                     <fullName>2002</fullName>
                     <default>false</default>
+                    <label>2002</label>
                 </value>
                 <value>
                     <fullName>2003</fullName>
                     <default>false</default>
+                    <label>2003</label>
                 </value>
                 <value>
                     <fullName>2004</fullName>
                     <default>false</default>
+                    <label>2004</label>
                 </value>
                 <value>
                     <fullName>2005</fullName>
                     <default>false</default>
+                    <label>2005</label>
                 </value>
                 <value>
                     <fullName>2006</fullName>
                     <default>false</default>
+                    <label>2006</label>
                 </value>
                 <value>
                     <fullName>2007</fullName>
                     <default>false</default>
+                    <label>2007</label>
                 </value>
                 <value>
                     <fullName>2008</fullName>
                     <default>false</default>
+                    <label>2008</label>
                 </value>
                 <value>
                     <fullName>2009</fullName>
                     <default>false</default>
+                    <label>2009</label>
                 </value>
                 <value>
                     <fullName>2010</fullName>
                     <default>false</default>
+                    <label>2010</label>
                 </value>
                 <value>
                     <fullName>2011</fullName>
                     <default>false</default>
+                    <label>2011</label>
                 </value>
                 <value>
                     <fullName>2012</fullName>
                     <default>false</default>
+                    <label>2012</label>
                 </value>
                 <value>
                     <fullName>2013</fullName>
                     <default>false</default>
+                    <label>2013</label>
                 </value>
                 <value>
                     <fullName>2014</fullName>
                     <default>false</default>
+                    <label>2014</label>
                 </value>
                 <value>
                     <fullName>2015</fullName>
                     <default>false</default>
+                    <label>2015</label>
                 </value>
                 <value>
                     <fullName>2016</fullName>
                     <default>false</default>
+                    <label>2016</label>
                 </value>
                 <value>
                     <fullName>2017</fullName>
                     <default>false</default>
+                    <label>2017</label>
                 </value>
                 <value>
                     <fullName>2018</fullName>
                     <default>false</default>
+                    <label>2018</label>
                 </value>
                 <value>
                     <fullName>2019</fullName>
                     <default>false</default>
+                    <label>2019</label>
                 </value>
                 <value>
                     <fullName>2020</fullName>
                     <default>false</default>
+                    <label>2020</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -851,34 +911,42 @@
                 <value>
                     <fullName>Claims</fullName>
                     <default>false</default>
+                    <label>Claims</label>
                 </value>
                 <value>
                     <fullName>EMR</fullName>
                     <default>false</default>
+                    <label>EMR</label>
                 </value>
                 <value>
                     <fullName>EMR-Claims Linked</fullName>
                     <default>false</default>
+                    <label>EMR-Claims Linked</label>
                 </value>
                 <value>
                     <fullName>PRO</fullName>
                     <default>false</default>
+                    <label>PRO</label>
                 </value>
                 <value>
                     <fullName>Registry</fullName>
                     <default>false</default>
+                    <label>Registry</label>
                 </value>
                 <value>
                     <fullName>Sickness Fund (EU)</fullName>
                     <default>false</default>
+                    <label>Sickness Fund (EU)</label>
                 </value>
                 <value>
                     <fullName>Survey</fullName>
                     <default>false</default>
+                    <label>Survey</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -896,54 +964,67 @@
                 <value>
                     <fullName>CPRD</fullName>
                     <default>false</default>
+                    <label>CPRD</label>
                 </value>
                 <value>
                     <fullName>DoD</fullName>
                     <default>false</default>
+                    <label>DoD</label>
                 </value>
                 <value>
                     <fullName>Flatiron</fullName>
                     <default>false</default>
+                    <label>Flatiron</label>
                 </value>
                 <value>
                     <fullName>Geisinger (Diabetes)</fullName>
                     <default>false</default>
+                    <label>Geisinger (Diabetes)</label>
                 </value>
                 <value>
                     <fullName>Humedica (Diabetes)</fullName>
                     <default>false</default>
+                    <label>Humedica (Diabetes)</label>
                 </value>
                 <value>
                     <fullName>IMS Oncology</fullName>
                     <default>false</default>
+                    <label>IMS Oncology</label>
                 </value>
                 <value>
                     <fullName>MEPS</fullName>
                     <default>false</default>
+                    <label>MEPS</label>
                 </value>
                 <value>
                     <fullName>NHANES</fullName>
                     <default>false</default>
+                    <label>NHANES</label>
                 </value>
                 <value>
                     <fullName>Non-specific Database</fullName>
                     <default>false</default>
+                    <label>Non-specific Database</label>
                 </value>
                 <value>
                     <fullName>Practice Fusion</fullName>
                     <default>false</default>
+                    <label>Practice Fusion</label>
                 </value>
                 <value>
                     <fullName>SEER Medicare</fullName>
                     <default>false</default>
+                    <label>SEER Medicare</label>
                 </value>
                 <value>
                     <fullName>Truven Marketscan</fullName>
                     <default>false</default>
+                    <label>Truven Marketscan</label>
                 </value>
                 <value>
                     <fullName>Other Database</fullName>
                     <default>false</default>
+                    <label>Other Database</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -967,198 +1048,247 @@
                 <value>
                     <fullName>Not Applicable</fullName>
                     <default>false</default>
+                    <label>Not Applicable</label>
                 </value>
                 <value>
                     <fullName>Alopecia Areata</fullName>
                     <default>false</default>
+                    <label>Alopecia Areata</label>
                 </value>
                 <value>
                     <fullName>Alzheimer’s Disease</fullName>
                     <default>false</default>
+                    <label>Alzheimer’s Disease</label>
                 </value>
                 <value>
                     <fullName>Alzheimer’s Disease Psychosis</fullName>
                     <default>false</default>
+                    <label>Alzheimer’s Disease Psychosis</label>
                 </value>
                 <value>
                     <fullName>Anemia</fullName>
                     <default>false</default>
+                    <label>Anemia</label>
                 </value>
                 <value>
                     <fullName>Anxiety</fullName>
                     <default>false</default>
+                    <label>Anxiety</label>
                 </value>
                 <value>
                     <fullName>Atopic Dermatitis</fullName>
                     <default>false</default>
+                    <label>Atopic Dermatitis</label>
                 </value>
                 <value>
                     <fullName>Attention Deficit-Hyperactivity Disorder</fullName>
                     <default>false</default>
+                    <label>Attention Deficit-Hyperactivity Disorder</label>
                 </value>
                 <value>
                     <fullName>AxSpA (Axial Spondyloarthritis)</fullName>
                     <default>false</default>
+                    <label>AxSpA (Axial Spondyloarthritis)</label>
                 </value>
                 <value>
                     <fullName>Bladder Cancer</fullName>
                     <default>false</default>
+                    <label>Bladder Cancer</label>
                 </value>
                 <value>
                     <fullName>Bone and Soft Tissue Cancers</fullName>
                     <default>false</default>
+                    <label>Bone and Soft Tissue Cancers</label>
                 </value>
                 <value>
                     <fullName>Breast Cancer</fullName>
                     <default>false</default>
+                    <label>Breast Cancer</label>
                 </value>
                 <value>
                     <fullName>Cardiovascular Disease</fullName>
                     <default>false</default>
+                    <label>Cardiovascular Disease</label>
                 </value>
                 <value>
                     <fullName>Chronic Kidney Disease</fullName>
                     <default>false</default>
+                    <label>Chronic Kidney Disease</label>
                 </value>
                 <value>
                     <fullName>Chronic Pain</fullName>
                     <default>false</default>
+                    <label>Chronic Pain</label>
                 </value>
                 <value>
                     <fullName>Cluster Headache</fullName>
                     <default>false</default>
+                    <label>Cluster Headache</label>
                 </value>
                 <value>
                     <fullName>Colorectal Cancer</fullName>
                     <default>false</default>
+                    <label>Colorectal Cancer</label>
                 </value>
                 <value>
                     <fullName>Crohn’s Disease</fullName>
                     <default>false</default>
+                    <label>Crohn’s Disease</label>
                 </value>
                 <value>
                     <fullName>Depression</fullName>
                     <default>false</default>
+                    <label>Depression</label>
                 </value>
                 <value>
                     <fullName>Disuse Atrophy</fullName>
                     <default>false</default>
+                    <label>Disuse Atrophy</label>
                 </value>
                 <value>
                     <fullName>Erectile Dysfunction</fullName>
                     <default>false</default>
+                    <label>Erectile Dysfunction</label>
                 </value>
                 <value>
                     <fullName>Gastrointestinal Cancer</fullName>
                     <default>false</default>
+                    <label>Gastrointestinal Cancer</label>
                 </value>
                 <value>
                     <fullName>Genitourinary Cancer</fullName>
                     <default>false</default>
+                    <label>Genitourinary Cancer</label>
                 </value>
                 <value>
                     <fullName>Gynecologic Cancer</fullName>
                     <default>false</default>
+                    <label>Gynecologic Cancer</label>
                 </value>
                 <value>
                     <fullName>Head and Neck Cancer</fullName>
                     <default>false</default>
+                    <label>Head and Neck Cancer</label>
                 </value>
                 <value>
                     <fullName>Hematologic Cancer</fullName>
                     <default>false</default>
+                    <label>Hematologic Cancer</label>
                 </value>
                 <value>
                     <fullName>Hepatocellular Cancer</fullName>
                     <default>false</default>
+                    <label>Hepatocellular Cancer</label>
                 </value>
                 <value>
                     <fullName>High Risk Vascular Disease</fullName>
                     <default>false</default>
+                    <label>High Risk Vascular Disease</label>
                 </value>
                 <value>
                     <fullName>Juvenile Idiopathic Arthritis</fullName>
                     <default>false</default>
+                    <label>Juvenile Idiopathic Arthritis</label>
                 </value>
                 <value>
                     <fullName>Lung and Thoracic Cancer</fullName>
                     <default>false</default>
+                    <label>Lung and Thoracic Cancer</label>
                 </value>
                 <value>
                     <fullName>Lupus</fullName>
                     <default>false</default>
+                    <label>Lupus</label>
                 </value>
                 <value>
                     <fullName>Mesothelioma Cancer</fullName>
                     <default>false</default>
+                    <label>Mesothelioma Cancer</label>
                 </value>
                 <value>
                     <fullName>Migraine</fullName>
                     <default>false</default>
+                    <label>Migraine</label>
                 </value>
                 <value>
                     <fullName>Mild Cognitive Impairment</fullName>
                     <default>false</default>
+                    <label>Mild Cognitive Impairment</label>
                 </value>
                 <value>
                     <fullName>NAFLD</fullName>
                     <default>false</default>
+                    <label>NAFLD</label>
                 </value>
                 <value>
                     <fullName>NASH</fullName>
                     <default>false</default>
+                    <label>NASH</label>
                 </value>
                 <value>
                     <fullName>Non-Alzheimer’s Dementia</fullName>
                     <default>false</default>
+                    <label>Non-Alzheimer’s Dementia</label>
                 </value>
                 <value>
                     <fullName>Osteoporosis</fullName>
                     <default>false</default>
+                    <label>Osteoporosis</label>
                 </value>
                 <value>
                     <fullName>Parkinson’s Disease</fullName>
                     <default>false</default>
+                    <label>Parkinson’s Disease</label>
                 </value>
                 <value>
                     <fullName>Psoriasis</fullName>
                     <default>false</default>
+                    <label>Psoriasis</label>
                 </value>
                 <value>
                     <fullName>Psoriatic Arthritis</fullName>
                     <default>false</default>
+                    <label>Psoriatic Arthritis</label>
                 </value>
                 <value>
                     <fullName>Rheumatoid Arthritis</fullName>
                     <default>false</default>
+                    <label>Rheumatoid Arthritis</label>
                 </value>
                 <value>
                     <fullName>Schizophrenia</fullName>
                     <default>false</default>
+                    <label>Schizophrenia</label>
                 </value>
                 <value>
                     <fullName>Sjogren&apos;s Syndrome</fullName>
                     <default>false</default>
+                    <label>Sjogren&apos;s Syndrome</label>
                 </value>
                 <value>
                     <fullName>Testosterone replacement</fullName>
                     <default>false</default>
+                    <label>Testosterone replacement</label>
                 </value>
                 <value>
                     <fullName>Type I Diabetes</fullName>
                     <default>false</default>
+                    <label>Type I Diabetes</label>
                 </value>
                 <value>
                     <fullName>Type II Diabetes</fullName>
                     <default>false</default>
+                    <label>Type II Diabetes</label>
                 </value>
                 <value>
                     <fullName>Ulcerative Colitis</fullName>
                     <default>false</default>
+                    <label>Ulcerative Colitis</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -1427,294 +1557,367 @@
                 <value>
                     <fullName>Analysis Results</fullName>
                     <default>false</default>
+                    <label>Analysis Results</label>
                 </value>
                 <value>
                     <fullName>Assessment Results</fullName>
                     <default>false</default>
+                    <label>Assessment Results</label>
                 </value>
                 <value>
                     <fullName>BU Strategy</fullName>
                     <default>false</default>
+                    <label>BU Strategy</label>
                 </value>
                 <value>
                     <fullName>Charter</fullName>
                     <default>false</default>
+                    <label>Charter</label>
                 </value>
                 <value>
                     <fullName>Code Library</fullName>
                     <default>false</default>
+                    <label>Code Library</label>
                 </value>
                 <value>
                     <fullName>Code List or Standardized Cohort</fullName>
                     <default>false</default>
+                    <label>Code List or Standardized Cohort</label>
                 </value>
                 <value>
                     <fullName>Codes (excel file with ICD)</fullName>
                     <default>false</default>
+                    <label>Codes (excel file with ICD)</label>
                 </value>
                 <value>
                     <fullName>Committee Charter</fullName>
                     <default>false</default>
+                    <label>Committee Charter</label>
                 </value>
                 <value>
                     <fullName>Committee Membership List</fullName>
                     <default>false</default>
+                    <label>Committee Membership List</label>
                 </value>
                 <value>
                     <fullName>Consult Advice Log</fullName>
                     <default>false</default>
+                    <label>Consult Advice Log</label>
                 </value>
                 <value>
                     <fullName>Consultation Results</fullName>
                     <default>false</default>
+                    <label>Consultation Results</label>
                 </value>
                 <value>
                     <fullName>Contract Artifact</fullName>
                     <default>false</default>
+                    <label>Contract Artifact</label>
                 </value>
                 <value>
                     <fullName>Contract Checklist</fullName>
                     <default>false</default>
+                    <label>Contract Checklist</label>
                 </value>
                 <value>
                     <fullName>Counts</fullName>
                     <default>false</default>
+                    <label>Counts</label>
                 </value>
                 <value>
                     <fullName>Data Delivery Schedule</fullName>
                     <default>false</default>
+                    <label>Data Delivery Schedule</label>
                 </value>
                 <value>
                     <fullName>Data Dictionary</fullName>
                     <default>false</default>
+                    <label>Data Dictionary</label>
                 </value>
                 <value>
                     <fullName>Diagram</fullName>
                     <default>false</default>
+                    <label>Diagram</label>
                 </value>
                 <value>
                     <fullName>EXPERT Consultation Advice Log</fullName>
                     <default>false</default>
+                    <label>EXPERT Consultation Advice Log</label>
                 </value>
                 <value>
                     <fullName>EXPERT Review Evaluation Form</fullName>
                     <default>false</default>
+                    <label>EXPERT Review Evaluation Form</label>
                 </value>
                 <value>
                     <fullName>EXPERT Review Evaluation Form Resubmitted</fullName>
                     <default>false</default>
+                    <label>EXPERT Review Evaluation Form Resubmitted</label>
                 </value>
                 <value>
                     <fullName>EXPERT Study Team Response</fullName>
                     <default>false</default>
+                    <label>EXPERT Study Team Response</label>
                 </value>
                 <value>
                     <fullName>FAQ</fullName>
                     <default>false</default>
+                    <label>FAQ</label>
                 </value>
                 <value>
                     <fullName>Feasibility Count</fullName>
                     <default>false</default>
+                    <label>Feasibility Count</label>
                 </value>
                 <value>
                     <fullName>Feasibility Results</fullName>
                     <default>false</default>
+                    <label>Feasibility Results</label>
                 </value>
                 <value>
                     <fullName>General Communication</fullName>
                     <default>false</default>
+                    <label>General Communication</label>
                 </value>
                 <value>
                     <fullName>General Information</fullName>
                     <default>false</default>
+                    <label>General Information</label>
                 </value>
                 <value>
                     <fullName>Guidelines</fullName>
                     <default>false</default>
+                    <label>Guidelines</label>
                 </value>
                 <value>
                     <fullName>Lessons Learned</fullName>
                     <default>false</default>
+                    <label>Lessons Learned</label>
                 </value>
                 <value>
                     <fullName>Logs</fullName>
                     <default>false</default>
+                    <label>Logs</label>
                 </value>
                 <value>
                     <fullName>Macro</fullName>
                     <default>false</default>
+                    <label>Macro</label>
                 </value>
                 <value>
                     <fullName>Macro or Programming Logic</fullName>
                     <default>false</default>
+                    <label>Macro or Programming Logic</label>
                 </value>
                 <value>
                     <fullName>Meeting Agenda</fullName>
                     <default>false</default>
+                    <label>Meeting Agenda</label>
                 </value>
                 <value>
                     <fullName>Meeting Minutes</fullName>
                     <default>false</default>
+                    <label>Meeting Minutes</label>
                 </value>
                 <value>
                     <fullName>Meeting Presentation / Pre-Read</fullName>
                     <default>false</default>
+                    <label>Meeting Presentation / Pre-Read</label>
                 </value>
                 <value>
                     <fullName>Molecule Strategy</fullName>
                     <default>false</default>
+                    <label>Molecule Strategy</label>
                 </value>
                 <value>
                     <fullName>Newsletter</fullName>
                     <default>false</default>
+                    <label>Newsletter</label>
                 </value>
                 <value>
                     <fullName>Output</fullName>
                     <default>false</default>
+                    <label>Output</label>
                 </value>
                 <value>
                     <fullName>Pangaea Training</fullName>
                     <default>false</default>
+                    <label>Pangaea Training</label>
                 </value>
                 <value>
                     <fullName>PFO SRC Evaluation Form</fullName>
                     <default>false</default>
+                    <label>PFO SRC Evaluation Form</label>
                 </value>
                 <value>
                     <fullName>Press Release</fullName>
                     <default>false</default>
+                    <label>Press Release</label>
                 </value>
                 <value>
                     <fullName>Process Documentation</fullName>
                     <default>false</default>
+                    <label>Process Documentation</label>
                 </value>
                 <value>
                     <fullName>Program</fullName>
                     <default>false</default>
+                    <label>Program</label>
                 </value>
                 <value>
                     <fullName>Programming information</fullName>
                     <default>false</default>
+                    <label>Programming information</label>
                 </value>
                 <value>
                     <fullName>Protocol</fullName>
                     <default>false</default>
+                    <label>Protocol</label>
                 </value>
                 <value>
                     <fullName>Protocol/Study Summary</fullName>
                     <default>false</default>
+                    <label>Protocol/Study Summary</label>
                 </value>
                 <value>
                     <fullName>Protocol/Study Summary Resubmitted</fullName>
                     <default>false</default>
+                    <label>Protocol/Study Summary Resubmitted</label>
                 </value>
                 <value>
                     <fullName>Protocol Template Language</fullName>
                     <default>false</default>
+                    <label>Protocol Template Language</label>
                 </value>
                 <value>
                     <fullName>Publications</fullName>
                     <default>false</default>
+                    <label>Publications</label>
                 </value>
                 <value>
                     <fullName>Quick Reference Guide</fullName>
                     <default>false</default>
+                    <label>Quick Reference Guide</label>
                 </value>
                 <value>
                     <fullName>Review Checklist with Study Team Response</fullName>
                     <default>false</default>
+                    <label>Review Checklist with Study Team Response</label>
                 </value>
                 <value>
                     <fullName>Review with Study Team Response</fullName>
                     <default>false</default>
+                    <label>Review with Study Team Response</label>
                 </value>
                 <value>
                     <fullName>RWE Presentations</fullName>
                     <default>false</default>
+                    <label>RWE Presentations</label>
                 </value>
                 <value>
                     <fullName>Schedule</fullName>
                     <default>false</default>
+                    <label>Schedule</label>
                 </value>
                 <value>
                     <fullName>Shared Learnings</fullName>
                     <default>false</default>
+                    <label>Shared Learnings</label>
                 </value>
                 <value>
                     <fullName>Standardized Analytics Rules</fullName>
                     <default>false</default>
+                    <label>Standardized Analytics Rules</label>
                 </value>
                 <value>
                     <fullName>Standardized Business Rules</fullName>
                     <default>false</default>
+                    <label>Standardized Business Rules</label>
                 </value>
                 <value>
                     <fullName>Standardized TFL</fullName>
                     <default>false</default>
+                    <label>Standardized TFL</label>
                 </value>
                 <value>
                     <fullName>Statistical Methods</fullName>
                     <default>false</default>
+                    <label>Statistical Methods</label>
                 </value>
                 <value>
                     <fullName>Strategy</fullName>
                     <default>false</default>
+                    <label>Strategy</label>
                 </value>
                 <value>
                     <fullName>Supporting Document(s)</fullName>
                     <default>false</default>
+                    <label>Supporting Document(s)</label>
                 </value>
                 <value>
                     <fullName>Technical Assessment or Evaluation</fullName>
                     <default>false</default>
+                    <label>Technical Assessment or Evaluation</label>
                 </value>
                 <value>
                     <fullName>Template</fullName>
                     <default>false</default>
+                    <label>Template</label>
                 </value>
                 <value>
                     <fullName>Topic Overview or White Paper</fullName>
                     <default>false</default>
+                    <label>Topic Overview or White Paper</label>
                 </value>
                 <value>
                     <fullName>Training &amp; FAQ</fullName>
                     <default>false</default>
+                    <label>Training &amp; FAQ</label>
                 </value>
                 <value>
                     <fullName>User Guide</fullName>
                     <default>false</default>
+                    <label>User Guide</label>
                 </value>
                 <value>
                     <fullName>Vendor Information</fullName>
                     <default>false</default>
+                    <label>Vendor Information</label>
                 </value>
                 <value>
                     <fullName>Vendor Responses</fullName>
                     <default>false</default>
+                    <label>Vendor Responses</label>
                 </value>
                 <value>
                     <fullName>White Paper</fullName>
                     <default>false</default>
+                    <label>White Paper</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
                 <value>
                     <fullName>Outcomes Strategy</fullName>
                     <default>false</default>
+                    <label>Outcomes Strategy</label>
                 </value>
                 <value>
                     <fullName>RWE, Inc Strategy</fullName>
                     <default>false</default>
+                    <label>RWE, Inc Strategy</label>
                 </value>
                 <value>
                     <fullName>Holistic Evidence Plan</fullName>
                     <default>false</default>
+                    <label>Holistic Evidence Plan</label>
                 </value>
                 <value>
                     <fullName>Other RWE Strategy</fullName>
                     <default>false</default>
+                    <label>Other RWE Strategy</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1733,41 +1936,49 @@
                     <fullName>GPORWE</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>GPORWE</label>
                 </value>
                 <value>
                     <fullName>GPS</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>GPS</label>
                 </value>
                 <value>
                     <fullName>Medical</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>Medical</label>
                 </value>
                 <value>
                     <fullName>Medical Affairs - Global/Corporate</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>Medical Affairs - Global/Corporate</label>
                 </value>
                 <value>
                     <fullName>Medical Affairs - US</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
+                    <label>Medical Affairs - US</label>
                 </value>
                 <value>
                     <fullName>Medical Affairs - EUCAN</fullName>
                     <color>#A53711</color>
                     <default>false</default>
+                    <label>Medical Affairs - EUCAN</label>
                 </value>
                 <value>
                     <fullName>Medical Affairs - EMBU</fullName>
                     <color>#66E9BD</color>
                     <default>false</default>
+                    <label>Medical Affairs - EMBU</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <color>#0B24BE</color>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1791,42 +2002,52 @@
                 <value>
                     <fullName>GPORWE</fullName>
                     <default>false</default>
+                    <label>GPORWE</label>
                 </value>
                 <value>
                     <fullName>DSS</fullName>
                     <default>false</default>
+                    <label>DSS</label>
                 </value>
                 <value>
                     <fullName>GPS</fullName>
                     <default>false</default>
+                    <label>GPS</label>
                 </value>
                 <value>
                     <fullName>GEO</fullName>
                     <default>false</default>
+                    <label>GEO</label>
                 </value>
                 <value>
                     <fullName>EXPERT</fullName>
                     <default>false</default>
+                    <label>EXPERT</label>
                 </value>
                 <value>
                     <fullName>RWA-ACT</fullName>
                     <default>false</default>
+                    <label>RWA-ACT</label>
                 </value>
                 <value>
                     <fullName>RWE Partnerships</fullName>
                     <default>false</default>
+                    <label>RWE Partnerships</label>
                 </value>
                 <value>
                     <fullName>CDIO</fullName>
                     <default>false</default>
+                    <label>CDIO</label>
                 </value>
                 <value>
                     <fullName>Not Business Area Specific</fullName>
                     <default>false</default>
+                    <label>Not Business Area Specific</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1845,18 +2066,22 @@
                 <value>
                     <fullName>LINUX</fullName>
                     <default>false</default>
+                    <label>LINUX</label>
                 </value>
                 <value>
                     <fullName>Netezza</fullName>
                     <default>false</default>
+                    <label>Netezza</label>
                 </value>
                 <value>
                     <fullName>SAS Grid</fullName>
                     <default>false</default>
+                    <label>SAS Grid</label>
                 </value>
                 <value>
                     <fullName>Other IT Environment</fullName>
                     <default>false</default>
+                    <label>Other IT Environment</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1943,22 +2168,27 @@
                 <value>
                     <fullName>EuCan</fullName>
                     <default>false</default>
+                    <label>EuCan</label>
                 </value>
                 <value>
                     <fullName>Emerging Markets</fullName>
                     <default>false</default>
+                    <label>Emerging Markets</label>
                 </value>
                 <value>
                     <fullName>Global (multiple regions)</fullName>
                     <default>false</default>
+                    <label>Global (multiple regions)</label>
                 </value>
                 <value>
                     <fullName>Japan</fullName>
                     <default>false</default>
+                    <label>Japan</label>
                 </value>
                 <value>
                     <fullName>US</fullName>
                     <default>false</default>
+                    <label>US</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2011,6 +2241,10 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>SharingPrivacy</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
         <fullName>Strategy_Contact__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -2036,131 +2270,157 @@
                     <fullName>Biomedicines</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Biomedicines</label>
                 </value>
                 <value>
                     <fullName>Canada</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Canada</label>
                 </value>
                 <value>
                     <fullName>China</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>China</label>
                 </value>
                 <value>
                     <fullName>COE</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>COE</label>
                 </value>
                 <value>
                     <fullName>Diabetes</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
+                    <label>Diabetes</label>
                 </value>
                 <value>
                     <fullName>France Hub</fullName>
                     <color>#A53711</color>
                     <default>false</default>
+                    <label>France Hub</label>
                 </value>
                 <value>
                     <fullName>Germany Hub</fullName>
                     <color>#66E9BD</color>
                     <default>false</default>
+                    <label>Germany Hub</label>
                 </value>
                 <value>
                     <fullName>HTA-CE</fullName>
                     <color>#0B24BE</color>
                     <default>false</default>
+                    <label>HTA-CE</label>
                 </value>
                 <value>
                     <fullName>HTA-EMBU/J</fullName>
                     <color>#419249</color>
                     <default>false</default>
+                    <label>HTA-EMBU/J</label>
                 </value>
                 <value>
                     <fullName>Italy Hub</fullName>
                     <color>#B6E32E</color>
                     <default>false</default>
+                    <label>Italy Hub</label>
                 </value>
                 <value>
                     <fullName>Japan</fullName>
                     <color>#641CCF</color>
                     <default>false</default>
+                    <label>Japan</label>
                 </value>
                 <value>
                     <fullName>Korea</fullName>
                     <color>#F96FB7</color>
                     <default>false</default>
+                    <label>Korea</label>
                 </value>
                 <value>
                     <fullName>LBM-AI/BMJ</fullName>
                     <color>#2F5D85</color>
                     <default>false</default>
+                    <label>LBM-AI/BMJ</label>
                 </value>
                 <value>
                     <fullName>LBM-CV/URO</fullName>
                     <color>#AFCADF</color>
                     <default>false</default>
+                    <label>LBM-CV/URO</label>
                 </value>
                 <value>
                     <fullName>LBM-NS</fullName>
                     <color>#8F6429</color>
                     <default>false</default>
+                    <label>LBM-NS</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <color>#EFAE73</color>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>PMO</fullName>
                     <color>#57F17C</color>
                     <default>false</default>
+                    <label>PMO</label>
                 </value>
                 <value>
                     <fullName>PRO</fullName>
                     <color>#DDDDDD</color>
                     <default>false</default>
+                    <label>PRO</label>
                 </value>
                 <value>
                     <fullName>Spain Hub</fullName>
                     <color>#FF6666</color>
                     <default>false</default>
+                    <label>Spain Hub</label>
                 </value>
                 <value>
                     <fullName>Taiwan</fullName>
                     <color>#FF99FF</color>
                     <default>false</default>
+                    <label>Taiwan</label>
                 </value>
                 <value>
                     <fullName>UK Hub</fullName>
                     <color>#9999FF</color>
                     <default>false</default>
+                    <label>UK Hub</label>
                 </value>
                 <value>
                     <fullName>US Biomedicines</fullName>
                     <color>#BBBBBB</color>
                     <default>false</default>
+                    <label>US Biomedicines</label>
                 </value>
                 <value>
                     <fullName>US Diabetes</fullName>
                     <color>#000000</color>
                     <default>false</default>
+                    <label>US Diabetes</label>
                 </value>
                 <value>
                     <fullName>USHO</fullName>
                     <color>#660000</color>
                     <default>false</default>
+                    <label>USHO</label>
                 </value>
                 <value>
                     <fullName>US Oncology</fullName>
                     <color>#663300</color>
                     <default>false</default>
+                    <label>US Oncology</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <color>#FF0000</color>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -2289,38 +2549,47 @@
                 <value>
                     <fullName>Alzheimer’s &amp; NDD</fullName>
                     <default>false</default>
+                    <label>Alzheimer’s &amp; NDD</label>
                 </value>
                 <value>
                     <fullName>Bone, Muscle, Joint</fullName>
                     <default>false</default>
+                    <label>Bone, Muscle, Joint</label>
                 </value>
                 <value>
                     <fullName>Cardiovascular</fullName>
                     <default>false</default>
+                    <label>Cardiovascular</label>
                 </value>
                 <value>
                     <fullName>Diabetes</fullName>
                     <default>false</default>
+                    <label>Diabetes</label>
                 </value>
                 <value>
                     <fullName>Immunology</fullName>
                     <default>false</default>
+                    <label>Immunology</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Psychiatry &amp; Pain</fullName>
                     <default>false</default>
+                    <label>Psychiatry &amp; Pain</label>
                 </value>
                 <value>
                     <fullName>Urology and Men’s Health</fullName>
                     <default>false</default>
+                    <label>Urology and Men’s Health</label>
                 </value>
                 <value>
                     <fullName>Non Therapeutic Area Specific</fullName>
                     <default>false</default>
+                    <label>Non Therapeutic Area Specific</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2342,58 +2611,72 @@
                 <value>
                     <fullName>Access</fullName>
                     <default>false</default>
+                    <label>Access</label>
                 </value>
                 <value>
                     <fullName>Aetion</fullName>
                     <default>false</default>
+                    <label>Aetion</label>
                 </value>
                 <value>
                     <fullName>CEWorks/SAEFetyWorks</fullName>
                     <default>false</default>
+                    <label>CEWorks/SAEFetyWorks</label>
                 </value>
                 <value>
                     <fullName>CPRD Online Gold</fullName>
                     <default>false</default>
+                    <label>CPRD Online Gold</label>
                 </value>
                 <value>
                     <fullName>CPRD TriaViz</fullName>
                     <default>false</default>
+                    <label>CPRD TriaViz</label>
                 </value>
                 <value>
                     <fullName>Empirica HealthCare</fullName>
                     <default>false</default>
+                    <label>Empirica HealthCare</label>
                 </value>
                 <value>
                     <fullName>Excel</fullName>
                     <default>false</default>
+                    <label>Excel</label>
                 </value>
                 <value>
                     <fullName>NZ SQL</fullName>
                     <default>false</default>
+                    <label>NZ SQL</label>
                 </value>
                 <value>
                     <fullName>SAS</fullName>
                     <default>false</default>
+                    <label>SAS</label>
                 </value>
                 <value>
                     <fullName>Tableau</fullName>
                     <default>false</default>
+                    <label>Tableau</label>
                 </value>
                 <value>
                     <fullName>Treatment Pathways</fullName>
                     <default>false</default>
+                    <label>Treatment Pathways</label>
                 </value>
                 <value>
                     <fullName>UNIX</fullName>
                     <default>false</default>
+                    <label>UNIX</label>
                 </value>
                 <value>
                     <fullName>Other Tool</fullName>
                     <default>false</default>
+                    <label>Other Tool</label>
                 </value>
                 <value>
                     <fullName>Non-specific tool</fullName>
                     <default>false</default>
+                    <label>Non-specific tool</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -21363,4 +21646,11 @@
             </values>
         </picklistValues>
     </recordTypes>
+    <searchLayouts>
+        <searchResultsAdditionalFields>VERSION.TITLE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VERSION.CONTENT_SIZE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VERSION.FILE_EXTENSION</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VERSION.LAST_UPDATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VERSION.OWNER</searchResultsAdditionalFields>
+    </searchLayouts>
 </CustomObject>

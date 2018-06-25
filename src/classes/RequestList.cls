@@ -90,8 +90,8 @@ Public with sharing class RequestList {
      * @Parameters                     :  None
      */
 
-    Public List < Request__c > getRequests() {
-        return (List < Request__c > ) cRequestListCntlr.getRecords();
+    Public List < Contracts__c > getRequests() {
+        return (List < Contracts__c > ) cRequestListCntlr.getRecords();
     }
 
     /*
@@ -105,34 +105,34 @@ Public with sharing class RequestList {
         List < wFilterWrapper > lPicklist = new List < wFilterWrapper > ();
         mCategoyCount = new Map < String, Integer > ();
 
-        for (Schema.Picklistentry oPicklistValues : Request__c.Therapeutic_Area_Primary__c.getDescribe().getPicklistValues()) {
+        for (Schema.Picklistentry oPicklistValues : Contracts__c.Contract_Category__c.getDescribe().getPicklistValues()) {
             lPicklist.add(new wFilterWrapper(oPicklistValues.Value, false));
             mCategoyCount.put(oPicklistValues.Label+'TA', 0);
         }
-        mRequestObjectStructure.put('Therapeutic_Area_Primary__c', lPicklist);
-
-        //Manually adding record type names to change the order of appearance on UI
-        lPicklist = new List < wFilterWrapper > ();
-        //lPicklist.add(new wFilterWrapper('Scientific Asset', false));
-        lPicklist.add(new wFilterWrapper('Scientific Technology Assessment', false));
-        lPicklist.add(new wFilterWrapper('Research Study Consultation', false));
-        mRequestObjectStructure.put('RecordTypeDevName', lPicklist);
+        mRequestObjectStructure.put('Contract_Category__c', lPicklist);
 
         lPicklist = new List < wFilterWrapper > ();
-        for (Schema.Picklistentry oPicklistValues : Request__c.Region__c.getDescribe().getPicklistValues()) {
+        for (Schema.Picklistentry oPicklistValues : Contracts__c.Contract_Type__c.getDescribe().getPicklistValues()) {
             lPicklist.add(new wFilterWrapper(oPicklistValues.Value, false));
             mCategoyCount.put(oPicklistValues.Label, 0);
         }
-        mRequestObjectStructure.put('Region__c', lPicklist);
+        mRequestObjectStructure.put('Contract_Type__c', lPicklist);
 
         lPicklist = new List < wFilterWrapper > ();
-        for (Schema.Picklistentry oPicklistValues : Request__c.Business_Unit_Primary__c.getDescribe().getPicklistValues()) {
+        for (Schema.Picklistentry oPicklistValues : Contracts__c.Contract_Specific_Type__c.getDescribe().getPicklistValues()) {
+            lPicklist.add(new wFilterWrapper(oPicklistValues.Value, false));
+            mCategoyCount.put(oPicklistValues.Label+'BU', 0);
+        }
+        mRequestObjectStructure.put('Contract_Specific_Type__c', lPicklist);
+
+        lPicklist = new List < wFilterWrapper > ();
+        for (Schema.Picklistentry oPicklistValues : Contracts__c.Contract_Status__c.getDescribe().getPicklistValues()) {
             
                 lPicklist.add(new wFilterWrapper(oPicklistValues.Value, false));
-                mCategoyCount.put(oPicklistValues.Label+'BU', 0);
+                mCategoyCount.put(oPicklistValues.Label, 0);
             
         }
-        mRequestObjectStructure.put('Business_Unit_Primary__c', lPicklist);
+        mRequestObjectStructure.put('Contract_Status__c', lPicklist);
         
         
         ReqStatus = new List<SelectOption>();
@@ -196,29 +196,27 @@ Public with sharing class RequestList {
         String sRequestTypeClause = '';
         String sSearchClause = '';
         String sBUClause = '';
-        List < Request__c > lSearchWordProjects = new List < Request__c > ();
+        List < Contracts__c > lSearchWordProjects = new List < Contracts__c > ();
 
-        sRegionClause = FrameClause(mRequestObjectStructure.get('Region__c'));
+        sRegionClause = FrameClause(mRequestObjectStructure.get('Contract_Category__c'));
         if (sRegionClause != '') {
-            sRegionClause = ' Region__c IN ' + sRegionClause;
+            sRegionClause = ' Contract_Category__c IN ' + sRegionClause;
         }
         
-        sBUClause = FrameClause(mRequestObjectStructure.get('Business_Unit_Primary__c'));
+        sBUClause = FrameClause(mRequestObjectStructure.get('Contract_Specific_Type__c'));
         if (sBUClause != '') {
-            sBUClause = ' Business_Unit_Primary__c IN ' + sBUClause;
+            sBUClause = ' Contract_Specific_Type__c IN ' + sBUClause;
         }
         
         
-        sTherapeuticAreaClause = FrameClause(mRequestObjectStructure.get('Therapeutic_Area_Primary__c'));
+        sTherapeuticAreaClause = FrameClause(mRequestObjectStructure.get('Contract_Status__c'));
         if (sTherapeuticAreaClause != '') {
-            sTherapeuticAreaClause = ' Therapeutic_Area_Primary__c IN ' + sTherapeuticAreaClause;
+            sTherapeuticAreaClause = ' Contract_Status__c IN ' + sTherapeuticAreaClause;
         }
 
-        sRequestTypeClause = FrameClause(mRequestObjectStructure.get('RecordTypeDevName'));
+        sRequestTypeClause = FrameClause(mRequestObjectStructure.get('Contract_Type__c'));
         if (sRequestTypeClause != '') {
-            sRequestTypeClause = ' RecordType.name IN ' + sRequestTypeClause;
-        } else {
-            sRequestTypeClause = ' RecordType.name!=\'RWE Partnership Exploration\' AND RecordType.name!=\'RWD Data Load\' ';
+            sRequestTypeClause = ' Contract_Type__c IN ' + sRequestTypeClause;
         }
 
         if (sReqStatus != 'All Status') 
@@ -232,14 +230,14 @@ Public with sharing class RequestList {
         }
 
         if ((sSearchWord != null && sSearchWord.length()>1) && sSearchWord.trim() != '') {
-            List < List < sObject >> lDynamicSearchResult = search.query('FIND \'' + string.escapeSingleQuotes(sSearchWord) + '\' IN ALL FIELDS RETURNING Request__c  (id,Name,Outcome_TF__c,Request_Duration__c ,Priority__c,Region__c,Requestor_Functional_Area__c ,Requestor__r.name,RecordType.DeveloperName,Therapeutic_Area_Primary__c,Final_Outcome__c,Request_Status__c,RecordType.Name ' + CombineQuery('WHERE', new List < String > {
+            List < List < sObject >> lDynamicSearchResult = search.query('FIND \'' + string.escapeSingleQuotes(sSearchWord) + '\' IN ALL FIELDS RETURNING Contracts__c  (id,Name,Client_Contract_Lead__c,Client_Contract_Lead__r.Name,Contract_Category__c ,Contract_Decision_Contract_Integration_D__c,Contract_Notes__c,Contract_Specific_Type__c ,Contract_Status__c,Contract_Type__c,Cost_of_this_purchase__c ' + CombineQuery('WHERE', new List < String > {
                 sRegionClause, sTherapeuticAreaClause, sStatusClause, sRequestTypeClause,sBUClause
             }) + ' ORDER BY ' + sOrder +')');
             lSearchWordProjects = lDynamicSearchResult[0];
             cRequestListCntlr = new ApexPages.StandardSetController(lDynamicSearchResult[0]);
         } else {
             cRequestListCntlr = new ApexPages.StandardSetController(Database.getQueryLocator(
-            'SELECT a.Request_Duration__c,a.Priority__c,a.Requestor_Functional_Area__c,a.Name,a.Region__c,a.Requestor__r.name,a.Therapeutic_Area_Primary__c,a.Outcome_TF__c,a.Request_Status__c,a.RecordType.DeveloperName,a.RecordType.Name  FROM Request__c  a ' + CombineQuery('WHERE  ', new List < String > {
+            'SELECT a.Client_Contract_Lead__c,Client_Contract_Lead__r.Name,a.Contract_Category__c,a.Contract_Decision_Contract_Integration_D__c,a.Name,a.Contract_Notes__c,a.Contract_Specific_Type__c,a.Contract_Status__c,a.Contract_Type__c,a.Cost_of_this_purchase__c FROM Contracts__c  a ' + CombineQuery('WHERE  ', new List < String > {
                 sRegionClause, sTherapeuticAreaClause, sStatusClause,sBUClause,sRequestTypeClause
             }) + ' ORDER BY ' + sOrder));
         }
@@ -259,27 +257,27 @@ Public with sharing class RequestList {
         for (String mCount : mCategoyCount.keyset()) {
             mCategoyCount.put(mCount, 0);
         }
-        for (AggregateResult ar : database.query('SELECT count(Id),Therapeutic_Area_Primary__c FROM Request__c where Therapeutic_Area_Primary__c !=null ' + CombineQuery('AND', new List < String > {
+        for (AggregateResult ar : database.query('SELECT count(Id),Contract_Category__c FROM Contracts__c where Contract_Category__c !=null ' + CombineQuery('AND', new List < String > {
         sRegionClause,sTherapeuticAreaClause,sSearchClause,sStatusClause,sRequestTypeClause,sBUClause
-    }) + ' Group BY Therapeutic_Area_Primary__c')) {
-            mCategoyCount.put((String) ar.get('Therapeutic_Area_Primary__c')+'TA', (Integer) ar.get('expr0'));
+    }) + ' Group BY Contract_Category__c')) {
+            mCategoyCount.put((String) ar.get('Contract_Category__c')+'TA', (Integer) ar.get('expr0'));
         }
 
-        for (AggregateResult ar : database.query('SELECT count(Id),Business_Unit_Primary__c FROM Request__c where Business_Unit_Primary__c!=null ' + CombineQuery('AND', new List < String > {
+        for (AggregateResult ar : database.query('SELECT count(Id),Contract_Specific_Type__c FROM Contracts__c where Contract_Specific_Type__c!=null ' + CombineQuery('AND', new List < String > {
         sRegionClause,sTherapeuticAreaClause,sSearchClause,sStatusClause,sRequestTypeClause,sBUClause
-    }) + ' Group BY Business_Unit_Primary__c')) {
-            mCategoyCount.put((String) ar.get('Business_Unit_Primary__c')+'BU', (Integer) ar.get('expr0'));
+    }) + ' Group BY Contract_Specific_Type__c')) {
+            mCategoyCount.put((String) ar.get('Contract_Specific_Type__c')+'BU', (Integer) ar.get('expr0'));
         }
-        for (AggregateResult ar : database.query('SELECT count(Id),Region__c FROM Request__c where Region__c !=null ' + CombineQuery('AND', new List < String > {
+        for (AggregateResult ar : database.query('SELECT count(Id),Contract_Status__c FROM Contracts__c where Contract_Status__c !=null ' + CombineQuery('AND', new List < String > {
         sRegionClause,sTherapeuticAreaClause,sSearchClause,sStatusClause,sRequestTypeClause,sBUClause
-    }) + ' Group BY Region__c')) {
-            mCategoyCount.put((String) ar.get('Region__c'), (Integer) ar.get('expr0'));
+    }) + ' Group BY Contract_Status__c')) {
+            mCategoyCount.put((String) ar.get('Contract_Status__c'), (Integer) ar.get('expr0'));
         }
 
-        for (AggregateResult ar : database.query('SELECT count(Id),recordtype.name FROM Request__c where recordtype.name !=NULL ' + CombineQuery('AND', new List < String > {
+        for (AggregateResult ar : database.query('SELECT count(Id),Contract_Type__c FROM Contracts__c where Contract_Type__c !=NULL ' + CombineQuery('AND', new List < String > {
         sRegionClause,sTherapeuticAreaClause,sSearchClause,sStatusClause,sRequestTypeClause,sBUClause
-    }) + ' Group BY recordtype.name')) {
-            mCategoyCount.put((String) ar.get('name'), (Integer) ar.get('expr0'));
+    }) + ' Group BY Contract_Type__c')) {
+            mCategoyCount.put((String) ar.get('Contract_Type__c'), (Integer) ar.get('expr0'));
 
         }
 

@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -124,22 +125,27 @@
                 <value>
                     <fullName>Dropdown</fullName>
                     <default>false</default>
+                    <label>Dropdown</label>
                 </value>
                 <value>
                     <fullName>Checkbox</fullName>
                     <default>false</default>
+                    <label>Checkbox</label>
                 </value>
                 <value>
                     <fullName>Comments</fullName>
                     <default>false</default>
+                    <label>Comments</label>
                 </value>
                 <value>
                     <fullName>Date</fullName>
                     <default>false</default>
+                    <label>Date</label>
                 </value>
                 <value>
                     <fullName>Radio</fullName>
                     <default>false</default>
+                    <label>Radio</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -197,4 +203,5 @@
         <searchResultsAdditionalFields>Question_Text__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

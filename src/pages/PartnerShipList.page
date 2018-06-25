@@ -46,6 +46,7 @@
                             <span class='result-count'>{!cPartnershipListCntlr.ResultSize} Partnerships</span>
                         </apex:outputpanel>
                         <apex:outputlink value="/apex/CreatePartnership?recTypeName=Partnership_Exploration" styleClass="create-new enabled l-orange hidden-xs">Submit Partnership Exploration Request</apex:outputlink>
+                        &nbsp;<apex:outputlink rendered="{!bShowCollobButton}" value="/apex/CreatePartnershipColloboration?recTypeName=Partnership_Collab_Space_Request" styleClass="create-new enabled l-green hidden-xs" >Create Partner Contact</apex:outputlink>
                         <span class='icon-large-caret down'></span>
                     </div>
 

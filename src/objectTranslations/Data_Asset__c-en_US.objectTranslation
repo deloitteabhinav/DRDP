@@ -1,0 +1,1771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Data Asset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Inventory</value>
+    </caseValues>
+    <fields>
+        <label><!-- AE Coding System --></label>
+        <name>AE_Coding_System__c</name>
+        <picklistValues>
+            <masterLabel>ICD-10</masterLabel>
+            <translation><!-- ICD-10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICD-9</masterLabel>
+            <translation><!-- ICD-9 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MedDRA</masterLabel>
+            <translation><!-- MedDRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- For Analytical Services --></help>
+        <label><!-- Data can be shared w TPO for analysis --></label>
+        <name>Ability_to_share_with_a_3rd_Party__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Data Broker - Party not owning the data but getting access/analysis --></help>
+        <label><!-- Access Details --></label>
+        <name>Access_Details__c</name>
+        <picklistValues>
+            <masterLabel>Data Broker</masterLabel>
+            <translation><!-- Data Broker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Mart - Single Project Contract</masterLabel>
+            <translation><!-- Data Mart - Single Project Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Owner</masterLabel>
+            <translation><!-- Data Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other In-house Storage</masterLabel>
+            <translation><!-- Other In-house Storage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partnership</masterLabel>
+            <translation><!-- Partnership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party Organization</masterLabel>
+            <translation><!-- Third Party Organization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>​Data Mart - Multi-use Contract</masterLabel>
+            <translation><!-- ​Data Mart - Multi-use Contract --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Contact to acquire access to the data. --></help>
+        <label><!-- Access Method --></label>
+        <name>Access_Method__c</name>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Longer Accessible</masterLabel>
+            <translation><!-- No Longer Accessible --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Access to Physician Notes or Others --></label>
+        <name>Access_to_Physician_Notes_or_Others__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Available for in-house analysis --></label>
+        <name>Accessed_for_In_house_Analysis__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Additional Capabilities --></label>
+        <name>Additional_Capabilities__c</name>
+        <picklistValues>
+            <masterLabel>Ability to Link to Patient Registries</masterLabel>
+            <translation><!-- Ability to Link to Patient Registries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Access to Medical Charts</masterLabel>
+            <translation><!-- Access to Medical Charts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospective Data Collection</masterLabel>
+            <translation><!-- Prospective Data Collection --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ​Asset Knowledge Level --></label>
+        <name>Asset_Status__c</name>
+        <picklistValues>
+            <masterLabel>Assessed by RWD</masterLabel>
+            <translation><!-- Assessed by RWD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assessment in Progress</masterLabel>
+            <translation><!-- Assessment in Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lilly Research Experience</masterLabel>
+            <translation><!-- Lilly Research Experience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Fully Assessed by RWD</masterLabel>
+            <translation><!-- Not Fully Assessed by RWD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Biobank --></label>
+        <name>Biobank_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Business unit that is funding the activity or research study.  Select All that Apply. --></help>
+        <label><!-- Relevant Business Unit(s) --></label>
+        <name>Business_Unit_Primary__c</name>
+        <picklistValues>
+            <masterLabel>Animal Health</masterLabel>
+            <translation><!-- Animal Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biotech</masterLabel>
+            <translation><!-- Biotech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consumer Health</masterLabel>
+            <translation><!-- Consumer Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generics</masterLabel>
+            <translation><!-- Generics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Devices</masterLabel>
+            <translation><!-- Medical Devices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmaceuticals</masterLabel>
+            <translation><!-- Pharmaceuticals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccines</masterLabel>
+            <translation><!-- Vaccines --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Claims Type --></label>
+        <name>Claims_Type__c</name>
+        <picklistValues>
+            <masterLabel>Commercial</masterLabel>
+            <translation><!-- Commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government (OUS)</masterLabel>
+            <translation><!-- Government (OUS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medicaid</masterLabel>
+            <translation><!-- Medicaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medicare</masterLabel>
+            <translation><!-- Medicare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacy Only</masterLabel>
+            <translation><!-- Pharmacy Only --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Clinical Efficacy Measures --></label>
+        <name>Clinical_Efficacy_measures_available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lab Coding System --></label>
+        <name>Coding_System__c</name>
+        <picklistValues>
+            <masterLabel>JLAC 10</masterLabel>
+            <translation><!-- JLAC 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LOINC</masterLabel>
+            <translation><!-- LOINC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Company Name --></label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Safety/AE Data --></label>
+        <name>Contains_AE_s__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cost Data --></label>
+        <name>Cost_Data_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes - Adjudicated</masterLabel>
+            <translation><!-- Yes - Adjudicated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes - Non Adjudicated</masterLabel>
+            <translation><!-- Yes - Non Adjudicated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select All that Apply --></help>
+        <label><!-- Cost Data Detail --></label>
+        <name>Cost_Data_Detail__c</name>
+        <picklistValues>
+            <masterLabel>Diagnosis</masterLabel>
+            <translation><!-- Diagnosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inpatient Costs</masterLabel>
+            <translation><!-- Inpatient Costs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Labs</masterLabel>
+            <translation><!-- Labs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outpatient Costs</masterLabel>
+            <translation><!-- Outpatient Costs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prescriptions</masterLabel>
+            <translation><!-- Prescriptions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procedures</masterLabel>
+            <translation><!-- Procedures --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Information Comments --></label>
+        <name>Data_Asset_Name_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Continuity --></label>
+        <name>Data_Continuity__c</name>
+        <picklistValues>
+            <masterLabel>Cross-Sectional</masterLabel>
+            <translation><!-- Cross-Sectional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Longitudinal</masterLabel>
+            <translation><!-- Longitudinal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data De-Identified --></label>
+        <name>Data_De_Identified__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data_Steward_TF --></label>
+        <name>Data_Steward_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- For In-House Databases Only --></help>
+        <label><!-- Data Steward --></label>
+        <name>Data_Steward__c</name>
+        <relationshipLabel><!-- Inventory (Data Steward) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Data TF(Sum) --></label>
+        <name>Data_TF_Sum__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select All that Apply --></help>
+        <label><!-- Demographics --></label>
+        <name>Demographics__c</name>
+        <picklistValues>
+            <masterLabel>Age</masterLabel>
+            <translation><!-- Age --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ethnicity</masterLabel>
+            <translation><!-- Ethnicity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gender</masterLabel>
+            <translation><!-- Gender --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geographic Region</masterLabel>
+            <translation><!-- Geographic Region --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Race</masterLabel>
+            <translation><!-- Race --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Socioeconomic Status</masterLabel>
+            <translation><!-- Socioeconomic Status --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Overview Comments --></label>
+        <name>Description_of_Database_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description of Database --></label>
+        <name>Description_of_Database__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coding Specifications Comments --></label>
+        <name>Diagnosis_Coding_Systems_Comment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select All that Apply --></help>
+        <label><!-- Diagnosis Coding Systems --></label>
+        <name>Diagnosis_Coding_Systems__c</name>
+        <picklistValues>
+            <masterLabel>ICD-10</masterLabel>
+            <translation><!-- ICD-10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICD-9</masterLabel>
+            <translation><!-- ICD-9 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICD-O-3</masterLabel>
+            <translation><!-- ICD-O-3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MedDRA</masterLabel>
+            <translation><!-- MedDRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>READ</masterLabel>
+            <translation><!-- READ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SNO MED</masterLabel>
+            <translation><!-- SNO MED --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ​Diagnostic Procedure Dates --></label>
+        <name>Diagnostic_Procedure_Dates__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Use this field, when information about the occurrence of Diagnostic Procedures is documented. --></help>
+        <label><!-- Diagnostic Procedures --></label>
+        <name>Diagnostic_Procedures__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Diagnostic Value --></label>
+        <name>Diagnostic_Value__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Diagnostic Values Details --></label>
+        <name>Diagnostic_Values_Details__c</name>
+        <picklistValues>
+            <masterLabel>Biomarkers</masterLabel>
+            <translation><!-- Biomarkers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biopsy</masterLabel>
+            <translation><!-- Biopsy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diagnostic Scales/Questionnaires</masterLabel>
+            <translation><!-- Diagnostic Scales/Questionnaires --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Histology</masterLabel>
+            <translation><!-- Histology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Imaging</masterLabel>
+            <translation><!-- Imaging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple/Not-specified</masterLabel>
+            <translation><!-- Multiple/Not-specified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Diagnostic Procedure Details --></label>
+        <name>Diagnostic_Values__c</name>
+        <picklistValues>
+            <masterLabel>Biomarkers</masterLabel>
+            <translation><!-- Biomarkers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biopsy</masterLabel>
+            <translation><!-- Biopsy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diagnostic Scales/Questionnaires</masterLabel>
+            <translation><!-- Diagnostic Scales/Questionnaires --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Histology</masterLabel>
+            <translation><!-- Histology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple/not-specified</masterLabel>
+            <translation><!-- Multiple/not-specified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>​Imaging</masterLabel>
+            <translation><!-- ​Imaging --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Differentiating Attributes of this data --></label>
+        <name>Differentiating_Attributes_of_this_data__c</name>
+    </fields>
+    <fields>
+        <help><!-- i.e., staging --></help>
+        <label><!-- Disease Severity --></label>
+        <name>Disease_Severity_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Disease State --></label>
+        <name>Disease_State__c</name>
+        <picklistValues>
+            <masterLabel>Alopecia Areata</masterLabel>
+            <translation><!-- Alopecia Areata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alzheimer’s Disease</masterLabel>
+            <translation><!-- Alzheimer’s Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alzheimer’s Disease Psychosis</masterLabel>
+            <translation><!-- Alzheimer’s Disease Psychosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anemia</masterLabel>
+            <translation><!-- Anemia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anxiety</masterLabel>
+            <translation><!-- Anxiety --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Atopic Dermatitis</masterLabel>
+            <translation><!-- Atopic Dermatitis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attention Deficit-Hyperactivity Disorder</masterLabel>
+            <translation><!-- Attention Deficit-Hyperactivity Disorder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AxSpA (Axial Spondyloarthritis)</masterLabel>
+            <translation><!-- AxSpA (Axial Spondyloarthritis) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bladder Cancer</masterLabel>
+            <translation><!-- Bladder Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bone and Soft Tissue Cancers</masterLabel>
+            <translation><!-- Bone and Soft Tissue Cancers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breast Cancer</masterLabel>
+            <translation><!-- Breast Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular Disease</masterLabel>
+            <translation><!-- Cardiovascular Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chronic Kidney Disease</masterLabel>
+            <translation><!-- Chronic Kidney Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chronic Pain</masterLabel>
+            <translation><!-- Chronic Pain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cluster Headache</masterLabel>
+            <translation><!-- Cluster Headache --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colorectal Cancer</masterLabel>
+            <translation><!-- Colorectal Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crohn’s Disease</masterLabel>
+            <translation><!-- Crohn’s Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Depression</masterLabel>
+            <translation><!-- Depression --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disuse Atrophy</masterLabel>
+            <translation><!-- Disuse Atrophy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Erectile Dysfunction</masterLabel>
+            <translation><!-- Erectile Dysfunction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gastrointestinal Cancer</masterLabel>
+            <translation><!-- Gastrointestinal Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Genitourinary Cancer</masterLabel>
+            <translation><!-- Genitourinary Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gynecologic Cancer</masterLabel>
+            <translation><!-- Gynecologic Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head and Neck Cancer</masterLabel>
+            <translation><!-- Head and Neck Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hematologic Cancer</masterLabel>
+            <translation><!-- Hematologic Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hepatocellular Cancer</masterLabel>
+            <translation><!-- Hepatocellular Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High Risk Vascular Disease</masterLabel>
+            <translation><!-- High Risk Vascular Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Juvenile Idiopathic Arthritis</masterLabel>
+            <translation><!-- Juvenile Idiopathic Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lung and Thoracic Cancer</masterLabel>
+            <translation><!-- Lung and Thoracic Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lupus</masterLabel>
+            <translation><!-- Lupus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mesothelioma Cancer</masterLabel>
+            <translation><!-- Mesothelioma Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migraine</masterLabel>
+            <translation><!-- Migraine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mild Cognitive Impairment</masterLabel>
+            <translation><!-- Mild Cognitive Impairment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAFLD</masterLabel>
+            <translation><!-- NAFLD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NASH</masterLabel>
+            <translation><!-- NASH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Alzheimer’s Dementia</masterLabel>
+            <translation><!-- Non-Alzheimer’s Dementia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Applicable</masterLabel>
+            <translation><!-- Not Applicable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Osteoporosis</masterLabel>
+            <translation><!-- Osteoporosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parkinson’s Disease</masterLabel>
+            <translation><!-- Parkinson’s Disease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psoriasis</masterLabel>
+            <translation><!-- Psoriasis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psoriatic Arthritis</masterLabel>
+            <translation><!-- Psoriatic Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rheumatoid Arthritis</masterLabel>
+            <translation><!-- Rheumatoid Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schizophrenia</masterLabel>
+            <translation><!-- Schizophrenia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sjogren&apos;s Syndrome</masterLabel>
+            <translation><!-- Sjogren&apos;s Syndrome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testosterone replacement</masterLabel>
+            <translation><!-- Testosterone replacement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type I Diabetes</masterLabel>
+            <translation><!-- Type I Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type II Diabetes</masterLabel>
+            <translation><!-- Type II Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ulcerative Colitis</masterLabel>
+            <translation><!-- Ulcerative Colitis --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contractual Obligations --></label>
+        <name>Documentation_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Drugs Dispensed Data --></label>
+        <name>Drugs_Dispensed_Data_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Drugs Prescribed Data --></label>
+        <name>Drugs_Prescribed_Data_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- When data collection ended --></help>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Refer to the date this record was created when viewing this field --></help>
+        <label><!-- Enrollment (Most Recent 2 Years) --></label>
+        <name>Enrollment_Most_Recent_2_Year__c</name>
+        <picklistValues>
+            <masterLabel>1,000-10,000</masterLabel>
+            <translation><!-- 1,000-10,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10 million - 25 million</masterLabel>
+            <translation><!-- 10 million - 25 million --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10,000- 100,000</masterLabel>
+            <translation><!-- 10,000- 100,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100,000 - 500,000</masterLabel>
+            <translation><!-- 100,000 - 500,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 million - 10 million</masterLabel>
+            <translation><!-- 2 million - 10 million --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>500,000 - 2 million</masterLabel>
+            <translation><!-- 500,000 - 2 million --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt; 25 million</masterLabel>
+            <translation><!-- &gt; 25 million --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>below 1,000</masterLabel>
+            <translation><!-- below 1,000 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Enrollment (Number Of Patients) --></label>
+        <name>Enrollment_Number_Of_Patients__c</name>
+        <picklistValues>
+            <masterLabel>1,000-10,000</masterLabel>
+            <translation><!-- 1,000-10,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10 Million - 25 Million</masterLabel>
+            <translation><!-- 10 Million - 25 Million --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10,000-100,000</masterLabel>
+            <translation><!-- 10,000-100,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100,000-500,000</masterLabel>
+            <translation><!-- 100,000-500,000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Million- 10 Million</masterLabel>
+            <translation><!-- 2 Million- 10 Million --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>500,000-2 Million</masterLabel>
+            <translation><!-- 500,000-2 Million --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt; 25 Million</masterLabel>
+            <translation><!-- &gt; 25 Million --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>below 1,000</masterLabel>
+            <translation><!-- below 1,000 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data Continuity &amp; Enrollment Comments --></label>
+        <name>Enrollment_Number_of_Patients_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Functional Measures --></label>
+        <name>Functional_Measures_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Are the Data Generalizable to the Full Country Population of Interest? --></help>
+        <label><!-- Geographic Coverage --></label>
+        <name>Generalizability__c</name>
+        <picklistValues>
+            <masterLabel>Multiple Countries</masterLabel>
+            <translation><!-- Multiple Countries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National</masterLabel>
+            <translation><!-- National --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional Within Country</masterLabel>
+            <translation><!-- Regional Within Country --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Key Considerations --></label>
+        <name>Key_considerations_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Labs &amp; Diagnostics Comments --></label>
+        <name>Lab_Details_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lab Test Dates --></label>
+        <name>Lab_Test_Dates__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter Yes, when information about the occurrence of lab test(s) is documented --></help>
+        <label><!-- Lab Test --></label>
+        <name>Lab_Test__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lab Values --></label>
+        <name>Lab_Values_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lilly_Internal_Contact_TF --></label>
+        <name>Lilly_Internal_Contact_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- Internal Lilly Contact that has knowledge and familiarity with Data Asset --></help>
+        <label><!-- Internal Contact --></label>
+        <name>Lilly_Internal_Contact__c</name>
+        <relationshipLabel><!-- Inventory (Internal Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If Data is linked, select All that Apply --></help>
+        <label><!-- Linkable Details --></label>
+        <name>Linkable_Details__c</name>
+        <picklistValues>
+            <masterLabel>Commercial Claims</masterLabel>
+            <translation><!-- Commercial Claims --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMR</masterLabel>
+            <translation><!-- EMR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government Claims</masterLabel>
+            <translation><!-- Government Claims --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medicaid</masterLabel>
+            <translation><!-- Medicaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medicare</masterLabel>
+            <translation><!-- Medicare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Reported Data</masterLabel>
+            <translation><!-- Patient Reported Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacy Claims</masterLabel>
+            <translation><!-- Pharmacy Claims --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registry</masterLabel>
+            <translation><!-- Registry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sickness Fund (EU)</masterLabel>
+            <translation><!-- Sickness Fund (EU) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Measure of Continuous Enrollment --></label>
+        <name>Measure_of_Continuous_Enrollment__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Mortality Data --></label>
+        <name>Mortality_Data_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of No - Data Recommendation --></label>
+        <name>Number_of_No_Data_Recommendation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of No - Gaps --></label>
+        <name>Number_of_No_Gaps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Reviews --></label>
+        <name>Number_of_Reviews__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Yes - Data Recommendation --></label>
+        <name>Number_of_Yes_Data_Recommendation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Yes - Gaps --></label>
+        <name>Number_of_Yes_Gaps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ongoing Updates --></label>
+        <name>Ongoing_Updates__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overall Rating - Data(Stars) --></label>
+        <name>Overall_Rating_Data_Review_Stars__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overall Rating - Data(Number) --></label>
+        <name>Overall_Rating_Data_Review__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overall Rating - Data(Stars - Number) --></label>
+        <name>Overall_Rating_Data_Stars_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient Characteristics Comments --></label>
+        <name>Patient_History_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patient History --></label>
+        <name>Patient_History__c</name>
+        <picklistValues>
+            <masterLabel>Alcohol Use</masterLabel>
+            <translation><!-- Alcohol Use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biopsy</masterLabel>
+            <translation><!-- Biopsy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cause of Death</masterLabel>
+            <translation><!-- Cause of Death --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chronic Disease Score</masterLabel>
+            <translation><!-- Chronic Disease Score --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Co-morbidities</masterLabel>
+            <translation><!-- Co-morbidities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comorbidity Index</masterLabel>
+            <translation><!-- Comorbidity Index --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Date of Diagnosis</masterLabel>
+            <translation><!-- Date of Diagnosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exercise</masterLabel>
+            <translation><!-- Exercise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Family Linkage</masterLabel>
+            <translation><!-- Family Linkage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Genomic Data</masterLabel>
+            <translation><!-- Genomic Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Diagnosis</masterLabel>
+            <translation><!-- Primary Diagnosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secondary Diagnosis</masterLabel>
+            <translation><!-- Secondary Diagnosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smoking</masterLabel>
+            <translation><!-- Smoking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccine</masterLabel>
+            <translation><!-- Vaccine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Xray/MRI, etc</masterLabel>
+            <translation><!-- Xray/MRI, etc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>​Date of Death</masterLabel>
+            <translation><!-- ​Date of Death --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Medication Data --></label>
+        <name>PharmacyRx_Data_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Medication Comments --></label>
+        <name>Pharmacy_Details_Comment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select All that Apply --></help>
+        <label><!-- Medication Details --></label>
+        <name>Pharmacy_Details__c</name>
+        <picklistValues>
+            <masterLabel># Refills</masterLabel>
+            <translation><!-- # Refills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active ingredient</masterLabel>
+            <translation><!-- Active ingredient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blood Glucose Monitoring Supplies</masterLabel>
+            <translation><!-- Blood Glucose Monitoring Supplies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Days of Supply in Rx</masterLabel>
+            <translation><!-- Days of Supply in Rx --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dose</masterLabel>
+            <translation><!-- Dose --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drugs Consumed</masterLabel>
+            <translation><!-- Drugs Consumed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Frequency of Administration</masterLabel>
+            <translation><!-- Frequency of Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medication Duration</masterLabel>
+            <translation><!-- Medication Duration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medication Start Date</masterLabel>
+            <translation><!-- Medication Start Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medication Stop Date</masterLabel>
+            <translation><!-- Medication Stop Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Metric Quantity and Unit</masterLabel>
+            <translation><!-- Metric Quantity and Unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prescriber Specialty</masterLabel>
+            <translation><!-- Prescriber Specialty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pump Related Supplies</masterLabel>
+            <translation><!-- Pump Related Supplies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reason Discontinued</masterLabel>
+            <translation><!-- Reason Discontinued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reason Switched</masterLabel>
+            <translation><!-- Reason Switched --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reason for Rx</masterLabel>
+            <translation><!-- Reason for Rx --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strength</masterLabel>
+            <translation><!-- Strength --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trademark</masterLabel>
+            <translation><!-- Trademark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Treatment Class</masterLabel>
+            <translation><!-- Treatment Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unique Product Code</masterLabel>
+            <translation><!-- Unique Product Code --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unit</masterLabel>
+            <translation><!-- Unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>​Prescription Date</masterLabel>
+            <translation><!-- ​Prescription Date --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pharmacy Type --></label>
+        <name>Pharmacy_Type__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prescription - OTC / Mail</masterLabel>
+            <translation><!-- Prescription - OTC / Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prescription- Inpatient</masterLabel>
+            <translation><!-- Prescription- Inpatient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prescription- Outpatient</masterLabel>
+            <translation><!-- Prescription- Outpatient --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select All that Apply --></help>
+        <label><!-- Prescription Coding System --></label>
+        <name>Prescription_Coding_System__c</name>
+        <picklistValues>
+            <masterLabel>AHFS</masterLabel>
+            <translation><!-- AHFS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ATC</masterLabel>
+            <translation><!-- ATC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BNF</masterLabel>
+            <translation><!-- BNF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GPI</masterLabel>
+            <translation><!-- GPI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multilix</masterLabel>
+            <translation><!-- Multilix --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NDC</masterLabel>
+            <translation><!-- NDC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>READ</masterLabel>
+            <translation><!-- READ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RxNorm</masterLabel>
+            <translation><!-- RxNorm --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select All that Apply --></help>
+        <label><!-- Procedure Coding System --></label>
+        <name>Procedure_Coding_System__c</name>
+        <picklistValues>
+            <masterLabel>CPT</masterLabel>
+            <translation><!-- CPT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemotherapy</masterLabel>
+            <translation><!-- Chemotherapy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCPCS</masterLabel>
+            <translation><!-- HCPCS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICD-9</masterLabel>
+            <translation><!-- ICD-9 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OPCS-4</masterLabel>
+            <translation><!-- OPCS-4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OPS</masterLabel>
+            <translation><!-- OPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>READ</masterLabel>
+            <translation><!-- READ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radiation</masterLabel>
+            <translation><!-- Radiation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- QOL Measures --></label>
+        <name>QOL_Perform_Status_measures_available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Geographic region that the research study or data source represents. --></help>
+        <label><!-- Data Asset Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>EUCAN</masterLabel>
+            <translation><!-- EUCAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emerging Markets</masterLabel>
+            <translation><!-- Emerging Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global (Multiple Regions)</masterLabel>
+            <translation><!-- Global (Multiple Regions) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US</masterLabel>
+            <translation><!-- US --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Related Study ID_TF --></label>
+        <name>Related_Study_ID_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Type --></label>
+        <name>Relationship_Type__c</name>
+        <picklistValues>
+            <masterLabel>Academic</masterLabel>
+            <translation><!-- Academic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government</masterLabel>
+            <translation><!-- Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor</masterLabel>
+            <translation><!-- Vendor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Relevant Therapeutic Area --></label>
+        <name>Relevant_Therapeutic_Area__c</name>
+        <picklistValues>
+            <masterLabel>Autoimmune Diseases</masterLabel>
+            <translation><!-- Autoimmune Diseases --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular</masterLabel>
+            <translation><!-- Cardiovascular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dermatology</masterLabel>
+            <translation><!-- Dermatology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Endocrinology</masterLabel>
+            <translation><!-- Endocrinology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gastroenterology</masterLabel>
+            <translation><!-- Gastroenterology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gynecology</masterLabel>
+            <translation><!-- Gynecology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immunology</masterLabel>
+            <translation><!-- Immunology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neurology</masterLabel>
+            <translation><!-- Neurology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Therapeutic Area Specific</masterLabel>
+            <translation><!-- Non-Therapeutic Area Specific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psychiatry &amp; Pain</masterLabel>
+            <translation><!-- Psychiatry &amp; Pain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rheumatology</masterLabel>
+            <translation><!-- Rheumatology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urology</masterLabel>
+            <translation><!-- Urology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccines</masterLabel>
+            <translation><!-- Vaccines --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select All that Apply --></help>
+        <label><!-- Setting of Care --></label>
+        <name>Setting_of_Care__c</name>
+        <picklistValues>
+            <masterLabel>Acute Emergency Department</masterLabel>
+            <translation><!-- Acute Emergency Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospice</masterLabel>
+            <translation><!-- Hospice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Home Health Care</masterLabel>
+            <translation><!-- In-Home Health Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inpatient</masterLabel>
+            <translation><!-- Inpatient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Long Term Care</masterLabel>
+            <translation><!-- Long Term Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (Specify in Comments)</masterLabel>
+            <translation><!-- Other (Specify in Comments) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outpatient</masterLabel>
+            <translation><!-- Outpatient --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- When data collection began --></help>
+        <label><!-- Start Date --></label>
+        <name>Start_Year_of_Available__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time Lag --></label>
+        <name>Time_Lag__c</name>
+        <picklistValues>
+            <masterLabel>0-45 Days</masterLabel>
+            <translation><!-- 0-45 Days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-6 Months</masterLabel>
+            <translation><!-- 3-6 Months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>46-90 days</masterLabel>
+            <translation><!-- 46-90 days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-12 Months</masterLabel>
+            <translation><!-- 6-12 Months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grater than 12 Months</masterLabel>
+            <translation><!-- Grater than 12 Months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Real Time</masterLabel>
+            <translation><!-- Real Time --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tumor Stage --></label>
+        <name>Tumor_Stage_Available__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Other Measures Comments --></label>
+        <name>Type_of_Database_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Database --></label>
+        <name>Type_of_Database__c</name>
+        <picklistValues>
+            <masterLabel>Claims</masterLabel>
+            <translation><!-- Claims --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cohort Study</masterLabel>
+            <translation><!-- Cohort Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMR</masterLabel>
+            <translation><!-- EMR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMR-Claims Linked</masterLabel>
+            <translation><!-- EMR-Claims Linked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRO</masterLabel>
+            <translation><!-- PRO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registry</masterLabel>
+            <translation><!-- Registry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sickness Fund (EU)</masterLabel>
+            <translation><!-- Sickness Fund (EU) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Lilly and Partner/Vendor --></help>
+        <label><!-- Vendor Contact --></label>
+        <name>Vendor_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vital Signs --></label>
+        <name>Vital_Signs__c</name>
+        <picklistValues>
+            <masterLabel>BMI</masterLabel>
+            <translation><!-- BMI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BSA</masterLabel>
+            <translation><!-- BSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blood pressure</masterLabel>
+            <translation><!-- Blood pressure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Height</masterLabel>
+            <translation><!-- Height --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Temperature</masterLabel>
+            <translation><!-- Temperature --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weight</masterLabel>
+            <translation><!-- Weight --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Website --></label>
+        <name>Website__c</name>
+    </fields>
+    <layouts>
+        <layout>RWE Data Asset Layout</layout>
+        <sections>
+            <label><!-- Coding Specifications --></label>
+            <section>Coding Specifications</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Data Continuity &amp; Enrollment --></label>
+            <section>Data Continuity &amp; Enrollment</section>
+        </sections>
+        <sections>
+            <label><!-- Labs &amp; Diagnostics --></label>
+            <section>Labs &amp; Diagnostics</section>
+        </sections>
+        <sections>
+            <label><!-- Medications --></label>
+            <section>Medications</section>
+        </sections>
+        <sections>
+            <label><!-- Other Measures --></label>
+            <section>Other Measures</section>
+        </sections>
+        <sections>
+            <label><!-- Overall Rating --></label>
+            <section>Overall Rating</section>
+        </sections>
+        <sections>
+            <label><!-- Overview --></label>
+            <section>Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Patient Characteristics &amp; Vital Signs --></label>
+            <section>Patient Characteristics &amp; Vital Signs</section>
+        </sections>
+        <sections>
+            <label><!-- Placeholder --></label>
+            <section>Placeholder</section>
+        </sections>
+        <sections>
+            <label><!-- Related Library Content --></label>
+            <section>Related Library Content</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>RWE Data Asset Short Form</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Short Form --></label>
+            <section>Short Form</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- RWD Data Asset --></label>
+        <name>RWE_Data_Asset</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Short Form --></label>
+        <name>Short_Form</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Data_Asset_Home_Page --></label>
+        <name>Data_Asset_Home_Page</name>
+    </webLinks>
+</CustomObjectTranslation>

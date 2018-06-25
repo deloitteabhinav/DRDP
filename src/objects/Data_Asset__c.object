@@ -46,6 +46,7 @@
     <description>Real World Data Inventory</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -67,18 +68,22 @@
                 <value>
                     <fullName>MedDRA</fullName>
                     <default>false</default>
+                    <label>MedDRA</label>
                 </value>
                 <value>
                     <fullName>ICD-9</fullName>
                     <default>false</default>
+                    <label>ICD-9</label>
                 </value>
                 <value>
                     <fullName>ICD-10</fullName>
                     <default>false</default>
+                    <label>ICD-10</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -99,14 +104,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -127,30 +135,37 @@
                 <value>
                     <fullName>​Data Mart - Multi-use Contract</fullName>
                     <default>false</default>
+                    <label>​Data Mart - Multi-use Contract</label>
                 </value>
                 <value>
                     <fullName>Data Mart - Single Project Contract</fullName>
                     <default>false</default>
+                    <label>Data Mart - Single Project Contract</label>
                 </value>
                 <value>
                     <fullName>Other In-house Storage</fullName>
                     <default>false</default>
+                    <label>Other In-house Storage</label>
                 </value>
                 <value>
                     <fullName>Third Party Organization</fullName>
                     <default>false</default>
+                    <label>Third Party Organization</label>
                 </value>
                 <value>
                     <fullName>Data Broker</fullName>
                     <default>false</default>
+                    <label>Data Broker</label>
                 </value>
                 <value>
                     <fullName>Data Owner</fullName>
                     <default>false</default>
+                    <label>Data Owner</label>
                 </value>
                 <value>
                     <fullName>Partnership</fullName>
                     <default>false</default>
+                    <label>Partnership</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -172,16 +187,19 @@
                     <fullName>Internal</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Internal</label>
                 </value>
                 <value>
                     <fullName>External</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>External</label>
                 </value>
                 <value>
                     <fullName>No Longer Accessible</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>No Longer Accessible</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -201,14 +219,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -228,14 +249,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -255,18 +279,22 @@
                 <value>
                     <fullName>Ability to Link to Patient Registries</fullName>
                     <default>false</default>
+                    <label>Ability to Link to Patient Registries</label>
                 </value>
                 <value>
                     <fullName>Access to Medical Charts</fullName>
                     <default>false</default>
+                    <label>Access to Medical Charts</label>
                 </value>
                 <value>
                     <fullName>Prospective Data Collection</fullName>
                     <default>false</default>
+                    <label>Prospective Data Collection</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -288,21 +316,25 @@
                     <fullName>Assessed by RWD</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Assessed by RWD</label>
                 </value>
                 <value>
                     <fullName>Assessment in Progress</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Assessment in Progress</label>
                 </value>
                 <value>
                     <fullName>Lilly Research Experience</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>Lilly Research Experience</label>
                 </value>
                 <value>
                     <fullName>Not Fully Assessed by RWD</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>Not Fully Assessed by RWD</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -322,14 +354,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -350,30 +385,37 @@
                 <value>
                     <fullName>Animal Health</fullName>
                     <default>false</default>
+                    <label>Animal Health</label>
                 </value>
                 <value>
                     <fullName>Biotech</fullName>
                     <default>false</default>
+                    <label>Biotech</label>
                 </value>
                 <value>
                     <fullName>Consumer Health</fullName>
                     <default>false</default>
+                    <label>Consumer Health</label>
                 </value>
                 <value>
                     <fullName>Generics</fullName>
                     <default>false</default>
+                    <label>Generics</label>
                 </value>
                 <value>
                     <fullName>Medical Devices</fullName>
                     <default>false</default>
+                    <label>Medical Devices</label>
                 </value>
                 <value>
                     <fullName>Pharmaceuticals</fullName>
                     <default>false</default>
+                    <label>Pharmaceuticals</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -395,22 +437,27 @@
                 <value>
                     <fullName>Commercial</fullName>
                     <default>false</default>
+                    <label>Commercial</label>
                 </value>
                 <value>
                     <fullName>Government (OUS)</fullName>
                     <default>false</default>
+                    <label>Government (OUS)</label>
                 </value>
                 <value>
                     <fullName>Medicaid</fullName>
                     <default>false</default>
+                    <label>Medicaid</label>
                 </value>
                 <value>
                     <fullName>Medicare</fullName>
                     <default>false</default>
+                    <label>Medicare</label>
                 </value>
                 <value>
                     <fullName>Pharmacy Only</fullName>
                     <default>false</default>
+                    <label>Pharmacy Only</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -451,14 +498,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -478,14 +528,17 @@
                 <value>
                     <fullName>LOINC</fullName>
                     <default>false</default>
+                    <label>LOINC</label>
                 </value>
                 <value>
                     <fullName>JLAC 10</fullName>
                     <default>false</default>
+                    <label>JLAC 10</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -517,10 +570,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -540,18 +595,22 @@
                 <value>
                     <fullName>Yes - Adjudicated</fullName>
                     <default>false</default>
+                    <label>Yes - Adjudicated</label>
                 </value>
                 <value>
                     <fullName>Yes - Non Adjudicated</fullName>
                     <default>false</default>
+                    <label>Yes - Non Adjudicated</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -572,30 +631,37 @@
                 <value>
                     <fullName>Diagnosis</fullName>
                     <default>false</default>
+                    <label>Diagnosis</label>
                 </value>
                 <value>
                     <fullName>Inpatient Costs</fullName>
                     <default>false</default>
+                    <label>Inpatient Costs</label>
                 </value>
                 <value>
                     <fullName>Labs</fullName>
                     <default>false</default>
+                    <label>Labs</label>
                 </value>
                 <value>
                     <fullName>Outpatient Costs</fullName>
                     <default>false</default>
+                    <label>Outpatient Costs</label>
                 </value>
                 <value>
                     <fullName>Prescriptions</fullName>
                     <default>false</default>
+                    <label>Prescriptions</label>
                 </value>
                 <value>
                     <fullName>Procedures</fullName>
                     <default>false</default>
+                    <label>Procedures</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -627,14 +693,17 @@
                 <value>
                     <fullName>Longitudinal</fullName>
                     <default>false</default>
+                    <label>Longitudinal</label>
                 </value>
                 <value>
                     <fullName>Cross-Sectional</fullName>
                     <default>false</default>
+                    <label>Cross-Sectional</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -654,14 +723,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -720,30 +792,37 @@
                 <value>
                     <fullName>Age</fullName>
                     <default>false</default>
+                    <label>Age</label>
                 </value>
                 <value>
                     <fullName>Ethnicity</fullName>
                     <default>false</default>
+                    <label>Ethnicity</label>
                 </value>
                 <value>
                     <fullName>Gender</fullName>
                     <default>false</default>
+                    <label>Gender</label>
                 </value>
                 <value>
                     <fullName>Geographic Region</fullName>
                     <default>false</default>
+                    <label>Geographic Region</label>
                 </value>
                 <value>
                     <fullName>Race</fullName>
                     <default>false</default>
+                    <label>Race</label>
                 </value>
                 <value>
                     <fullName>Socioeconomic Status</fullName>
                     <default>false</default>
+                    <label>Socioeconomic Status</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -798,30 +877,37 @@
                 <value>
                     <fullName>ICD-9</fullName>
                     <default>false</default>
+                    <label>ICD-9</label>
                 </value>
                 <value>
                     <fullName>ICD-10</fullName>
                     <default>false</default>
+                    <label>ICD-10</label>
                 </value>
                 <value>
                     <fullName>READ</fullName>
                     <default>false</default>
+                    <label>READ</label>
                 </value>
                 <value>
                     <fullName>SNO MED</fullName>
                     <default>false</default>
+                    <label>SNO MED</label>
                 </value>
                 <value>
                     <fullName>MedDRA</fullName>
                     <default>false</default>
+                    <label>MedDRA</label>
                 </value>
                 <value>
                     <fullName>ICD-O-3</fullName>
                     <default>false</default>
+                    <label>ICD-O-3</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -842,10 +928,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -866,10 +954,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -890,10 +980,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -915,30 +1007,37 @@
                 <value>
                     <fullName>Biomarkers</fullName>
                     <default>false</default>
+                    <label>Biomarkers</label>
                 </value>
                 <value>
                     <fullName>Biopsy</fullName>
                     <default>false</default>
+                    <label>Biopsy</label>
                 </value>
                 <value>
                     <fullName>Diagnostic Scales/Questionnaires</fullName>
                     <default>false</default>
+                    <label>Diagnostic Scales/Questionnaires</label>
                 </value>
                 <value>
                     <fullName>Histology</fullName>
                     <default>false</default>
+                    <label>Histology</label>
                 </value>
                 <value>
                     <fullName>Imaging</fullName>
                     <default>false</default>
+                    <label>Imaging</label>
                 </value>
                 <value>
                     <fullName>Multiple/Not-specified</fullName>
                     <default>false</default>
+                    <label>Multiple/Not-specified</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -988,30 +1087,37 @@
                 <value>
                     <fullName>Biomarkers</fullName>
                     <default>false</default>
+                    <label>Biomarkers</label>
                 </value>
                 <value>
                     <fullName>Biopsy</fullName>
                     <default>false</default>
+                    <label>Biopsy</label>
                 </value>
                 <value>
                     <fullName>Diagnostic Scales/Questionnaires</fullName>
                     <default>false</default>
+                    <label>Diagnostic Scales/Questionnaires</label>
                 </value>
                 <value>
                     <fullName>Histology</fullName>
                     <default>false</default>
+                    <label>Histology</label>
                 </value>
                 <value>
                     <fullName>​Imaging</fullName>
                     <default>false</default>
+                    <label>​Imaging</label>
                 </value>
                 <value>
                     <fullName>Multiple/not-specified</fullName>
                     <default>false</default>
+                    <label>Multiple/not-specified</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -1072,14 +1178,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1099,198 +1208,247 @@
                 <value>
                     <fullName>Not Applicable</fullName>
                     <default>false</default>
+                    <label>Not Applicable</label>
                 </value>
                 <value>
                     <fullName>Alopecia Areata</fullName>
                     <default>false</default>
+                    <label>Alopecia Areata</label>
                 </value>
                 <value>
                     <fullName>Alzheimer’s Disease</fullName>
                     <default>false</default>
+                    <label>Alzheimer’s Disease</label>
                 </value>
                 <value>
                     <fullName>Alzheimer’s Disease Psychosis</fullName>
                     <default>false</default>
+                    <label>Alzheimer’s Disease Psychosis</label>
                 </value>
                 <value>
                     <fullName>Anemia</fullName>
                     <default>false</default>
+                    <label>Anemia</label>
                 </value>
                 <value>
                     <fullName>Anxiety</fullName>
                     <default>false</default>
+                    <label>Anxiety</label>
                 </value>
                 <value>
                     <fullName>Atopic Dermatitis</fullName>
                     <default>false</default>
+                    <label>Atopic Dermatitis</label>
                 </value>
                 <value>
                     <fullName>Attention Deficit-Hyperactivity Disorder</fullName>
                     <default>false</default>
+                    <label>Attention Deficit-Hyperactivity Disorder</label>
                 </value>
                 <value>
                     <fullName>AxSpA (Axial Spondyloarthritis)</fullName>
                     <default>false</default>
+                    <label>AxSpA (Axial Spondyloarthritis)</label>
                 </value>
                 <value>
                     <fullName>Bladder Cancer</fullName>
                     <default>false</default>
+                    <label>Bladder Cancer</label>
                 </value>
                 <value>
                     <fullName>Bone and Soft Tissue Cancers</fullName>
                     <default>false</default>
+                    <label>Bone and Soft Tissue Cancers</label>
                 </value>
                 <value>
                     <fullName>Breast Cancer</fullName>
                     <default>false</default>
+                    <label>Breast Cancer</label>
                 </value>
                 <value>
                     <fullName>Cardiovascular Disease</fullName>
                     <default>false</default>
+                    <label>Cardiovascular Disease</label>
                 </value>
                 <value>
                     <fullName>Chronic Kidney Disease</fullName>
                     <default>false</default>
+                    <label>Chronic Kidney Disease</label>
                 </value>
                 <value>
                     <fullName>Chronic Pain</fullName>
                     <default>false</default>
+                    <label>Chronic Pain</label>
                 </value>
                 <value>
                     <fullName>Cluster Headache</fullName>
                     <default>false</default>
+                    <label>Cluster Headache</label>
                 </value>
                 <value>
                     <fullName>Colorectal Cancer</fullName>
                     <default>false</default>
+                    <label>Colorectal Cancer</label>
                 </value>
                 <value>
                     <fullName>Crohn’s Disease</fullName>
                     <default>false</default>
+                    <label>Crohn’s Disease</label>
                 </value>
                 <value>
                     <fullName>Depression</fullName>
                     <default>false</default>
+                    <label>Depression</label>
                 </value>
                 <value>
                     <fullName>Disuse Atrophy</fullName>
                     <default>false</default>
+                    <label>Disuse Atrophy</label>
                 </value>
                 <value>
                     <fullName>Erectile Dysfunction</fullName>
                     <default>false</default>
+                    <label>Erectile Dysfunction</label>
                 </value>
                 <value>
                     <fullName>Gastrointestinal Cancer</fullName>
                     <default>false</default>
+                    <label>Gastrointestinal Cancer</label>
                 </value>
                 <value>
                     <fullName>Genitourinary Cancer</fullName>
                     <default>false</default>
+                    <label>Genitourinary Cancer</label>
                 </value>
                 <value>
                     <fullName>Gynecologic Cancer</fullName>
                     <default>false</default>
+                    <label>Gynecologic Cancer</label>
                 </value>
                 <value>
                     <fullName>Head and Neck Cancer</fullName>
                     <default>false</default>
+                    <label>Head and Neck Cancer</label>
                 </value>
                 <value>
                     <fullName>Hematologic Cancer</fullName>
                     <default>false</default>
+                    <label>Hematologic Cancer</label>
                 </value>
                 <value>
                     <fullName>Hepatocellular Cancer</fullName>
                     <default>false</default>
+                    <label>Hepatocellular Cancer</label>
                 </value>
                 <value>
                     <fullName>High Risk Vascular Disease</fullName>
                     <default>false</default>
+                    <label>High Risk Vascular Disease</label>
                 </value>
                 <value>
                     <fullName>Juvenile Idiopathic Arthritis</fullName>
                     <default>false</default>
+                    <label>Juvenile Idiopathic Arthritis</label>
                 </value>
                 <value>
                     <fullName>Lung and Thoracic Cancer</fullName>
                     <default>false</default>
+                    <label>Lung and Thoracic Cancer</label>
                 </value>
                 <value>
                     <fullName>Lupus</fullName>
                     <default>false</default>
+                    <label>Lupus</label>
                 </value>
                 <value>
                     <fullName>Mesothelioma Cancer</fullName>
                     <default>false</default>
+                    <label>Mesothelioma Cancer</label>
                 </value>
                 <value>
                     <fullName>Migraine</fullName>
                     <default>false</default>
+                    <label>Migraine</label>
                 </value>
                 <value>
                     <fullName>Mild Cognitive Impairment</fullName>
                     <default>false</default>
+                    <label>Mild Cognitive Impairment</label>
                 </value>
                 <value>
                     <fullName>NAFLD</fullName>
                     <default>false</default>
+                    <label>NAFLD</label>
                 </value>
                 <value>
                     <fullName>NASH</fullName>
                     <default>false</default>
+                    <label>NASH</label>
                 </value>
                 <value>
                     <fullName>Non-Alzheimer’s Dementia</fullName>
                     <default>false</default>
+                    <label>Non-Alzheimer’s Dementia</label>
                 </value>
                 <value>
                     <fullName>Osteoporosis</fullName>
                     <default>false</default>
+                    <label>Osteoporosis</label>
                 </value>
                 <value>
                     <fullName>Parkinson’s Disease</fullName>
                     <default>false</default>
+                    <label>Parkinson’s Disease</label>
                 </value>
                 <value>
                     <fullName>Psoriasis</fullName>
                     <default>false</default>
+                    <label>Psoriasis</label>
                 </value>
                 <value>
                     <fullName>Psoriatic Arthritis</fullName>
                     <default>false</default>
+                    <label>Psoriatic Arthritis</label>
                 </value>
                 <value>
                     <fullName>Rheumatoid Arthritis</fullName>
                     <default>false</default>
+                    <label>Rheumatoid Arthritis</label>
                 </value>
                 <value>
                     <fullName>Schizophrenia</fullName>
                     <default>false</default>
+                    <label>Schizophrenia</label>
                 </value>
                 <value>
                     <fullName>Sjogren&apos;s Syndrome</fullName>
                     <default>false</default>
+                    <label>Sjogren&apos;s Syndrome</label>
                 </value>
                 <value>
                     <fullName>Testosterone replacement</fullName>
                     <default>false</default>
+                    <label>Testosterone replacement</label>
                 </value>
                 <value>
                     <fullName>Type I Diabetes</fullName>
                     <default>false</default>
+                    <label>Type I Diabetes</label>
                 </value>
                 <value>
                     <fullName>Type II Diabetes</fullName>
                     <default>false</default>
+                    <label>Type II Diabetes</label>
                 </value>
                 <value>
                     <fullName>Ulcerative Colitis</fullName>
                     <default>false</default>
+                    <label>Ulcerative Colitis</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1321,14 +1479,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1348,14 +1509,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1387,34 +1551,42 @@
                 <value>
                     <fullName>below 1,000</fullName>
                     <default>false</default>
+                    <label>below 1,000</label>
                 </value>
                 <value>
                     <fullName>1,000-10,000</fullName>
                     <default>false</default>
+                    <label>1,000-10,000</label>
                 </value>
                 <value>
                     <fullName>10,000- 100,000</fullName>
                     <default>false</default>
+                    <label>10,000- 100,000</label>
                 </value>
                 <value>
                     <fullName>100,000 - 500,000</fullName>
                     <default>false</default>
+                    <label>100,000 - 500,000</label>
                 </value>
                 <value>
                     <fullName>500,000 - 2 million</fullName>
                     <default>false</default>
+                    <label>500,000 - 2 million</label>
                 </value>
                 <value>
                     <fullName>2 million - 10 million</fullName>
                     <default>false</default>
+                    <label>2 million - 10 million</label>
                 </value>
                 <value>
                     <fullName>10 million - 25 million</fullName>
                     <default>false</default>
+                    <label>10 million - 25 million</label>
                 </value>
                 <value>
                     <fullName>&gt; 25 million</fullName>
                     <default>false</default>
+                    <label>&gt; 25 million</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1434,34 +1606,42 @@
                 <value>
                     <fullName>below 1,000</fullName>
                     <default>false</default>
+                    <label>below 1,000</label>
                 </value>
                 <value>
                     <fullName>1,000-10,000</fullName>
                     <default>false</default>
+                    <label>1,000-10,000</label>
                 </value>
                 <value>
                     <fullName>10,000-100,000</fullName>
                     <default>false</default>
+                    <label>10,000-100,000</label>
                 </value>
                 <value>
                     <fullName>100,000-500,000</fullName>
                     <default>false</default>
+                    <label>100,000-500,000</label>
                 </value>
                 <value>
                     <fullName>500,000-2 Million</fullName>
                     <default>false</default>
+                    <label>500,000-2 Million</label>
                 </value>
                 <value>
                     <fullName>2 Million- 10 Million</fullName>
                     <default>false</default>
+                    <label>2 Million- 10 Million</label>
                 </value>
                 <value>
                     <fullName>10 Million - 25 Million</fullName>
                     <default>false</default>
+                    <label>10 Million - 25 Million</label>
                 </value>
                 <value>
                     <fullName>&gt; 25 Million</fullName>
                     <default>false</default>
+                    <label>&gt; 25 Million</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1492,14 +1672,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1521,16 +1704,19 @@
                     <fullName>Multiple Countries</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Multiple Countries</label>
                 </value>
                 <value>
                     <fullName>National</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>National</label>
                 </value>
                 <value>
                     <fullName>Regional Within Country</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>Regional Within Country</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1572,10 +1758,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1596,10 +1784,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1619,14 +1809,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1674,46 +1867,57 @@
                 <value>
                     <fullName>Medicare</fullName>
                     <default>false</default>
+                    <label>Medicare</label>
                 </value>
                 <value>
                     <fullName>Medicaid</fullName>
                     <default>false</default>
+                    <label>Medicaid</label>
                 </value>
                 <value>
                     <fullName>Government Claims</fullName>
                     <default>false</default>
+                    <label>Government Claims</label>
                 </value>
                 <value>
                     <fullName>Commercial Claims</fullName>
                     <default>false</default>
+                    <label>Commercial Claims</label>
                 </value>
                 <value>
                     <fullName>Pharmacy Claims</fullName>
                     <default>false</default>
+                    <label>Pharmacy Claims</label>
                 </value>
                 <value>
                     <fullName>EMR</fullName>
                     <default>false</default>
+                    <label>EMR</label>
                 </value>
                 <value>
                     <fullName>Registry</fullName>
                     <default>false</default>
+                    <label>Registry</label>
                 </value>
                 <value>
                     <fullName>Survey</fullName>
                     <default>false</default>
+                    <label>Survey</label>
                 </value>
                 <value>
                     <fullName>Patient Reported Data</fullName>
                     <default>false</default>
+                    <label>Patient Reported Data</label>
                 </value>
                 <value>
                     <fullName>Sickness Fund (EU)</fullName>
                     <default>false</default>
+                    <label>Sickness Fund (EU)</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1734,14 +1938,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1761,14 +1968,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1915,70 +2125,87 @@
                 <value>
                     <fullName>Alcohol Use</fullName>
                     <default>false</default>
+                    <label>Alcohol Use</label>
                 </value>
                 <value>
                     <fullName>Biopsy</fullName>
                     <default>false</default>
+                    <label>Biopsy</label>
                 </value>
                 <value>
                     <fullName>Cause of Death</fullName>
                     <default>false</default>
+                    <label>Cause of Death</label>
                 </value>
                 <value>
                     <fullName>Chronic Disease Score</fullName>
                     <default>false</default>
+                    <label>Chronic Disease Score</label>
                 </value>
                 <value>
                     <fullName>Co-morbidities</fullName>
                     <default>false</default>
+                    <label>Co-morbidities</label>
                 </value>
                 <value>
                     <fullName>Comorbidity Index</fullName>
                     <default>false</default>
+                    <label>Comorbidity Index</label>
                 </value>
                 <value>
                     <fullName>​Date of Death</fullName>
                     <default>false</default>
+                    <label>​Date of Death</label>
                 </value>
                 <value>
                     <fullName>Date of Diagnosis</fullName>
                     <default>false</default>
+                    <label>Date of Diagnosis</label>
                 </value>
                 <value>
                     <fullName>Exercise</fullName>
                     <default>false</default>
+                    <label>Exercise</label>
                 </value>
                 <value>
                     <fullName>Family Linkage</fullName>
                     <default>false</default>
+                    <label>Family Linkage</label>
                 </value>
                 <value>
                     <fullName>Genomic Data</fullName>
                     <default>false</default>
+                    <label>Genomic Data</label>
                 </value>
                 <value>
                     <fullName>Primary Diagnosis</fullName>
                     <default>false</default>
+                    <label>Primary Diagnosis</label>
                 </value>
                 <value>
                     <fullName>Secondary Diagnosis</fullName>
                     <default>false</default>
+                    <label>Secondary Diagnosis</label>
                 </value>
                 <value>
                     <fullName>Smoking</fullName>
                     <default>false</default>
+                    <label>Smoking</label>
                 </value>
                 <value>
                     <fullName>Vaccine</fullName>
                     <default>false</default>
+                    <label>Vaccine</label>
                 </value>
                 <value>
                     <fullName>Xray/MRI, etc</fullName>
                     <default>false</default>
+                    <label>Xray/MRI, etc</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1999,14 +2226,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2038,90 +2268,112 @@
                 <value>
                     <fullName># Refills</fullName>
                     <default>false</default>
+                    <label># Refills</label>
                 </value>
                 <value>
                     <fullName>Active ingredient</fullName>
                     <default>false</default>
+                    <label>Active ingredient</label>
                 </value>
                 <value>
                     <fullName>Blood Glucose Monitoring Supplies</fullName>
                     <default>false</default>
+                    <label>Blood Glucose Monitoring Supplies</label>
                 </value>
                 <value>
                     <fullName>Days of Supply in Rx</fullName>
                     <default>false</default>
+                    <label>Days of Supply in Rx</label>
                 </value>
                 <value>
                     <fullName>Dose</fullName>
                     <default>false</default>
+                    <label>Dose</label>
                 </value>
                 <value>
                     <fullName>Drugs Consumed</fullName>
                     <default>false</default>
+                    <label>Drugs Consumed</label>
                 </value>
                 <value>
                     <fullName>Frequency of Administration</fullName>
                     <default>false</default>
+                    <label>Frequency of Administration</label>
                 </value>
                 <value>
                     <fullName>Medication Duration</fullName>
                     <default>false</default>
+                    <label>Medication Duration</label>
                 </value>
                 <value>
                     <fullName>Medication Start Date</fullName>
                     <default>false</default>
+                    <label>Medication Start Date</label>
                 </value>
                 <value>
                     <fullName>Medication Stop Date</fullName>
                     <default>false</default>
+                    <label>Medication Stop Date</label>
                 </value>
                 <value>
                     <fullName>Metric Quantity and Unit</fullName>
                     <default>false</default>
+                    <label>Metric Quantity and Unit</label>
                 </value>
                 <value>
                     <fullName>Prescriber Specialty</fullName>
                     <default>false</default>
+                    <label>Prescriber Specialty</label>
                 </value>
                 <value>
                     <fullName>​Prescription Date</fullName>
                     <default>false</default>
+                    <label>​Prescription Date</label>
                 </value>
                 <value>
                     <fullName>Pump Related Supplies</fullName>
                     <default>false</default>
+                    <label>Pump Related Supplies</label>
                 </value>
                 <value>
                     <fullName>Reason Discontinued</fullName>
                     <default>false</default>
+                    <label>Reason Discontinued</label>
                 </value>
                 <value>
                     <fullName>Reason for Rx</fullName>
                     <default>false</default>
+                    <label>Reason for Rx</label>
                 </value>
                 <value>
                     <fullName>Reason Switched</fullName>
                     <default>false</default>
+                    <label>Reason Switched</label>
                 </value>
                 <value>
                     <fullName>Strength</fullName>
                     <default>false</default>
+                    <label>Strength</label>
                 </value>
                 <value>
                     <fullName>Trademark</fullName>
                     <default>false</default>
+                    <label>Trademark</label>
                 </value>
                 <value>
                     <fullName>Treatment Class</fullName>
                     <default>false</default>
+                    <label>Treatment Class</label>
                 </value>
                 <value>
                     <fullName>Unique Product Code</fullName>
                     <default>false</default>
+                    <label>Unique Product Code</label>
                 </value>
                 <value>
                     <fullName>Unit</fullName>
                     <default>false</default>
+                    <label>Unit</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2142,18 +2394,22 @@
                 <value>
                     <fullName>Prescription- Inpatient</fullName>
                     <default>false</default>
+                    <label>Prescription- Inpatient</label>
                 </value>
                 <value>
                     <fullName>Prescription- Outpatient</fullName>
                     <default>false</default>
+                    <label>Prescription- Outpatient</label>
                 </value>
                 <value>
                     <fullName>Prescription - OTC / Mail</fullName>
                     <default>false</default>
+                    <label>Prescription - OTC / Mail</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2175,38 +2431,47 @@
                 <value>
                     <fullName>AHFS</fullName>
                     <default>false</default>
+                    <label>AHFS</label>
                 </value>
                 <value>
                     <fullName>ATC</fullName>
                     <default>false</default>
+                    <label>ATC</label>
                 </value>
                 <value>
                     <fullName>BNF</fullName>
                     <default>false</default>
+                    <label>BNF</label>
                 </value>
                 <value>
                     <fullName>GPI</fullName>
                     <default>false</default>
+                    <label>GPI</label>
                 </value>
                 <value>
                     <fullName>Multilix</fullName>
                     <default>false</default>
+                    <label>Multilix</label>
                 </value>
                 <value>
                     <fullName>NDC</fullName>
                     <default>false</default>
+                    <label>NDC</label>
                 </value>
                 <value>
                     <fullName>READ</fullName>
                     <default>false</default>
+                    <label>READ</label>
                 </value>
                 <value>
                     <fullName>RxNorm</fullName>
                     <default>false</default>
+                    <label>RxNorm</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2228,38 +2493,47 @@
                 <value>
                     <fullName>ICD-9</fullName>
                     <default>false</default>
+                    <label>ICD-9</label>
                 </value>
                 <value>
                     <fullName>CPT</fullName>
                     <default>false</default>
+                    <label>CPT</label>
                 </value>
                 <value>
                     <fullName>HCPCS</fullName>
                     <default>false</default>
+                    <label>HCPCS</label>
                 </value>
                 <value>
                     <fullName>READ</fullName>
                     <default>false</default>
+                    <label>READ</label>
                 </value>
                 <value>
                     <fullName>OPCS-4</fullName>
                     <default>false</default>
+                    <label>OPCS-4</label>
                 </value>
                 <value>
                     <fullName>OPS</fullName>
                     <default>false</default>
+                    <label>OPS</label>
                 </value>
                 <value>
                     <fullName>Radiation</fullName>
                     <default>false</default>
+                    <label>Radiation</label>
                 </value>
                 <value>
                     <fullName>Chemotherapy</fullName>
                     <default>false</default>
+                    <label>Chemotherapy</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2280,14 +2554,17 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2309,26 +2586,31 @@
                     <fullName>EUCAN</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>EUCAN</label>
                 </value>
                 <value>
                     <fullName>Emerging Markets</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Emerging Markets</label>
                 </value>
                 <value>
                     <fullName>Japan</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>Japan</label>
                 </value>
                 <value>
                     <fullName>US</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>US</label>
                 </value>
                 <value>
                     <fullName>Global (Multiple Regions)</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
+                    <label>Global (Multiple Regions)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2362,21 +2644,25 @@
                     <fullName>Academic</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Academic</label>
                 </value>
                 <value>
                     <fullName>Government</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Government</label>
                 </value>
                 <value>
                     <fullName>Vendor</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>Vendor</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2396,62 +2682,77 @@
                 <value>
                     <fullName>Autoimmune Diseases</fullName>
                     <default>false</default>
+                    <label>Autoimmune Diseases</label>
                 </value>
                 <value>
                     <fullName>Cardiovascular</fullName>
                     <default>false</default>
+                    <label>Cardiovascular</label>
                 </value>
                 <value>
                     <fullName>Dermatology</fullName>
                     <default>false</default>
+                    <label>Dermatology</label>
                 </value>
                 <value>
                     <fullName>Diabetes</fullName>
                     <default>false</default>
+                    <label>Diabetes</label>
                 </value>
                 <value>
                     <fullName>Endocrinology</fullName>
                     <default>false</default>
+                    <label>Endocrinology</label>
                 </value>
                 <value>
                     <fullName>Gastroenterology</fullName>
                     <default>false</default>
+                    <label>Gastroenterology</label>
                 </value>
                 <value>
                     <fullName>Gynecology</fullName>
                     <default>false</default>
+                    <label>Gynecology</label>
                 </value>
                 <value>
                     <fullName>Immunology</fullName>
                     <default>false</default>
+                    <label>Immunology</label>
                 </value>
                 <value>
                     <fullName>Neurology</fullName>
                     <default>false</default>
+                    <label>Neurology</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Psychiatry &amp; Pain</fullName>
                     <default>false</default>
+                    <label>Psychiatry &amp; Pain</label>
                 </value>
                 <value>
                     <fullName>Rheumatology</fullName>
                     <default>false</default>
+                    <label>Rheumatology</label>
                 </value>
                 <value>
                     <fullName>Urology</fullName>
                     <default>false</default>
+                    <label>Urology</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
                 <value>
                     <fullName>Non-Therapeutic Area Specific</fullName>
                     <default>false</default>
+                    <label>Non-Therapeutic Area Specific</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2472,30 +2773,37 @@
                 <value>
                     <fullName>Acute Emergency Department</fullName>
                     <default>false</default>
+                    <label>Acute Emergency Department</label>
                 </value>
                 <value>
                     <fullName>Hospice</fullName>
                     <default>false</default>
+                    <label>Hospice</label>
                 </value>
                 <value>
                     <fullName>In-Home Health Care</fullName>
                     <default>false</default>
+                    <label>In-Home Health Care</label>
                 </value>
                 <value>
                     <fullName>Inpatient</fullName>
                     <default>false</default>
+                    <label>Inpatient</label>
                 </value>
                 <value>
                     <fullName>Long Term Care</fullName>
                     <default>false</default>
+                    <label>Long Term Care</label>
                 </value>
                 <value>
                     <fullName>Outpatient</fullName>
                     <default>false</default>
+                    <label>Outpatient</label>
                 </value>
                 <value>
                     <fullName>Other (Specify in Comments)</fullName>
                     <default>false</default>
+                    <label>Other (Specify in Comments)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2527,26 +2835,32 @@
                 <value>
                     <fullName>Real Time</fullName>
                     <default>false</default>
+                    <label>Real Time</label>
                 </value>
                 <value>
                     <fullName>0-45 Days</fullName>
                     <default>false</default>
+                    <label>0-45 Days</label>
                 </value>
                 <value>
                     <fullName>46-90 days</fullName>
                     <default>false</default>
+                    <label>46-90 days</label>
                 </value>
                 <value>
                     <fullName>3-6 Months</fullName>
                     <default>false</default>
+                    <label>3-6 Months</label>
                 </value>
                 <value>
                     <fullName>6-12 Months</fullName>
                     <default>false</default>
+                    <label>6-12 Months</label>
                 </value>
                 <value>
                     <fullName>Grater than 12 Months</fullName>
                     <default>false</default>
+                    <label>Grater than 12 Months</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2566,10 +2880,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2600,38 +2916,47 @@
                 <value>
                     <fullName>Claims</fullName>
                     <default>false</default>
+                    <label>Claims</label>
                 </value>
                 <value>
                     <fullName>Cohort Study</fullName>
                     <default>false</default>
+                    <label>Cohort Study</label>
                 </value>
                 <value>
                     <fullName>EMR</fullName>
                     <default>false</default>
+                    <label>EMR</label>
                 </value>
                 <value>
                     <fullName>EMR-Claims Linked</fullName>
                     <default>false</default>
+                    <label>EMR-Claims Linked</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
                 <value>
                     <fullName>PRO</fullName>
                     <default>false</default>
+                    <label>PRO</label>
                 </value>
                 <value>
                     <fullName>Registry</fullName>
                     <default>false</default>
+                    <label>Registry</label>
                 </value>
                 <value>
                     <fullName>Sickness Fund (EU)</fullName>
                     <default>false</default>
+                    <label>Sickness Fund (EU)</label>
                 </value>
                 <value>
                     <fullName>Survey</fullName>
                     <default>false</default>
+                    <label>Survey</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2663,26 +2988,32 @@
                 <value>
                     <fullName>Blood pressure</fullName>
                     <default>false</default>
+                    <label>Blood pressure</label>
                 </value>
                 <value>
                     <fullName>BMI</fullName>
                     <default>false</default>
+                    <label>BMI</label>
                 </value>
                 <value>
                     <fullName>BSA</fullName>
                     <default>false</default>
+                    <label>BSA</label>
                 </value>
                 <value>
                     <fullName>Height</fullName>
                     <default>false</default>
+                    <label>Height</label>
                 </value>
                 <value>
                     <fullName>Temperature</fullName>
                     <default>false</default>
+                    <label>Temperature</label>
                 </value>
                 <value>
                     <fullName>Weight</fullName>
                     <default>false</default>
+                    <label>Weight</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -6020,6 +6351,7 @@
         <lookupDialogsAdditionalFields>Access_Details__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Data_Asset_Home_Page</fullName>
         <availability>online</availability>

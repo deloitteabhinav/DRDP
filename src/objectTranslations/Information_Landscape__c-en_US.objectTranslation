@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Information Source</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Information Sources</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- DRDP Information Landscape --></label>
+        <name>DRDP_Information_Landscape</name>
+    </fieldSets>
+    <fields>
+        <label><!-- Acquiree App ID --></label>
+        <name>Acquiree_App_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Acquiree Contract ID --></label>
+        <name>Acquiree_Contract_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Acquiree Functional Group --></label>
+        <name>Acquiree_Functional_Group__c</name>
+        <picklistValues>
+            <masterLabel>Biometrics</masterLabel>
+            <translation><!-- Biometrics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Ops</masterLabel>
+            <translation><!-- Clinical Ops --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial</masterLabel>
+            <translation><!-- Commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Services</masterLabel>
+            <translation><!-- Corporate Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discovery</masterLabel>
+            <translation><!-- Discovery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise</masterLabel>
+            <translation><!-- Enterprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT Security</masterLabel>
+            <translation><!-- IT Security --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs</masterLabel>
+            <translation><!-- Medical Affairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharma Ops</masterLabel>
+            <translation><!-- Pharma Ops --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quality</masterLabel>
+            <translation><!-- Quality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory</masterLabel>
+            <translation><!-- Regulatory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Safety</masterLabel>
+            <translation><!-- Safety --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tech Ops - Pharma Ops</masterLabel>
+            <translation><!-- Tech Ops - Pharma Ops --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toxicology</masterLabel>
+            <translation><!-- Toxicology --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Acquiree IT Owner --></label>
+        <name>Acquiree_IT_Owner1__c</name>
+        <relationshipLabel><!-- Information Sources (Acquiree IT Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Addendum/Amendment/Misc. --></label>
+        <name>Addendum_Amendment_Misc__c</name>
+    </fields>
+    <fields>
+        <label><!-- App Disposition Status --></label>
+        <name>App_Disposition_Status__c</name>
+        <picklistValues>
+            <masterLabel>Decommissioned</masterLabel>
+            <translation><!-- Decommissioned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Process</masterLabel>
+            <translation><!-- In Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- App Disposition Timeframe --></label>
+        <name>App_Disposition_Timeframe__c</name>
+    </fields>
+    <fields>
+        <label><!-- App Retention Decision --></label>
+        <name>App_Retention_Decision__c</name>
+        <picklistValues>
+            <masterLabel>Full App Retirement</masterLabel>
+            <translation><!-- Full App Retirement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retain App In Place</masterLabel>
+            <translation><!-- Retain App In Place --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retire with Data Archive to PFE</masterLabel>
+            <translation><!-- Retire with Data Archive to PFE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retire with Data Migration to PFE</masterLabel>
+            <translation><!-- Retire with Data Migration to PFE --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- App Retention Rationale --></label>
+        <name>App_Retention_Rationale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application Notes --></label>
+        <name>Application_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application Status --></label>
+        <name>Application_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Application Type --></label>
+        <name>Application_Type__c</name>
+        <picklistValues>
+            <masterLabel>Benchtop</masterLabel>
+            <translation><!-- Benchtop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desktop</masterLabel>
+            <translation><!-- Desktop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On-Premise</masterLabel>
+            <translation><!-- On-Premise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SaaS</masterLabel>
+            <translation><!-- SaaS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription-based</masterLabel>
+            <translation><!-- Subscription-based --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TBD</masterLabel>
+            <translation><!-- TBD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Application URL --></label>
+        <name>Application_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Authentication Type --></label>
+        <name>Authentication_Type__c</name>
+        <picklistValues>
+            <masterLabel>LDAP</masterLabel>
+            <translation><!-- LDAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Baseline Retirement Plan --></label>
+        <name>Baseline_Retirement_Plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Unit --></label>
+        <name>Business_Unit__c</name>
+        <picklistValues>
+            <masterLabel>Animal Health</masterLabel>
+            <translation><!-- Animal Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biotech</masterLabel>
+            <translation><!-- Biotech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consumer Health</masterLabel>
+            <translation><!-- Consumer Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generics</masterLabel>
+            <translation><!-- Generics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Devices</masterLabel>
+            <translation><!-- Medical Devices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmaceuticals</masterLabel>
+            <translation><!-- Pharmaceuticals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccines</masterLabel>
+            <translation><!-- Vaccines --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- COTS/ Homegrown --></label>
+        <name>COTS_Homegrown__c</name>
+        <picklistValues>
+            <masterLabel>COTS</masterLabel>
+            <translation><!-- COTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Homegrown</masterLabel>
+            <translation><!-- Homegrown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Client ACD BT Lead --></label>
+        <name>Client_ACD_BT_Lead1__c</name>
+        <relationshipLabel><!-- Information Sources (Client ACD BT Lead) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client Application Lead --></label>
+        <name>Client_Application_Lead1__c</name>
+        <relationshipLabel><!-- Information Sources (Client Application Lead) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client BT Application Owner --></label>
+        <name>Client_BT_Application_Owner1__c</name>
+        <relationshipLabel><!-- Information Sources (Client BT Application Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client BT Lead --></label>
+        <name>Client_BT_Lead1__c</name>
+        <relationshipLabel><!-- Information Sources (Client BT Lead) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client BT Lead Email --></label>
+        <name>Client_BT_Lead_Email1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client BT Lead Email --></label>
+        <name>Client_BT_Lead_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Business Process Owner --></label>
+        <name>Client_Business_Process_Owner1__c</name>
+        <relationshipLabel><!-- Information Sources (Client Business Process Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client Contract Lead --></label>
+        <name>Client_Contract_Lead1__c</name>
+        <relationshipLabel><!-- Information Sources (Client Contract Lead) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client Equivalent App --></label>
+        <name>Client_Equivalent_App__c</name>
+        <relationshipLabel><!-- Information Sources (Client Equivalent App) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client Functional Area --></label>
+        <name>Client_Functional_Area__c</name>
+        <picklistValues>
+            <masterLabel>Business Insights</masterLabel>
+            <translation><!-- Business Insights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical</masterLabel>
+            <translation><!-- Clinical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PDM</masterLabel>
+            <translation><!-- PDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharm Sci</masterLabel>
+            <translation><!-- Pharm Sci --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory</masterLabel>
+            <translation><!-- Regulatory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research</masterLabel>
+            <translation><!-- Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Safety</masterLabel>
+            <translation><!-- Safety --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TBD</masterLabel>
+            <translation><!-- TBD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eLibrary</masterLabel>
+            <translation><!-- eLibrary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Client Functional Group --></label>
+        <name>Client_Functional_Group__c</name>
+        <picklistValues>
+            <masterLabel>Development</masterLabel>
+            <translation><!-- Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research &amp; Pharm Sci</masterLabel>
+            <translation><!-- Research &amp; Pharm Sci --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TBD</masterLabel>
+            <translation><!-- TBD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract Category --></label>
+        <name>Contract_Category__c</name>
+        <picklistValues>
+            <masterLabel>Hardware</masterLabel>
+            <translation><!-- Hardware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software</masterLabel>
+            <translation><!-- Software --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract Decision/Contract Integration D --></label>
+        <name>Contract_Decision_Contract_Integration_D__c</name>
+        <picklistValues>
+            <masterLabel>Keep until Contract End</masterLabel>
+            <translation><!-- Keep until Contract End --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renew</masterLabel>
+            <translation><!-- Renew --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminate</masterLabel>
+            <translation><!-- Terminate --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract Notes --></label>
+        <name>Contract_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Specific Type --></label>
+        <name>Contract_Specific_Type__c</name>
+        <picklistValues>
+            <masterLabel>Hosting</masterLabel>
+            <translation><!-- Hosting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>License</masterLabel>
+            <translation><!-- License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance</masterLabel>
+            <translation><!-- Maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple</masterLabel>
+            <translation><!-- Multiple --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription</masterLabel>
+            <translation><!-- Subscription --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support</masterLabel>
+            <translation><!-- Support --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract Status --></label>
+        <name>Contract_Status__c</name>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewed</masterLabel>
+            <translation><!-- Renewed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminated</masterLabel>
+            <translation><!-- Terminated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract Termination Date --></label>
+        <name>Contract_Termination_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Type --></label>
+        <name>Contract_Type__c</name>
+        <picklistValues>
+            <masterLabel>Agreement</masterLabel>
+            <translation><!-- Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inventory</masterLabel>
+            <translation><!-- Inventory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>License</masterLabel>
+            <translation><!-- License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOW</masterLabel>
+            <translation><!-- SOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Information Sources --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cost of this purchase --></label>
+        <name>Cost_of_this_purchase__c</name>
+    </fields>
+    <fields>
+        <label><!-- Criticality --></label>
+        <name>Criticality__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data Migration Decision --></label>
+        <name>Data_Migration_Decision__c</name>
+        <picklistValues>
+            <masterLabel>Archive Data</masterLabel>
+            <translation><!-- Archive Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migrate Data</masterLabel>
+            <translation><!-- Migrate Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data Migration Status --></label>
+        <name>Data_Migration_Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration In Progress</masterLabel>
+            <translation><!-- Migration In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning In Progress</masterLabel>
+            <translation><!-- Planning In Progress --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration (years) --></label>
+        <name>Duration_years__c</name>
+    </fields>
+    <fields>
+        <label><!-- ERIM Submission Date --></label>
+        <name>ERIM_Submission_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>Effective_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- GXP Risk Level --></label>
+        <name>GXP_Risk_Level__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Group Division Name --></label>
+        <name>Group_Division_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Name --></label>
+        <name>Group_Name__c</name>
+        <picklistValues>
+            <masterLabel>Clinical</masterLabel>
+            <translation><!-- Clinical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discovery</masterLabel>
+            <translation><!-- Discovery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation><!-- HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal</masterLabel>
+            <translation><!-- Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturing</masterLabel>
+            <translation><!-- Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs</masterLabel>
+            <translation><!-- Medical Affairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Clinical</masterLabel>
+            <translation><!-- Pre-Clinical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory Affairs</masterLabel>
+            <translation><!-- Regulatory Affairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shared Services (IT)</masterLabel>
+            <translation><!-- Shared Services (IT) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Group Sub-Division Name --></label>
+        <name>Group_Sub_Division_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hosting  (Internal or External) --></label>
+        <name>Hosting_Internal_or_External__c</name>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hosting Location --></label>
+        <name>Hosting_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- No Licenses/ HW of Purchase --></label>
+        <name>Information_Source_New_Custom_Field_H__c</name>
+    </fields>
+    <fields>
+        <label><!-- Information Sub - Type --></label>
+        <name>Information_Sub_Type__c</name>
+        <picklistValues>
+            <masterLabel>Box</masterLabel>
+            <translation><!-- Box --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentum</masterLabel>
+            <translation><!-- Documentum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dropbox</masterLabel>
+            <translation><!-- Dropbox --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Relational</masterLabel>
+            <translation><!-- Non-Relational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proprietary</masterLabel>
+            <translation><!-- Proprietary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Relational</masterLabel>
+            <translation><!-- Relational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharefle</masterLabel>
+            <translation><!-- Sharefle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharepoint</masterLabel>
+            <translation><!-- Sharepoint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Three Tier Client Server</masterLabel>
+            <translation><!-- Three Tier Client Server --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Three Tier Web Application</masterLabel>
+            <translation><!-- Three Tier Web Application --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Information Type --></label>
+        <name>Information_Type__c</name>
+        <picklistValues>
+            <masterLabel>Application</masterLabel>
+            <translation><!-- Application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Content</masterLabel>
+            <translation><!-- Content --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Database</masterLabel>
+            <translation><!-- Database --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Infrastructure(Server Name) --></label>
+        <name>Infrastructure_Server_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Integration Mechanism --></label>
+        <name>Integration_Mechanism__c</name>
+        <picklistValues>
+            <masterLabel>API</masterLabel>
+            <translation><!-- API --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- No. of Support Personnel --></label>
+        <name>No_of_Support_Personnel__c</name>
+    </fields>
+    <fields>
+        <label><!-- No. of Users --></label>
+        <name>No_of_Users__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Licenses --></label>
+        <name>Number_of_Licenses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Operating Costs --></label>
+        <name>Operating_Costs__c</name>
+        <picklistValues>
+            <masterLabel>High &gt; $250K/year</masterLabel>
+            <translation><!-- High &gt; $250K/year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low &lt; $50K/year</masterLabel>
+            <translation><!-- Low &lt; $50K/year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium &gt; $50K/year and &lt; $250K/year</masterLabel>
+            <translation><!-- Medium &gt; $50K/year and &lt; $250K/year --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Organization Owning --></label>
+        <name>Organization_Owner__c</name>
+        <relationshipLabel><!-- Information Sources (Account) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PAST ID# --></label>
+        <name>PAST_ID__c</name>
+        <relationshipLabel><!-- Information Sources --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regulatory Authority --></label>
+        <name>Regulatory_Authority__c</name>
+        <picklistValues>
+            <masterLabel>GxP</masterLabel>
+            <translation><!-- GxP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational</masterLabel>
+            <translation><!-- Operational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Regulatory Indicator --></label>
+        <name>Regulatory_Indicator__c</name>
+        <picklistValues>
+            <masterLabel>GCP</masterLabel>
+            <translation><!-- GCP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLP</masterLabel>
+            <translation><!-- GLP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GMP</masterLabel>
+            <translation><!-- GMP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>non-GxP</masterLabel>
+            <translation><!-- non-GxP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SDLC Classification --></label>
+        <name>SDLC_Classification__c</name>
+        <picklistValues>
+            <masterLabel>COTS</masterLabel>
+            <translation><!-- COTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Configurable</masterLabel>
+            <translation><!-- Configurable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sensitivity --></label>
+        <name>Sensitivity__c</name>
+        <picklistValues>
+            <masterLabel>Confidential</masterLabel>
+            <translation><!-- Confidential --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proprietary</masterLabel>
+            <translation><!-- Proprietary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source Content --></label>
+        <name>Source_Content__c</name>
+        <picklistValues>
+            <masterLabel>Semi-structured</masterLabel>
+            <translation><!-- Semi-structured --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Structured</masterLabel>
+            <translation><!-- Structured --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unstructured</masterLabel>
+            <translation><!-- Unstructured --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source Description --></label>
+        <name>Source_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Type --></label>
+        <name>Source_Type__c</name>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- System Owner --></label>
+        <name>System_Owner__c</name>
+        <relationshipLabel><!-- Information Sources (System Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Target Date --></label>
+        <name>Target_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Decommissioning Indicator --></label>
+        <name>Target_Decommissioning_Indicator__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Therapeutic Area (Primary) --></label>
+        <name>Therapeutic_Area_Primary__c</name>
+        <picklistValues>
+            <masterLabel>Autoimmune Diseases</masterLabel>
+            <translation><!-- Autoimmune Diseases --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular</masterLabel>
+            <translation><!-- Cardiovascular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dermatology</masterLabel>
+            <translation><!-- Dermatology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Endocrinology</masterLabel>
+            <translation><!-- Endocrinology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gastroenterology</masterLabel>
+            <translation><!-- Gastroenterology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gynecology</masterLabel>
+            <translation><!-- Gynecology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immunology</masterLabel>
+            <translation><!-- Immunology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neurology</masterLabel>
+            <translation><!-- Neurology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Therapeutic Area Specific</masterLabel>
+            <translation><!-- Non-Therapeutic Area Specific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psychiatry &amp; Pain</masterLabel>
+            <translation><!-- Psychiatry &amp; Pain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rheumatology</masterLabel>
+            <translation><!-- Rheumatology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urology</masterLabel>
+            <translation><!-- Urology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccines</masterLabel>
+            <translation><!-- Vaccines --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total (2017) = OpEx --></label>
+        <name>Total_2017_OpEx__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total (2018 - 2019) OpEx --></label>
+        <name>Total_2018_2019_OpEx__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total (All Yrs) = OpEx --></label>
+        <name>Total_All_Yrs_OpEx__c</name>
+    </fields>
+    <fields>
+        <label><!-- Validated System? (Yes / No) --></label>
+        <name>Validated_System_Yes_No__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Vendor Contact --></label>
+        <name>Vendor_Contact__c</name>
+        <relationshipLabel><!-- Information Sources --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vendor --></label>
+        <name>Vendor__c</name>
+        <relationshipLabel><!-- Information Sources (Vendor) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Information Source Layout</layout>
+        <sections>
+            <label><!-- Business Decision --></label>
+            <section>Business Decision</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Data Migration &amp; Decommisioning --></label>
+            <section>Data Migration &amp; Decommisioning</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- Summary --></label>
+            <section>Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Synergy Analysis --></label>
+            <section>Synergy Analysis</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Import_Information_Sources --></label>
+        <name>Import_Information_Sources</name>
+    </webLinks>
+</CustomObjectTranslation>

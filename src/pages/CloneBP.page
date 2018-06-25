@@ -1,0 +1,2 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" Standardcontroller="Business_Planning__c" extensions="CloneBPController" action="{!CloneBP}">
+</apex:page>

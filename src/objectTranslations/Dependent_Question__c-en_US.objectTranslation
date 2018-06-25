@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Dependent Question</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Dependent Questions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Option --></label>
+        <name>Option__c</name>
+        <relationshipLabel><!-- Dependent Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Question --></label>
+        <name>Question__c</name>
+        <relationshipLabel><!-- Dependent Questions --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>DRDP Dependent Question Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

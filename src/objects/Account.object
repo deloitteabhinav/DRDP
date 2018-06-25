@@ -89,10 +89,12 @@
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -106,8 +108,38 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
-        <fullName>CurrencyIsoCode</fullName>
+        <fullName>ChannelProgramLevelName</fullName>
+    </fields>
+    <fields>
+        <fullName>ChannelProgramName</fullName>
+    </fields>
+    <fields>
+        <fullName>CustomerPriority__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Priority</label>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Description</fullName>
@@ -135,18 +167,22 @@
                 <value>
                     <fullName>Never</fullName>
                     <default>false</default>
+                    <label>Never</label>
                 </value>
                 <value>
                     <fullName>Annual</fullName>
                     <default>false</default>
+                    <label>Annual</label>
                 </value>
                 <value>
                     <fullName>Biannual</fullName>
                     <default>false</default>
+                    <label>Biannual</label>
                 </value>
                 <value>
                     <fullName>Quarterly</fullName>
                     <default>false</default>
+                    <label>Quarterly</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -179,22 +215,27 @@
                 <value>
                     <fullName>Does Not Handle Data</fullName>
                     <default>true</default>
+                    <label>Does Not Handle Data</label>
                 </value>
                 <value>
                     <fullName>Critical</fullName>
                     <default>false</default>
+                    <label>Critical</label>
                 </value>
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -212,22 +253,27 @@
                 <value>
                     <fullName>Does Not Host Data</fullName>
                     <default>true</default>
+                    <label>Does Not Host Data</label>
                 </value>
                 <value>
                     <fullName>Critical</fullName>
                     <default>false</default>
+                    <label>Critical</label>
                 </value>
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -245,18 +291,22 @@
                 <value>
                     <fullName>Not Rated</fullName>
                     <default>true</default>
+                    <label>Not Rated</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -274,18 +324,22 @@
                 <value>
                     <fullName>Not Rated</fullName>
                     <default>true</default>
+                    <label>Not Rated</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -303,18 +357,22 @@
                 <value>
                     <fullName>Not Rated</fullName>
                     <default>true</default>
+                    <label>Not Rated</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -332,18 +390,22 @@
                 <value>
                     <fullName>Not Rated</fullName>
                     <default>true</default>
+                    <label>Not Rated</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -496,6 +558,17 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>NumberofLocations__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Locations</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Organization_Welcome_Description__c</fullName>
         <externalId>false</externalId>
         <label>Organization Welcome Description</label>
@@ -518,6 +591,15 @@
         <fullName>ParentId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Onboarding_Email_Message__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Onboarding Email Message</label>
+        <length>131068</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
     </fields>
     <fields>
         <fullName>Phone</fullName>
@@ -550,6 +632,24 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>SLAExpirationDate__c</fullName>
+        <externalId>false</externalId>
+        <label>SLA Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SLASerialNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>SLA Serial Number</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>SLA_Report_Label__c</fullName>
         <externalId>false</externalId>
         <label>SLA Report Label</label>
@@ -566,6 +666,39 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>SLA__c</fullName>
+        <externalId>false</externalId>
+        <label>SLA</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Gold</fullName>
+                    <default>false</default>
+                    <label>Gold</label>
+                </value>
+                <value>
+                    <fullName>Silver</fullName>
+                    <default>false</default>
+                    <label>Silver</label>
+                </value>
+                <value>
+                    <fullName>Platinum</fullName>
+                    <default>false</default>
+                    <label>Platinum</label>
+                </value>
+                <value>
+                    <fullName>Bronze</fullName>
+                    <default>false</default>
+                    <label>Bronze</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SMO_Representative__c</fullName>
@@ -591,30 +724,37 @@
                 <value>
                     <fullName>Clinical Development Services</fullName>
                     <default>false</default>
+                    <label>Clinical Development Services</label>
                 </value>
                 <value>
                     <fullName>Clinical Trial Development</fullName>
                     <default>false</default>
+                    <label>Clinical Trial Development</label>
                 </value>
                 <value>
                     <fullName>Discovery &amp; Pre-Clinical Development Services</fullName>
                     <default>false</default>
+                    <label>Discovery &amp; Pre-Clinical Development Services</label>
                 </value>
                 <value>
                     <fullName>Pharmacovigilance</fullName>
                     <default>false</default>
+                    <label>Pharmacovigilance</label>
                 </value>
                 <value>
                     <fullName>Regulatory Compliance</fullName>
                     <default>false</default>
+                    <label>Regulatory Compliance</label>
                 </value>
                 <value>
                     <fullName>Sales &amp; Marketing</fullName>
                     <default>false</default>
+                    <label>Sales &amp; Marketing</label>
                 </value>
                 <value>
                     <fullName>Supply Chain Management</fullName>
                     <default>false</default>
+                    <label>Supply Chain Management</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -650,86 +790,107 @@
                 <value>
                     <fullName>Cardiology</fullName>
                     <default>false</default>
+                    <label>Cardiology</label>
                 </value>
                 <value>
                     <fullName>Critical Care</fullName>
                     <default>false</default>
+                    <label>Critical Care</label>
                 </value>
                 <value>
                     <fullName>Dementia</fullName>
                     <default>false</default>
+                    <label>Dementia</label>
                 </value>
                 <value>
                     <fullName>Dermatology</fullName>
                     <default>false</default>
+                    <label>Dermatology</label>
                 </value>
                 <value>
                     <fullName>Endocrinology</fullName>
                     <default>false</default>
+                    <label>Endocrinology</label>
                 </value>
                 <value>
                     <fullName>Family Practice</fullName>
                     <default>false</default>
+                    <label>Family Practice</label>
                 </value>
                 <value>
                     <fullName>Hematology</fullName>
                     <default>false</default>
+                    <label>Hematology</label>
                 </value>
                 <value>
                     <fullName>Infectious Disease</fullName>
                     <default>false</default>
+                    <label>Infectious Disease</label>
                 </value>
                 <value>
                     <fullName>Internal Medicine</fullName>
                     <default>false</default>
+                    <label>Internal Medicine</label>
                 </value>
                 <value>
                     <fullName>Microbiology</fullName>
                     <default>false</default>
+                    <label>Microbiology</label>
                 </value>
                 <value>
                     <fullName>Neurology</fullName>
                     <default>false</default>
+                    <label>Neurology</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Ophthalmology</fullName>
                     <default>false</default>
+                    <label>Ophthalmology</label>
                 </value>
                 <value>
                     <fullName>Orthopedic Surgery</fullName>
                     <default>false</default>
+                    <label>Orthopedic Surgery</label>
                 </value>
                 <value>
                     <fullName>Osteology</fullName>
                     <default>false</default>
+                    <label>Osteology</label>
                 </value>
                 <value>
                     <fullName>Pain Management</fullName>
                     <default>false</default>
+                    <label>Pain Management</label>
                 </value>
                 <value>
                     <fullName>Psychiatry</fullName>
                     <default>false</default>
+                    <label>Psychiatry</label>
                 </value>
                 <value>
                     <fullName>Pulmonology</fullName>
                     <default>false</default>
+                    <label>Pulmonology</label>
                 </value>
                 <value>
                     <fullName>Respiratory Therapy</fullName>
                     <default>false</default>
+                    <label>Respiratory Therapy</label>
                 </value>
                 <value>
                     <fullName>Rheumatoid Arthritis</fullName>
                     <default>false</default>
+                    <label>Rheumatoid Arthritis</label>
                 </value>
                 <value>
                     <fullName>Sleep Disorders</fullName>
                     <default>false</default>
+                    <label>Sleep Disorders</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -747,30 +908,37 @@
                 <value>
                     <fullName>Animal Health</fullName>
                     <default>false</default>
+                    <label>Animal Health</label>
                 </value>
                 <value>
                     <fullName>Biotech</fullName>
                     <default>false</default>
+                    <label>Biotech</label>
                 </value>
                 <value>
                     <fullName>Consumer Health</fullName>
                     <default>false</default>
+                    <label>Consumer Health</label>
                 </value>
                 <value>
                     <fullName>Generics</fullName>
                     <default>false</default>
+                    <label>Generics</label>
                 </value>
                 <value>
                     <fullName>Medical Devices</fullName>
                     <default>false</default>
+                    <label>Medical Devices</label>
                 </value>
                 <value>
                     <fullName>Pharmaceuticals</fullName>
                     <default>false</default>
+                    <label>Pharmaceuticals</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -792,22 +960,27 @@
                 <value>
                     <fullName>Tier 1</fullName>
                     <default>false</default>
+                    <label>Tier 1</label>
                 </value>
                 <value>
                     <fullName>Tier 2</fullName>
                     <default>false</default>
+                    <label>Tier 2</label>
                 </value>
                 <value>
                     <fullName>Tier 3</fullName>
                     <default>false</default>
+                    <label>Tier 3</label>
                 </value>
                 <value>
                     <fullName>Tier 3+</fullName>
                     <default>false</default>
+                    <label>Tier 3+</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -816,6 +989,34 @@
         <fullName>Type</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>UpsellOpportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Upsell Opportunity</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Maybe</fullName>
+                    <default>false</default>
+                    <label>Maybe</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Vendor_Review_Frequency__c</fullName>
@@ -830,18 +1031,22 @@
                 <value>
                     <fullName>Never</fullName>
                     <default>false</default>
+                    <label>Never</label>
                 </value>
                 <value>
                     <fullName>Annual</fullName>
                     <default>false</default>
+                    <label>Annual</label>
                 </value>
                 <value>
                     <fullName>Biannual</fullName>
                     <default>false</default>
+                    <label>Biannual</label>
                 </value>
                 <value>
                     <fullName>Quarterly</fullName>
                     <default>false</default>
+                    <label>Quarterly</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -852,6 +1057,14 @@
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.RECORDTYPE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>ACCOUNT.INDUSTRY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>All Accounts</label>
     </listViews>
@@ -919,6 +1132,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Executive_Review_Meeting_Frequency__c</picklist>
             <values>
                 <fullName>Annual</fullName>
@@ -1225,6 +1453,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>SLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Provided__c</picklist>
             <values>
                 <fullName>Clinical Development Services</fullName>
@@ -1404,6 +1651,21 @@
             </values>
             <values>
                 <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1455,6 +1717,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Executive_Review_Meeting_Frequency__c</picklist>
             <values>
                 <fullName>Annual</fullName>
@@ -1761,6 +2038,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>SLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Provided__c</picklist>
             <values>
                 <fullName>Clinical Development Services</fullName>
@@ -1940,6 +2236,21 @@
             </values>
             <values>
                 <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1991,6 +2302,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Executive_Review_Meeting_Frequency__c</picklist>
             <values>
                 <fullName>Annual</fullName>
@@ -2297,6 +2623,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>SLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Provided__c</picklist>
             <values>
                 <fullName>Clinical Development Services</fullName>
@@ -2476,6 +2821,21 @@
             </values>
             <values>
                 <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2535,7 +2895,7 @@
         <protected>false</protected>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
-        <url>http://news.altavista.com/search?nc=0&amp;q={!Account_Name}</url>
+        <url>http://news.altavista.com/search?nc=0&amp;q={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>Billing</fullName>
@@ -2573,7 +2933,7 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Account_BillingStreet}+{!Account_BillingCity}+{!Account_BillingState}&amp;om=1</url>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Account.BillingStreet}+{!Account.BillingCity}+{!Account.BillingState}&amp;om=1</url>
     </webLinks>
     <webLinks>
         <fullName>GoogleNews</fullName>
@@ -2592,7 +2952,7 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>http://www.google.com/news?&amp;q={!Account_Name}&amp;btnG=Search+News</url>
+        <url>http://www.google.com/news?&amp;q={!Account.Name}&amp;btnG=Search+News</url>
     </webLinks>
     <webLinks>
         <fullName>GoogleSearch</fullName>
@@ -2611,7 +2971,7 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>http://www.google.com/search?q={!Account_Name}</url>
+        <url>http://www.google.com/search?q={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>HooversProfile</fullName>
@@ -2630,18 +2990,7 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>http://search.hoovers.com/cgi-bin/hol_search?which=company&amp;query_string={!Account_Name}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Initiate_Feedback</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <height>600</height>
-        <linkType>page</linkType>
-        <masterLabel>Initiate Feedback</masterLabel>
-        <openType>sidebar</openType>
-        <page>InitiateSurveyWizard</page>
-        <protected>false</protected>
+        <url>http://search.hoovers.com/cgi-bin/hol_search?which=company&amp;query_string={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>
@@ -2660,6 +3009,6 @@
         <protected>false</protected>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
-        <url>http://maps.yahoo.com/py/maps.py?cn={!Account_BillingCountry}&amp;csz={!Account_BillingCity}+{!Account_BillingState}+{!Account_BillingPostalCode}+&amp;addr={!Account_BillingAddress}</url>
+        <url>http://maps.yahoo.com/py/maps.py?cn={!Account.BillingCountry}&amp;csz={!Account.BillingCity}+{!Account.BillingState}+{!Account.BillingPostalCode}+&amp;addr={!Account.BillingStreet}</url>
     </webLinks>
 </CustomObject>

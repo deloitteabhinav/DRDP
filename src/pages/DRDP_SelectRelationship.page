@@ -4,6 +4,7 @@
     <title>Select Relationship</title>
     
     <c:DRDP_IndexNew />
+    <c:R3_Styles /> 
         
     <div class='content'>
       <!-- body partial, used for adding pages to layout -->
@@ -57,5 +58,5 @@
  </apex:form>
     </div>
 
- 
+ <c:R3_Scripts /> 
 </apex:page>

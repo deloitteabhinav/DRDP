@@ -52,7 +52,9 @@ Public with Sharing Class CloneStudyController {
             oStudyClone.DRDW_Partner__c = NULL; 
         }
         oStudyClone.Study_Stage__c=NULL;
+        if(oStudyClone != null){
         insert oStudyClone;
+        }
         List<DRDP_Study_Molecule__c> lStudyMolecules = new List<DRDP_Study_Molecule__c>();
         List<Related_Country__c> lStudyBenifitingcountries = new List<Related_Country__c>();
         List<Study_Country__c> lStudyConductingCountries = new List<Study_Country__c>();

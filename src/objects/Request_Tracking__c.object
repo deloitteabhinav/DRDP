@@ -49,6 +49,7 @@
     <description>To Track Notes on a Request record</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -108,66 +109,82 @@
                 <value>
                     <fullName>Submitted</fullName>
                     <default>false</default>
+                    <label>Submitted</label>
                 </value>
                 <value>
                     <fullName>Pending Requestor Action</fullName>
                     <default>false</default>
+                    <label>Pending Requestor Action</label>
                 </value>
                 <value>
                     <fullName>Pending RWE Inc. Action</fullName>
                     <default>false</default>
+                    <label>Pending RWE Inc. Action</label>
                 </value>
                 <value>
                     <fullName>Exploration</fullName>
                     <default>false</default>
+                    <label>Exploration</label>
                 </value>
                 <value>
                     <fullName>Governance</fullName>
                     <default>false</default>
+                    <label>Governance</label>
                 </value>
                 <value>
                     <fullName>Contracting</fullName>
                     <default>false</default>
+                    <label>Contracting</label>
                 </value>
                 <value>
                     <fullName>Launch</fullName>
                     <default>false</default>
+                    <label>Launch</label>
                 </value>
                 <value>
                     <fullName>Consultation</fullName>
                     <default>false</default>
+                    <label>Consultation</label>
                 </value>
                 <value>
                     <fullName>Ready for Analysis</fullName>
                     <default>false</default>
+                    <label>Ready for Analysis</label>
                 </value>
                 <value>
                     <fullName>Analysis</fullName>
                     <default>false</default>
+                    <label>Analysis</label>
                 </value>
                 <value>
                     <fullName>Pending Additional Information/Review</fullName>
                     <default>false</default>
+                    <label>Pending Additional Information/Review</label>
                 </value>
                 <value>
                     <fullName>Ready for Validation</fullName>
                     <default>false</default>
+                    <label>Ready for Validation</label>
                 </value>
                 <value>
                     <fullName>Validation</fullName>
                     <default>false</default>
+                    <label>Validation</label>
                 </value>
                 <value>
                     <fullName>​Initial Assessment</fullName>
                     <default>false</default>
+                    <label>​Initial Assessment</label>
                 </value>
                 <value>
                     <fullName>Scientific Assessment</fullName>
                     <default>false</default>
+                    <label>Scientific Assessment</label>
                 </value>
                 <value>
                     <fullName>Technical Assessment</fullName>
                     <default>false</default>
+                    <label>Technical Assessment</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -249,30 +266,37 @@
                 <value>
                     <fullName>New</fullName>
                     <default>false</default>
+                    <label>New</label>
                 </value>
                 <value>
                     <fullName>Accepted</fullName>
                     <default>false</default>
+                    <label>Accepted</label>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
                     <default>false</default>
+                    <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Complete</fullName>
                     <default>false</default>
+                    <label>Complete</label>
                 </value>
                 <value>
                     <fullName>Archived</fullName>
                     <default>false</default>
+                    <label>Archived</label>
                 </value>
                 <value>
                     <fullName>Cancelled</fullName>
                     <default>false</default>
+                    <label>Cancelled</label>
                 </value>
                 <value>
                     <fullName>Deleted</fullName>
                     <default>false</default>
+                    <label>Deleted</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -290,14 +314,17 @@
                 <value>
                     <fullName>Update</fullName>
                     <default>false</default>
+                    <label>Update</label>
                 </value>
                 <value>
                     <fullName>Note</fullName>
                     <default>false</default>
+                    <label>Note</label>
                 </value>
                 <value>
                     <fullName>Action</fullName>
                     <default>false</default>
+                    <label>Action</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -318,4 +345,5 @@
         <errorDisplayField>Estimated_Complete_Date__c</errorDisplayField>
         <errorMessage>Estimate Complete Date cannot be before Estimate Start Date.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

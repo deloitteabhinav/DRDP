@@ -10,4 +10,8 @@
     <tab>standard-ContentSearch</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+    <tab>DRDP_Configuration__c</tab>
+    <tab>DRDP_Member_Roles__c</tab>
+    <tab>Partner_Home</tab>
+    <tab>Contracts__c</tab>
 </CustomApplication>

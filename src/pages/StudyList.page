@@ -26,7 +26,8 @@
   
     <title>Research</title>
 
-    <c:DRDP_IndexNew />
+   <c:DRDP_IndexNew />
+    <c:R3_Styles />
 
 
         <div class='content'>
@@ -240,5 +241,6 @@
                    
             </div>
                 </apex:form> 
+                <c:R3_Scripts /> 
         </div>
 </apex:page>

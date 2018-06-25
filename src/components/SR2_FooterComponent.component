@@ -8,7 +8,7 @@
     </head>
     <div class="footer">
         <div class="container">
-            <a href="" class="dd-logo">Deloitte Digital</a>
+            <a href=""><apex:image url="{!HomeHeader1}" height="49" width="103" style="text-indent: -99999px; display: block; float: left!important;"/></a>
             <span class="copyright-text pull-right">&copy; Copyright 2017. All rights reserved.</span>
             <a href="#" class="pull-right feedback-button" data-toggle="modal" data-target="#myModal">
                 <!-- <span class="bracket">[</span>
@@ -55,7 +55,7 @@
     modal -->
 
             
-    <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'vendor/lodash/lodash.js')}" />
+   <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'vendor/lodash/lodash.js')}" />
     <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'vendor/jquery/jquery.js')}" />
     <apex:includeScript value="{!URLFOR($Resource.Trial_DatePicker,'jquery-ui.min.js')}" />
     <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'vendor/bootstrap/bootstrap.min.js')}" />

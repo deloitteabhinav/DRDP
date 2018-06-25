@@ -35,6 +35,8 @@
                                     +mReqCategoryCount['Completed']+mReqCategoryCount['Archived']+mReqCategoryCount['Cancelled']}"/>
                                     <apex:variable var="PartnershipCount" value="{!mPartnershipCategoryCount['Evaluated and Not Pursued']+mPartnershipCategoryCount['Exploring']
                                     +mPartnershipCategoryCount['Approved and Active']+mPartnershipCategoryCount['Approved and Pursuing']}"/>
+                                    <apex:variable var="TaskCount" value="{!mTaskPerStatusCount['Not Started']+mTaskPerStatusCount['In Progress']
+                                    +mTaskPerStatusCount['Completed']+mTaskPerStatusCount['Waiting on someone else']+mTaskPerStatusCount['Deferred']}"/>
                                     
                                     <apex:outputPanel rendered="{!IsStudy}"> <!-- will Render Study count -->
                                     <div class="count"><apex:outputtext value="{!StudyCount}"/><apex:outputtext value="{!IF(StudyCount==1,' Research',' Research')}"/><apex:outputtext value="{!IF(IsTopics,IF(StudyCount==1,' Topic',' Topics'),IF(StudyCount == 1,' Study',' Studies'))}"/></div>
@@ -44,6 +46,9 @@
                                     </apex:outputPanel>
                                     <apex:outputPanel rendered="{!IsPartnership}"><!-- will Render Partnership count -->
                                     <div class="count"><apex:outputtext value="{!PartnershipCount}"/><apex:outputtext value="{!IF(PartnershipCount==1,' Partnership',' Partnerships')}"/></div>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!IsTask}"><!-- will Render Request count -->
+                                    <div class="count"><apex:outputtext value="{!TaskCount}"/><apex:outputtext value="{!IF(TaskCount==1,' Task',' Tasks')}"/></div>
                                     </apex:outputPanel>
                                 </div>
                                 
@@ -56,8 +61,10 @@
                                     <apex:commandLink value="Requests" rerender="HeaderSection,MainContent" styleClass="{!If(IsRequest,'object-selector active l-green','object-selector  l-green')}" action="{!ActivateRequest}">
                                     <br></br><apex:outputtext value="{!IF(IsRequest==TRUE,'',RequestCount)}"/></apex:commandLink>
 
-                                    <apex:commandLink value="Partnerships" rerender="HeaderSection,MainContent" styleClass="{!If(IsPartnership,'object-selector active l-orange','object-selector l-orange')}" action="{!ActivatePartnership}">
-                                    <br></br><apex:outputtext value="{!IF(IsPartnership==TRUE,'',PartnershipCount)}"/></apex:commandLink>
+                                    <apex:commandLink value="Partnerships" rerender="HeaderSection,MainContent" styleClass="{!If(IsPartnership,'object-selector active l-orange','object-selector l-orange')}" action="{!ActivatePartnership}"><br></br><apex:outputtext value="{!IF(IsPartnership==TRUE,'',PartnershipCount)}"/></apex:commandLink>
+                                    
+                                    <apex:commandLink value="Tasks" rerender="HeaderSection,MainContent" styleClass="{!If(IsTask,'object-selector active l-blue','object-selector l-blue')}" action="{!fetchTask}"><br></br><apex:outputtext value="{!IF(IsTask==TRUE,'',TaskCount)}"/>
+                                    </apex:commandLink>
 
                                 </div>
                                 <apex:outputPanel rendered="{!IsStudy}">
@@ -1125,7 +1132,219 @@
                         </div>
                     </div>
                 </apex:outputPanel>
+                                <apex:outputPanel rendered="{!IsTask}">
+                    <div class="container tabs">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input  id="tab1" type="radio" name="tabs" />
+                                <label for="tab1" Class="l-blue">Not Started ({!mTaskPerStatusCount['Not Started']})</label>
+                                <input checked="checked" id="tab2" type="radio" name="tabs" />
+                                <label for="tab2" Class="l-blue">In Progress ({!mTaskPerStatusCount['In Progress']})</label>
+                                <input id="tab3" type="radio" name="tabs" />
+                                <label for="tab3" Class="l-blue hidden-xs">Completed ({!mTaskPerStatusCount['Completed']})</label>
+                                <input id="tab4" type="radio" name="tabs" />
+                                <label for="tab4" Class="l-blue hidden-xs">Waiting on someone else ({!mTaskPerStatusCount['Waiting on someone else']})</label>
+                                <input id="tab5" type="radio" name="tabs" />
+                                <label for="tab5" Class="l-blue hidden-xs">Deferred ({!mTaskPerStatusCount['Deferred']})</label>
+                                <!-- ----------------------------------------- Exploring Partnerships --------------------------------------------------------------- -->
+                                
+                                <section id="content1">
+                                    <apex:outputPanel id="TaskNotStarted" rendered="{!IF(AND(NOT(ISNULL(mTaskPerStatusCount['Not Started'])),mTaskPerStatusCount['Not Started']>0),true,false)}">
+                                        <table class="col-xs-12 table">
+                                            <tr class="l-blue">
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Task Subject">
+                                                <apex:param name="PH1" value="Subject" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Subject'}" /></th>
 
+                                                <th class="col-xs-3"><apex:outputText value="Account" >
+                                                <apex:param name="PH2" value="what.Name" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='what'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Due Date" >
+                                                <apex:param name="PH3" value="ActivityDate" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='ActivityDate'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Comments">
+                                                <apex:param name="PH4" value="Description" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                </th>
+                                                
+                                            </tr>                                            
+                                            <apex:repeat value="{!mTaskPerStatus['Not Started']}" var="oTask">
+                                                <tr>
+                                                    <td><strong><apex:outputLink value="https://drdp-developer-edition.na59.force.com/ExtPartnerSpace/{!oTask.ID}/e" target="_blank">{!oTask.Subject}</apex:outputLink></strong></td>
+                                                    <td>{!oTask.what.Name}</td>
+                                                    <td>{!oTask.ActivityDate}</td>
+                                                    <td>{!oTask.Description}</td>
+                                                </tr>
+                                            </apex:repeat>                                            
+                                        </table>
+                                    </apex:outputPanel>
+                                </section>
+                                
+                                <!-- ----------------------------------------- Approved and Pursuing Partnerships --------------------------------------------------------------- -->
+
+                                <section id="content2">
+                                    <apex:outputPanel id="TaskInProgress" rendered="{!IF(AND(NOT(ISNULL(mTaskPerStatusCount['In Progress'])),mTaskPerStatusCount['In Progress']>0),true,false)}">
+                                        <table class="col-xs-12 table">
+                                            <tr class="l-blue">
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Task Subject" >
+                                                <apex:param name="PH1" value="Subject" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Subject'}" /></th>
+
+                                                <th class="col-xs-3"><apex:outputText value="Account" >
+                                                <apex:param name="PH2" value="what.Name" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='what'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Due Date" >
+                                                <apex:param name="PH3" value="ActivityDate" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='ActivityDate'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Comments">
+                                                <apex:param name="PH4" value="Description" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText></th>
+                                                
+                                            </tr>                                            
+                                            <apex:repeat value="{!mTaskPerStatus['In Progress']}" var="oTask">
+                                                <tr>
+                                                    <td><strong><apex:outputLink value="https://drdp-developer-edition.na59.force.com/ExtPartnerSpace/{!oTask.ID}/e" target="_blank">{!oTask.Subject}</apex:outputLink></strong></td>
+                                                    <td>{!oTask.what.Name}</td>
+                                                    <td>{!oTask.ActivityDate}</td>
+                                                    <td>{!oTask.Description}</td>
+                                                </tr>
+                                            </apex:repeat>                                            
+                                        </table>
+                                    </apex:outputPanel>
+                                </section>
+
+                                <!-- ----------------------------------------- Approved and Active Partnerships --------------------------------------------------------------- -->
+
+                                <section id="content3">
+                                    <apex:outputPanel id="TaskCompleted" rendered="{!IF(AND(NOT(ISNULL(mTaskPerStatusCount['Completed'])),mTaskPerStatusCount['Completed']>0),true,false)}">
+                                        <table class="col-xs-12 table">
+                                            <tr class="l-blue">
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Task Subject">
+                                                <apex:param name="PH1" value="Subject" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Subject'}" /></th>
+
+                                                <th class="col-xs-3"><apex:outputText value="Account">
+                                                <apex:param name="PH2" value="what.Name" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='what'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Due Date">
+                                                <apex:param name="PH3" value="ActivityDate" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='ActivityDate'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Comments">
+                                                <apex:param name="PH4" value="Description" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText></th>
+                                                
+                                            </tr>                                            
+                                            <apex:repeat value="{!mTaskPerStatus['Completed']}" var="oTask">
+                                                <tr>
+                                                    <td><strong><apex:outputLink value="https://drdp-developer-edition.na59.force.com/ExtPartnerSpace/{!oTask.ID}/e" target="_blank">{!oTask.Subject}</apex:outputLink></strong></td>
+                                                    <td>{!oTask.what.Name}</td>
+                                                    <td>{!oTask.ActivityDate}</td>
+                                                    <td>{!oTask.Description}</td>
+                                                </tr>
+                                            </apex:repeat>                                            
+                                        </table>
+                                    </apex:outputPanel>
+                                </section>
+                                
+                                
+                     <!-- ----------------------------------------- Evaluated and Not Pursued Partnerships --------------------------------------------------------------- -->
+                                <section id="content4">
+                                    <apex:outputPanel id="TaskWaitingforSomeoneElse" rendered="{!IF(AND(NOT(ISNULL(mTaskPerStatusCount['Waiting on someone else'])),mTaskPerStatusCount['Waiting on someone else']>0),true,false)}">
+                                        <table class="col-xs-12 table">
+                                            <tr class="l-blue">
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Task Subject">
+                                                <apex:param name="PH1" value="Subject" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Subject'}" /></th>
+
+                                                <th class="col-xs-3"><apex:outputText value="Account">
+                                                <apex:param name="PH2" value="what.Name" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='what'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Due Date">
+                                                <apex:param name="PH3" value="ActivityDate" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='ActivityDate'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Comments">
+                                                <apex:param name="PH4" value="Description" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                </th>
+                                                
+                                            </tr>                                            
+                                            <apex:repeat value="{!mTaskPerStatus['Waiting on someone else']}" var="oTask">
+                                                <tr>
+                                                    <td><strong><apex:outputLink value="https://drdp-developer-edition.na59.force.com/ExtPartnerSpace/{!oTask.ID}/e" target="_blank">{!oTask.Subject}</apex:outputLink></strong></td>
+                                                    <td>{!oTask.what.Name}</td>
+                                                    <td>{!oTask.ActivityDate}</td>
+                                                    <td>{!oTask.Description}</td>
+                                                </tr>
+                                            </apex:repeat>                                            
+                                        </table>
+                                    </apex:outputPanel>
+                                </section>
+                 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                                <section id="content5">
+                                    <apex:outputPanel id="TaskDeferred" rendered="{!IF(AND(NOT(ISNULL(mTaskPerStatusCount['Deferred'])),mTaskPerStatusCount['Deferred']>0),true,false)}">
+                                        <table class="col-xs-12 table">
+                                            <tr class="l-blue">
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Task Subject">
+                                                <apex:param name="PH1" value="Subject" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Subject'}" /></th>
+
+                                                <th class="col-xs-3"><apex:outputText value="Account">
+                                                <apex:param name="PH2" value="what.Name" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='what'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Due Date">
+                                                <apex:param name="PH3" value="ActivityDate" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                <apex:outputText styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='ActivityDate'}" /></th>
+                                                
+                                                <th class="col-xs-3"><apex:outputText value="Comments">
+                                                <apex:param name="PH4" value="Description" assignTo="{!sField}" />
+                                                <apex:param name="typeofObj" value="Task" assignTo="{!sTypeofObject}" /></apex:outputText>
+                                                </th>
+                                                
+                                            </tr>                                            
+                                            <apex:repeat value="{!mTaskPerStatus['TaskDeferred']}" var="oTask">
+                                                <tr>
+                                                    <td><strong><apex:outputLink value="https://drdp-developer-edition.na59.force.com/ExtPartnerSpace/{!oTask.ID}/e" target="_blank">{!oTask.Subject}</apex:outputLink></strong></td>
+                                                    <td>{!oTask.what.Name}</td>
+                                                    <td>{!oTask.ActivityDate}</td>
+                                                    <td>{!oTask.Description}</td>
+                                                </tr>
+                                            </apex:repeat>                                            
+                                        </table>
+                                    </apex:outputPanel>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </apex:outputPanel>
                 </main>
                 </apex:outputPanel>
                 <div class="additional-info">

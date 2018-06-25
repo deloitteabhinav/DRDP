@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>TPO</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>TPOs</value>
+    </caseValues>
+    <fields>
+        <label><!-- CDA Active --></label>
+        <name>CDA_Active__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secure Email Method --></label>
+        <name>Secure_Email_Method__c</name>
+        <picklistValues>
+            <masterLabel>Awaiting PXE</masterLabel>
+            <translation><!-- Awaiting PXE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Awaiting TLS</masterLabel>
+            <translation><!-- Awaiting TLS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PXE</masterLabel>
+            <translation><!-- PXE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TLS</masterLabel>
+            <translation><!-- TLS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Secure Email Status --></label>
+        <name>Secure_Email_Status__c</name>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secure</masterLabel>
+            <translation><!-- Secure --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- TPO Contact Phone Number --></label>
+        <name>TPO_Contact_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO Contact --></label>
+        <name>TPO_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO Email --></label>
+        <name>TPO_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO Record Manager --></label>
+        <name>TPO_Record_Manager__c</name>
+        <relationshipLabel><!-- TPOs (TPO Record Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- TPO Sponsor --></label>
+        <name>TPO_Sponsor__c</name>
+        <relationshipLabel><!-- TPOs (TPO Sponsor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Website Address --></label>
+        <name>Website_Address__c</name>
+    </fields>
+    <layouts>
+        <layout>TPO Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

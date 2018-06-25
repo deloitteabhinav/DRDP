@@ -1,0 +1,7 @@
+Hi {!Request__c.Requestor__c},
+
+Your Partnership request to colloborate with "{!Request__c.Partner__c}" has been "Approved and Active".
+
+Below are the Partner Organization Id.
+
+Organization ID : {!Request__c.PartnerId__c}

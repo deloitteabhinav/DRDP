@@ -9,11 +9,13 @@ Public with sharing class ClipboardController {
     Public transient Map < String, List < wMoleculeWrapper >> mStudyRecordsPerStatus {get; set;}
     Public transient Map < String, List < wMoleculeWrapper >> mRequestRecordsPerStatus {get; set;}
     Public transient Map < String, List < Request__c >> mPartnershipRecordsPerStatus {get; set;}
+    Public transient Map < String , List< Task>> mTaskPerStatus {get; set;}
 
     Public  Map < String, Integer > mStudyCategoryCount {get; set;}
     Public  Map < String, Integer > mReqCategoryCount {get; set;}
     Public  Map < String, Integer > mPartnershipCategoryCount {get; set;}
     Public Map < String, Boolean > mCheckStudyQuestionnaire{get;set;}
+    Public Map < String , Integer > mTaskPerStatusCount {get; set;}
 
     Public Map < Project__c, list < DRDP_Study_Molecule__c >> mStudyMolecules;
     Public Map < Request__c, list < DRDP_Request_Molecule__c >> mRequestMolecules;
@@ -21,10 +23,12 @@ Public with sharing class ClipboardController {
     Public Boolean IsStudy {get; set;}
     Public Boolean IsRequest {get; set;}
     Public Boolean IsPartnership {get; set;}
+    Public Boolean IsTask {get; set;}
 
     Public List < Project__c > lStudies;
     Public List < Request__c > lRequests;
     Public List < Request__c > lPartnerships;
+    Public List<Task> lTask;
 
     Public set < id > setStudies;
     Public set < id > setRequests;
@@ -40,6 +44,7 @@ Public with sharing class ClipboardController {
     Public String StudyId {get; set;}
     Public Boolean IsApprover{get;set;}
     Public Boolean IsTopics{get;set;}
+    Public String emailId;
 
     //Loading the constructor & Calling Activate Studies in last to show it latest
     Public ClipboardController() {
@@ -50,7 +55,10 @@ Public with sharing class ClipboardController {
         isApprove = FALSE;
         IsApprover = FALSE;
         IsTopics = FALSE;
+        IsTask = FALSE;
         sFinalSort = string.escapeSingleQuotes(sField) + ' ' + string.escapeSingleQuotes(sOrder);
+        emailId = [select email from user where id =: UserInfo.getUserId()].email;
+        fetchTask();
         ActivatePartnership();
         ActivateRequest();
         ActivateStudy();
@@ -64,6 +72,8 @@ Public with sharing class ClipboardController {
         For(Questionaire__c oQuestionnaire : [Select Id,Study_Type__c from Questionaire__c where Active__c = TRUE]){
             mCheckStudyQuestionnaire.put(oQuestionnaire.Study_Type__c,TRUE);
         }
+        
+        
     }
 
     /*
@@ -80,14 +90,24 @@ Public with sharing class ClipboardController {
             IsStudy = TRUE;
             IsPartnership = FALSE;
             IsRequest = FALSE;
+            IsTask = FALSE;
         } else if (obj == 'Request') {
             IsStudy = FALSE;
             IsPartnership = FALSE;
             IsRequest = TRUE;
-        } else {
+            IsTask = False;
+        } else if(obj == 'Task'){
+        IsStudy = FALSE;
+            IsPartnership = FALSE;
+            IsRequest = FALSE;
+            IsTask = True;
+        }
+        else{
+            
             IsStudy = FALSE;
             IsRequest = FALSE;
             IsPartnership = TRUE;
+            IsTask = False;
         }
 
     }
@@ -188,7 +208,49 @@ Public with sharing class ClipboardController {
         }
 
     }
-
+    
+    public void fetchTask(){
+        System.debug('******** getting called by constructor');
+        lTask = new List<Task>();
+        checkObject('Task');
+        mTaskPerStatusCount = new Map<String , Integer>();
+        mTaskPerStatus = new Map<String , List<Task>>();
+        Set<Id> sUserId = new Set<Id>();
+        Set<Id> sUserId1 = new Set<Id>();
+        for(PermissionsetAssignment oPSA : [select AssigneeId , Permissionset.Name from PermissionsetAssignment where Permissionset.Name IN ('RWE_Partner_Community_User','Partner_Onboarding_Team','PartnerSpace_Admin','Partner_Collab_Team')])
+        {
+            sUserId.add(oPSA.AssigneeId);
+        }
+        
+        for(User u : [select id,email from User where email=: emailId AND id IN :sUserId])
+            sUserId1.add(u.Id);
+        
+        for(Schema.PicklistEntry oPicklistValues: Task.Status.getDescribe().getPicklistValues())
+            mTaskPerStatusCount.put(oPicklistValues.Label , 0);
+        
+        for(Task oTask : [SELECT Id,ActivityDate,Description,what.Name,Owner.Name, Subject, Status from Task where ownerId IN : sUserId1 order by What.Name])
+        {
+              if(oTask.whatId!=null){
+            String oTaskwhatId = (String)oTask.whatId;
+            if(oTaskwhatId.substring(0,3)=='001'){
+                if(mTaskPerStatus.containsKey(oTask.status))
+                {
+                    lTask = mTaskPerStatus.get(oTask.status);
+                    lTask.add(oTask);
+                    mTaskPerStatus.put(oTask.status , lTask);
+                }
+                else
+                {
+                    lTask = new List<Task>();
+                    lTask.add(oTask);
+                    mTaskPerStatus.put(oTask.status , lTask);
+                }
+             }
+           }
+        }       
+        for(String s : mTaskPerStatus.Keyset())
+            mTaskPerStatusCount.put(s, mTaskPerStatus.get(s).size());
+        }
 
     /*
          * @Method Name                    :  ActivatePartnership
@@ -204,7 +266,6 @@ Public with sharing class ClipboardController {
         lPartnerships = new List<Request__c>();
         mPartnershipCategoryCount = new Map < String, Integer > ();
         mPartnershipRecordsPerStatus = new Map < String, List<Request__c >> ();
-
 
         //Looping through all picklist values of Partnership status and adding them to map
         for (Schema.Picklistentry oPicklistValues : Request__c.Partnership_Status__c.getDescribe().getPicklistValues()) {

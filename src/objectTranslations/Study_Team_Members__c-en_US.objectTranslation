@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Study Team Members</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Study Team Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Weekly Hours --></label>
+        <name>Actual_Weekly_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecast Weekly Hours --></label>
+        <name>Forecast_Weekly_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hours --></label>
+        <name>Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Over Allocated --></label>
+        <name>Over_Allocated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role__c</name>
+        <relationshipLabel><!-- Study Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study --></label>
+        <name>Study__c</name>
+        <relationshipLabel><!-- Study Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Team Member --></label>
+        <name>Team_Member__c</name>
+        <relationshipLabel><!-- Study Team Members --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The End Date should be greater than Start Date --></errorMessage>
+        <name>End_Date_should_be_greater_than_start_Da</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Team Member is Mandatory for a Study Team Member --></errorMessage>
+        <name>Team_Member_is_Mandatory</name>
+    </validationRules>
+</CustomObjectTranslation>

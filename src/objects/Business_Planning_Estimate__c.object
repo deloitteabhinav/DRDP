@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Business_Planning_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Planning ID</label>
+        <referenceTo>Business_Planning__c</referenceTo>
+        <relationshipName>RWE_Forecast</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Estimate_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Amount</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimate_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Quarter_Actuals_TF__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarter_Actuals_TF</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Indication_Actuals_TF__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarter Indication - Actuals</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH(  Estimate_Date__c ), 
+1, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q1&quot; , 
+2, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q1&quot;, 
+3, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q1&quot;, 
+4, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q2&quot;, 
+5, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q2&quot;, 
+6, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q2&quot;, 
+7, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q3&quot;, 
+8, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q3&quot;, 
+9, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q3&quot;, 
+10, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q4&quot;, 
+11, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q4&quot;, 
+12, TEXT(YEAR(Estimate_Date__c))&amp;&quot;-Q4&quot;, 
+&quot;None&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Estimated Quarter</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Skip_Validation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Skip Validation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>V0_Amount__c</fullName>
+        <description>This is created for holding snapshot of Amount</description>
+        <externalId>false</externalId>
+        <label>V0 Amount</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>V0_Date__c</fullName>
+        <description>This is created to hold the value of Estimated Date</description>
+        <externalId>false</externalId>
+        <label>V0 Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>V0_Quarter__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH( V0_Date__c), 
+1, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q1&quot; , 
+2, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q1&quot;, 
+3, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q1&quot;, 
+4, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q2&quot;, 
+5, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q2&quot;, 
+6, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q2&quot;, 
+7, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q3&quot;, 
+8, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q3&quot;, 
+9, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q3&quot;, 
+10, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q4&quot;, 
+11, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q4&quot;, 
+12, TEXT(YEAR(V0_Date__c))&amp;&quot;-Q4&quot;, 
+&quot;None&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>V0 Quarter</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Business Plan Forecast</label>
+    <nameField>
+        <displayFormat>F-{0000}</displayFormat>
+        <label>Forecast ID</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Business Plan Forecasts</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>EditBPForecasts</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Manage Forecasts</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/EditBPForecasts?id={!Business_Planning__c.Id}&amp;type=BPF</url>
+    </webLinks>
+</CustomObject>

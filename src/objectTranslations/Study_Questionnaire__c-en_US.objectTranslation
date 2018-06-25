@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Study Questionnaire</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Study Questionnaires</value>
+    </caseValues>
+    <fields>
+        <label><!-- Questionnaire --></label>
+        <name>Questionnaire__c</name>
+        <relationshipLabel><!-- Study Questionnaires --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Study --></label>
+        <name>Study__c</name>
+        <relationshipLabel><!-- Study Questionnaires --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Study Questionnaire</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

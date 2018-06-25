@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Related Data Asset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Data Assets</value>
+    </caseValues>
+    <fields>
+        <label><!-- DataLoad ID --></label>
+        <name>DataLoad_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Asset --></label>
+        <name>Data_Asset__c</name>
+        <relationshipLabel><!-- Studies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Study --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Related Data Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Request --></label>
+        <name>Request__c</name>
+        <relationshipLabel><!-- Related Data Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Unique_Asset_TF --></label>
+        <name>Unique_Asset_TF__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

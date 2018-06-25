@@ -1,7 +1,0 @@
-<apex:component >
-<apex:form >
-   <apex:pageblock >
-      <apex:pageMessages ></apex:pageMessages>
-      </apex:pageblock>
- </apex:form>
-</apex:component>

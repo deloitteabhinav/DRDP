@@ -1,0 +1,150 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" controller="DRDW_DataLoad">
+    <head>
+        <title>Workbench Data Load</title>
+        <c:QFOR_Styles />
+    </head>  
+    <body>
+    <style>
+    <!--Intermediate header styles for the demo. To be removed when new header component is in place-->
+    .profile-dropdown .profile-menu:hover {
+    color: #92d400 !important;
+    }
+   .profile-dropdown .profile-menu{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    text-transform: none;
+    }
+    
+    .btn-override{
+     color:black !important;
+    }
+    
+    .subbtn{
+    background-color: #4CAF50 !important;
+    border: none !important;
+    color: white !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: 16px !important;
+    }
+    
+    </style>
+        <div class='df_drdw content'>
+            <!--Using QFORs Index component for the Top Header -->
+            <c:DRDP_IndexNew />
+           
+    <apex:form >
+        <div class="df_drdw-view-bench df_drdw-createstudy create-info-source vertical-compress">
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1>Data Load</h1>                            
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+    <main class="container-fluid">            
+        <div class="row">
+            <font color="red" style="margin-left: 200px;"> <h4>Note: Please use the standard template to upload Sources. <a href="/servlet/servlet.FileDownload?file=015m0000001VmKu" target="_blank"> Click here </a> to download the template. </h4> </font>
+             <apex:actionRegion > 
+              <div style="margin-left: 300px;">                               
+                 <apex:inputFile id="csv-file-upload" value="{!csvFileBody}" accept="csv" contentType="text/csv" style="width: 400px;position: relative;float: left;"/>                                              
+                 <apex:commandbutton action="{!readCsv}" value="Submit" styleClass="subbtn" id="submBtn"/> 
+              </div>             
+             </apex:actionRegion>
+             <apex:actionRegion > 
+           <apex:outputPanel id="landscapelist" style="">
+           <apex:outputPanel rendered="{!IF(landscapeWrapperList.size>0,true,false)}">
+           <!--<apex:commandButton value="Cancel" styleClass="subbtn pull-right" action="{!saveLandscape}" reRender="landscapelist" id="cancel" style="margin-right:10px;background-color: #4CAF50 !important;" oncomplete=" $('[id$=cancel]').removeClass( 'btn' );$('[id$=accept]').removeClass( 'btn' );" /> -->
+              <apex:commandButton value="Accept" styleClass="subbtn pull-right" action="{!saveSelectedLandscape}" reRender="landscapelist" style="margin-right:10px;margin-bottom:10px;background-color: #4CAF50 !important;" id="accept" oncomplete=" $('[id$=accept]').removeClass( 'btn' );"/>   
+            <apex:outputPanel id="tableView">                  
+                <div class="table-container">
+                <apex:pageMessages />
+                     <table class="table table-hover table-striped table-condensed table-fixed">
+                        <thead>
+                            <tr style="background: #dc9800;">
+                            <th>Select</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                         <apex:repeat value="{!landscapeWrapperList}" var="acc">
+                             <tr>
+                                 <td><apex:inputCheckbox value="{!acc.flag}"/></td>
+                                 <td>{!acc.oLandscape.Name}</td>
+                                 <td>{!acc.Status}</td>                                 
+                             </tr>
+                         </apex:repeat>
+                        </tbody>
+                      </table>      
+                </div>
+            </apex:outputPanel>
+            </apex:outputPanel>
+             <apex:outputPanel rendered="{!IF(savedWrapperList.size>0,true,false)}">
+                 <div class="table-container">
+                     <table class="table table-hover table-striped table-condensed table-fixed">
+                    <thead>
+                        <tr style="background: #dc9800;">
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!savedWrapperList}" var="acc">
+                             <tr>                               
+                                 <td><apex:outputLink value="https://c.cs20.visual.force.com/apex/DRDP_CreateLandscape?Id={!acc.oLandscape.id}&IsEdit=false" target="_blank">{!acc.oLandscape.Name}</apex:outputLink></td>                                 
+                             </tr>
+                         </apex:repeat>
+                    </tbody>
+                    </table>    
+                 </div>
+             </apex:outputPanel>
+            </apex:outputPanel>
+            </apex:actionRegion>
+        </div>
+
+    </main>
+</div>
+                    
+    </apex:form>
+    
+
+         </div>
+         
+         <c:SR2_FooterComponent />
+         <c:QFOR_Scripts />
+         <c:R3_Scripts /> 
+           <script>
+            $(document).ready(function(){
+                $("[id$=submBtn]").removeClass( "btn" );
+                 $("[id$=accept]").removeClass( "btn" );
+                  $("[id$=cancel]").removeClass( "btn" );
+            });
+            </script>
+     </body>       
+   
+
+</apex:page>

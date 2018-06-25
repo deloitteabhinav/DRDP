@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -140,42 +141,52 @@
                 <value>
                     <fullName>Ideation</fullName>
                     <default>false</default>
+                    <label>Ideation</label>
                 </value>
                 <value>
                     <fullName>Secure Resources</fullName>
                     <default>false</default>
+                    <label>Secure Resources</label>
                 </value>
                 <value>
                     <fullName>Study Development</fullName>
                     <default>false</default>
+                    <label>Study Development</label>
                 </value>
                 <value>
                     <fullName>Study Execution</fullName>
                     <default>false</default>
+                    <label>Study Execution</label>
                 </value>
                 <value>
                     <fullName>Oversee Execution of Research</fullName>
                     <default>false</default>
+                    <label>Oversee Execution of Research</label>
                 </value>
                 <value>
                     <fullName>Data Analysis and Reporting</fullName>
                     <default>false</default>
+                    <label>Data Analysis and Reporting</label>
                 </value>
                 <value>
                     <fullName>Study Deliverable(s) and Results</fullName>
                     <default>false</default>
+                    <label>Study Deliverable(s) and Results</label>
                 </value>
                 <value>
                     <fullName>Review/ Approve Study Deliverable</fullName>
                     <default>false</default>
+                    <label>Review/ Approve Study Deliverable</label>
                 </value>
                 <value>
                     <fullName>Finalize, Store Study Deliverables</fullName>
                     <default>false</default>
+                    <label>Finalize, Store Study Deliverables</label>
                 </value>
                 <value>
                     <fullName>Close Out</fullName>
                     <default>false</default>
+                    <label>Close Out</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -247,6 +258,7 @@
         <searchResultsAdditionalFields>Milestone__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Clone_CheckListItem</fullName>
         <availability>online</availability>

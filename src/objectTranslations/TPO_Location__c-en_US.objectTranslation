@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>TPO Location</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>TPO Locations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Capabilities_TF --></label>
+        <name>Capabiliities_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capabilities --></label>
+        <name>Capabiliities__c</name>
+        <picklistValues>
+            <masterLabel>Chart Reviews</masterLabel>
+            <translation><!-- Chart Reviews --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compound/Submission Documents</masterLabel>
+            <translation><!-- Compound/Submission Documents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer_Systems</masterLabel>
+            <translation><!-- Computer_Systems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Extractions</masterLabel>
+            <translation><!-- Data Extractions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Management</masterLabel>
+            <translation><!-- Data Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Database Study</masterLabel>
+            <translation><!-- Database Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Literature Reviews</masterLabel>
+            <translation><!-- Literature Reviews --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meta-Analysis</masterLabel>
+            <translation><!-- Meta-Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modeling</masterLabel>
+            <translation><!-- Modeling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Observational Studies- Site Based</masterLabel>
+            <translation><!-- Observational Studies- Site Based --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Reported Outcomes Development</masterLabel>
+            <translation><!-- Patient Reported Outcomes Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payer Engagement</masterLabel>
+            <translation><!-- Payer Engagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physician Engagement</masterLabel>
+            <translation><!-- Physician Engagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pragmatic Trials</masterLabel>
+            <translation><!-- Pragmatic Trials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Publication Deliverables</masterLabel>
+            <translation><!-- Publication Deliverables --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qualitative Research</masterLabel>
+            <translation><!-- Qualitative Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statistics</masterLabel>
+            <translation><!-- Statistics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Documents</masterLabel>
+            <translation><!-- Study Documents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survey</masterLabel>
+            <translation><!-- Survey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Utility Assessment</masterLabel>
+            <translation><!-- Utility Assessment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+        <relationshipLabel><!-- TPO Locations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Link to Parent TPO --></label>
+        <name>Link_to_Parent_TPO__c</name>
+        <relationshipLabel><!-- TPO Locations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Address --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Comment --></label>
+        <name>Status_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Did not take forward for approval</masterLabel>
+            <translation><!-- Did not take forward for approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On-Hold</masterLabel>
+            <translation><!-- On-Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proposed</masterLabel>
+            <translation><!-- Proposed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminated</masterLabel>
+            <translation><!-- Terminated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Approved to conduct both regulated work and non-regulated work or only non-regulated work --></help>
+        <label><!-- TPO Classification --></label>
+        <name>TPO_Classification__c</name>
+        <picklistValues>
+            <masterLabel>Non-Regulated vendor</masterLabel>
+            <translation><!-- Non-Regulated vendor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulated vendor</masterLabel>
+            <translation><!-- Regulated vendor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- TPO Location Contact Phone Number --></label>
+        <name>TPO_Contact_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO Location Contact --></label>
+        <name>TPO_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO Location Email --></label>
+        <name>TPO_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO ID --></label>
+        <name>TPO_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO Record Manager --></label>
+        <name>TPO_Record_Manager__c</name>
+        <relationshipLabel><!-- TPO Locations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Tax ID --></label>
+        <name>Tax_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>DRDP TPO Location Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

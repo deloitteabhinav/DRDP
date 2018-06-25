@@ -1,0 +1,84 @@
+<apex:component controller="Index_Controller" id="theComponent">
+   
+    <apex:form >  
+     
+    <apex:actionFunction name="doSearchglobal" action="{!populateGlobalURL}"/>
+      <head>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+            <meta name="viewport" content="width=device-width" />
+                  
+         <script type='text/javascript'>
+          
+            function isValidSearchString(searchString) {
+                var SEARCH_TRIGGER_THRESHOLD = 2;
+                var trimmedSearchString = searchString.trim();
+    
+                    if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+            }
+            
+            function clickSearch(ev)  {
+                if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            
+                    var searchString = (document.getElementsByClassName("keyword_Global_Search"))[0].value;      
+                        if (isValidSearchString(searchString)){
+                            doSearchglobal();
+                        }
+                    return false;
+                } else {
+                    return true;
+                }
+             }
+            </script>   
+
+
+        </head>
+
+        <body>
+            
+            <div class='header-wrapper'>
+                <header class='container'>
+                    <div class='logo pull-left'>
+                        <a href="/apex/homepage">
+                            <span class='icon-lilly'></span>
+                            <span><apex:image url="{!URLFOR($Resource.R3Style, 'assets/img/green_pangaea.png')}" width="90" height="20"/></span></a>
+                    </div>
+                    <div class='search col-md-2'>
+                        <span class='icon-find col-md-3'></span>
+                        <span class='col-md-9'>Search</span>
+                        <div class='query col-md-9'>
+                            <apex:inputText value="{!searchWord}" html-placeholder="Keyword" onkeypress="return clickSearch(event);" styleclass="keyword_Global_Search" />
+                            <div class='options-header col-md-1'>
+                                <apex:commandLink action="{!populateGlobalURL}" styleclass="icon-small-caret right initiate-search" />                                
+                            </div>
+                        </div>
+                    </div>
+                    <span class='icon-close col-md-1'></span>
+
+                    <div class='pull-left tabs'>
+                        <apex:outputlink value="/apex/studylist" StyleClass="{!IF($CurrentPage.name=='studylist','entity study active','entity study')}" disabled="false"><span>Studies</span></apex:outputlink>
+                        <apex:outputlink value="/apex/DataAssetlist" styleclass="{!IF($CurrentPage.name=='DataAssetlist' || $CurrentPage.name=='CreateDataAsset','entity data-assets active','entity data-assets')}"><span id="AssetTab">Data Assets</span></apex:outputlink>
+                        <apex:outputlink value="/apex/PartnerShipList" styleclass="{!IF($CurrentPage.name=='PartnerShipList' || $CurrentPage.name=='CreatePartnership','entity partnerships active','entity partnerships')}"><span>Partnerships</span></apex:outputlink>
+                        <apex:outputlink value="apex/RequestList" styleclass="{!IF($CurrentPage.name=='RequestList' || $CurrentPage.name=='SelectRequest' || $CurrentPage.name=='CreateRequests','entity requests active','entity requests')}"><span>Requests</span></apex:outputlink>
+                    </div>
+                    <apex:outputlink value="/apex/ClipBoard" Styleclass="col-xs-1 qforIcon">
+                        <span class='icon-MyCompass-Icon icon-holder'>  
+                        <!-- This will be dynamic section for numbers -->
+                            <apex:outputpanel rendered="{!iSync}" >
+                                <sup class='notification-alert'>!</sup>
+                            </apex:outputpanel>
+                        </span>
+                    </apex:outputlink>
+                    <a href="{!homeurl}" class='col-xs-1 sprite-salesforce'></a>
+                    <a href="/secur/logout.jsp" class='logout' title="Logout">
+                        <span class='icon-exit-symbol'></span>
+                    </a>
+                </header>
+            </div>
+
+        </body>
+    </apex:form>
+</apex:component>

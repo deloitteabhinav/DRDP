@@ -1,0 +1,52 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" Standardcontroller="Business_Planning__c">
+ 
+    <head>
+    <title>Select BP Interim Page</title>
+    <c:QFOR_Index />
+    </head>
+        
+     <div class='qfor content'>
+       <div class="qfor-createstudy qfor-bp-interim">
+        <header>
+            <div class="pattern"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 banner-properties">
+                        <div class="container">
+                        <h1>Plan a Study/Project </h1>
+                        <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+            <div class="request-types-container ">
+                <div class="col-md-4 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Study</span>
+                    <p class="description font-s">Study types available are: Observational Studies, Models, Meta-Analysis, Systematic Literature Reviews, and Pragmatic Trials.
+                    A study contains the following elements: answers an important research question, there is a protocol or plan, data is gathered or analyzed to answer the question, and they result in a study report, publication or some other deliverable. Pangaea will provide a checklist for guidance for each of these study types (as many are directed by a procedure).</p>
+                    <apex:outputlink styleclass="navigate-to-link" value="/apex/CreateBP?BPType=Study_BP">Create</apex:outputlink>
+                    </div>
+                </div>
+                <div class="col-md-4 request-item">
+                     <div class="hover-wrapper">
+                     <span class="name bold font-m">Research Project</span>
+                     <p class="description font-s">This category is used to capture information on items that are NOT studies but are still supportive of the development of molecules or answer research related questions.   Examples include a publication that needs to be contracted after the initial study has been completed, an ad board, or it can be a group of studies that are grouped together for planning or budgetary reasons such as an HTA toolkit.  Pangaea will not generate a checklist for these items.</p>
+                     <apex:outputlink styleclass="navigate-to-link" value="/apex/CreateBP?BPType=Research_BP">Create</apex:outputlink>
+                     </div>
+                </div>
+                <div class="col-md-4 request-item">
+                    <div class="hover-wrapper">
+                    <span class="name bold font-m">Non-Research Project</span>
+                    <p class="description font-s">This category is used to capture information on items that are NOT studies, DO have budget associated with them, and do NOT directly support the development of a molecule or answer research questions (e.g. money for a conference, money to develop training courses, subscriptions, etc). No checklist will be generated for these items.</p>
+                    <apex:outputlink styleclass="navigate-to-link" value="/apex/CreateBP?BPType=Non_Research_BP">Create</apex:outputlink>
+                    </div>
+                </div>
+            </div>
+        </main>
+        </div>
+        </div>
+       <c:QFOR_FooterComponent />
+</apex:page>

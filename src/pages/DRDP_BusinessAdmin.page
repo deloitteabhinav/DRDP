@@ -1,0 +1,45 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" controller="DRDP_BusinessAdmin">
+ 
+    <head>
+    <title>Admin</title>
+   
+    </head>
+        
+    <c:DRDP_IndexNew />
+     <c:QFOR_Styles />
+     <div class='df_drdw content'>
+       <div class="df_drdw-createstudy df_drdw-admin-interim">
+        <header>
+            <div class="pattern"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 banner-properties">
+                        <div class="container">
+                        <h1>Admin Features</h1>
+                        <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+            <div class="request-types-container">
+                <div class="col-md-4 request-item">
+                     <div class="hover-wrapper">
+                     <span class="name bold font-m">Global Lists Of Values</span>
+                     <p class="description font-s">Here we can update the global lists of values within the system.</p>
+                     <apex:outputPanel >
+                     <apex:outputlink styleclass="navigate-to-link" value="/apex/DRDP_AddPicklists">Create/Update</apex:outputlink>
+                     </apex:outputPanel>
+                     </div>
+                </div>                                 
+            </div>
+        </main>
+        </div>
+        </div>
+        <apex:form >
+        <c:DRDP_FooterComponent /> 
+        </apex:form>
+       <!-- <c:DRDW_SR2_FooterComponent />-->
+       <!--<c:QFOR_Scripts />-->
+</apex:page>

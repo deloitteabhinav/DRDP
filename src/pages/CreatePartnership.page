@@ -53,6 +53,18 @@
                                 </div>
                             </div>
                             <div class="table-row">
+                                <div class="table-cell font-m bold">Partner Organization Name<span class='required'>*</span></div>
+                                <div class="table-cell font-r">
+                                    <div class="table-row requestor-field">
+                                        <!--<input type="text" placeholder="Partner Name" name="Partnername" validate='true' />-->
+                                        <Apex:inputField required="true" value="{!oRequest.Partner__c}" />
+                                    </div>
+                                </div>
+                                <div class="table-cell">
+                                    <a href="/apex/CreateOrganization">Create New Orgranization</a>
+                                </div>
+                            </div>
+                            <div class="table-row">
                                 <div class="table-cell font-m bold">Requestor Functional Area<span class='required'>*</span></div>
                                 <div class="table-cell font-r">
                                     <div class="table-row">

@@ -86,7 +86,7 @@
                         <apex:outputlink value="/apex/RequestList" styleclass="{!IF($CurrentPage.name=='RequestList' || $CurrentPage.name=='SelectRequest' || $CurrentPage.name=='CreateRequests','entity requests active','entity requests')}"><span>Requests</span></apex:outputlink>
                     </div>
                     <apex:outputlink value="/apex/ClipBoard" Styleclass="col-xs-1 qforIcon">
-                        <span class='icon-MyCompass-Icon icon-holder'>  
+                        <span class='icon-MyCompass-Icon icon-holder'>
                         <!-- This will be dynamic section for numbers -->
                             <apex:outputpanel rendered="{!iSync}" >
                                 <sup class='notification-alert'>!</sup>

@@ -1,0 +1,30 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" standardController="Account" extensions="partnerSelection">
+
+    <c:DRDP_IndexNew />
+    <title>Partner Selection Page</title>
+
+    <div class='content'>
+        <apex:form id="datasourcingform">
+
+            <div class="datasourcingrequest container-fluid">
+                <div class="col-md-12 section-1 center bannercolor l-orange">
+                    <div class="pattern"></div>
+                    <div class="dsr-heading heading font-xxl">Partnership Selection.</div>
+                </div>
+                <div class="container"><!-- section-2 container begins -->
+                <div class="section-2 col-md-12 center">
+                    
+                       <apex:repeat value="{!lAccContact}" var="Acc">
+                            <div class="col-md-4">
+                                <a href="/{!communityName}/apex/partnerLogin?AccId={!Acc.accountId}"><apex:outputText style="font-size : 24px;" value="{!Acc.Account.Name}"/></a>
+                            </div>
+                        </apex:repeat>
+                 
+                </div>
+            </div> <!-- section-2 container ends--> 
+            </div>
+             <c:DRDP_FooterComponent />
+        </apex:form>
+        
+    </div>
+</apex:page>

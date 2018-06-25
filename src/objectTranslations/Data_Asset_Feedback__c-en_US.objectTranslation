@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Data Asset Feedback</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Data Asset Feedbacks</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please provide any specific comments regarding the data in relation to this study/project. --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Asset --></label>
+        <name>Data_Asset__c</name>
+        <relationshipLabel><!-- Data Asset Feedback --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Would you recommend this data for another study? --></help>
+        <label><!-- Data Recommendation --></label>
+        <name>Data_Recommendation__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data TF --></label>
+        <name>Data_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- Was the Data sufficient to answer your study question? --></help>
+        <label><!-- Data Rating --></label>
+        <name>Data__c</name>
+        <picklistValues>
+            <masterLabel>1 Star - Lowest Rating</masterLabel>
+            <translation><!-- 1 Star - Lowest Rating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Stars</masterLabel>
+            <translation><!-- 2 Stars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 Stars</masterLabel>
+            <translation><!-- 3 Stars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 Stars</masterLabel>
+            <translation><!-- 4 Stars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 Stars - Highest Rating</masterLabel>
+            <translation><!-- 5 Stars - Highest Rating --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please comment on the gaps --></help>
+        <label><!-- Gap Comments --></label>
+        <name>Gap_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Were there any gaps in the Data? --></label>
+        <name>Gaps_in_the_Data__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- IsFeedbackComplete --></label>
+        <name>IsFeedbackComplete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study ID --></label>
+        <name>Study_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study --></label>
+        <name>Study__c</name>
+        <relationshipLabel><!-- Data Asset Feedback --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Unique Study DataAsset TF --></label>
+        <name>Unique_Study_DataAsset_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provided By --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Data Asset Feedbacks --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

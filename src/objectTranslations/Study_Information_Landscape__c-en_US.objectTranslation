@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Study Information Landscape</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Study Information Landscapes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Information Landscape --></label>
+        <name>Information_Landscape__c</name>
+        <relationshipLabel><!-- Study Information Landscapes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Study --></label>
+        <name>Study__c</name>
+        <relationshipLabel><!-- Study Information Landscapes --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Study Information Landscape Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

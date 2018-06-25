@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Questionnaire Question</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Questionnaire Questions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Question --></label>
+        <lookupFilter>
+            <errorMessage><!-- Only Active questions can be selected for questionaire --></errorMessage>
+        </lookupFilter>
+        <name>Question__c</name>
+        <relationshipLabel><!-- Questionnaire Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Questionnaire --></label>
+        <name>Questionnaire__c</name>
+        <relationshipLabel><!-- Questionnaire Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sequence --></label>
+        <name>Sequence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Sequence text --></label>
+        <name>Unique_Sequence_text__c</name>
+    </fields>
+    <layouts>
+        <layout>DRDP Questionnaire Question Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

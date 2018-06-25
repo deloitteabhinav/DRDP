@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Study Checklist</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Study Checklists</value>
+    </caseValues>
+    <fields>
+        <label><!-- Checklist Instructions --></label>
+        <name>Checklist_Instructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Checklist Item ID --></label>
+        <name>Checklist_Item__c</name>
+        <relationshipLabel><!-- Study Checklists --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Comment Date --></label>
+        <name>Comment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comment --></label>
+        <name>Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed --></label>
+        <name>Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Action --></label>
+        <name>Milestone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Newly Added --></label>
+        <name>Newly_Added__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process --></label>
+        <name>Process__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <lookupFilter>
+            <errorMessage><!-- Only active roles can be selected --></errorMessage>
+        </lookupFilter>
+        <name>Role__c</name>
+        <relationshipLabel><!-- Study Checklists --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sequence --></label>
+        <name>Sequence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study Checklist Version Id --></label>
+        <name>Study_Checklist_Version_Id__c</name>
+        <relationshipLabel><!-- Study Checklist Items --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Study Checklist</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Instructions --></label>
+            <section>Instructions</section>
+        </sections>
+        <sections>
+            <label><!-- Study Checklist Status --></label>
+            <section>Study Checklist Status</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

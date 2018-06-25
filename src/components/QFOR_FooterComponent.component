@@ -1,0 +1,29 @@
+<apex:component allowDML="true" >
+
+<head>
+            <apex:stylesheet value="{!URLFOR($Resource.QFOR_R1Style,'vendor/bootstrap/bootstrap.css')}" />
+            <apex:stylesheet value="{!URLFOR($Resource.QFOR_R1Style,'assets/QFOR-1.0.0.css')}" />
+</head>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="copyright">&copy; 2016 Eli Lilly Company. All rights reserved</div>
+                         <apex:outputlink styleClass="help" value="/apex/GetHelp">Need Help<span class="icon icn-questionmark">?</span></apex:outputlink>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'vendor/lodash/lodash.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'vendor/jquery/jquery.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'vendor/bootstrap/bootstrap.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'vendor/jquery-validation/dist/jquery.validate.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'src/js/createstudy.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'src/js/header.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'src/js/qfor.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'src/js/global.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'src/js/editableNotes.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'src/js/clipboard.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'src/js/checklist.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.QFOR_R1Style,'src/js/feedback.js')}" />
+</apex:component>

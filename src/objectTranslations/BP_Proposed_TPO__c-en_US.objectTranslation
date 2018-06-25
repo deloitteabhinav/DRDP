@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RWE BP Proposed TPO</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RWE BP Proposed TPOs</value>
+    </caseValues>
+    <fields>
+        <label><!-- RWE Business Planning --></label>
+        <name>RWE_Business_Planning__c</name>
+        <relationshipLabel><!-- Proposed TPOs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RWE TPO Location --></label>
+        <name>RWE_TPO_Location__c</name>
+        <relationshipLabel><!-- RWE BP Proposed TPOs --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

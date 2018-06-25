@@ -28,7 +28,7 @@
     <title>Relationship Contacts</title>
 
   <c:DRDP_IndexNew />
-
+    <c:R3_Styles /> 
     <apex:form id="theForm">
 
         <apex:actionFunction name="doSearchAf" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
@@ -222,6 +222,7 @@
                     </div>
                     
                     <apex:outputPanel rendered="{!cRelationshipListCntlr.ResultSize>0}">
+                    <div align="center">
                     <div class='pagination container'>
                         <span class='col-md-12'>Displaying {!((cRelationshipListCntlr.pagenumber-1)*cRelationshipListCntlr.pagesize)+1}-{!IF(cRelationshipListCntlr.ResultSize < ((cRelationshipListCntlr.pagenumber)*cRelationshipListCntlr.pagesize),cRelationshipListCntlr.ResultSize,((cRelationshipListCntlr.pagenumber)*cRelationshipListCntlr.pagesize))} of {!cRelationshipListCntlr.ResultSize}</span>
                         <div class='indicator-container col-md-12'>
@@ -236,6 +237,7 @@
                             </apex:actionregion>
                         </div>
                     </div>
+                    </div>
                      <c:DRDP_FooterComponent />
                     </apex:outputPanel>
                 </apex:outputpanel>
@@ -245,4 +247,5 @@
 
     </apex:form>
     <c:Webtrends_Tracker />
+    <c:R3_Scripts /> 
 </apex:page>

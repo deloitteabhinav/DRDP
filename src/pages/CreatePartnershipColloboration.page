@@ -1,0 +1,78 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" standardcontroller="Request__c" extensions="CreateColloborationRequestController">
+
+    <c:DRDP_IndexNew />
+    <title>Create Partnership Colloboration Request</title>
+
+    <div class='content'>
+        <apex:form id="datasourcingform">
+
+            <div class="datasourcingrequest container-fluid">
+                <div class="col-md-12 section-1 center bannercolor l-orange">
+                    <div class="pattern"></div>
+                    <div class="dsr-heading heading font-xxl">Partnership Contact Creation Form</div>
+                    <div class="dsr-content container font-xl">
+                        Initiate the Colloboration of a new Partner and external organization.
+                    </div>
+                </div>
+                <div class="container"><!-- section-2 container begins -->
+                <div class="section-2 col-md-12 center">
+                    <div class="sfdc-errorMessage">
+                        <apex:pagemessages escape="false"></apex:pagemessages>
+                    </div>
+                    <apex:outputPanel rendered="{!oRequest.id==null}">
+                        <div class="instruction font-s">* Required Field</div>
+
+                        <!--form action="" method="" id='datasourcingform'-->
+                        <div class="table">
+                            <div class="table-row">
+                                <div class="table-cell font-m bold bold">Request Name <span class='required'>*</span></div>
+                                <div class="table-cell font-r">
+                                    <div class="table-row">
+                                        <!--input type="text" placeholder="Request Name" name="requestname" validate='true' validationtype="alphabets" /-->
+                                        <apex:inputField required="true" value="{!oRequest.Name}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell font-m bold">Partner Organization Name <span class='required'>*</span></div>
+                                <div class="table-cell font-r">
+                                    <div class="table-row">
+                                        <label>
+                                            <apex:inputField required="true" value="{!oRequest.Partner__c}" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell font-m bold">Contact Name <span class='required'>*</span></div>
+                                <div class="table-cell font-r">
+                                    <div class="table-row">
+                                        <label>
+                                            <apex:inputField required="true" value="{!oRequest.Partner_Contact__c}" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="table-cell">
+                                    <a href="/apex/DRDP_CreateRelationshipContact?recTypeName=Partner&IsEdit=true">Create New Contact</a>
+                                </div>
+                            </div>
+                            
+                        <br/>
+                        <!------------Saving the Form--------------------------->
+                        <div class="right">
+                            <apex:commandButton styleClass="button btn-submit font-s" value="Submit" action="{!save}" />
+                        </div>
+                        <div class="right">
+                                <apex:outputLink styleClass="lnk-cancel" value="/apex/PartnershipList">Cancel</apex:outputLink>
+                         </div>
+                        <!--/form-->
+                        </div>
+                    </apex:outputPanel>
+                </div>
+            </div> <!-- section-2 container ends--> 
+            </div>
+             <c:DRDP_FooterComponent />
+        </apex:form>
+        
+    </div>
+</apex:page>

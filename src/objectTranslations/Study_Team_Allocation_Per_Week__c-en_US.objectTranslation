@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Study Team Allocation Per Week</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Study Team Allocation Per Weeks</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Capacity --></label>
+        <name>Actual_Capacity__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecasted Capacity --></label>
+        <name>Hours_per_Week__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Over Allocated --></label>
+        <name>Is_Over_Allocated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date of Week --></label>
+        <name>Start_Date_of_Week__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study Team Members --></label>
+        <name>Study_Team_Members__c</name>
+        <relationshipLabel><!-- Study Team Allocation Per Weeks --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

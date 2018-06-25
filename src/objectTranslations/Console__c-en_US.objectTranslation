@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Console</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Console</value>
+    </caseValues>
+    <fields>
+        <help><!-- Only Active picklist values will be displayed in Executive Dashboards. If inactive, it will be grouped to Other. --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Display name of drop down if picklist value to be shown on Executive Dashboards is different. Restricted to 20 characters. --></help>
+        <label><!-- Display Name --></label>
+        <name>Display_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field updated by workflow to ensure Unique pair of Picklist Field &amp; Picklist Value. --></help>
+        <label><!-- PicklistFieldValueUnique_TF --></label>
+        <name>PicklistFieldValueUnique_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the Picklist Name(eg: Region, Therapeutic Area) here and the exact correct Picklist Value in the &quot;Name&quot; field. Only Active picklist values will be displayed in Executive Dashboard Charts. --></help>
+        <label><!-- Picklist Field Name --></label>
+        <name>Picklist_Field_Name__c</name>
+    </fields>
+    <layouts>
+        <layout>Console Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>DRDP Console Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Executive Dashboard Console Layout</layout>
+        <sections>
+            <label><!-- Active? --></label>
+            <section>Active?</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Display name (Optional) --></label>
+            <section>Display name (Optional)</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Executive Dashboard Setting --></label>
+        <name>Executive_Dashboard_Setting</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Generic Console Setting --></label>
+        <name>Generic_Console_Setting</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

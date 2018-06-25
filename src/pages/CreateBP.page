@@ -1,0 +1,2051 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" Standardcontroller="Business_Planning__c" extensions="CreateBPController">
+ 
+    <head>
+    <title>Create BP</title>
+    </head>
+    <body>
+        <div class='qfor content'>
+        <!-- Using QFORs Index component for the Top Header- -->
+        <c:QFOR_Index />
+        <div class="qfor-createstudy qfor-create-bp">
+            
+            <header>
+            <div class="pattern"></div> 
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 banner-properties">
+                            <!-- ------------------  Conditional header & buttons  here ----------------- -->
+                             <div class="container">
+                                <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id == NULL,currentBPType =='Research_BP'),true,false)}">
+                                    <h1><apex:outputText value="Plan a Research Project"/></h1>
+                                </apex:outputpanel>
+                                <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id == NULL,currentBPType =='Non_Research_BP'),true,false)}">
+                                    <h1><apex:outputText value="Plan a Non-Research Project"/></h1>
+                                </apex:outputpanel>
+                                <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id == NULL,currentBPType =='Study_BP'),true,false)}">
+                                    <h1><apex:outputText value="Plan a Study"/></h1>
+                                </apex:outputpanel>
+                                <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id != NULL,true,false)}">
+                                <h1><apex:outputField value="{!oBP.Name}"/>:&nbsp;<apex:outputField value="{!oBP.Title__c}"/></h1>
+                                <p> <apex:outputField value="{!oBP.Description__c}"/></p>
+                                </apex:outputpanel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+                <!-- ------------------  Error OutputPanel start here ---------------- -->
+                <apex:outputPanel id="error">
+                <apex:outputPanel rendered="{!isError}">                
+                <div class="sfdc-errorMessage font-s">
+                    <apex:pagemessages escape="false"></apex:pagemessages>
+                </div>
+                <script>
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                </script>
+                </apex:outputPanel>
+                </apex:outputPanel>
+                <!-- ------------------  Error OutputPanel ends here ---------------- --->
+
+        <!--------------------  Overall MAIN container starts here ------------------->
+
+        <main class="container">
+
+            <!-----------------------------BP Creation short-form Edit Outputpanel with 3 fields------------------------------------------------------------------------------------------------>
+
+                    <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id == NULL,true,false)}">
+                    
+                        <apex:form Styleclass="create-study-form accordion">
+                            <!---------------------------------------------------------BP short-form Information Section------------------------------------------------------------------------------------>
+                            <section class="row">
+                                <div class="col-xs-12 required-label">* REQUIRED FIELD</div>
+                            </section>
+                            <section class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Information
+
+                                    <span class="icon-large-caret pull-right down"></span>
+                                    </h2>
+                                    <fieldset class="accordion-child">
+
+                                         <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c .Fields.Title__c.Label}</label><span class="required-label"> *</span> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Title__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip">
+                                                    <span>{!$ObjectType.Business_Planning__c .Fields.Title__c.inlinehelptext}</span>
+                                                </div>          
+                                            </apex:outputpanel>      
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:inputField value="{!oBP.Title__c}" styleClass="required" ></apex:inputField>
+                                                                          
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c .Fields.Description__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c .Fields.Description__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip">
+                                                    <span>{!$ObjectType.Business_Planning__c .Fields.Description__c.inlinehelptext}</span>
+                                                </div>          
+                                            </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:inputField value="{!oBP.Description__c}" styleClass="required" />
+                                            </div>
+                                        </div>
+                                        
+                                    </fieldset>
+                                </div>
+                            </section>
+                                        
+                                        <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                            <section class="row submit">
+                                <div class="col-xs-12">
+                                    <apex:commandButton styleClass="button" value="Continue" action="{!Save}" />
+                                </div>
+                            </section>
+                            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+                        </apex:form>
+                    </apex:outputpanel>
+                    <!-------------------------------------------------------BP Creation short-form Edit Outputpanel ends------------------------------------------------------------------------------------------------>
+
+            <!-------------------------------- Second Apex Form starts ---------------------------------------------------------->
+            <apex:outputpanel id="EditBPPanel" rendered="{!IF(AND($CurrentPage.parameters.id != NULL,$CurrentPage.parameters.isEdit=='true'),true,false)}">
+            <apex:form id="editBP" styleclass="create-study-form accordion">
+            
+            <section class="row">
+                <div class="col-xs-12 required-label">* REQUIRED FIELD</div>
+            </section>
+
+            <!-------------------------------- BP Information Section starts---------------------------------------------------------->
+            <section class="row">
+                <div class="col-xs-12">
+                    <h2 class="accordion-parent">Information
+                    <span class="icon-large-caret pull-right down"></span></h2>
+                    <fieldset class="accordion-child">
+                    <apex:outputPanel id="BPInformation">
+                    <apex:actionregion >
+                     
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Name.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Name.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Name.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Name}"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Business_Planning_Cycle_Type__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Business_Planning_Cycle_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Business_Planning_Cycle_Type__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Business_Planning_Cycle_Type__c}" styleClass="required" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Business_Plan_Year__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Business_Plan_Year__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Business_Plan_Year__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Business_Plan_Year__c}" styleClass="required" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Prioritization_Rank__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Prioritization_Rank__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Prioritization_Rank__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Prioritization_Rank__c}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Unique_Local_Identifier__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Unique_Local_Identifier__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Unique_Local_Identifier__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Unique_Local_Identifier__c}"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Title__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Title__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Title__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Title__c}" styleClass="required" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Description__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Description__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Description__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Description__c}" styleClass="required" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Business_Critical_Rationale__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Business_Critical_Rationale__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Business_Critical_Rationale__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Business_Critical_Rationale__c}" styleClass="required" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c.Fields.Notes__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Notes__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Notes__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Notes__c}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.BPType__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.BPType__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.BPType__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.BPType__c}"  styleClass="required" >
+                            <apex:actionsupport event="onchange" rerender="EditBPPanel,OnlyStudy,ResearchOrStudy,ResearchOrStudy2,ActualStartDateNRBP,Study2Sections,StudyorResearchExec,NonResearchExec" oncomplete="qfor.createStudy.accordion();" />
+                            </apex:inputField>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Study_Type__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Study_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Study_Type__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Study_Type__c}" styleClass="required" />
+                        </div>
+                    </div>
+
+                    <!--  ~~~~~~~~~~~~ EXTRA STUDY FIELDS ~~~~~~~~~~~~~~~~ -->
+                    <apex:outputpanel id="OnlyStudy">
+                    <apex:outputpanel rendered="{!IF(oBP.BPType__c=='Study',true,false)}">
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Study_Sub_Type__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Study_Sub_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Study_Sub_Type__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Study_Sub_Type__c}" styleClass="required" >
+                            <apex:actionSupport event="onchange" rerender="StudyorResearchExec" />
+                            </apex:inputField>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Observational_Study_Details__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Observational_Study_Details__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Observational_Study_Details__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Observational_Study_Details__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    </apex:outputpanel>
+                    </apex:outputpanel>
+
+                    <!--  ~~~~~~~~~~~~ EXTRA STUDY or Research FIELDS ~~~~~~~~~~~~~~~~ -->
+                    <apex:outputpanel id="ResearchOrStudy">
+                    <apex:outputpanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Therapeutic_Area_Primary__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Therapeutic_Area_Primary__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Therapeutic_Area_Primary__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Therapeutic_Area_Primary__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Disease_State__c .Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Disease_State__c .inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Disease_State__c .inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Disease_State__c }" styleClass="required" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>What region benefits from the Study/Project?</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Study_Region__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Study_Region__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Study_Region__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Primary_Value_Area__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Primary_Value_Area__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Primary_Value_Area__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Primary_Value_Area__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Target_Audience__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Target_Audience__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Target_Audience__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Target_Audience__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Primary_Purpose__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Primary_Purpose__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Primary_Purpose__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                       </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:inputField value="{!oBP.Primary_Purpose__c}" styleClass="required" />
+                            <div class="col-xs-6 pull-right">
+                               <div class="additional-links">
+                                    <a href="http://lillynetcollaboration.global.lilly.com/sites/RWE/Pangaea%20Training%20Help/Primary%20Purpose%20and%20Primary%20Value%20Area%20Guidance%20Document.docx" target="_blank">Help Document</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </apex:outputpanel>
+                    </apex:outputpanel>
+                    
+                    <!-- ~~~~~~~~~~~ EXTRA STUDY & RESEARCH FIELDS end ~~~~~~~~~~~~~ -->
+
+                     <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Business_Unit_Primary__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Business_Unit_Primary__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Business_Unit_Primary__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Business_Unit_Primary__c}" styleClass="required" />
+                        </div>
+                    </div>
+
+                    <apex:outputpanel id="ResearchOrStudy2">
+                    <apex:outputpanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Part_of_Holistic_Evidence_Plan_HEP__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Part_of_Holistic_Evidence_Plan_HEP__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Part_of_Holistic_Evidence_Plan_HEP__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Part_of_Holistic_Evidence_Plan_HEP__c}" styleClass="required"/>
+                        </div>
+                    </div>
+                    </apex:outputpanel>
+                    </apex:outputpanel>
+
+                     <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Approver_Table__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Approver_Table__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Approver_Table__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oBP.Approver_Table__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    
+                    </apex:actionRegion>
+                    </apex:outputPanel>
+                    </fieldset>
+                </div>
+            </section>
+            <!-------------------------------- Information Section ends---------------------------------------------------------->
+            <!-- ---------------------------Molecules Section starts--------------------------------------------------------------------------------- -->                      
+                    <apex:outputpanel id="Study2Sections">
+                    <apex:outputpanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                    
+                        <section class="row">
+                            <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Molecules
+                                            <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Select the related Molecules. Use * after the first few letters to search across the multiple names used for a molecule.</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <apex:actionregion >
+                                    <fieldset class="accordion-child">
+                                    <apex:outputPanel id="moleculessection">
+                                        <apex:outputpanel id="MoleculesError">
+                                            <apex:outputpanel rendered="{!isMoleculeError}">
+                                            <div class="sfdc-errorMessage font-s">
+                                                <apex:pagemessages escape="false"></apex:pagemessages>
+                                            </div>
+                                            </apex:outputpanel>
+                                        </apex:outputpanel>
+                                        <div class="accordion-content">
+                                            <!-- Add new BP Molecule section starts -->
+                                            <fieldset class="add-new-item">
+                                                <legend>Add Molecule</legend>
+                                                <apex:inputField value="{!oBPMolecule.RWE_Molecule__c}" required="false"/>                    
+                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddMolecule}" rerender="theMolTable,noMolecules,MoleculesError" />
+                                            </fieldset>
+                                            <!-- Add new BP Molecule section ends -->
+                                            
+                                            <!-- Iteration unit starts -->
+                                            <apex:outputpanel id="theMolTable">
+                                            <apex:outputpanel rendered="{!lBPMolecules.size>0}">
+                                            <apex:repeat value="{!lBPMolecules}" var="oMember">
+                                            <div class="custom-data-row">
+                                                <span class="content">{!oMember.RWE_Molecule__r.name}</span>
+                                                <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveMolecule}" rerender="theMolTable,noMolecules,MoleculesError">
+                                                    <apex:param name="genericID" value="{!oMember.RWE_Molecule__c}" assignTo="{!genericID}" />
+                                                </apex:commandlink>
+                                            </div>
+                                            </apex:repeat>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>
+                                            <!-- Iteration unit ends -->
+                                            
+                                            <apex:outputpanel id="noMolecules">
+                                            <apex:outputpanel rendered="{!lBPMolecules.size==0}">
+                                            <span class="content"><strong>No Molecules</strong></span>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>                                            
+                                        </div>
+                                        
+                                    </apex:outputpanel>
+                                    </fieldset>
+                                    </apex:actionregion>
+                                </div>
+                            </section>
+
+            <!-- ---------------------------Molecules Section ends--------------------------------------------------------------------------------- -->   
+<!-- ---------------------------Tpo Section starts--------------------------------------------------------------------------------- -->                      
+                    
+                   
+                    
+                        <section class="row">
+                            <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Proposed TPO
+                                            <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Select the Proposed TPO. Use * after the first few letters to search across the multiple names used for a TPO.</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <apex:actionregion >
+                                    <fieldset class="accordion-child">
+                                    <apex:outputPanel id="ProposedTPOssection">
+                                        <apex:outputpanel id="ProposedTPOsError">
+                                            <apex:outputpanel rendered="{!isProposedTPO}">
+                                            <div class="sfdc-errorMessage font-s">
+                                                <apex:pagemessages escape="false"></apex:pagemessages>
+                                            </div>
+                                            </apex:outputpanel>
+                                        </apex:outputpanel>
+                                        <div class="accordion-content">
+                                            <!-- Add new BP Molecule section starts -->
+                                            <fieldset class="add-new-item">
+                                                <legend>Add TPO</legend>
+                                                <apex:inputField value="{!oBPTPO.RWE_TPO_Location__c}" required="false"/>                    
+                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddTPO}" rerender="theTPOTable,noTPO,ProposedTPOsError" />
+                                            </fieldset>
+                                            <!-- Add new BP Molecule section ends -->
+                                            
+                                            <!-- Iteration unit starts -->
+                                            <apex:outputpanel id="theTPOTable">
+                                            <apex:outputpanel rendered="{!lBPTPOs.size>0}">
+                                            <apex:repeat value="{!lBPTPOs}" var="oBPPROTPOs">
+                                            <div class="custom-data-row">
+                                                <span class="content">{!oBPPROTPOs.RWE_TPO_Location__r.name}</span>
+                                                <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveBPTPO}" rerender="theTPOTable,noTPO,ProposedTPOsError">
+                                                    <apex:param name="genericID" value="{!oBPPROTPOs.RWE_TPO_Location__c}" assignTo="{!genericID}" />
+                                                </apex:commandlink>
+                                            </div>
+                                            </apex:repeat>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>
+                                            <!-- Iteration unit ends -->
+                                            
+                                            <apex:outputpanel id="noTPO">
+                                            <apex:outputpanel rendered="{!lBPTPOs.size==0}">
+                                            <span class="content"><strong>No TPO</strong></span>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>                                            
+                                        </div>
+                                        
+                                    </apex:outputpanel>
+                                    </fieldset>
+                                    </apex:actionregion>
+                                </div>
+                            </section>
+
+            <!-- ---------------------------Tpo Section ends--------------------------------------------------------------------------------- -->                           
+            <!-- ---------------------BP Benefiting Countries Section starts--------------------------------------------------------------------------------- -->                      
+                            <section class="row">
+                            <apex:outputPanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Countries benefiting from Study/Project
+                                    <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Choose the countries that will primarily benefit (i.e. if a country requests a Study/Project, then they should be chosen as the benefactor). If numerous countries benefit that make it impractical to enter, leave field blank.</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <apex:actionregion >
+                                    <fieldset class="accordion-child">
+                                        <apex:outputpanel id="BftError">
+                                            <apex:outputpanel rendered="{!isBPBnftCError}">
+                                            <div class="sfdc-errorMessage font-s">
+                                                <apex:pagemessages escape="false"></apex:pagemessages>
+                                            </div>
+                                            </apex:outputpanel>
+                                        </apex:outputpanel>
+                                        <div class="accordion-content">
+                                            <!-- Add new BP Benefiting Country section starts -->
+                                            <fieldset class="add-new-item">
+                                                <legend>Add Benefiting Country</legend>
+                                                <apex:inputField value="{!oBPBenefitingCountry.RWE_Country__c}" required="false" />                    
+                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddBPBenefitingCountry}" rerender="theBnftCntryTable,noBnftCountries,BftError" />
+                                            </fieldset>
+                                            <!-- Add new BP Benefiting Country section ends -->
+
+                                            <!-- Iteration unit starts -->
+                                            <apex:outputpanel id="theBnftCntryTable">
+                                                <apex:outputpanel rendered="{!lBPBenefitingCountries.size>0}">
+                                                <apex:repeat value="{!lBPBenefitingCountries}" var="oMember">
+                                                <div class="custom-data-row">
+                                                    <span class="content">{!oMember.RWE_Country__r.name}</span>
+                                                    <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveBPBenefitingCountry}" rerender="theBnftCntryTable,noBnftCountries,BftError">
+                                                        <apex:param name="genericID" value="{!oMember.RWE_Country__c}" assignTo="{!genericID}" />
+                                                    </apex:commandlink>
+                                                </div>
+                                                </apex:repeat>
+                                                </apex:outputpanel>
+                                            </apex:outputpanel>
+                                            <!-- Iteration unit ends -->
+                                            
+                                            <apex:outputpanel id="noBnftCountries">
+                                                <apex:outputpanel rendered="{!lBPBenefitingCountries.size==0}">
+                                                <span class="content"><strong>No Benefiting Countries</strong></span>
+                                                </apex:outputpanel>
+                                            </apex:outputpanel>     
+                                        </div>
+                                    </fieldset>
+                                    </apex:actionregion>
+                                </div>
+                            </apex:outputPanel>
+                            </section> 
+                    </apex:outputpanel>
+                    </apex:outputpanel> 
+        <!-----------------------------------BP Benefiting Countries Section ends----------------------------------------------------------------------------------->                      
+        <!-------------------------------- Organization and Plan Section starts---------------------------------------------------------->
+                            <section class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Organization and Plan<span class="icon-large-caret pull-right down"></span></h2>
+                                    <fieldset class="accordion-child">
+                                     
+
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>Lead/Owner</label><span class="required-label"> *</span>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper hide-user-select">
+                                            <apex:inputField value="{!oBP.OwnerId}" styleClass="select-based-lookup required"></apex:inputfield>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>Project Manager</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.PM__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.PM__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper hide-user-select">
+                                            <apex:inputField value="{!oBP.PM__c}" styleClass="select-based-lookup required"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c.Fields.Estimated_Start_Date__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Estimated_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Estimated_Start_Date__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.Estimated_Start_Date__c}" styleClass="required" />
+                                        </div>
+                                    </div>
+
+
+                                    <apex:outputpanel id="ActualStartDateNRBP">
+                                    
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c.Fields.Actual_Start_Date__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Actual_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Actual_Start_Date__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.Actual_Start_Date__c}" />
+                                        </div>
+                                    </div>
+                                    </apex:outputpanel>
+                                    
+
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Estimated_End_Date__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Estimated_End_Date__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Estimated_End_Date__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.Estimated_End_Date__c}" styleClass="required" />
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Other fields here -->
+                                        
+                                    </fieldset>
+                                </div>
+                            </section>
+            <!-------------------------- Organization and Plan Section ends---------------------------------------------------------->
+            <!-- --------------------------Execution Approach Section starts------------------------------------------------------------------------------- -->
+                            <section class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Execution Approach<span class="icon-large-caret pull-right down"></span></h2>
+                                    <fieldset class="accordion-child">
+                                        <apex:outputPanel id="ExecutionApproach">
+                                        <apex:actionregion >
+                                        
+                                <apex:outputPanel id="NonResearchExec">
+                                <apex:outputPanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',true,false)}">
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Executing_Function__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Executing_Function__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Executing_Function__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.Executing_Function__c}" styleClass="required">
+                                                <apex:actionSupport event="onchange" rerender="OtherSubFunction1" action="{!ResetGPORWE}" />
+                                            </apex:inputField>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.GPORWE_Functional_Area__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.GPORWE_Functional_Area__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.GPORWE_Functional_Area__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.GPORWE_Functional_Area__c}" styleClass="required">
+                                                <apex:actionSupport event="onchange" rerender="OtherSubFunction1" />
+                                            </apex:inputField>
+                                        </div>
+                                        </div>
+                                        
+                                        <apex:outputPanel id="OtherSubFunction1">
+                                        <apex:outputpanel rendered="{!IF(oBp.GPORWE_Functional_Area__c =='Other',true,false)}">
+                                            <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c .Fields.Other_Sub_Function__c.Label}</label><span class="required-label"> *</span> 
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Other_Sub_Function__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Other_Sub_Function__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                                <apex:inputField value="{!oBP.Other_Sub_Function__c}" styleClass="required" />
+                                            </div>
+                                            </div>
+                                        </apex:outputPanel>
+                                        </apex:outputPanel>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Function_funding_the_study_project__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Function_funding_the_study_project__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Function_funding_the_study_project__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.Function_funding_the_study_project__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Budget_Category__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Budget_Category__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Budget_Category__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.Budget_Category__c}" styleClass="required"/>
+                                        </div>
+                                        </div>
+
+                                                                                
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Initial_budget_estimate_for_each_item__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Initial_budget_estimate_for_each_item__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Initial_budget_estimate_for_each_item__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.Initial_budget_estimate_for_each_item__c}" styleClass="required" />
+                                            <apex:outputLink styleClass="additional-links pull-right" target="_blank" value="{!$Label.Budget_Estimate_Guidance}">Budget Estimate Guidance</apex:outputLink>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Payee_Description__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Payee_Description__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Payee_Description__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.Payee_Description__c}" />
+                                        </div>
+                                        </div>
+
+                                </apex:outputPanel>
+                                </apex:outputPanel>
+                                    
+                                <apex:outputPanel id="StudyorResearchExec">
+                                <apex:outputPanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.How_will_the_Study_be_executed__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.How_will_the_Study_be_executed__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.How_will_the_Study_be_executed__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:inputField value="{!oBP.How_will_the_Study_be_executed__c}" styleClass="required">
+                                                <apex:actionsupport event="onchange" rerender="TPO,TPOField"/>
+                                                </apex:inputfield> 
+                                            </div>
+                                        </div>
+
+
+                                        <apex:outputPanel id="TPOField">
+                                        <apex:outputPanel rendered="{!IF(oBP.How_will_the_Study_be_executed__c!='TPO',false,true)}">
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.Proposed_TPO__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Proposed_TPO__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Proposed_TPO__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:inputField value="{!oBP.Proposed_TPO__c}" />
+                                            </div>
+                                        </div>
+                                        </apex:outputPanel>
+                                        </apex:outputPanel>
+
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.Conducted_with_an_RWE_partner__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Conducted_with_an_RWE_partner__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Conducted_with_an_RWE_partner__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:inputField value="{!oBP.Conducted_with_an_RWE_partner__c}" styleClass="required">
+                                                <apex:actionsupport event="onchange" rerender="RWEPartner"/>
+                                                </apex:inputfield> 
+                                            </div>
+                                        </div>
+
+
+                                        <apex:outputPanel id="RWEPartner">
+                                        <apex:outputPanel rendered="{!IF(oBP.Conducted_with_an_RWE_partner__c!='Yes',false,true)}">
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.RWE_Partner__c.Label}</label><span class="required-label"> *</span>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.RWE_Partner__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.RWE_Partner__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:inputField value="{!oBP.RWE_Partner__c}" styleClass="required"/>
+                                            </div>
+                                        </div>
+                                        </apex:outputPanel>
+                                        </apex:outputPanel>
+
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Executing_Function__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Executing_Function__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Executing_Function__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.Executing_Function__c}" styleClass="required">
+                                                <apex:actionSupport event="onchange" rerender="OtherSubFunction" action="{!ResetGPORWE}"/>
+                                            </apex:inputField>
+                                        </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.GPORWE_Functional_Area__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.GPORWE_Functional_Area__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.GPORWE_Functional_Area__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.GPORWE_Functional_Area__c}" styleClass="required">
+                                                <apex:actionSupport event="onchange" rerender="OtherSubFunction" />
+                                            </apex:inputField>
+                                        </div>
+                                        </div>
+                                        
+                                        <apex:outputPanel id="OtherSubFunction">
+                                        <apex:outputpanel rendered="{!IF(oBp.GPORWE_Functional_Area__c =='Other',true,false)}">
+                                            <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c .Fields.Other_Sub_Function__c.Label}</label><span class="required-label"> *</span> 
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Other_Sub_Function__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Other_Sub_Function__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel>
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                                <apex:inputField value="{!oBP.Other_Sub_Function__c}" styleClass="required" />
+                                            </div>
+                                            </div>
+                                        </apex:outputPanel>
+                                        </apex:outputPanel>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Indication__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Indication__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Indication__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.Indication__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+                                        
+                                        
+                                    <apex:outputPanel id="TPO">
+                                    <apex:outputPanel rendered="{!IF(oBP.How_will_the_Study_be_executed__c == 'TPO',true,false)}">
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Function_funding_the_study_project__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Function_funding_the_study_project__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Function_funding_the_study_project__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.Function_funding_the_study_project__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Budget_Category__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Budget_Category__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Budget_Category__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.Budget_Category__c}" styleClass="required"/>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Initial_budget_estimate_for_each_item__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Initial_budget_estimate_for_each_item__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Initial_budget_estimate_for_each_item__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:inputField value="{!oBP.Initial_budget_estimate_for_each_item__c}" styleClass="required" />
+                                            <apex:outputLink styleClass="additional-links pull-right" target="_blank" value="{!$Label.Budget_Estimate_Guidance}">Budget Estimate Guidance</apex:outputLink>
+                                        </div>
+                                        </div>
+                                    </apex:outputPanel>
+                                    </apex:outputPanel>
+                                    
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Internal_Statistician_Support__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Internal_Statistician_Support__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Internal_Statistician_Support__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.Internal_Statistician_Support__c}" styleClass="required"/>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Internal_Statistical_Programming_Support__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Internal_Statistical_Programming_Support__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Internal_Statistical_Programming_Support__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.Internal_Statistical_Programming_Support__c}" styleClass="required"/>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.GSC_Support__c.Label}</label><span class="required-label"> *</span>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.GSC_Support__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.GSC_Support__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:inputField value="{!oBP.GSC_Support__c}" styleClass="required"/>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.Is_the_Data_Asset_Known__c.Label}</label>
+                                                <apex:outputPanel rendered="{!IF(OR(oBP.Study_Sub_Type__c=='Secondary Use of Data',oBP.Study_Sub_Type__c=='Primary Data Collection and Secondary Use of Data'),true,false)}">
+                                                <span class="required-label"> *</span>
+                                                </apex:outputpanel>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Is_the_Data_Asset_Known__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Is_the_Data_Asset_Known__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:inputField value="{!oBP.Is_the_Data_Asset_Known__c}" styleClass="{!If(OR(oBP.Study_Sub_Type__c=='Secondary Use of Data',oBP.Study_Sub_Type__c=='Primary Data Collection and Secondary Use of Data'),'required','')}" > 
+                                                <apex:actionsupport event="onchange" rerender="DataAsset"/>
+                                                </apex:inputfield> 
+                                            </div>
+                                        </div>
+                                </apex:outputPanel>
+                                </apex:outputPanel>
+                                        
+                                        </apex:actionRegion>
+                                    </apex:outputPanel>
+                                    </fieldset>
+                                </div>
+                            </section>
+                            <!----------------------------Execution Approach Section ends----------------------------------->
+            <!-- -------------------------------------------------------Related Data Assets Section--------------------------------------------------------------------------------- -->                      
+                            <apex:outputPanel id="DataAsset">
+                            <apex:outputPanel rendered="{!IF(oBP.Is_the_Data_Asset_Known__c!='Yes',false,true)}">
+                            
+                            <section class="row">
+                            <apex:outputPanel rendered="{!IF($CurrentPage.parameters.Id==NULL,false,true)}">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Related Data Assets
+                                    <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Use this section to associate related Data Asset(s) to the Business Planning.</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <apex:actionregion >
+                                    <fieldset class="accordion-child">
+                                    <apex:outputpanel id="RelDataAssetError">
+                                    <apex:outputpanel rendered="{!isRelatedDataAssetError}"> 
+                                    <div class="sfdc-errorMessage font-s">
+                                        <apex:pagemessages escape="false"></apex:pagemessages>
+                                    </div>
+                                    </apex:outputpanel>
+                                    </apex:outputpanel>
+                                        <div class="accordion-content">
+                                            <!-- Add new Related Data Asset section starts -->
+                                            <fieldset class="add-new-item">
+                                                <legend>Add Related Data Asset
+                                                <apex:outputPanel rendered="{!IF(oBP.Is_the_Data_Asset_Known__c=='Yes',true,false)}">
+                                                <span class="required-label"> *</span>
+                                                </apex:outputpanel></legend>
+                                                <apex:inputField value="{!oRelatedDataAsset.RWD_Data_Asset__c}" required="false" styleClass="{!IF(AND(oBP.Is_the_Data_Asset_Known__c=='Yes',lRelatedDataAsset.size==0),'required','')}" />                    
+                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddRelatedDataAsset}" rerender="relDataAssetTable,noRelDataAsset,RelDataAssetError" />
+                                            </fieldset>
+                                            <!-- Add new Related Data Asset section ends -->
+
+                                            <!-- Iteration unit starts -->
+                                            <apex:outputpanel id="relDataAssetTable">
+                                            <apex:outputpanel rendered="{!lRelatedDataAsset.size>0}">
+                                            <apex:repeat value="{!lRelatedDataAsset}" var="oMember">
+                                            <div class="custom-data-row">
+                                                <span class="content"><apex:outputLink value="/{!oMember.Id}">{!oMember.RWD_Data_Asset__r.name}</apex:outputLink></span>
+                                                <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveRelatedDataAsset}" rerender="relDataAssetTable,noRelDataAsset,RelDataAssetError">
+                                                    <apex:param name="teamMember" value="{!oMember.RWD_Data_Asset__c}" assignTo="{!genericID}" />
+                                                </apex:commandlink>
+                                            </div>
+                                            </apex:repeat>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel> 
+                                            
+                                            <apex:outputpanel id="noRelDataAsset">
+                                            <apex:outputpanel rendered="{!lRelatedDataAsset.size==0}">
+                                            <span class="content"><strong>No Related Data Asset</strong></span>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>
+                                        </div>
+                                    </fieldset>
+                                    </apex:actionregion>
+                                </div>
+                            </apex:outputPanel>
+                            </section>
+                            </apex:outputPanel>
+                            </apex:outputPanel>  
+            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+            <section class="row submit">
+                <div class="col-xs-12">
+                    <apex:commandButton action="{!save}" styleclass="submit-study button" value="Save" />
+                    <apex:actionFunction name="doSubmit" action="{!save}" rerender="error" oncomplete="return false;"/>
+                    <apex:outputLink styleClass="button" value="/apex/CreateBP?id={!$CurrentPage.parameters.id}&BPType={!$CurrentPage.parameters.BPType}&isEdit=false">Cancel</apex:outputLink>
+                </div>
+            </section>
+            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+            </apex:form>
+            </apex:outputpanel>
+<!------~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  EDIT BP Form ends  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~---->
+
+
+<!---~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Saved BP Form starts ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id != NULL,OR($CurrentPage.parameters.isEdit=='false',$CurrentPage.parameters.isEdit==NULL)),true,false)}">
+        <chatter:feedWithFollowers entityId="{!$CurrentPage.parameters.id}"/> 
+        <apex:form Styleclass="create-study-form accordion">
+
+
+            <!---------------------------------------------------------Buttons Section on the top---------------------------------------------------------------------------------------------->
+                    <section class="row submit">
+                        <div class="col-xs-12">
+                            <apex:commandButton styleClass="button" value="Edit" action="{!EditRecord}"/>
+                            <apex:outputLink styleClass="button" value="/apex/CloneBP?id={!$CurrentPage.parameters.id}&isVFClone=TRUE">Clone</apex:outputLink>
+                        </div>
+                    </section>
+
+
+                    <!-------------------------------- BP Information Section starts---------------------------------------------------------->
+            <section class="row">
+                <div class="col-xs-12">
+                    <h2 class="accordion-parent">Information<span class="icon-large-caret pull-right down"></span></h2>
+                    <fieldset class="accordion-child">
+                    <apex:outputPanel id="BPInformation">
+                    <apex:actionregion >
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="additional-links pull-right">
+                                <a href="/{!oBP.id}">View Additional Details</a>
+                            </div>
+                       </div>
+                    </div>
+                     
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Name.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Name.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Name.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Name}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Business_Planning_Cycle_Type__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Business_Planning_Cycle_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Business_Planning_Cycle_Type__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Business_Planning_Cycle_Type__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Business_Plan_Year__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Business_Plan_Year__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Business_Plan_Year__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Business_Plan_Year__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Prioritization_Rank__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Prioritization_Rank__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Prioritization_Rank__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Prioritization_Rank__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Unique_Local_Identifier__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Unique_Local_Identifier__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Unique_Local_Identifier__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Unique_Local_Identifier__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Title__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Title__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Title__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Title__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Description__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Description__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Description__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Description__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Business_Critical_Rationale__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Business_Critical_Rationale__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Business_Critical_Rationale__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Business_Critical_Rationale__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Notes__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Notes__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Notes__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Notes__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.BPType__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.BPType__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.BPType__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.BPType__c}"  styleClass="required" >
+                            <apex:actionsupport event="onchange" rerender="EditBPPanel,OnlyStudy,ResearchOrStudy,ResearchOrStudy2,ActualStartDateNRBP,Study2Sections,StudyorResearchExec,NonResearchExec" oncomplete="qfor.createStudy.accordion();" />
+                            </apex:outputfield>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Study_Type__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Study_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Study_Type__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:outputfield value="{!oBP.Study_Type__c}" styleClass="required" />
+                        </div>
+                    </div>
+
+                    <!--  ~~~~~~~~~~~~ EXTRA STUDY FIELDS ~~~~~~~~~~~~~~~~ -->
+                    <apex:outputpanel id="OnlyStudy">
+                    <apex:outputpanel rendered="{!IF(oBP.BPType__c=='Study',true,false)}">
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Study_Sub_Type__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Study_Sub_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Study_Sub_Type__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:outputfield value="{!oBP.Study_Sub_Type__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Observational_Study_Details__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Observational_Study_Details__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Observational_Study_Details__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:outputfield value="{!oBP.Observational_Study_Details__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    </apex:outputpanel>
+                    </apex:outputpanel>
+
+                    <!--  ~~~~~~~~~~~~ EXTRA STUDY or Research FIELDS ~~~~~~~~~~~~~~~~ -->
+                    <apex:outputpanel id="ResearchOrStudy">
+                    <apex:outputpanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Therapeutic_Area_Primary__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Therapeutic_Area_Primary__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Therapeutic_Area_Primary__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                            <apex:outputfield value="{!oBP.Therapeutic_Area_Primary__c}" styleClass="required" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Disease_State__c .Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Disease_State__c .inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Disease_State__c .inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Disease_State__c }"></apex:outputfield>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Study_Region__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Study_Region__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Study_Region__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Study_Region__c}"></apex:outputfield>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Primary_Value_Area__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Primary_Value_Area__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Primary_Value_Area__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Primary_Value_Area__c}"></apex:outputfield>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Target_Audience__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Target_Audience__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Target_Audience__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Target_Audience__c}"></apex:outputfield>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Primary_Purpose__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Primary_Purpose__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Primary_Purpose__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Primary_Purpose__c}"></apex:outputfield>
+                            <div class="col-xs-6 pull-right">
+                               <div class="additional-links">
+                                    <a href="http://lillynetcollaboration.global.lilly.com/sites/RWE/Pangaea%20Training%20Help/Primary%20Purpose%20and%20Primary%20Value%20Area%20Guidance%20Document.docx" target="_blank">Help Document</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </apex:outputpanel>
+                    </apex:outputpanel>
+                    
+                    <!-- ~~~~~~~~~~~ EXTRA STUDY and Research FIELDS end ~~~~~~~~~~~~~ -->
+
+                     <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Business_Unit_Primary__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Business_Unit_Primary__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Business_Unit_Primary__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Business_Unit_Primary__c}"></apex:outputfield>
+                        </div>
+                    </div>
+
+                    <apex:outputpanel id="ResearchOrStudy2">
+                    <apex:outputpanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Part_of_Holistic_Evidence_Plan_HEP__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Part_of_Holistic_Evidence_Plan_HEP__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Part_of_Holistic_Evidence_Plan_HEP__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Part_of_Holistic_Evidence_Plan_HEP__c}"></apex:outputfield>
+                        </div>
+                    </div>
+                    </apex:outputpanel>
+                    </apex:outputpanel>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Business_Planning__c .Fields.Approver_Table__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Approver_Table__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Approver_Table__c.inlinehelptext}</span></div>          
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputfield value="{!oBP.Approver_Table__c}"></apex:outputfield>
+                        </div>
+                    </div>
+                    
+                    </apex:actionRegion>
+                    </apex:outputPanel>
+                    </fieldset>
+                </div>
+            </section>
+            <!-------------------------------- Information Section ends---------------------------------------------------------->
+            <!-- ---------------------------Molecules Section starts--------------------------------------------------------------------------------- -->                      
+                    <apex:outputpanel id="Study2Sections">
+                    <apex:outputpanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                    
+                        <section class="row">
+                            <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Molecules
+                                            <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Select the related Molecules. Use * after the first few letters to search across the multiple names used for a molecule.</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <apex:actionregion >
+                                    <fieldset class="accordion-child">
+                                    <apex:outputPanel id="moleculessection">
+                                        <apex:outputpanel id="MoleculesError">
+                                            <apex:outputpanel rendered="{!isMoleculeError}">
+                                            <div class="sfdc-errorMessage font-s">
+                                                <apex:pagemessages escape="false"></apex:pagemessages>
+                                            </div>
+                                            </apex:outputpanel>
+                                        </apex:outputpanel>
+                                        <div class="accordion-content">
+                                            <!-- Add new BP Molecule section starts -->
+                                            <fieldset class="add-new-item">
+                                                <legend>Add Molecule</legend>
+                                                <apex:inputField value="{!oBPMolecule.RWE_Molecule__c}" required="false"/>                    
+                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddMolecule}" rerender="theMolTable,noMolecules,MoleculesError" />
+                                            </fieldset>
+                                            <!-- Add new BP Molecule section ends -->
+                                            
+                                            <!-- Iteration unit starts -->
+                                            <apex:outputpanel id="theMolTable">
+                                            <apex:outputpanel rendered="{!lBPMolecules.size>0}">
+                                            <apex:repeat value="{!lBPMolecules}" var="oMember">
+                                            <div class="custom-data-row">
+                                                <span class="content">{!oMember.RWE_Molecule__r.name}</span>
+                                                <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveMolecule}" rerender="theMolTable,noMolecules,MoleculesError">
+                                                    <apex:param name="genericID" value="{!oMember.RWE_Molecule__c}" assignTo="{!genericID}" />
+                                                </apex:commandlink>
+                                            </div>
+                                            </apex:repeat>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>
+                                            <!-- Iteration unit ends -->
+                                            
+                                            <apex:outputpanel id="noMolecules">
+                                            <apex:outputpanel rendered="{!lBPMolecules.size==0}">
+                                            <span class="content"><strong>No Molecules</strong></span>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>                                            
+                                        </div>
+                                        
+                                    </apex:outputpanel>
+                                    </fieldset>
+                                    </apex:actionregion>
+                                </div>
+                            </section>
+
+            <!-----------------------------Molecules Section ends----------------------------------------------------------------------------------->                      
+            <!-- ---------------------------Tpo Section starts--------------------------------------------------------------------------------- -->                      
+                    
+                    
+                        <section class="row">
+                            <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Proposed TPO
+                                            <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Select the Proposed TPO. Use * after the first few letters to search across the multiple names used for a TPO.</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <apex:actionregion >
+                                    <fieldset class="accordion-child">
+                                    <apex:outputPanel id="ProposedTPOssection">
+                                        <apex:outputpanel id="ProposedTPOsError">
+                                            <apex:outputpanel rendered="{!isProposedTPO}">
+                                            <div class="sfdc-errorMessage font-s">
+                                                <apex:pagemessages escape="false"></apex:pagemessages>
+                                            </div>
+                                            </apex:outputpanel>
+                                        </apex:outputpanel>
+                                        <div class="accordion-content">
+                                            <!-- Add new BP Molecule section starts -->
+                                            <fieldset class="add-new-item">
+                                                <legend>Add TPO</legend>
+                                                <apex:inputField value="{!oBPTPO.RWE_TPO_Location__c}" required="false"/>                    
+                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddTPO}" rerender="theTPOTable,noTPO,ProposedTPOsError" />
+                                            </fieldset>
+                                            <!-- Add new BP Molecule section ends -->
+                                            
+                                            <!-- Iteration unit starts -->
+                                            <apex:outputpanel id="theTPOTable">
+                                            <apex:outputpanel rendered="{!lBPTPOs.size>0}">
+                                            <apex:repeat value="{!lBPTPOs}" var="oBPPROTPOs">
+                                            <div class="custom-data-row">
+                                                <span class="content">{!oBPPROTPOs.RWE_TPO_Location__r.name}</span>
+                                                <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveBPTPO}" rerender="theTPOTable,noTPO,ProposedTPOsError">
+                                                    <apex:param name="genericID" value="{!oBPPROTPOs.RWE_TPO_Location__c}" assignTo="{!genericID}" />
+                                                </apex:commandlink>
+                                            </div>
+                                            </apex:repeat>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>
+                                            <!-- Iteration unit ends -->
+                                            
+                                            <apex:outputpanel id="noTPO">
+                                            <apex:outputpanel rendered="{!lBPTPOs.size==0}">
+                                            <span class="content"><strong>No TPO</strong></span>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>                                            
+                                        </div>
+                                        
+                                    </apex:outputpanel>
+                                    </fieldset>
+                                    </apex:actionregion>
+                                </div>
+                            </section>
+
+            <!-- ---------------------------Tpo Section ends--------------------------------------------------------------------------------- -->                           
+            
+            <!-- ---------------------BP Benefiting Countries Section starts--------------------------------------------------------------------------------- -->                      
+                            <section class="row">
+                            <apex:outputPanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Countries benefiting from Study/Project
+                                    <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Choose the countries that will primarily benefit (i.e. if a country requests a Study/Project, then they should be chosen as the benefactor). If numerous countries benefit that make it impractical to enter, leave field blank.</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <apex:actionregion >
+                                    <fieldset class="accordion-child">
+                                        <apex:outputpanel id="BftError">
+                                            <apex:outputpanel rendered="{!isBPBnftCError}">
+                                            <div class="sfdc-errorMessage font-s">
+                                                <apex:pagemessages escape="false"></apex:pagemessages>
+                                            </div>
+                                            </apex:outputpanel>
+                                        </apex:outputpanel>
+                                        <div class="accordion-content">
+                                            <!-- Add new BP Benefiting Country section starts -->
+                                            <fieldset class="add-new-item">
+                                                <legend>Add Benefiting Country</legend>
+                                                <apex:inputField value="{!oBPBenefitingCountry.RWE_Country__c}" required="false" />                    
+                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddBPBenefitingCountry}" rerender="theBnftCntryTable,noBnftCountries,BftError" />
+                                            </fieldset>
+                                            <!-- Add new BP Benefiting Country section ends -->
+
+                                            <!-- Iteration unit starts -->
+                                            <apex:outputpanel id="theBnftCntryTable">
+                                                <apex:outputpanel rendered="{!lBPBenefitingCountries.size>0}">
+                                                <apex:repeat value="{!lBPBenefitingCountries}" var="oMember">
+                                                <div class="custom-data-row">
+                                                    <span class="content">{!oMember.RWE_Country__r.name}</span>
+                                                    <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveBPBenefitingCountry}" rerender="theBnftCntryTable,noBnftCountries,BftError">
+                                                        <apex:param name="genericID" value="{!oMember.RWE_Country__c}" assignTo="{!genericID}" />
+                                                    </apex:commandlink>
+                                                </div>
+                                                </apex:repeat>
+                                                </apex:outputpanel>
+                                            </apex:outputpanel>
+                                            <!-- Iteration unit ends -->
+                                            
+                                            <apex:outputpanel id="noBnftCountries">
+                                                <apex:outputpanel rendered="{!lBPBenefitingCountries.size==0}">
+                                                <span class="content"><strong>No Benefiting Countries</strong></span>
+                                                </apex:outputpanel>
+                                            </apex:outputpanel>     
+                                        </div>
+                                    </fieldset>
+                                    </apex:actionregion>
+                                </div>
+                            </apex:outputPanel>
+                            </section> 
+                    </apex:outputpanel>
+                    </apex:outputpanel> 
+        <!-----------------------------------BP Benefiting Countries Section ends----------------------------------------------------------------------------------->                      
+        <!-------------------------------- Organization and Plan Section starts---------------------------------------------------------->
+                            <section class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Organization and Plan<span class="icon-large-caret pull-right down"></span></h2>
+                                    <fieldset class="accordion-child">
+                                     
+
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>Lead/Owner</label>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper hide-user-select">
+                                            <apex:outputfield value="{!oBP.OwnerId}"></apex:outputfield>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>Project Manager</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.PM__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.PM__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper hide-user-select">
+                                            <apex:outputfield value="{!oBP.PM__c}"></apex:outputfield>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c.Fields.Estimated_Start_Date__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Estimated_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Estimated_Start_Date__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.Estimated_Start_Date__c}"></apex:outputfield>
+                                        </div>
+                                    </div>
+
+                                    <apex:outputpanel id="ActualStartDateNRBP" >
+                                    
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c.Fields.Actual_Start_Date__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Actual_Start_Date__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Actual_Start_Date__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.Actual_Start_Date__c}"></apex:outputfield>
+                                        </div>
+                                    </div>
+                                    
+                                    </apex:outputpanel>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Estimated_End_Date__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Estimated_End_Date__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Estimated_End_Date__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.Estimated_End_Date__c}"></apex:outputfield>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Other fields here -->
+                                        
+                                    </fieldset>
+                                </div>
+                            </section>
+            <!-------------------------- Organization and Plan Section ends---------------------------------------------------------->
+            <!-- --------------------------Execution Approach Section starts------------------------------------------------------------------------------- -->
+                            <section class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Execution Approach<span class="icon-large-caret pull-right down"></span></h2>
+                                    <fieldset class="accordion-child">
+                                        <apex:outputPanel id="ExecutionApproach">
+                                        <apex:actionregion >
+                                        
+                                <apex:outputPanel id="NonResearchExec">
+                                <apex:outputPanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',true,false)}">
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Executing_Function__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Executing_Function__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Executing_Function__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.Executing_Function__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.GPORWE_Functional_Area__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.GPORWE_Functional_Area__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.GPORWE_Functional_Area__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.GPORWE_Functional_Area__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+                                        
+                                        <apex:outputPanel id="OtherSubFunction1">
+                                        <apex:outputpanel rendered="{!IF(oBp.GPORWE_Functional_Area__c =='Other',true,false)}">
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Other_Sub_Function__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Other_Sub_Function__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Other_Sub_Function__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Other_Sub_Function__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+                                        </apex:outputpanel>
+                                        </apex:outputpanel>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Function_funding_the_study_project__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Function_funding_the_study_project__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Function_funding_the_study_project__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Function_funding_the_study_project__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Budget_Category__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Budget_Category__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Budget_Category__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Budget_Category__c}" />
+                                        </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Initial_budget_estimate_for_each_item__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Initial_budget_estimate_for_each_item__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Initial_budget_estimate_for_each_item__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Initial_budget_estimate_for_each_item__c}" styleClass="required" />
+                                            <apex:outputLink styleClass="additional-links pull-right" target="_blank" value="{!$Label.Budget_Estimate_Guidance}">Budget Estimate Guidance</apex:outputLink>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Payee_Description__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Payee_Description__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Payee_Description__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.Payee_Description__c}" />
+                                        </div>
+                                        </div>
+
+                                </apex:outputPanel>
+                                </apex:outputPanel>
+                                    
+                                <apex:outputPanel id="StudyorResearchExec">
+                                <apex:outputPanel rendered="{!IF(oBP.BPType__c=='Non-Research Project',false,true)}">
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.How_will_the_Study_be_executed__c.Label}</label> 
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.How_will_the_Study_be_executed__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.How_will_the_Study_be_executed__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:outputfield value="{!oBP.How_will_the_Study_be_executed__c}" styleClass="required">
+                                                <apex:actionsupport event="onchange" rerender="TPO"/>
+                                                </apex:outputfield> 
+                                            </div>
+                                        </div>
+
+
+                                        <apex:outputPanel id="TPOField">
+                                        <apex:outputPanel rendered="{!IF(oBP.How_will_the_Study_be_executed__c!='TPO',false,true)}">
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.Proposed_TPO__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Proposed_TPO__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Proposed_TPO__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:outputfield value="{!oBP.Proposed_TPO__c}" />
+                                            </div>
+                                        </div>
+                                        </apex:outputPanel>
+                                        </apex:outputPanel>
+
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.Conducted_with_an_RWE_partner__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Conducted_with_an_RWE_partner__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Conducted_with_an_RWE_partner__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:outputfield value="{!oBP.Conducted_with_an_RWE_partner__c}" styleClass="required">
+                                                <apex:actionsupport event="onchange" rerender="RWEPartner"/>
+                                                </apex:outputfield> 
+                                            </div>
+                                        </div>
+
+
+                                        <apex:outputPanel id="RWEPartner">
+                                        <apex:outputPanel rendered="{!IF(oBP.Conducted_with_an_RWE_partner__c!='Yes',false,true)}">
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.RWE_Partner__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.RWE_Partner__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.RWE_Partner__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:outputfield value="{!oBP.RWE_Partner__c}" styleClass="required"/>
+                                            </div>
+                                        </div>
+                                        </apex:outputPanel>
+                                        </apex:outputPanel>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Executing_Function__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Executing_Function__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Executing_Function__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.Executing_Function__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.GPORWE_Functional_Area__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.GPORWE_Functional_Area__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.GPORWE_Functional_Area__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.GPORWE_Functional_Area__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+                                        
+                                        <apex:outputPanel id="OtherSubFunction">
+                                        <apex:outputpanel rendered="{!IF(oBp.GPORWE_Functional_Area__c =='Other',true,false)}"><div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Other_Sub_Function__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Other_Sub_Function__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Other_Sub_Function__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Other_Sub_Function__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+                                        </apex:outputpanel>
+                                        </apex:outputpanel>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Indication__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Indication__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Indication__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Indication__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+                                        
+                                    <apex:outputPanel id="TPO">
+                                    <apex:outputPanel rendered="{!IF(oBP.How_will_the_Study_be_executed__c == 'TPO',true,false)}">
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Function_funding_the_study_project__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Function_funding_the_study_project__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Function_funding_the_study_project__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Function_funding_the_study_project__c}" styleClass="required" />
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Budget_Category__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Budget_Category__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Budget_Category__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Budget_Category__c}"/>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Initial_budget_estimate_for_each_item__c.Label}</label> 
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Initial_budget_estimate_for_each_item__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Initial_budget_estimate_for_each_item__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper validate-if-enabled">
+                                            <apex:outputfield value="{!oBP.Initial_budget_estimate_for_each_item__c}" styleClass="required" />
+                                            <apex:outputLink styleClass="additional-links pull-right" target="_blank" value="{!$Label.Budget_Estimate_Guidance}">Budget Estimate Guidance</apex:outputLink>
+                                        </div>
+                                        </div>
+                                    </apex:outputPanel>
+                                    </apex:outputPanel>
+                                    
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Internal_Statistician_Support__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Internal_Statistician_Support__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Internal_Statistician_Support__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.Internal_Statistician_Support__c}"/>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.Internal_Statistical_Programming_Support__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Internal_Statistical_Programming_Support__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Internal_Statistical_Programming_Support__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.Internal_Statistical_Programming_Support__c}"/>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-xs-6 label-wrapper">
+                                            <label>{!$ObjectType.Business_Planning__c .Fields.GSC_Support__c.Label}</label>
+                                            <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.GSC_Support__c.inlinehelptext != NULL,true,false)}">
+                                            <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.GSC_Support__c.inlinehelptext}</span></div>          
+                                            </apex:outputpanel>
+                                        </div>
+                                        <div class="col-xs-6 field-wrapper">
+                                            <apex:outputfield value="{!oBP.GSC_Support__c}"/>
+                                        </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-6 label-wrapper">
+                                                <label>{!$ObjectType.Business_Planning__c.Fields.Is_the_Data_Asset_Known__c.Label}</label>
+                                                <apex:outputpanel rendered="{!IF($ObjectType.Business_Planning__c.Fields.Is_the_Data_Asset_Known__c.inlinehelptext != NULL,true,false)}">
+                                                <div class="helpOrb tooltip"><span>{!$ObjectType.Business_Planning__c.Fields.Is_the_Data_Asset_Known__c.inlinehelptext}</span></div>          
+                                                </apex:outputpanel> 
+                                            </div>
+                                            <div class="col-xs-6 field-wrapper">
+                                                <apex:outputfield value="{!oBP.Is_the_Data_Asset_Known__c}" styleClass="{!If(oBP.Study_Sub_Type__c!='Secondary Use of Data','','required')}" > 
+                                                <apex:actionsupport event="onchange" rerender="DataAsset"/>
+                                                </apex:outputfield> 
+                                            </div>
+                                        </div>
+                                        
+                            </apex:outputPanel>
+                            </apex:outputPanel>
+                                        
+                                        </apex:actionRegion>
+                                    </apex:outputPanel>
+                                    </fieldset>
+                                </div>
+                            </section>
+                            <!----------------------------Execution Approach Section ends----------------------------------->
+                    <!-- --------------------------------Related Data Assets Section-------------------------------------------------- -->                      
+                            <apex:outputPanel id="DataAsset">
+                            <apex:outputPanel rendered="{!IF(OR(oBP.Is_the_Data_Asset_Known__c=='Yes',lRelatedDataAsset.size>0),true,false)}">
+                            
+                            <section class="row">
+                            <apex:outputPanel rendered="{!IF($CurrentPage.parameters.Id==NULL,false,true)}">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Related Data Assets
+                                    <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Use this section to associate related Data Asset(s) to the Business Planning.</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <apex:actionregion >
+                                    <fieldset class="accordion-child">
+                                    <apex:outputpanel id="RelDataAssetError">
+                                    <apex:outputpanel rendered="{!isRelatedDataAssetError}"> 
+                                    <div class="sfdc-errorMessage font-s">
+                                        <apex:pagemessages escape="false"></apex:pagemessages>
+                                    </div>
+                                    </apex:outputpanel>
+                                    </apex:outputpanel>
+                                        <div class="accordion-content">
+                                            <!-- Add new Related Data Asset section starts -->
+                                            <fieldset class="add-new-item">
+                                                <legend>Add Related Data Asset</legend>
+                                                <apex:inputField value="{!oRelatedDataAsset.RWD_Data_Asset__c}" required="false" />                    
+                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddRelatedDataAsset}" rerender="relDataAssetTable,noRelDataAsset,RelDataAssetError" />
+                                            </fieldset>
+                                            <!-- Add new Related Data Asset section ends -->
+
+                                            <!-- Iteration unit starts -->
+                                            <apex:outputpanel id="relDataAssetTable">
+                                            <apex:outputpanel rendered="{!lRelatedDataAsset.size>0}">
+                                            <apex:repeat value="{!lRelatedDataAsset}" var="oMember">
+                                            <div class="custom-data-row">
+                                                <span class="content"><apex:outputLink value="/{!oMember.Id}">{!oMember.RWD_Data_Asset__r.name}</apex:outputLink></span>
+                                                <apex:commandlink styleclass="remove-custom-data-row" value="remove" action="{!RemoveRelatedDataAsset}" rerender="DataAsset,relDataAssetTable,noRelDataAsset,RelDataAssetError">
+                                                    <apex:param name="teamMember" value="{!oMember.RWD_Data_Asset__c}" assignTo="{!genericID}" />
+                                                </apex:commandlink>
+                                            </div>
+                                            </apex:repeat>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel> 
+                                            
+                                            <apex:outputpanel id="noRelDataAsset">
+                                            <apex:outputpanel rendered="{!lRelatedDataAsset.size==0}">
+                                            <span class="content"><strong>No Related Data Asset</strong></span>
+                                            </apex:outputpanel>
+                                            </apex:outputpanel>
+                                        </div>
+                                    </fieldset>
+                                    </apex:actionregion>
+                                </div>
+                            </apex:outputPanel>
+                            </section>
+                            </apex:outputPanel>
+                            </apex:outputPanel>  
+
+            <!-- -------------------------------------------------------Buttons Section on bottom-------------------------------------------------------------------------------------------- -->
+                    <section class="row submit">
+                        <div class="col-xs-12">
+                            <apex:commandButton styleClass="button" value="Edit" action="{!EditRecord}" />
+                            <apex:outputLink styleClass="button" value="/apex/CloneBP?id={!$CurrentPage.parameters.id}&isVFClone=TRUE">Clone</apex:outputLink>
+                        </div>
+                    </section>
+            <!-- -------------------------------------------------------Buttons Section on bottom-------------------------------------------------------------------------------------------- -->
+            
+
+        </apex:form>
+    </apex:outputpanel>
+    </main>
+            
+    </div>
+    </div>
+    <c:QFOR_FooterComponent />
+    <c:Webtrends_Tracker />
+    </body>
+</apex:page>

@@ -82,10 +82,12 @@ Public with Sharing CLass AccountTriggerHandler{
                 }
             }
         }
-        
-        Insert lTasks;
-        Update lContacts;
-        
+        If(!lTasks.isEmpty()){
+            Insert lTasks;
+        }
+        If(!lContacts.isEmpty()){
+            Update lContacts;
+        }
     }
 
 }

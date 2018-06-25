@@ -701,63 +701,106 @@
                             </section>
                             </apex:outputPanel>
 <!-- -------------------------------------------------------Study Team Members Section--------------------------------------------------------------------------------- -->                      
-                             <apex:outputPanel id="ResearchTeamMembers">
-                            <section class="row">
+                             <section class="row">
                                 <div class="col-xs-12">
                                     <h2 class="accordion-parent">Team Members
-                                    <!-- HELP ORB Markup HERE -->
-                                    <span class="helpOrb tooltip">
-                                        <span>Whoever needs to have “Edit” access to the Study record or associated Checklist should be added to this section.</span>
-                                    </span>
-                                    <span class="icon-large-caret pull-right down"></span>
+                                        <!-- HELP ORB Markup HERE -->
+                                        <span class="helpOrb tooltip">
+                                            <span>Whoever needs to have “Edit” access to the Study record or associated Checklist should be added to this section.</span>
+                                        </span>
+                                        <span class="icon-large-caret pull-right down"></span>
                                     </h2>
                                     <apex:actionregion >
-                                    <fieldset class="accordion-child">
-                                    <apex:outputpanel id="StudyTeamErr">
-                                        <apex:outputpanel rendered="{!isStudyTeamError}">
-                                            <div class="sfdc-errorMessage font-s">
-                                                <apex:pagemessages escape="false"></apex:pagemessages>
-                                            </div>
-                                        </apex:outputpanel>
-                                    </apex:outputpanel>
-                                         <div class="accordion-content">
-                                            <!-- Add new team member section starts -->
-                                            <fieldset class="add-new-item">
-                                                <legend>Add team member</legend>
-                                                <apex:inputField value="{!oProjectShare.UserOrGroupId}" required="false" />                    
-                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddStudyTeamMember}" rerender="theTable,StudyTeamErr,noMembers" />
+                                        <fieldset class="accordion-child">
+                                            <apex:outputpanel id="StudyTeamError">
+                                                <apex:outputpanel rendered="{!isStudyCountryError}">
+                                                    <div class="sfdc-errorMessage font-s">
+                                                        <apex:pagemessages escape="false"></apex:pagemessages>
+                                                    </div>
+                                                </apex:outputpanel>
+                            <div class="accordion-content">
+                                <apex:outputPanel id="teamMemPanelEdit" >
+                                    <apex:actionRegion >
+                                        <fieldset class="add-new-item hidden-xs">
+                                            <legend>Add Team Member</legend>
+                                            <apex:inputField value="{!oProjectShare.UserOrGroupId}" required="false" />                    
+                                            <apex:commandButton styleClass="btn button" value="Add" action="{!AddStudyTeamMember}" rerender="teamMemPanelEdit,tableClassEdit"/> <!-- rerender="theTable,StudyTeamError,noMembers" -->
+                                            <apex:commandButton styleClass="btn button" value="Save" action="{!SaveTeamMember}" rerender="teamMemPanelEdit,lStudyTeamEdit"/>
+                                        </fieldset>
+                                        <apex:outputpanel id="theTableEdit">
+                                            <table class="table table-bordered table-hover table-striped" id="tableClassEdit">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-xs-3">Member Name</th>
+                                                        <th class="col-xs-3">Role</th>
+                                                        <th class="col-xs-3">Forecasted Hours</th>
+                                                        <th class="col-xs-3">Actual Hours</th>
+                                                        <th class="col-xs-3">Start Date</th>
+                                                        <th class="col-xs-3">End Date</th>
+                                                        <th class="col-xs-3">Remove Team Member</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <apex:repeat value="{!lStudyTeam}" var="oSTMembr" id="lStudyTeamEdit">
+                                                        <tr>
+                                                            <td>
+                                                                <apex:outputPanel rendered="{!oSTMembr.Team_Member__c != NULL}">
+                                                                    {!mUserIdToName[oSTMembr.Team_Member__c].FirstName + ' ' + mUserIdToName[oSTMembr.Team_Member__c].LastName}
+                                                                </apex:outputPanel>
+                                                            </td>
+                                                            <td>
+                                                                <apex:outputPanel rendered="{!oSTMembr.Id == NULL}">
+                                                                    <apex:SelectList value="{!oSTMembr.Role__c}" size="1">
+                                                                        <apex:SelectOptions value="{!MemberRoles}" />
+                                                                    </apex:SelectList>
+                                                                </apex:outputPanel>
+                                                                <apex:outputPanel rendered="{!oSTMembr.Id != NULL}">
+                                                                    <apex:outputField value="{!oSTMembr.Role__c}" />
+                                                                </apex:outputPanel>
+                                                            </td>
+                                                            <td>
+                                                                <apex:inputfield value="{!oSTMembr.Forecast_Weekly_Hours__c}" rendered="{!oSTMembr.Id == NULL}"/>
+                                                                <apex:outputfield value="{!oSTMembr.Forecast_Weekly_Hours__c}" rendered="{!oSTMembr.Id != NULL}"/>
+                                                            </td>
+                                                            <td>
+                                                                <apex:inputfield value="{!oSTMembr.Actual_Weekly_Hours__c}" rendered="{!oSTMembr.Id == NULL}"/>
+                                                                <apex:outputfield value="{!oSTMembr.Actual_Weekly_Hours__c}" rendered="{!oSTMembr.Id != NULL}"/>
+                                                            </td>
+                                                            <td>
+                                                                <apex:inputfield value="{!oSTMembr.Start_Date__c}" required="false" rendered="{!oSTMembr.Id == NULL}"/>
+                                                                <apex:outputfield value="{!oSTMembr.Start_Date__c}" rendered="{!oSTMembr.Id != NULL}"/>
+                                                            </td>
+                                                            <td>
+                                                                <apex:inputfield value="{!oSTMembr.End_Date__c}" required="false" rendered="{!oSTMembr.Id == NULL}"/>
+                                                                <apex:outputfield value="{!oSTMembr.End_Date__c}" rendered="{!oSTMembr.Id != NULL}"/>
+                                                            </td>
+                                                            <td>
+                                                                <apex:outputPanel rendered="{!oSTMembr.Id != NULL}">
+                                                                    <apex:commandLink value="Remove" action="{!delTeamMember}" rerender="teamMemPanelEdit,tableClassEdit">
+                                                                        <apex:param name="osTeamMember" value="{!oSTMembr.Id}" assignTo="{!osTeamMember}" />
+                                                                    </apex:commandLink>
+                                                                </apex:outputPanel>
+                                                            </td>
+                                                        </tr>
+                                                    </apex:repeat>
+                                                </tbody>
                                                 
-                                            </fieldset>
-                                            <!-- Add new team member section ends -->
-                                            
-                                             <!-- Iteration unit starts -->
-                                            <apex:outputpanel id="theTable">
-                                            <apex:outputpanel rendered="{!lStudyTeamMembers.size>0}">
-                                            <apex:repeat value="{!lStudyTeamMembers}" var="oMember">
-                                            <div class="custom-data-row">
-                                                <span class="content"><apex:outputLink value="/{!oMember.Id}">{!oMember.Name}</apex:outputLink></span>
-                                                <apex:commandlink value="remove" styleclass="remove-custom-data-row" action="{!RemoveStudyTeamMember}" rerender="theTable,noMembers">
-                                                    <apex:param name="teamMember" value="{!oMember.id}" assignTo="{!teamMember}" />
-                                                </apex:commandlink>
-                                           </div>
-                                           
-                                            </apex:repeat>
+                                            </table>
+                                        </apex:outputpanel>
+                                        <apex:outputpanel id="noMembersEdit">
+                                            <apex:outputpanel rendered="{!lStudyTeam.size==0}">
+                                                <span class="content"><strong>No Team Members</strong></span>
                                             </apex:outputpanel>
+                                        </apex:outputpanel>
+                                    </apex:actionRegion>
+                                </apex:outputpanel>
+                            </div>
+                                                
                                             </apex:outputpanel>
-                                            
-                                            <apex:outputpanel id="noMembers">
-                                            <apex:outputpanel rendered="{!lStudyTeamMembers.size==0}">
-                                            <span class="content"><strong>No Team Members</strong></span>
-                                            </apex:outputpanel>
-                                            </apex:outputpanel>
-                                            
-                                        </div>
-                                        
-                                    </fieldset>
-                                    </apex:actionregion>
-                                </div>
-                            </section>
-                            </apex:outputPanel>
+											</fieldset>
+											</apex:actionregion>
+											</div>
+											</section>
                             <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
                             <section class="row submit">
                                 <div class="col-xs-12">
@@ -1304,56 +1347,205 @@
                             <section class="row">
                                 <div class="col-xs-12">
                                     <h2 class="accordion-parent">Team Members
-                                    <!-- HELP ORB Markup HERE -->
-                                    <span class="helpOrb tooltip">
-                                        <span>Whoever needs to have “Edit” access to the Study record or associated Checklist should be added to this section.</span>
-                                    </span>
-                                    <span class="icon-large-caret pull-right down"></span>
+                                        <!-- HELP ORB Markup HERE -->
+                                        <span class="helpOrb tooltip">
+                                            <span>Whoever needs to have “Edit” access to the Study record or associated Checklist should be added to this section.</span>
+                                        </span>
+                                        <span class="icon-large-caret pull-right down"></span>
                                     </h2>
                                     <apex:actionregion >
-                                    <fieldset class="accordion-child">
-                                    <apex:outputpanel id="StudyTeamError">
-                                        <apex:outputpanel rendered="{!isStudyCountryError}">
-                                            <div class="sfdc-errorMessage font-s">
-                                                <apex:pagemessages escape="false"></apex:pagemessages>
-                                            </div>
+                                        <fieldset class="accordion-child">
+                                            <apex:outputpanel id="StudyTeamError">
+                                                <apex:outputpanel rendered="{!isStudyCountryError}">
+                                                    <div class="sfdc-errorMessage font-s">
+                                                        <apex:pagemessages escape="false"></apex:pagemessages>
+                                                    </div>
+                                                </apex:outputpanel>
+                            <div class="accordion-content">
+                                <apex:outputPanel id="teamMemPanelEdit" >
+                                    <apex:actionRegion >
+                                        <fieldset class="add-new-item hidden-xs">
+                                            <legend>Add Team Member</legend>
+                                            <apex:inputField value="{!oProjectShare.UserOrGroupId}" required="false" />                    
+                                            <apex:commandButton styleClass="btn button" value="Add" action="{!AddStudyTeamMember}" rerender="teamMemPanelEdit,tableClassEdit"/> <!-- rerender="theTable,StudyTeamError,noMembers" -->
+                                            <apex:commandButton styleClass="btn button" value="Save" action="{!SaveTeamMember}" rerender="teamMemPanelEdit,lStudyTeamEdit"/>
+                                        </fieldset>
+                                        <apex:outputpanel id="theTableEdit">
+                                            <table class="table table-bordered table-hover table-striped" id="tableClassEdit">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-xs-3">Member Name</th>
+                                                        <th class="col-xs-3">Role</th>
+                                                        <th class="col-xs-3">Forecasted Hours</th>
+                                                        <th class="col-xs-3">Actual Hours</th>
+                                                        <th class="col-xs-3">Start Date</th>
+                                                        <th class="col-xs-3">End Date</th>
+                                                        <th class="col-xs-3">Remove Team Member</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <apex:repeat value="{!lStudyTeam}" var="oSTMembr" id="lStudyTeamEdit">
+                                                        <tr>
+                                                            <td>
+                                                                <apex:outputPanel rendered="{!oSTMembr.Team_Member__c != NULL}">
+                                                                    {!mUserIdToName[oSTMembr.Team_Member__c].FirstName + ' ' + mUserIdToName[oSTMembr.Team_Member__c].LastName}
+                                                                </apex:outputPanel>
+                                                            </td>
+                                                            <td>
+                                                                <apex:outputPanel rendered="{!oSTMembr.Id == NULL}">
+                                                                    <apex:SelectList value="{!oSTMembr.Role__c}" size="1">
+                                                                        <apex:SelectOptions value="{!MemberRoles}" />
+                                                                    </apex:SelectList>
+                                                                </apex:outputPanel>
+                                                                <apex:outputPanel rendered="{!oSTMembr.Id != NULL}">
+                                                                    <apex:outputField value="{!oSTMembr.Role__c}" />
+                                                                </apex:outputPanel>
+                                                            </td>
+                                                            <td>
+                                                                <apex:inputfield value="{!oSTMembr.Forecast_Weekly_Hours__c}" rendered="{!oSTMembr.Id == NULL}"/>
+                                                                <apex:outputfield value="{!oSTMembr.Forecast_Weekly_Hours__c}" rendered="{!oSTMembr.Id != NULL}"/>
+                                                            </td>
+                                                            <td>
+                                                                <apex:inputfield value="{!oSTMembr.Actual_Weekly_Hours__c}" rendered="{!oSTMembr.Id == NULL}"/>
+                                                                <apex:outputfield value="{!oSTMembr.Actual_Weekly_Hours__c}" rendered="{!oSTMembr.Id != NULL}"/>
+                                                            </td>
+                                                            <td>
+                                                                <apex:inputfield value="{!oSTMembr.Start_Date__c}" required="false" rendered="{!oSTMembr.Id == NULL}"/>
+                                                                <apex:outputfield value="{!oSTMembr.Start_Date__c}" rendered="{!oSTMembr.Id != NULL}"/>
+                                                            </td>
+                                                            <td>
+                                                                <apex:inputfield value="{!oSTMembr.End_Date__c}" required="false" rendered="{!oSTMembr.Id == NULL}"/>
+                                                                <apex:outputfield value="{!oSTMembr.End_Date__c}" rendered="{!oSTMembr.Id != NULL}"/>
+                                                            </td>
+                                                            <td>
+                                                                <apex:outputPanel rendered="{!oSTMembr.Id != NULL}">
+                                                                    <apex:commandLink value="Remove" action="{!delTeamMember}" rerender="teamMemPanelEdit,tableClassEdit">
+                                                                        <apex:param name="osTeamMember" value="{!oSTMembr.Id}" assignTo="{!osTeamMember}" />
+                                                                    </apex:commandLink>
+                                                                </apex:outputPanel>
+                                                            </td>
+                                                        </tr>
+                                                    </apex:repeat>
+                                                </tbody>
+                                                
+                                            </table>
                                         </apex:outputpanel>
-                                    </apex:outputpanel>
-                                        <div class="accordion-content">
-                                            <!-- Add new team member section starts -->
-                                            <fieldset class="add-new-item">
-                                                <legend>Add team member</legend>
-                                                <apex:inputField value="{!oProjectShare.UserOrGroupId}" required="false" />                    
-                                                <apex:commandButton styleClass="btn button" value="Add" action="{!AddStudyTeamMember}" rerender="theTable,StudyTeamError,noMembers"/>
+                                        <apex:outputpanel id="noMembersEdit">
+                                            <apex:outputpanel rendered="{!lStudyTeam.size==0}">
+                                                <span class="content"><strong>No Team Members</strong></span>
+                                            </apex:outputpanel>
+                                        </apex:outputpanel>
+                                    </apex:actionRegion>
+                                </apex:outputpanel>
+                            </div>
                                                 
-                                            </fieldset>
-                                            <!-- Add new team member section ends -->
-                                            <!-- Iteration unit starts -->
-                                            <apex:outputpanel id="theTable">
-                                            <apex:outputpanel rendered="{!lStudyTeamMembers.size>0}">
-                                            <apex:repeat value="{!lStudyTeamMembers}" var="oMember">
-                                            <div class="custom-data-row">
-                                                <span class="content"><apex:outputLink value="/{!oMember.Id}">{!oMember.Name}</apex:outputLink></span>
-                                                <apex:commandlink value="remove" styleclass="remove-custom-data-row" action="{!RemoveStudyTeamMember}" rerender="theTable,noMembers">
-                                                    <apex:param name="teamMember" value="{!oMember.id}" assignTo="{!teamMember}" />
-                                                </apex:commandlink>
-                                                
-                                            </div>
-                                            </apex:repeat>
                                             </apex:outputpanel>
-                                            </apex:outputpanel>
-                                            
-                                            <apex:outputpanel id="noMembers">
-                                            <apex:outputpanel rendered="{!lStudyTeamMembers.size==0}">
-                                            <span class="content"><strong>No Team Members</strong></span>
-                                            </apex:outputpanel>
-                                            </apex:outputpanel>
-                                        </div>
-                                        
+											</fieldset>
+											</apex:actionregion>
+											</div>
+											</section>
+<!---------------------------------------------------------Adding Checklist Section-------------------------------------------------------------------------->
+
+<section class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="accordion-parent">Checklist
+                                    <!-- HELP ORB Markup HERE -->
+                                    <span class="helpOrb tooltip">
+                                        <span>Indicate any action items that will be associated with the Research Study/Research Topic by selecting the appropriate item(s)</span>
+                                    </span>
+                                    <span class="icon-large-caret pull-right down"></span></h2>
+                                    <fieldset class="accordion-child" style="display: block;">
+                                    <apex:outputPanel id="Checklist">
+                                    <apex:actionRegion >
+                                        <table class="publications-deliverables-table table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-xs-1">Select</th>
+                                                    <th class="col-xs-3">Task Name</th>
+                                                    <th class="col-xs-3">Description</th>
+                                                    <th class="col-xs-5">Assigned to</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr style="display:{!IF( oStudy.Classification__c == 'Research Project' , 'None', '')}">
+                                                    <td><apex:outputfield value="{!oStudy.Research_Topic_Report__c}"></apex:outputfield>
+                                                    </td>
+                                                    <td><label>{!$ObjectType.Project__c.Fields.Research_Topic_Report__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.Project__c.Fields.Research_Topic_Report__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.Project__c.Fields.Research_Topic_Report__c.inlinehelptext}</span>
+                                                            </div>          
+                                                        </apex:outputpanel>
+                                                    </td>
+                                                    <td><apex:outputfield value="{!oStudy.Final_Protocol_Description__c}" styleClass="col-xs-12"/>
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputPanel rendered="{!IF(AND(oStudy.Research_Topic_Report__c,oStudy.Research_Topic_Report_URL__c<>NULL),TRUE,FALSE)}">
+                                                        <ul class="url-list">
+                                                        <apex:repeat value="{!sMap[$ObjectType.Project__c.Fields.Research_Topic_Report_URL__c.Label]}" var="l">
+                                                        <apex:variable var="absoluteurl" value="{!IF(CONTAINS(l,"//"),l,"http://"+l)}"></apex:variable>
+                                                        <li><a title="{!absoluteurl}" href="{!absoluteurl}" target="__blank">{!If(LEN(absoluteurl)>50,(LEFT(absoluteurl,37)+'...'),absoluteurl)}</a></li>
+                                                        </apex:repeat>
+                                                        </ul>
+                                                        </apex:outputPanel>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><apex:outputfield value="{!oStudy.Data_Collection_Form__c}" ></apex:outputfield>
+                                                    </td>
+                                                    <td><label>{!$ObjectType.Project__c.Fields.Data_Collection_Form__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.Project__c.Fields.Data_Collection_Form__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.Project__c.Fields.Data_Collection_Form__c.inlinehelptext}</span>
+                                                            </div>          
+                                                        </apex:outputpanel>
+                                                    </td>
+                                                    <td><apex:outputfield value="{!oStudy.Data_Collection_Form_Description__c}" styleClass="col-xs-12"/>
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputPanel rendered="{!IF(AND(oStudy.Data_Collection_Form__c,oStudy.Data_Collection_Form_URL__c <>NULL),TRUE,FALSE)}">
+                                                        <ul class = "url-list">
+                                                        <apex:repeat value="{!sMap[$ObjectType.Project__c.Fields.Data_Collection_Form_URL__c.Label]}" var="l">
+                                                        <apex:variable var="absoluteurl" value="{!IF(CONTAINS(l,"//"),l,"http://"+l)}"></apex:variable>
+                                                        <li><a title="{!absoluteurl}" href="{!absoluteurl}" target="__blank">{!If(LEN(absoluteurl)>50,(LEFT(absoluteurl,37)+'...'),absoluteurl)}</a></li>
+                                                        </apex:repeat>
+                                                        </ul>
+                                                        </apex:outputPanel>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><apex:outputfield value="{!oStudy.Other__c}" ></apex:outputfield>
+                                                    </td>
+                                                    <td><label>{!$ObjectType.Project__c.Fields.Other__c.Label}</label>
+                                                        <apex:outputpanel rendered="{!IF($ObjectType.Project__c.Fields.Other__c.inlinehelptext != NULL,true,false)}">
+                                                            <div class="helpOrb tooltip">
+                                                                <span>{!$ObjectType.Project__c.Fields.Other__c.inlinehelptext}</span>
+                                                            </div>          
+                                                        </apex:outputpanel>
+                                                    </td>
+                                                    <td><apex:outputfield value="{!oStudy.Other_Description__c}" styleClass="col-xs-12"/>
+                                                    </td>
+                                                    <td>
+                                                        <apex:outputPanel rendered="{!IF(AND(oStudy.Other__c,oStudy.Other_URL__c <>NULL),TRUE,FALSE)}">
+                                                        <ul class = "url-list">
+                                                        <apex:repeat value="{!sMap[$ObjectType.Project__c.Fields.Other_URL__c.Label]}" var="l">
+                                                        <apex:variable var="absoluteurl" value="{!IF(CONTAINS(l,"//"),l,"http://"+l)}"></apex:variable>
+                                                        <li><a title="{!absoluteurl}" href="{!absoluteurl}" target="__blank">{!If(LEN(absoluteurl)>50,(LEFT(absoluteurl,37)+'...'),absoluteurl)}</a></li>
+                                                        </apex:repeat>
+                                                        </ul>
+                                                        </apex:outputPanel>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            </table>
+                                        </apex:actionRegion>
+                                        </apex:outputPanel>
                                     </fieldset>
-                                    </apex:actionregion>
                                 </div>
-                            </section>  
+                            </section>
+<!------------------------------------------------------End of checklist section------------------------------------------------------------------------------->                            
+
+
 
 
 <!-- -------------------------------------------------------After all Sections----------------------------------------------------------------------------------->                      

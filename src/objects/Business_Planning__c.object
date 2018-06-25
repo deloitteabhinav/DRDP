@@ -1,0 +1,3914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <content>CloneBP</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Actual_Contracted_Budget_Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Contracted Budget Comment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Contracted_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Contracted Budget</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the date that effort begins on the study/project.</inlineHelpText>
+        <label>Actual Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approver_Comment__c</fullName>
+        <description>This field is created to store the Approver Comments</description>
+        <externalId>false</externalId>
+        <label>Approver Comment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Approver_Sort_TF__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( $User.Id ==  Approver__c , 1, 2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Approver_Sort_TF</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Approver_Table__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Approver</label>
+        <referenceTo>Approver__c</referenceTo>
+        <relationshipName>RWE_Business_Planning_9</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Approver Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>RWE_Business_Plannings</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BPType__c</fullName>
+        <description>Business Plan classification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Business Plan classification</inlineHelpText>
+        <label>Classification</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Study</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>Study</label>
+                </value>
+                <value>
+                    <fullName>Research Project</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Research Project</label>
+                </value>
+                <value>
+                    <fullName>Non-Research Project</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Non-Research Project</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Budget_Category__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicate whether this item is funded under a molecule, multi-molecule, or non-molecule category.</inlineHelpText>
+        <label>Budget Category</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Molecule</fullName>
+                    <default>false</default>
+                    <label>Molecule</label>
+                </value>
+                <value>
+                    <fullName>Multi-Molecule</fullName>
+                    <default>false</default>
+                    <label>Multi-Molecule</label>
+                </value>
+                <value>
+                    <fullName>Non-Molecule</fullName>
+                    <default>false</default>
+                    <label>Non-Molecule</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Business_Critical_Rationale__c</fullName>
+        <description>How does it help the brand? What is the impact? It is required based on country or regulatory requirements?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How does it help the brand? What is the impact? It is required based on country or regulatory requirements?</inlineHelpText>
+        <label>Business Critical Rationale</label>
+        <length>10000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Business_Plan_Year__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If part of business planning, the year in which the planning occurs.  NOT the study start year</inlineHelpText>
+        <label>Business Plan Year</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Business_Planning_Cycle_Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>2015</fullName>
+                    <default>false</default>
+                    <label>2015</label>
+                </value>
+                <value>
+                    <fullName>2016</fullName>
+                    <default>false</default>
+                    <label>2016</label>
+                </value>
+                <value>
+                    <fullName>2017</fullName>
+                    <default>false</default>
+                    <label>2017</label>
+                </value>
+                <value>
+                    <fullName>2018</fullName>
+                    <default>false</default>
+                    <label>2018</label>
+                </value>
+                <value>
+                    <fullName>2019</fullName>
+                    <default>false</default>
+                    <label>2019</label>
+                </value>
+                <value>
+                    <fullName>2020</fullName>
+                    <default>false</default>
+                    <label>2020</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>In Business Planning Cycle</controllingFieldValue>
+                <valueName>2015</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Business Planning Cycle</controllingFieldValue>
+                <valueName>2016</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Business Planning Cycle</controllingFieldValue>
+                <valueName>2017</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Business Planning Cycle</controllingFieldValue>
+                <valueName>2018</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Business Planning Cycle</controllingFieldValue>
+                <valueName>2019</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Business Planning Cycle</controllingFieldValue>
+                <valueName>2020</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Business_Planning_Approval_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Planning Approval Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In Discussion</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>In Discussion</label>
+                </value>
+                <value>
+                    <fullName>Ready for Approval</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Ready for Approval</label>
+                </value>
+                <value>
+                    <fullName>Pending Approval</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Pending Approval</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Approved/Reprioritize</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Approved/Reprioritize</label>
+                </value>
+                <value>
+                    <fullName>In-Waiting</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>In-Waiting</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>In Process</fullName>
+                    <default>false</default>
+                    <label>In Process</label>
+                </value>
+                <value>
+                    <fullName>Submitted for BP Approval</fullName>
+                    <default>false</default>
+                    <label>Submitted for BP Approval</label>
+                </value>
+                <value>
+                    <fullName>In Review</fullName>
+                    <default>false</default>
+                    <label>In Review</label>
+                </value>
+                <value>
+                    <fullName>Submitted for BP session</fullName>
+                    <default>false</default>
+                    <label>Submitted for BP session</label>
+                </value>
+                <value>
+                    <fullName>BP Review Period</fullName>
+                    <default>false</default>
+                    <label>BP Review Period</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Business_Planning_Cycle_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose whether this item is being planned as part of a business planning cycle or if it added outside of a business planning cycle (a drop-in)</inlineHelpText>
+        <label>Business Planning Cycle Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In Business Planning Cycle</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>In Business Planning Cycle</label>
+                </value>
+                <value>
+                    <fullName>Out of Business Planning Cycle</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Out of Business Planning Cycle</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Business_Unit_Primary__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit (Primary)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Diabetes (DBU)</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Diabetes (DBU)</label>
+                </value>
+                <value>
+                    <fullName>EMBU</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>EMBU</label>
+                </value>
+                <value>
+                    <fullName>Elanco</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Elanco</label>
+                </value>
+                <value>
+                    <fullName>Non Business Unit Specific</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>Non Business Unit Specific</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Classification__c</fullName>
+        <externalId>false</externalId>
+        <label>Classification</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Basic Research</fullName>
+                    <default>false</default>
+                    <label>Basic Research</label>
+                </value>
+                <value>
+                    <fullName>Clinical Research</fullName>
+                    <default>false</default>
+                    <label>Clinical Research</label>
+                </value>
+                <value>
+                    <fullName>Epidemiological Research</fullName>
+                    <default>false</default>
+                    <label>Epidemiological Research</label>
+                </value>
+                <value>
+                    <fullName>Pre-Clinical Research</fullName>
+                    <default>false</default>
+                    <label>Pre-Clinical Research</label>
+                </value>
+                <value>
+                    <fullName>Secondary Research</fullName>
+                    <default>false</default>
+                    <label>Secondary Research</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Completed_Date_TF__c</fullName>
+        <externalId>false</externalId>
+        <label>Completed Date TF</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Conducted_with_an_RWE_partner__c</fullName>
+        <externalId>false</externalId>
+        <label>Conducted with an RWE partner?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contracted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contracted Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contracted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Contracted?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Center__c</fullName>
+        <externalId>false</externalId>
+        <label>Cost Center</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a comprehensive description that would include keywords that other users might use to search.</inlineHelpText>
+        <label>Description</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Disease_State__c</fullName>
+        <externalId>false</externalId>
+        <label>Disease State</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>Therapeutic_Area_Primary__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Applicable</fullName>
+                    <default>false</default>
+                    <label>Not Applicable</label>
+                </value>
+                <value>
+                    <fullName>Alopecia Areata</fullName>
+                    <default>false</default>
+                    <label>Alopecia Areata</label>
+                </value>
+                <value>
+                    <fullName>Alzheimer’s Disease</fullName>
+                    <default>false</default>
+                    <label>Alzheimer’s Disease</label>
+                </value>
+                <value>
+                    <fullName>Alzheimer’s Disease Psychosis</fullName>
+                    <default>false</default>
+                    <label>Alzheimer’s Disease Psychosis</label>
+                </value>
+                <value>
+                    <fullName>Anemia</fullName>
+                    <default>false</default>
+                    <label>Anemia</label>
+                </value>
+                <value>
+                    <fullName>Anxiety</fullName>
+                    <default>false</default>
+                    <label>Anxiety</label>
+                </value>
+                <value>
+                    <fullName>Atopic Dermatitis</fullName>
+                    <default>false</default>
+                    <label>Atopic Dermatitis</label>
+                </value>
+                <value>
+                    <fullName>Attention Deficit-Hyperactivity Disorder</fullName>
+                    <default>false</default>
+                    <label>Attention Deficit-Hyperactivity Disorder</label>
+                </value>
+                <value>
+                    <fullName>AxSpA (Axial Spondyloarthritis)</fullName>
+                    <default>false</default>
+                    <label>AxSpA (Axial Spondyloarthritis)</label>
+                </value>
+                <value>
+                    <fullName>Bladder Cancer</fullName>
+                    <default>false</default>
+                    <label>Bladder Cancer</label>
+                </value>
+                <value>
+                    <fullName>Bone and Soft Tissue Cancers</fullName>
+                    <default>false</default>
+                    <label>Bone and Soft Tissue Cancers</label>
+                </value>
+                <value>
+                    <fullName>Breast Cancer</fullName>
+                    <default>false</default>
+                    <label>Breast Cancer</label>
+                </value>
+                <value>
+                    <fullName>Cardiovascular Disease</fullName>
+                    <default>false</default>
+                    <label>Cardiovascular Disease</label>
+                </value>
+                <value>
+                    <fullName>Chronic Kidney Disease</fullName>
+                    <default>false</default>
+                    <label>Chronic Kidney Disease</label>
+                </value>
+                <value>
+                    <fullName>Chronic Pain</fullName>
+                    <default>false</default>
+                    <label>Chronic Pain</label>
+                </value>
+                <value>
+                    <fullName>Cluster Headache</fullName>
+                    <default>false</default>
+                    <label>Cluster Headache</label>
+                </value>
+                <value>
+                    <fullName>Colorectal Cancer</fullName>
+                    <default>false</default>
+                    <label>Colorectal Cancer</label>
+                </value>
+                <value>
+                    <fullName>Crohn’s Disease</fullName>
+                    <default>false</default>
+                    <label>Crohn’s Disease</label>
+                </value>
+                <value>
+                    <fullName>Depression</fullName>
+                    <default>false</default>
+                    <label>Depression</label>
+                </value>
+                <value>
+                    <fullName>Disuse Atrophy</fullName>
+                    <default>false</default>
+                    <label>Disuse Atrophy</label>
+                </value>
+                <value>
+                    <fullName>Erectile Dysfunction</fullName>
+                    <default>false</default>
+                    <label>Erectile Dysfunction</label>
+                </value>
+                <value>
+                    <fullName>Gastrointestinal Cancer</fullName>
+                    <default>false</default>
+                    <label>Gastrointestinal Cancer</label>
+                </value>
+                <value>
+                    <fullName>Genitourinary Cancer</fullName>
+                    <default>false</default>
+                    <label>Genitourinary Cancer</label>
+                </value>
+                <value>
+                    <fullName>Gynecologic Cancer</fullName>
+                    <default>false</default>
+                    <label>Gynecologic Cancer</label>
+                </value>
+                <value>
+                    <fullName>Head and Neck Cancer</fullName>
+                    <default>false</default>
+                    <label>Head and Neck Cancer</label>
+                </value>
+                <value>
+                    <fullName>Hematologic Cancer</fullName>
+                    <default>false</default>
+                    <label>Hematologic Cancer</label>
+                </value>
+                <value>
+                    <fullName>Hepatocellular Cancer</fullName>
+                    <default>false</default>
+                    <label>Hepatocellular Cancer</label>
+                </value>
+                <value>
+                    <fullName>High Risk Vascular Disease</fullName>
+                    <default>false</default>
+                    <label>High Risk Vascular Disease</label>
+                </value>
+                <value>
+                    <fullName>Juvenile Idiopathic Arthritis</fullName>
+                    <default>false</default>
+                    <label>Juvenile Idiopathic Arthritis</label>
+                </value>
+                <value>
+                    <fullName>Lung and Thoracic Cancer</fullName>
+                    <default>false</default>
+                    <label>Lung and Thoracic Cancer</label>
+                </value>
+                <value>
+                    <fullName>Lupus</fullName>
+                    <default>false</default>
+                    <label>Lupus</label>
+                </value>
+                <value>
+                    <fullName>Mesothelioma Cancer</fullName>
+                    <default>false</default>
+                    <label>Mesothelioma Cancer</label>
+                </value>
+                <value>
+                    <fullName>Migraine</fullName>
+                    <default>false</default>
+                    <label>Migraine</label>
+                </value>
+                <value>
+                    <fullName>Mild Cognitive Impairment</fullName>
+                    <default>false</default>
+                    <label>Mild Cognitive Impairment</label>
+                </value>
+                <value>
+                    <fullName>NAFLD</fullName>
+                    <default>false</default>
+                    <label>NAFLD</label>
+                </value>
+                <value>
+                    <fullName>NASH</fullName>
+                    <default>false</default>
+                    <label>NASH</label>
+                </value>
+                <value>
+                    <fullName>Non-Alzheimer’s Dementia</fullName>
+                    <default>false</default>
+                    <label>Non-Alzheimer’s Dementia</label>
+                </value>
+                <value>
+                    <fullName>Osteoporosis</fullName>
+                    <default>false</default>
+                    <label>Osteoporosis</label>
+                </value>
+                <value>
+                    <fullName>Parkinson’s Disease</fullName>
+                    <default>false</default>
+                    <label>Parkinson’s Disease</label>
+                </value>
+                <value>
+                    <fullName>Psoriasis</fullName>
+                    <default>false</default>
+                    <label>Psoriasis</label>
+                </value>
+                <value>
+                    <fullName>Psoriatic Arthritis</fullName>
+                    <default>false</default>
+                    <label>Psoriatic Arthritis</label>
+                </value>
+                <value>
+                    <fullName>Rheumatoid Arthritis</fullName>
+                    <default>false</default>
+                    <label>Rheumatoid Arthritis</label>
+                </value>
+                <value>
+                    <fullName>Schizophrenia</fullName>
+                    <default>false</default>
+                    <label>Schizophrenia</label>
+                </value>
+                <value>
+                    <fullName>Sjogren&apos;s Syndrome</fullName>
+                    <default>false</default>
+                    <label>Sjogren&apos;s Syndrome</label>
+                </value>
+                <value>
+                    <fullName>Testosterone replacement</fullName>
+                    <default>false</default>
+                    <label>Testosterone replacement</label>
+                </value>
+                <value>
+                    <fullName>Type I Diabetes</fullName>
+                    <default>false</default>
+                    <label>Type I Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Type II Diabetes</fullName>
+                    <default>false</default>
+                    <label>Type II Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Ulcerative Colitis</fullName>
+                    <default>false</default>
+                    <label>Ulcerative Colitis</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Alzheimer’s &amp; NDD</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Alzheimer’s Disease</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Alzheimer’s &amp; NDD</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Alzheimer’s Disease Psychosis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Alzheimer’s &amp; NDD</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Mild Cognitive Impairment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Alzheimer’s &amp; NDD</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Non-Alzheimer’s Dementia</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Alzheimer’s &amp; NDD</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Parkinson’s Disease</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Alzheimer’s &amp; NDD</controllingFieldValue>
+                <controllingFieldValue>Bone, Muscle, Joint</controllingFieldValue>
+                <controllingFieldValue>Cardiovascular</controllingFieldValue>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Psychiatry &amp; Pain</controllingFieldValue>
+                <controllingFieldValue>Urology and Men’s Health</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bone, Muscle, Joint</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Disuse Atrophy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bone, Muscle, Joint</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Osteoporosis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cardiovascular</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Anemia</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cardiovascular</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Cardiovascular Disease</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cardiovascular</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>High Risk Vascular Disease</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Diabetes</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Chronic Kidney Disease</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Diabetes</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>NAFLD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Diabetes</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>NASH</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Diabetes</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Type I Diabetes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Diabetes</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Type II Diabetes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Alopecia Areata</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Atopic Dermatitis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>AxSpA (Axial Spondyloarthritis)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Crohn’s Disease</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Juvenile Idiopathic Arthritis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Lupus</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Psoriasis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Psoriatic Arthritis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Rheumatoid Arthritis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Sjogren&apos;s Syndrome</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Immunology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Ulcerative Colitis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Bladder Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Bone and Soft Tissue Cancers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Breast Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Colorectal Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Gastrointestinal Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Genitourinary Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Gynecologic Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Head and Neck Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Hematologic Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Hepatocellular Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Lung and Thoracic Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oncology</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Mesothelioma Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Psychiatry &amp; Pain</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Anxiety</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Psychiatry &amp; Pain</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Attention Deficit-Hyperactivity Disorder</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Psychiatry &amp; Pain</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Chronic Pain</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Psychiatry &amp; Pain</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Cluster Headache</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Psychiatry &amp; Pain</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Depression</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Psychiatry &amp; Pain</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Migraine</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Psychiatry &amp; Pain</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Schizophrenia</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Urology and Men’s Health</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Erectile Dysfunction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Urology and Men’s Health</controllingFieldValue>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Testosterone replacement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non Therapeutic Area Specific</controllingFieldValue>
+                <valueName>Not Applicable</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Estimated_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The approximate date that you think the study will be completed.  May also use the target date for certain deliverables if required for submission, critical chain etc.</inlineHelpText>
+        <label>Anticipated End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the date that effort is anticipated to begin on the study/project (this is NOT the expected contracting date)</inlineHelpText>
+        <label>Anticipated Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Executing_Function__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The function that the owner belongs to that will be conducting the study/project.</inlineHelpText>
+        <label>Executing Function For Project</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GPORWE</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>GPORWE</label>
+                </value>
+                <value>
+                    <fullName>GPS</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>GPS</label>
+                </value>
+                <value>
+                    <fullName>Medical</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Medical</label>
+                </value>
+                <value>
+                    <fullName>Japan Affiliate</fullName>
+                    <default>false</default>
+                    <label>Japan Affiliate</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs - EMBU</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>Medical Affairs - EMBU</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs - EUCAN</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Medical Affairs - EUCAN</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs - Global/Corporate</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>Medical Affairs - Global/Corporate</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs - US</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                    <label>Medical Affairs - US</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Executing_Year__c</fullName>
+        <description>stores the Range of years between Anticipated Start &amp; End Date</description>
+        <externalId>false</externalId>
+        <formula>CASE(YEAR(Estimated_End_Date__c) - YEAR(Estimated_Start_Date__c), 
+1,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1), 
+2,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2), 
+3,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+3), 
+4,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+3)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+4), 
+5,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+3)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+4)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+5), 
+6,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+3)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+4)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+5)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+6), 
+7,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+3)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+4)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+5)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+6)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+7), 
+8,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+3)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+4)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+5)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+6)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+7)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+8), 
+9,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+3)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+4)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+5)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+6)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+7)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+8)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+9), 
+10,TEXT(YEAR(Estimated_Start_Date__c))+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+1)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+2)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+3)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+4)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+5)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+6)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+7)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+8)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+9)+&apos;, &apos;+TEXT(YEAR(Estimated_Start_Date__c)+10),
+TEXT(YEAR(Estimated_Start_Date__c)))</formula>
+        <label>Executing Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Function_funding_the_study_project__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the function that is providing the budget for the study/project</inlineHelpText>
+        <label>Function funding the study/project</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GPORWE</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>GPORWE</label>
+                </value>
+                <value>
+                    <fullName>GPS</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>GPS</label>
+                </value>
+                <value>
+                    <fullName>Medical</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                    <label>Medical</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs - EMBU</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>Medical Affairs - EMBU</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs - EUCAN</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Medical Affairs - EUCAN</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs - Global/Corporate</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Medical Affairs - Global/Corporate</label>
+                </value>
+                <value>
+                    <fullName>Medical Affairs - US</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>Medical Affairs - US</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GPORWE_Functional_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Function</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Executing_Function__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Biomedicines</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>Biomedicines</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>China</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>China</label>
+                </value>
+                <value>
+                    <fullName>COE</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>COE</label>
+                </value>
+                <value>
+                    <fullName>Diabetes</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Diabetes</label>
+                </value>
+                <value>
+                    <fullName>France Hub</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>France Hub</label>
+                </value>
+                <value>
+                    <fullName>Germany Hub</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                    <label>Germany Hub</label>
+                </value>
+                <value>
+                    <fullName>HTA-CE</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                    <label>HTA-CE</label>
+                </value>
+                <value>
+                    <fullName>HTA-EMBU/J</fullName>
+                    <color>#419249</color>
+                    <default>false</default>
+                    <label>HTA-EMBU/J</label>
+                </value>
+                <value>
+                    <fullName>Italy Hub</fullName>
+                    <color>#B6E32E</color>
+                    <default>false</default>
+                    <label>Italy Hub</label>
+                </value>
+                <value>
+                    <fullName>Korea</fullName>
+                    <color>#641CCF</color>
+                    <default>false</default>
+                    <label>Korea</label>
+                </value>
+                <value>
+                    <fullName>LBM-AI/BMJ</fullName>
+                    <color>#F96FB7</color>
+                    <default>false</default>
+                    <label>LBM-AI/BMJ</label>
+                </value>
+                <value>
+                    <fullName>LBM-CV/URO</fullName>
+                    <color>#2F5D85</color>
+                    <default>false</default>
+                    <label>LBM-CV/URO</label>
+                </value>
+                <value>
+                    <fullName>LBM-NS</fullName>
+                    <color>#AFCADF</color>
+                    <default>false</default>
+                    <label>LBM-NS</label>
+                </value>
+                <value>
+                    <fullName>Oncology</fullName>
+                    <color>#8F6429</color>
+                    <default>false</default>
+                    <label>Oncology</label>
+                </value>
+                <value>
+                    <fullName>PMO</fullName>
+                    <color>#EFAE73</color>
+                    <default>false</default>
+                    <label>PMO</label>
+                </value>
+                <value>
+                    <fullName>PRO</fullName>
+                    <color>#57F17C</color>
+                    <default>false</default>
+                    <label>PRO</label>
+                </value>
+                <value>
+                    <fullName>Spain Hub</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>Spain Hub</label>
+                </value>
+                <value>
+                    <fullName>Taiwan</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Taiwan</label>
+                </value>
+                <value>
+                    <fullName>UK Hub</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>UK Hub</label>
+                </value>
+                <value>
+                    <fullName>US Biomedicines</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>US Biomedicines</label>
+                </value>
+                <value>
+                    <fullName>US Diabetes</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>US Diabetes</label>
+                </value>
+                <value>
+                    <fullName>USHO</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>USHO</label>
+                </value>
+                <value>
+                    <fullName>US Oncology</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                    <label>US Oncology</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>COE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <controllingFieldValue>Medical Affairs - Global/Corporate</controllingFieldValue>
+                <valueName>Diabetes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>HTA-CE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>HTA-EMBU/J</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>LBM-AI/BMJ</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>LBM-CV/URO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>LBM-NS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <controllingFieldValue>Medical Affairs - Global/Corporate</controllingFieldValue>
+                <valueName>Oncology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>PMO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>PRO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>GPORWE</controllingFieldValue>
+                <valueName>USHO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EMBU</controllingFieldValue>
+                <valueName>China</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EMBU</controllingFieldValue>
+                <valueName>Korea</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EMBU</controllingFieldValue>
+                <valueName>Taiwan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EMBU</controllingFieldValue>
+                <controllingFieldValue>Medical Affairs - EUCAN</controllingFieldValue>
+                <controllingFieldValue>Medical Affairs - US</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EUCAN</controllingFieldValue>
+                <valueName>Canada</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EUCAN</controllingFieldValue>
+                <valueName>France Hub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EUCAN</controllingFieldValue>
+                <valueName>Germany Hub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EUCAN</controllingFieldValue>
+                <valueName>Italy Hub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EUCAN</controllingFieldValue>
+                <valueName>Spain Hub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - EUCAN</controllingFieldValue>
+                <valueName>UK Hub</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - Global/Corporate</controllingFieldValue>
+                <valueName>Biomedicines</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - US</controllingFieldValue>
+                <valueName>US Biomedicines</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - US</controllingFieldValue>
+                <valueName>US Diabetes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Medical Affairs - US</controllingFieldValue>
+                <valueName>US Oncology</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GSC_Support__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicate the type of support needed for publications</inlineHelpText>
+        <label>Writing Support for Publications</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TPO executing study will support publications</fullName>
+                    <default>false</default>
+                    <label>TPO executing study will support publications</label>
+                </value>
+                <value>
+                    <fullName>GSC managed writing support</fullName>
+                    <default>false</default>
+                    <label>GSC managed writing support</label>
+                </value>
+                <value>
+                    <fullName>GPORWE resources at LCCI</fullName>
+                    <default>false</default>
+                    <label>GPORWE resources at LCCI</label>
+                </value>
+                <value>
+                    <fullName>No writing support needed</fullName>
+                    <default>false</default>
+                    <label>No writing support needed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>How_will_the_Study_be_executed__c</fullName>
+        <description>Will the study/project be fully or partially outsourced to a TPO? Or will the study/project be conducted using internal resources (e.g. Data Mart, functionally sourced studies, etc.)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will the study/project be fully or partially outsourced to a TPO? Or will the study/project be conducted using internal resources (e.g. Data Mart, functionally sourced studies, etc.)</inlineHelpText>
+        <label>How will the Study/Project be executed?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                    <label>Internal</label>
+                </value>
+                <value>
+                    <fullName>TPO</fullName>
+                    <default>false</default>
+                    <label>TPO</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>In_Waiting__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>In Waiting?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Indication__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This field indicates which indication the study/project is connected to or is primarily supporting.  If externally contracted, this line will be the PLI line in SAP upon which the money is budgeted. Contact your PM if you are unsure.</inlineHelpText>
+        <label>Indication</label>
+        <referenceTo>DRDP_Indication__c</referenceTo>
+        <relationshipName>RWE_Business_Plannings</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Initial_Anticipated_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Initial Anticipated Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Initial_budget_estimate_for_each_item__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the estimated cost of the study/project.  See the related Budget Estimate Guidance for further information on typical study costs.</inlineHelpText>
+        <label>Budget Estimate</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Initial_to_Actual__c</fullName>
+        <externalId>false</externalId>
+        <formula>Actual_Start_Date__c  -  Initial_Anticipated_Start_Date__c</formula>
+        <inlineHelpText>Days between &quot;Initial Anticipated Start Date&quot; to &quot;Actual Start Date&quot;</inlineHelpText>
+        <label>Initial to Actual</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Initial_to_Anticipated__c</fullName>
+        <externalId>false</externalId>
+        <formula>Estimated_Start_Date__c - Initial_Anticipated_Start_Date__c</formula>
+        <inlineHelpText>Days between &quot;Initial Anticipated Start Date&quot; to &quot;Anticipated Start Date&quot;</inlineHelpText>
+        <label>Initial to Anticipated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Statistical_Programming_Support__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicate if statistical programming support is needed</inlineHelpText>
+        <label>Internal Statistical Programming Support</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Internal_Statistician_Support__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicate if any statistical support is needed and what kind</inlineHelpText>
+        <label>Internal Statistician Support</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Support</fullName>
+                    <default>false</default>
+                    <label>No Support</label>
+                </value>
+                <value>
+                    <fullName>Full Support – Internal Stats</fullName>
+                    <default>false</default>
+                    <label>Full Support – Internal Stats</label>
+                </value>
+                <value>
+                    <fullName>Oversight – Review Work from the Vendor</fullName>
+                    <default>false</default>
+                    <label>Oversight – Review Work from the Vendor</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IsEmail__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>IsEmail</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IsPMError__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>IsPMError</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IsSubmit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>IsSubmit</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Approved?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_the_Data_Asset_Known__c</fullName>
+        <externalId>false</externalId>
+        <label>Is the Data Asset Known?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lock__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prevents any changes to the item. Item must be frozen before changing to &quot;Ready for Approval&quot;</inlineHelpText>
+        <label>Freeze</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Molecule_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Indication__r.Molecule__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Molecule Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Observational_Study_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Study Details</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>Study_Sub_Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Site Based</fullName>
+                    <default>false</default>
+                    <label>Site Based</label>
+                </value>
+                <value>
+                    <fullName>Non-site Based</fullName>
+                    <default>false</default>
+                    <label>Non-site Based</label>
+                </value>
+                <value>
+                    <fullName>Data Mart</fullName>
+                    <default>false</default>
+                    <label>Data Mart</label>
+                </value>
+                <value>
+                    <fullName>External Source (including Data Broker)</fullName>
+                    <default>false</default>
+                    <label>External Source (including Data Broker)</label>
+                </value>
+                <value>
+                    <fullName>TPO Managed Data</fullName>
+                    <default>false</default>
+                    <label>TPO Managed Data</label>
+                </value>
+                <value>
+                    <fullName>Internal - Other</fullName>
+                    <default>false</default>
+                    <label>Internal - Other</label>
+                </value>
+                <value>
+                    <fullName>Registries</fullName>
+                    <default>false</default>
+                    <label>Registries</label>
+                </value>
+                <value>
+                    <fullName>Purpose - Regulatory</fullName>
+                    <default>false</default>
+                    <label>Purpose - Regulatory</label>
+                </value>
+                <value>
+                    <fullName>Purpose - Non-Regulatory</fullName>
+                    <default>false</default>
+                    <label>Purpose - Non-Regulatory</label>
+                </value>
+                <value>
+                    <fullName>Direct Impact to Treatment</fullName>
+                    <default>false</default>
+                    <label>Direct Impact to Treatment</label>
+                </value>
+                <value>
+                    <fullName>No Direct Impact to Treatment</fullName>
+                    <default>false</default>
+                    <label>No Direct Impact to Treatment</label>
+                </value>
+                <value>
+                    <fullName>Chart Review</fullName>
+                    <default>false</default>
+                    <label>Chart Review</label>
+                </value>
+                <value>
+                    <fullName>Lilly Trial Data</fullName>
+                    <default>false</default>
+                    <label>Lilly Trial Data</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>BIM and CE</controllingFieldValue>
+                <controllingFieldValue>Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Primary Data Collection and Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Budget Impact Model</controllingFieldValue>
+                <controllingFieldValue>CE/Global Pharmacoeconomic Model</controllingFieldValue>
+                <controllingFieldValue>Early Phase Economic Model</controllingFieldValue>
+                <valueName>Data Mart</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BIM and CE</controllingFieldValue>
+                <controllingFieldValue>Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Primary Data Collection and Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Budget Impact Model</controllingFieldValue>
+                <controllingFieldValue>CE/Global Pharmacoeconomic Model</controllingFieldValue>
+                <controllingFieldValue>Early Phase Economic Model</controllingFieldValue>
+                <valueName>External Source (including Data Broker)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BIM and CE</controllingFieldValue>
+                <controllingFieldValue>Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Primary Data Collection and Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Budget Impact Model</controllingFieldValue>
+                <controllingFieldValue>CE/Global Pharmacoeconomic Model</controllingFieldValue>
+                <controllingFieldValue>Early Phase Economic Model</controllingFieldValue>
+                <valueName>TPO Managed Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BIM and CE</controllingFieldValue>
+                <controllingFieldValue>Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Primary Data Collection and Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Budget Impact Model</controllingFieldValue>
+                <controllingFieldValue>CE/Global Pharmacoeconomic Model</controllingFieldValue>
+                <controllingFieldValue>Early Phase Economic Model</controllingFieldValue>
+                <valueName>Internal - Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BIM and CE</controllingFieldValue>
+                <controllingFieldValue>Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Primary Data Collection and Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Budget Impact Model</controllingFieldValue>
+                <controllingFieldValue>CE/Global Pharmacoeconomic Model</controllingFieldValue>
+                <controllingFieldValue>Early Phase Economic Model</controllingFieldValue>
+                <valueName>Registries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Primary Data Collection</controllingFieldValue>
+                <controllingFieldValue>Primary Data Collection and Secondary Use of Data</controllingFieldValue>
+                <valueName>Site Based</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Primary Data Collection</controllingFieldValue>
+                <controllingFieldValue>Primary Data Collection and Secondary Use of Data</controllingFieldValue>
+                <valueName>Non-site Based</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Secondary Use of Data</controllingFieldValue>
+                <controllingFieldValue>Primary Data Collection and Secondary Use of Data</controllingFieldValue>
+                <valueName>Chart Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>With Drug</controllingFieldValue>
+                <valueName>Purpose - Regulatory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>With Drug</controllingFieldValue>
+                <valueName>Purpose - Non-Regulatory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Without Drug</controllingFieldValue>
+                <valueName>Direct Impact to Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Without Drug</controllingFieldValue>
+                <valueName>No Direct Impact to Treatment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Planned</controllingFieldValue>
+                <controllingFieldValue>Post Hoc</controllingFieldValue>
+                <valueName>Lilly Trial Data</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>OrgAddress_TF__c</fullName>
+        <description>Technical Field to Store Org Address. Used in 3 BP Email Templates.</description>
+        <externalId>false</externalId>
+        <formula>LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Technical Field to Store Org Address. Used in 3 BP Email Templates.</inlineHelpText>
+        <label>OrgAddress TF</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Sub_Function__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Sub-Function</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overall_Variance_Against_Vo__c</fullName>
+        <externalId>false</externalId>
+        <label>Overall Variance Against Vo</label>
+        <length>3000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PM__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Add the Project Manager or facilitator that supports your area.  Their name will be added to the study team by adding it to this field.</inlineHelpText>
+        <label>PM</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>RWE_Business_Plannings1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PO_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>PO Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Part_of_Holistic_Evidence_Plan_HEP__c</fullName>
+        <description>Does the study/project contribute to the Holistic Evidence Plan (HEP) for the asset?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does the Study/Project contribute to the Holistic Evidence Plan (HEP) for the asset?</inlineHelpText>
+        <label>Part of Holistic Evidence Plan (HEP)?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Payee_Description__c</fullName>
+        <description>Indicate the person, organization or company being compensated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicate the person, organization or company being compensated.</inlineHelpText>
+        <label>Payee Description</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Phase</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pre-clinical Development</fullName>
+                    <default>false</default>
+                    <label>Pre-clinical Development</label>
+                </value>
+                <value>
+                    <fullName>Phase I</fullName>
+                    <default>false</default>
+                    <label>Phase I</label>
+                </value>
+                <value>
+                    <fullName>Phase II</fullName>
+                    <default>false</default>
+                    <label>Phase II</label>
+                </value>
+                <value>
+                    <fullName>Phase III</fullName>
+                    <default>false</default>
+                    <label>Phase III</label>
+                </value>
+                <value>
+                    <fullName>Submission/Registration</fullName>
+                    <default>false</default>
+                    <label>Submission/Registration</label>
+                </value>
+                <value>
+                    <fullName>Post Launch</fullName>
+                    <default>false</default>
+                    <label>Post Launch</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Primary_Purpose__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Purpose of the Study/Project</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Advancing Health Economics and Outcomes Research (HEOR) Methods</fullName>
+                    <default>false</default>
+                    <label>Advancing Health Economics and Outcomes Research (HEOR) Methods</label>
+                </value>
+                <value>
+                    <fullName>Advancing Health Policy Environment</fullName>
+                    <default>false</default>
+                    <label>Advancing Health Policy Environment</label>
+                </value>
+                <value>
+                    <fullName>Benefit Risk Assessment</fullName>
+                    <default>false</default>
+                    <label>Benefit Risk Assessment</label>
+                </value>
+                <value>
+                    <fullName>Clinical Outcome Assessment Measure Development</fullName>
+                    <default>false</default>
+                    <label>Clinical Outcome Assessment Measure Development</label>
+                </value>
+                <value>
+                    <fullName>Commercial Commitment</fullName>
+                    <default>false</default>
+                    <label>Commercial Commitment</label>
+                </value>
+                <value>
+                    <fullName>FDAMA 114</fullName>
+                    <default>false</default>
+                    <label>FDAMA 114</label>
+                </value>
+                <value>
+                    <fullName>HTA Toolkit</fullName>
+                    <default>false</default>
+                    <label>HTA Toolkit</label>
+                </value>
+                <value>
+                    <fullName>Local Payer Dossier/HTA Submission</fullName>
+                    <default>false</default>
+                    <label>Local Payer Dossier/HTA Submission</label>
+                </value>
+                <value>
+                    <fullName>Medical Communications</fullName>
+                    <default>false</default>
+                    <label>Medical Communications</label>
+                </value>
+                <value>
+                    <fullName>Regulatory Commitment</fullName>
+                    <default>false</default>
+                    <label>Regulatory Commitment</label>
+                </value>
+                <value>
+                    <fullName>Regulatory Strategy</fullName>
+                    <default>false</default>
+                    <label>Regulatory Strategy</label>
+                </value>
+                <value>
+                    <fullName>Strategic Input</fullName>
+                    <default>false</default>
+                    <label>Strategic Input</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Primary_Value_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Value Area</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Access &amp; Reimbursement</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>Access &amp; Reimbursement</label>
+                </value>
+                <value>
+                    <fullName>Safety &amp; Risk Management</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Safety &amp; Risk Management</label>
+                </value>
+                <value>
+                    <fullName>Drug/Clinical Development</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Drug/Clinical Development</label>
+                </value>
+                <value>
+                    <fullName>Commercial/Marketing</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>Commercial/Marketing</label>
+                </value>
+                <value>
+                    <fullName>Medical Customer Support</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Medical Customer Support</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Prioritization_Rank__c</fullName>
+        <externalId>false</externalId>
+        <label>Prioritization Rank</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A (Critical)</fullName>
+                    <default>false</default>
+                    <label>A (Critical)</label>
+                </value>
+                <value>
+                    <fullName>B (High Importance)</fullName>
+                    <default>false</default>
+                    <label>B (High Importance)</label>
+                </value>
+                <value>
+                    <fullName>C (Nice to have)</fullName>
+                    <default>false</default>
+                    <label>C (Nice to have)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Proposed_TPO__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Search either by Name or Capability. After selecting lookup, change search choice to &quot;All Fields&quot; to search on capabilities.
+If TPO is not listed, search and select *Other* from the list.</inlineHelpText>
+        <label>Selected TPO</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+            <filterItems>
+                <field>TPO_Location__c.Status__c</field>
+                <operation>equals</operation>
+                <value>Approved</value>
+            </filterItems>
+            <filterItems>
+                <field>$User.Username</field>
+                <operation>notEqual</operation>
+                <value></value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.SkipValidation__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <infoMessage>Select &apos;All Fields&apos; in order to search by Capability or Location.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>TPO_Location__c</referenceTo>
+        <relationshipName>RWE_Business_Planning</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RWE_Partner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup and add the RWE Partnership related to this Business Planning. Only Approved &amp; Active RWE Partnerships can be selected.</inlineHelpText>
+        <label>RWE Partner</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+            <filterItems>
+                <field>Request__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>RWE_Partnership_Exploration</value>
+            </filterItems>
+            <filterItems>
+                <field>Request__c.Partnership_Status__c</field>
+                <operation>equals</operation>
+                <value>Approved and Active</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.SkipValidation__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Request__c</referenceTo>
+        <relationshipName>RWE_Business_Planning</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Rank_Order__c</fullName>
+        <externalId>false</externalId>
+        <label>Rank Order</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Secondary_Study_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Study Sub Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Study_Description__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Method Development</fullName>
+                    <default>false</default>
+                    <label>Method Development</label>
+                </value>
+                <value>
+                    <fullName>Analytical Measurement Procedure</fullName>
+                    <default>false</default>
+                    <label>Analytical Measurement Procedure</label>
+                </value>
+                <value>
+                    <fullName>Imaging Procedure</fullName>
+                    <default>false</default>
+                    <label>Imaging Procedure</label>
+                </value>
+                <value>
+                    <fullName>Biometric Procedure</fullName>
+                    <default>false</default>
+                    <label>Biometric Procedure</label>
+                </value>
+                <value>
+                    <fullName>Test Development Assessment Procedure</fullName>
+                    <default>false</default>
+                    <label>Test Development Assessment Procedure</label>
+                </value>
+                <value>
+                    <fullName>Animal Study</fullName>
+                    <default>false</default>
+                    <label>Animal Study</label>
+                </value>
+                <value>
+                    <fullName>Cell Study</fullName>
+                    <default>false</default>
+                    <label>Cell Study</label>
+                </value>
+                <value>
+                    <fullName>Genetic Engineering</fullName>
+                    <default>false</default>
+                    <label>Genetic Engineering</label>
+                </value>
+                <value>
+                    <fullName>Biochemistry</fullName>
+                    <default>false</default>
+                    <label>Biochemistry</label>
+                </value>
+                <value>
+                    <fullName>Material Development</fullName>
+                    <default>false</default>
+                    <label>Material Development</label>
+                </value>
+                <value>
+                    <fullName>Genetic Studies</fullName>
+                    <default>false</default>
+                    <label>Genetic Studies</label>
+                </value>
+                <value>
+                    <fullName>Phase I</fullName>
+                    <default>false</default>
+                    <label>Phase I</label>
+                </value>
+                <value>
+                    <fullName>Phase II</fullName>
+                    <default>false</default>
+                    <label>Phase II</label>
+                </value>
+                <value>
+                    <fullName>Phase III</fullName>
+                    <default>false</default>
+                    <label>Phase III</label>
+                </value>
+                <value>
+                    <fullName>Phase IV</fullName>
+                    <default>false</default>
+                    <label>Phase IV</label>
+                </value>
+                <value>
+                    <fullName>Intervention Study - Field Study</fullName>
+                    <default>false</default>
+                    <label>Intervention Study - Field Study</label>
+                </value>
+                <value>
+                    <fullName>Intervention Study - Group Study</fullName>
+                    <default>false</default>
+                    <label>Intervention Study - Group Study</label>
+                </value>
+                <value>
+                    <fullName>Cohort Study - Prospective</fullName>
+                    <default>false</default>
+                    <label>Cohort Study - Prospective</label>
+                </value>
+                <value>
+                    <fullName>Cohort Study - Historical</fullName>
+                    <default>false</default>
+                    <label>Cohort Study - Historical</label>
+                </value>
+                <value>
+                    <fullName>Case Control Study</fullName>
+                    <default>false</default>
+                    <label>Case Control Study</label>
+                </value>
+                <value>
+                    <fullName>Cross-Sectional Study</fullName>
+                    <default>false</default>
+                    <label>Cross-Sectional Study</label>
+                </value>
+                <value>
+                    <fullName>Ecological Study</fullName>
+                    <default>false</default>
+                    <label>Ecological Study</label>
+                </value>
+                <value>
+                    <fullName>Monitoring, surveillance</fullName>
+                    <default>false</default>
+                    <label>Monitoring, surveillance</label>
+                </value>
+                <value>
+                    <fullName>Description with registry data</fullName>
+                    <default>false</default>
+                    <label>Description with registry data</label>
+                </value>
+                <value>
+                    <fullName>Pharmacokinetics (PK)</fullName>
+                    <default>false</default>
+                    <label>Pharmacokinetics (PK)</label>
+                </value>
+                <value>
+                    <fullName>Pharmacodynamics (PD)</fullName>
+                    <default>false</default>
+                    <label>Pharmacodynamics (PD)</label>
+                </value>
+                <value>
+                    <fullName>Toxicology</fullName>
+                    <default>false</default>
+                    <label>Toxicology</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Experimental</controllingFieldValue>
+                <valueName>Intervention Study - Field Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Experimental</controllingFieldValue>
+                <valueName>Intervention Study - Group Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <controllingFieldValue>Theoretical</controllingFieldValue>
+                <valueName>Biometric Procedure</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <controllingFieldValue>Theoretical</controllingFieldValue>
+                <valueName>Test Development Assessment Procedure</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <controllingFieldValue>Applied</controllingFieldValue>
+                <valueName>Animal Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <controllingFieldValue>Applied</controllingFieldValue>
+                <valueName>Genetic Studies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <valueName>Cohort Study - Prospective</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <valueName>Cohort Study - Historical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <valueName>Case Control Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <valueName>Cross-Sectional Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <valueName>Ecological Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <valueName>Monitoring, surveillance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational</controllingFieldValue>
+                <valueName>Description with registry data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vivo</controllingFieldValue>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Pharmacokinetics (PK)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vivo</controllingFieldValue>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Pharmacodynamics (PD)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vivo</controllingFieldValue>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Toxicology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Study</controllingFieldValue>
+                <valueName>Phase I</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Study</controllingFieldValue>
+                <valueName>Phase II</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Study</controllingFieldValue>
+                <valueName>Phase III</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Study</controllingFieldValue>
+                <valueName>Phase IV</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Applied</controllingFieldValue>
+                <valueName>Cell Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Applied</controllingFieldValue>
+                <valueName>Genetic Engineering</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Applied</controllingFieldValue>
+                <valueName>Biochemistry</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Applied</controllingFieldValue>
+                <valueName>Material Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Theoretical</controllingFieldValue>
+                <valueName>Method Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Theoretical</controllingFieldValue>
+                <valueName>Analytical Measurement Procedure</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Theoretical</controllingFieldValue>
+                <valueName>Imaging Procedure</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SkipValidation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is created to skip validation</description>
+        <externalId>false</externalId>
+        <label>SkipValidation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Source_Business_Plan__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Self-Lookup to obtain the Financial BP for this current BP(which is source of Studies)</description>
+        <externalId>false</externalId>
+        <label>Related Study/Project</label>
+        <referenceTo>Business_Planning__c</referenceTo>
+        <relationshipName>RWE_Source_BP</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date_Difference__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Study__r.Date_Active__c) , Today() -  Estimated_Start_Date__c , Study__r.Date_Active__c -  Estimated_Start_Date__c )</formula>
+        <inlineHelpText>Days between Anticipated Start Date to Today, or until the Study moved to Active Status.</inlineHelpText>
+        <label>Start Date Difference</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Information</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Study__r.Project_Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Study Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Study_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Classification__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Clinical Study</fullName>
+                    <default>false</default>
+                    <label>Clinical Study</label>
+                </value>
+                <value>
+                    <fullName>Applied</fullName>
+                    <default>false</default>
+                    <label>Applied</label>
+                </value>
+                <value>
+                    <fullName>Theoretical</fullName>
+                    <default>false</default>
+                    <label>Theoretical</label>
+                </value>
+                <value>
+                    <fullName>Therapy Study</fullName>
+                    <default>false</default>
+                    <label>Therapy Study</label>
+                </value>
+                <value>
+                    <fullName>Prognostic Study</fullName>
+                    <default>false</default>
+                    <label>Prognostic Study</label>
+                </value>
+                <value>
+                    <fullName>Diagnostic Study</fullName>
+                    <default>false</default>
+                    <label>Diagnostic Study</label>
+                </value>
+                <value>
+                    <fullName>Observational Study w/ Drugs</fullName>
+                    <default>false</default>
+                    <label>Observational Study w/ Drugs</label>
+                </value>
+                <value>
+                    <fullName>Secondary Data Analysis</fullName>
+                    <default>false</default>
+                    <label>Secondary Data Analysis</label>
+                </value>
+                <value>
+                    <fullName>Case Series</fullName>
+                    <default>false</default>
+                    <label>Case Series</label>
+                </value>
+                <value>
+                    <fullName>Single Case Report</fullName>
+                    <default>false</default>
+                    <label>Single Case Report</label>
+                </value>
+                <value>
+                    <fullName>Experimental</fullName>
+                    <default>false</default>
+                    <label>Experimental</label>
+                </value>
+                <value>
+                    <fullName>Observational</fullName>
+                    <default>false</default>
+                    <label>Observational</label>
+                </value>
+                <value>
+                    <fullName>Meta Analysis</fullName>
+                    <default>false</default>
+                    <label>Meta Analysis</label>
+                </value>
+                <value>
+                    <fullName>Review</fullName>
+                    <default>false</default>
+                    <label>Review</label>
+                </value>
+                <value>
+                    <fullName>Systematic</fullName>
+                    <default>false</default>
+                    <label>Systematic</label>
+                </value>
+                <value>
+                    <fullName>Simple (Narrative)</fullName>
+                    <default>false</default>
+                    <label>Simple (Narrative)</label>
+                </value>
+                <value>
+                    <fullName>In Vivo</fullName>
+                    <default>false</default>
+                    <label>In Vivo</label>
+                </value>
+                <value>
+                    <fullName>In Vitro</fullName>
+                    <default>false</default>
+                    <label>In Vitro</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Basic Research</controllingFieldValue>
+                <valueName>Applied</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Basic Research</controllingFieldValue>
+                <valueName>Theoretical</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Research</controllingFieldValue>
+                <valueName>Clinical Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Research</controllingFieldValue>
+                <valueName>Therapy Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Research</controllingFieldValue>
+                <valueName>Prognostic Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Research</controllingFieldValue>
+                <valueName>Diagnostic Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Research</controllingFieldValue>
+                <valueName>Observational Study w/ Drugs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Research</controllingFieldValue>
+                <valueName>Secondary Data Analysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Research</controllingFieldValue>
+                <valueName>Case Series</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Clinical Research</controllingFieldValue>
+                <valueName>Single Case Report</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Epidemiological Research</controllingFieldValue>
+                <valueName>Experimental</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Epidemiological Research</controllingFieldValue>
+                <valueName>Observational</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pre-Clinical Research</controllingFieldValue>
+                <valueName>In Vivo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pre-Clinical Research</controllingFieldValue>
+                <valueName>In Vitro</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Secondary Research</controllingFieldValue>
+                <valueName>Meta Analysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Secondary Research</controllingFieldValue>
+                <valueName>Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Secondary Research</controllingFieldValue>
+                <valueName>Systematic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Secondary Research</controllingFieldValue>
+                <valueName>Simple (Narrative)</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Study_Project_Stage__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Study__r.Study_Stage__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Study/Project Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Study_Region__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the region that benefits from the study/project.  If multiple regions benefit, then choose &quot;Global&quot;.</inlineHelpText>
+        <label>What region benefits from Study/Project?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EUCAN</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>EUCAN</label>
+                </value>
+                <value>
+                    <fullName>Emerging Markets</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Emerging Markets</label>
+                </value>
+                <value>
+                    <fullName>Japan</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Japan</label>
+                </value>
+                <value>
+                    <fullName>US</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>US</label>
+                </value>
+                <value>
+                    <fullName>Global (Multiple Regions)</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Global (Multiple Regions)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Study_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the appropriate sub type depending on the type.</inlineHelpText>
+        <label>Study Sub Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Study_Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Primary Data Collection</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>Primary Data Collection</label>
+                </value>
+                <value>
+                    <fullName>Secondary Use of Data</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Secondary Use of Data</label>
+                </value>
+                <value>
+                    <fullName>Primary Data Collection and Secondary Use of Data</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Primary Data Collection and Secondary Use of Data</label>
+                </value>
+                <value>
+                    <fullName>Budget Impact Model</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>Budget Impact Model</label>
+                </value>
+                <value>
+                    <fullName>CE/Global Pharmacoeconomic Model</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>CE/Global Pharmacoeconomic Model</label>
+                </value>
+                <value>
+                    <fullName>Early Phase Economic Model</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>Early Phase Economic Model</label>
+                </value>
+                <value>
+                    <fullName>With Drug</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                    <label>With Drug</label>
+                </value>
+                <value>
+                    <fullName>Without Drug</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                    <label>Without Drug</label>
+                </value>
+                <value>
+                    <fullName>Planned</fullName>
+                    <color>#419249</color>
+                    <default>false</default>
+                    <label>Planned</label>
+                </value>
+                <value>
+                    <fullName>Post Hoc</fullName>
+                    <color>#B6E32E</color>
+                    <default>false</default>
+                    <label>Post Hoc</label>
+                </value>
+                <value>
+                    <fullName>BIM and CE</fullName>
+                    <color>#641CCF</color>
+                    <default>false</default>
+                    <label>BIM and CE</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Pragmatic Trial</controllingFieldValue>
+                <valueName>With Drug</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pragmatic Trial</controllingFieldValue>
+                <valueName>Without Drug</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Systematic Literature Review</controllingFieldValue>
+                <controllingFieldValue>Meta-Analysis</controllingFieldValue>
+                <controllingFieldValue>Meta-Analysis &amp; Systematic Literature Review</controllingFieldValue>
+                <controllingFieldValue>Observational Study</controllingFieldValue>
+                <valueName>Secondary Use of Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Modeling</controllingFieldValue>
+                <valueName>Budget Impact Model</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Modeling</controllingFieldValue>
+                <valueName>CE/Global Pharmacoeconomic Model</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Modeling</controllingFieldValue>
+                <valueName>Early Phase Economic Model</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Modeling</controllingFieldValue>
+                <valueName>BIM and CE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Analysis Using Lilly Trial Data</controllingFieldValue>
+                <valueName>Planned</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Analysis Using Lilly Trial Data</controllingFieldValue>
+                <valueName>Post Hoc</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational Study</controllingFieldValue>
+                <valueName>Primary Data Collection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Observational Study</controllingFieldValue>
+                <valueName>Primary Data Collection and Secondary Use of Data</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Study_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the Type of Study or Project</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>BPType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ad Board</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>Ad Board</label>
+                </value>
+                <value>
+                    <fullName>Analysis</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Analysis</label>
+                </value>
+                <value>
+                    <fullName>Analysis Using Lilly Trial Data</fullName>
+                    <color>#330000</color>
+                    <default>false</default>
+                    <label>Analysis Using Lilly Trial Data</label>
+                </value>
+                <value>
+                    <fullName>Clinical Section (HTA Toolkit)</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Clinical Section (HTA Toolkit)</label>
+                </value>
+                <value>
+                    <fullName>Communication</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>Communication</label>
+                </value>
+                <value>
+                    <fullName>Consultation</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Consultation</label>
+                </value>
+                <value>
+                    <fullName>Data Collection</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>Data Collection</label>
+                </value>
+                <value>
+                    <fullName>Data Purchase</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                    <label>Data Purchase</label>
+                </value>
+                <value>
+                    <fullName>Early Phase Work</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                    <label>Early Phase Work</label>
+                </value>
+                <value>
+                    <fullName>Exploration</fullName>
+                    <color>#419249</color>
+                    <default>false</default>
+                    <label>Exploration</label>
+                </value>
+                <value>
+                    <fullName>HTA Advice</fullName>
+                    <color>#B6E32E</color>
+                    <default>false</default>
+                    <label>HTA Advice</label>
+                </value>
+                <value>
+                    <fullName>HTA toolkit</fullName>
+                    <color>#641CCF</color>
+                    <default>false</default>
+                    <label>HTA toolkit</label>
+                </value>
+                <value>
+                    <fullName>IT systems/Development</fullName>
+                    <color>#F96FB7</color>
+                    <default>false</default>
+                    <label>IT systems/Development</label>
+                </value>
+                <value>
+                    <fullName>Meetings</fullName>
+                    <color>#2F5D85</color>
+                    <default>false</default>
+                    <label>Meetings</label>
+                </value>
+                <value>
+                    <fullName>Membership</fullName>
+                    <color>#AFCADF</color>
+                    <default>false</default>
+                    <label>Membership</label>
+                </value>
+                <value>
+                    <fullName>Meta-Analysis</fullName>
+                    <color>#8F6429</color>
+                    <default>false</default>
+                    <label>Meta-Analysis</label>
+                </value>
+                <value>
+                    <fullName>Meta-Analysis &amp; Systematic Literature Review</fullName>
+                    <color>#EFAE73</color>
+                    <default>false</default>
+                    <label>Meta-Analysis &amp; Systematic Literature Review</label>
+                </value>
+                <value>
+                    <fullName>Model Adaptation</fullName>
+                    <color>#57F17C</color>
+                    <default>false</default>
+                    <label>Model Adaptation</label>
+                </value>
+                <value>
+                    <fullName>Modeling</fullName>
+                    <color>#DDDDDD</color>
+                    <default>false</default>
+                    <label>Modeling</label>
+                </value>
+                <value>
+                    <fullName>Model Update</fullName>
+                    <color>#FF6666</color>
+                    <default>false</default>
+                    <label>Model Update</label>
+                </value>
+                <value>
+                    <fullName>Observational Study</fullName>
+                    <color>#FF9966</color>
+                    <default>false</default>
+                    <label>Observational Study</label>
+                </value>
+                <value>
+                    <fullName>Payer Dossiers</fullName>
+                    <color>#FFFF66</color>
+                    <default>false</default>
+                    <label>Payer Dossiers</label>
+                </value>
+                <value>
+                    <fullName>Placeholder</fullName>
+                    <color>#66FF99</color>
+                    <default>false</default>
+                    <label>Placeholder</label>
+                </value>
+                <value>
+                    <fullName>Policy</fullName>
+                    <color>#33FFFF</color>
+                    <default>false</default>
+                    <label>Policy</label>
+                </value>
+                <value>
+                    <fullName>Post Launch Work</fullName>
+                    <color>#66FFFF</color>
+                    <default>false</default>
+                    <label>Post Launch Work</label>
+                </value>
+                <value>
+                    <fullName>Pragmatic Trial</fullName>
+                    <color>#9999FF</color>
+                    <default>false</default>
+                    <label>Pragmatic Trial</label>
+                </value>
+                <value>
+                    <fullName>Publication</fullName>
+                    <color>#FF99FF</color>
+                    <default>false</default>
+                    <label>Publication</label>
+                </value>
+                <value>
+                    <fullName>Registry</fullName>
+                    <color>#BBBBBB</color>
+                    <default>false</default>
+                    <label>Registry</label>
+                </value>
+                <value>
+                    <fullName>Regulatory Intelligence</fullName>
+                    <color>#FF0000</color>
+                    <default>false</default>
+                    <label>Regulatory Intelligence</label>
+                </value>
+                <value>
+                    <fullName>Strategy</fullName>
+                    <color>#FF9900</color>
+                    <default>false</default>
+                    <label>Strategy</label>
+                </value>
+                <value>
+                    <fullName>Subscription</fullName>
+                    <color>#FFCC66</color>
+                    <default>false</default>
+                    <label>Subscription</label>
+                </value>
+                <value>
+                    <fullName>Symposia</fullName>
+                    <color>#33FF33</color>
+                    <default>false</default>
+                    <label>Symposia</label>
+                </value>
+                <value>
+                    <fullName>Systematic Literature Review</fullName>
+                    <color>#66CCCC</color>
+                    <default>false</default>
+                    <label>Systematic Literature Review</label>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <color>#33CCFF</color>
+                    <default>false</default>
+                    <label>Training</label>
+                </value>
+                <value>
+                    <fullName>Validation</fullName>
+                    <color>#6666CC</color>
+                    <default>false</default>
+                    <label>Validation</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <color>#CC66CC</color>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Study</controllingFieldValue>
+                <valueName>Analysis Using Lilly Trial Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study</controllingFieldValue>
+                <valueName>Meta-Analysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study</controllingFieldValue>
+                <valueName>Meta-Analysis &amp; Systematic Literature Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study</controllingFieldValue>
+                <valueName>Modeling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study</controllingFieldValue>
+                <valueName>Observational Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study</controllingFieldValue>
+                <valueName>Pragmatic Trial</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Study</controllingFieldValue>
+                <valueName>Systematic Literature Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Ad Board</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Analysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Clinical Section (HTA Toolkit)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Consultation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Data Collection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Data Purchase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Early Phase Work</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Exploration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>HTA Advice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>HTA toolkit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Model Adaptation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Model Update</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Payer Dossiers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Placeholder</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Post Launch Work</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Publication</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Registry</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Strategy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Symposia</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <valueName>Validation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Research Project</controllingFieldValue>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>Communication</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>IT systems/Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>Meetings</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>Membership</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>Policy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>Regulatory Intelligence</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>Subscription</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Non-Research Project</controllingFieldValue>
+                <valueName>Training</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Study__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to approved Study/Project record</inlineHelpText>
+        <label>Study</label>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>Business Planning</relationshipLabel>
+        <relationshipName>RWE_Business_Plannings</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TPO_will_sub_contract__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>TPO will sub-contract</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Target_Audience__c</fullName>
+        <externalId>false</externalId>
+        <label>Target Audience</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>External</fullName>
+                    <default>false</default>
+                    <label>External</label>
+                </value>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                    <label>Internal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Therapeutic_Area_Primary__c</fullName>
+        <externalId>false</externalId>
+        <label>Therapeutic Area (Primary)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alzheimer’s &amp; NDD</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>Alzheimer’s &amp; NDD</label>
+                </value>
+                <value>
+                    <fullName>Bone, Muscle, Joint</fullName>
+                    <color>#78C953</color>
+                    <default>false</default>
+                    <label>Bone, Muscle, Joint</label>
+                </value>
+                <value>
+                    <fullName>Cardiovascular</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Cardiovascular</label>
+                </value>
+                <value>
+                    <fullName>Diabetes</fullName>
+                    <color>#A845DC</color>
+                    <default>false</default>
+                    <label>Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Immunology</fullName>
+                    <color>#F3D904</color>
+                    <default>false</default>
+                    <label>Immunology</label>
+                </value>
+                <value>
+                    <fullName>Oncology</fullName>
+                    <color>#A53711</color>
+                    <default>false</default>
+                    <label>Oncology</label>
+                </value>
+                <value>
+                    <fullName>Psychiatry &amp; Pain</fullName>
+                    <color>#66E9BD</color>
+                    <default>false</default>
+                    <label>Psychiatry &amp; Pain</label>
+                </value>
+                <value>
+                    <fullName>Urology and Men’s Health</fullName>
+                    <color>#0B24BE</color>
+                    <default>false</default>
+                    <label>Urology and Men’s Health</label>
+                </value>
+                <value>
+                    <fullName>Non Therapeutic Area Specific</fullName>
+                    <color>#419249</color>
+                    <default>false</default>
+                    <label>Non Therapeutic Area Specific</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a descriptive title for the item (e.g. one that might be used for a journal article)</inlineHelpText>
+        <label>Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unique_Local_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Include any local identifiers used specifically for a function or area. i.e. the BCM ID</inlineHelpText>
+        <label>Unique Local Identifier</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Will_HCPs_be_paid_for_participation__c</fullName>
+        <externalId>false</externalId>
+        <label>Will HCPs be paid for participation?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>Not Sure</fullName>
+                    <default>false</default>
+                    <label>Not Sure</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>isEdit__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>isEdit</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Business Planning</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>GPORWE_EMBU_J</fullName>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>PM__c</columns>
+        <columns>Approver__c</columns>
+        <columns>Prioritization_Rank__c</columns>
+        <columns>Estimated_Start_Date__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Initial_budget_estimate_for_each_item__c</columns>
+        <columns>Business_Critical_Rationale__c</columns>
+        <columns>Function_funding_the_study_project__c</columns>
+        <columns>Budget_Category__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Approver__c</field>
+            <operation>contains</operation>
+            <value>Yu</value>
+        </filters>
+        <filters>
+            <field>Executing_Function__c</field>
+            <operation>equals</operation>
+            <value>GPORWE</value>
+        </filters>
+        <filters>
+            <field>GPORWE_Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>HTA-EMBU/J</value>
+        </filters>
+        <label>GPORWE EMBU/J</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Snapshot_View_GPO_Funded</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Approver__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Function_funding_the_study_project__c</field>
+            <operation>equals</operation>
+            <value>GPORWE</value>
+        </filters>
+        <label>Snapshot View - GPO Funded</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>laxmi</fullName>
+        <columns>NAME</columns>
+        <columns>PM__c</columns>
+        <columns>Title__c</columns>
+        <columns>Study_Type__c</columns>
+        <columns>Approver_Table__c</columns>
+        <columns>Lock__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>contains</operation>
+            <value>Laxmi</value>
+        </filters>
+        <label>laxmi</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>{YYYY}-{0000}</displayFormat>
+        <label>Study/Project ID</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Business Planning</pluralLabel>
+    <searchLayouts>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <listViewButtons>Submit_for_Approval</listViewButtons>
+        <lookupDialogsAdditionalFields>Title__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>BPType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Business_Critical_Rationale__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Actual_Contracted_Budget__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Initial_budget_estimate_for_each_item__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.FIRST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.LAST_NAME</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>CheckNonResearchProjectApproved</fullName>
+        <active>false</active>
+        <description>Only Non Research Projects with this status of  &apos;Approved&apos; or &apos;Approved/Reprioritize&apos; should be able to change their Non-Research Project Status field.</description>
+        <errorConditionFormula>IF(!SkipValidation__c,AND(TEXT(Business_Planning_Approval_Status__c) != &apos;Approved&apos;,TEXT(Business_Planning_Approval_Status__c) != &apos;Approved/Reprioritize&apos;),false)</errorConditionFormula>
+        <errorMessage>Non Research Project Status only applies for &apos;Approved&apos; or &apos;Approved/Reprioritize&apos;  Non Research Projects Business Planning Items</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Date_Validation</fullName>
+        <active>true</active>
+        <description>Prevents Anticipated End date to be before Start Date</description>
+        <errorConditionFormula>IF(!SkipValidation__c,Estimated_End_Date__c  &lt;= Estimated_Start_Date__c,false)</errorConditionFormula>
+        <errorDisplayField>Estimated_End_Date__c</errorDisplayField>
+        <errorMessage>Do you have a time machine?  The Anticipated End Date cannot occur before the Anticipated Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PMErrorCheck</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(!SkipValidation__c,IsPMError__c,false)</errorConditionFormula>
+        <errorDisplayField>PM__c</errorDisplayField>
+        <errorMessage>This person is not a PM, please chatter to @Pangaea Support for help in identifying the correct PM. Add Patricia Hines as the PM until correct PM is identified.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_BpType</fullName>
+        <active>true</active>
+        <description>Restricting the User to Change Bp Type once the BP is Approved</description>
+        <errorConditionFormula>IF(!SkipValidation__c,AND(ISCHANGED(BPType__c),TEXT( Business_Planning_Approval_Status__c ) == &apos;Approved&apos;),false)</errorConditionFormula>
+        <errorDisplayField>BPType__c</errorDisplayField>
+        <errorMessage>Business Planning Type cannot be changed for an Approved Item.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Change_StudyType</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(!SkipValidation__c,AND(ISCHANGED(Study_Type__c ),TEXT(Business_Planning_Approval_Status__c) =&apos;Approved&apos;,NOT($Permission.RWEAdmin),NOT($Permission.Support)),false)</errorConditionFormula>
+        <errorMessage>Cannot Change &quot;Type&quot; field of an Approved Business Planning item.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Lock</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(!isEdit__c,NOT( $Permission.BPAdmin ),   ISPICKVAL(Business_Planning_Approval_Status__c, &apos;Submitted for BP Approval&apos;))</errorConditionFormula>
+        <errorMessage>Update Failed. Business Planning record is Locked. Please contact your Administrator.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_VerifyStatus_ActualStartDate</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+NOT(ISBLANK(Status__c )),
+NOT(Status__c == &quot;Active&quot;), 
+NOT(Status__c == &quot;Completed&quot;), 
+ISCHANGED(Actual_Start_Date__c) 
+)</errorConditionFormula>
+        <errorDisplayField>Actual_Start_Date__c</errorDisplayField>
+        <errorMessage>Oops, try again! Status must be Active or Completed to enter/update the Actual Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Verify_ActualStartDate</fullName>
+        <active>true</active>
+        <errorConditionFormula>Actual_Start_Date__c &gt; TODAY()</errorConditionFormula>
+        <errorDisplayField>Actual_Start_Date__c</errorDisplayField>
+        <errorMessage>Do you have a time machine? The Actual Start Date cannot be a future date.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Auto_Distribute</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Auto-Distribute</masterLabel>
+        <openType>replace</openType>
+        <page>BPAutoDistribute</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>BP_Home_Page</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>BP Home Page</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/CreateBP?id={!Business_Planning__c.Id}&amp;isEdit=false</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Business_Unit_Dashboard</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Business Unit Dashboard</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>window.open(&apos;/apex/BusinessUnit_Dashboard&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Financial_Report</fullName>
+        <availability>online</availability>
+        <description>Custom Financial Report</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Financial Report</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>window.open(&apos;/apex/Financial_Report&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Link_to_BP_UI_Page</fullName>
+        <availability>online</availability>
+        <description>Redirects to BP UI Page</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Link to BP Home Page</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/CreateBP?id={!Business_Planning__c.Id}&amp;isEdit=false</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Non_Financial_Report</fullName>
+        <availability>online</availability>
+        <description>Custom Non-Financial Report</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Non-Financial Report</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>window.open(&apos;/apex/NonFinancialReport&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Portfolio_Detail_Dashboard</fullName>
+        <availability>online</availability>
+        <description>Custom Report - Portfolio Detail Dashboard</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Portfolio Detail Dashboard</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>window.open(&apos;/apex/PortfolioDetailDashboard&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Prioritize_Business_Items</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View Budget</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>window.open(&apos;/apex/Prioritization&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Submit</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Submit</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/SubmitBP?id={!Business_Planning__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Submit_for_Approval</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Submit</masterLabel>
+        <openType>replace</openType>
+        <page>SubmitBPApproval</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>Transparency_Report</fullName>
+        <availability>online</availability>
+        <description>Custom Transparency Report of BPs with Operational Forecasts</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Transparency Report</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>window.open(&apos;/apex/TransparencyReport&apos;);</url>
+    </webLinks>
+</CustomObject>

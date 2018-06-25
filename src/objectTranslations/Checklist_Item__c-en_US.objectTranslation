@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Checklist Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Checklist Items</value>
+    </caseValues>
+    <fields>
+        <label><!-- Default Role --></label>
+        <name>Default_Role__c</name>
+        <relationshipLabel><!-- Checklist Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Help Text --></label>
+        <name>Help_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a backend field --></help>
+        <label><!-- Instructions --></label>
+        <name>Instructions_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instructions --></label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if the Checklist Item is Mandatory &amp; has no Study Attributes/Question Responses. --></help>
+        <label><!-- Mandatory --></label>
+        <name>Mandatory__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Action? --></label>
+        <name>Milestone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process_TF --></label>
+        <name>Process_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process --></label>
+        <name>Process__c</name>
+        <picklistValues>
+            <masterLabel>Close Out</masterLabel>
+            <translation><!-- Close Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Analysis and Reporting</masterLabel>
+            <translation><!-- Data Analysis and Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalize, Store Study Deliverables</masterLabel>
+            <translation><!-- Finalize, Store Study Deliverables --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ideation</masterLabel>
+            <translation><!-- Ideation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oversee Execution of Research</masterLabel>
+            <translation><!-- Oversee Execution of Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review/ Approve Study Deliverable</masterLabel>
+            <translation><!-- Review/ Approve Study Deliverable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secure Resources</masterLabel>
+            <translation><!-- Secure Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Deliverable(s) and Results</masterLabel>
+            <translation><!-- Study Deliverable(s) and Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Development</masterLabel>
+            <translation><!-- Study Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Execution</masterLabel>
+            <translation><!-- Study Execution --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Version Comments --></label>
+        <name>Version_Comments__c</name>
+    </fields>
+    <layouts>
+        <layout>DRDP Checklist</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Instructions --></label>
+            <section>Instructions</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Clone_CheckListItem --></label>
+        <name>Clone_CheckListItem</name>
+    </webLinks>
+</CustomObjectTranslation>

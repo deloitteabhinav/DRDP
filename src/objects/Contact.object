@@ -109,66 +109,82 @@
                 <value>
                     <fullName>ENCORE (Endovas/Coronary Revascul)</fullName>
                     <default>false</default>
+                    <label>ENCORE (Endovas/Coronary Revascul)</label>
                 </value>
                 <value>
                     <fullName>KO Association for Clinical Oncology</fullName>
                     <default>false</default>
+                    <label>KO Association for Clinical Oncology</label>
                 </value>
                 <value>
                     <fullName>KO Cancer Study Group</fullName>
                     <default>false</default>
+                    <label>KO Cancer Study Group</label>
                 </value>
                 <value>
                     <fullName>Korea Cancer Association</fullName>
                     <default>false</default>
+                    <label>Korea Cancer Association</label>
                 </value>
                 <value>
                     <fullName>Korean Association of Internal Medicine</fullName>
                     <default>false</default>
+                    <label>Korean Association of Internal Medicine</label>
                 </value>
                 <value>
                     <fullName>Korean College Neuropsychopharmacology</fullName>
                     <default>false</default>
+                    <label>Korean College Neuropsychopharmacology</label>
                 </value>
                 <value>
                     <fullName>Korean College Rheumatology</fullName>
                     <default>false</default>
+                    <label>Korean College Rheumatology</label>
                 </value>
                 <value>
                     <fullName>Korean Diabetes Association</fullName>
                     <default>false</default>
+                    <label>Korean Diabetes Association</label>
                 </value>
                 <value>
                     <fullName>Korean NeuroPsychiatric Association</fullName>
                     <default>false</default>
+                    <label>Korean NeuroPsychiatric Association</label>
                 </value>
                 <value>
                     <fullName>Korean Orthopaedic Association</fullName>
                     <default>false</default>
+                    <label>Korean Orthopaedic Association</label>
                 </value>
                 <value>
                     <fullName>Korean Urological Association</fullName>
                     <default>false</default>
+                    <label>Korean Urological Association</label>
                 </value>
                 <value>
                     <fullName>KO Society Depressive/Bipolar Disorders</fullName>
                     <default>false</default>
+                    <label>KO Society Depressive/Bipolar Disorders</label>
                 </value>
                 <value>
                     <fullName>KO Society for Schizophrenia Research</fullName>
                     <default>false</default>
+                    <label>KO Society for Schizophrenia Research</label>
                 </value>
                 <value>
                     <fullName>KO Society Men’s Health/Aging KSIC</fullName>
                     <default>false</default>
+                    <label>KO Society Men’s Health/Aging KSIC</label>
                 </value>
                 <value>
                     <fullName>KO Society Sexual Med &amp; Andrology</fullName>
                     <default>false</default>
+                    <label>KO Society Sexual Med &amp; Andrology</label>
                 </value>
                 <value>
                     <fullName>TCTAP (Transcatheter Asian Pacific)</fullName>
                     <default>false</default>
+                    <label>TCTAP (Transcatheter Asian Pacific)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -188,170 +204,205 @@
                 <value>
                     <fullName>Centers for Disease Control and Prevention (CDC)</fullName>
                     <default>false</default>
+                    <label>Centers for Disease Control and Prevention (CDC)</label>
                 </value>
                 <value>
                     <fullName>U.S. Food and Drug Administration (FDA)</fullName>
                     <default>false</default>
+                    <label>U.S. Food and Drug Administration (FDA)</label>
                 </value>
                 <value>
                     <fullName>National Center for Health Services Research</fullName>
                     <default>false</default>
+                    <label>National Center for Health Services Research</label>
                 </value>
                 <value>
                     <fullName>National Institutes of Health (NIH)</fullName>
                     <default>false</default>
+                    <label>National Institutes of Health (NIH)</label>
                 </value>
                 <value>
                     <fullName>United States Department of Health and Human Services</fullName>
                     <default>false</default>
+                    <label>United States Department of Health and Human Services</label>
                 </value>
                 <value>
                     <fullName>United States National Library of Medicine</fullName>
                     <default>false</default>
+                    <label>United States National Library of Medicine</label>
                 </value>
                 <value>
                     <fullName>American Society for Pharmacology and Experimental Therapeutics</fullName>
                     <default>false</default>
+                    <label>American Society for Pharmacology and Experimental Therapeutics</label>
                 </value>
                 <value>
                     <fullName>JASDD</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JASDD</label>
                 </value>
                 <value>
                     <fullName>JCA</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JCA</label>
                 </value>
                 <value>
                     <fullName>JCOG</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JCOG</label>
                 </value>
                 <value>
                     <fullName>JOCD</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JOCD</label>
                 </value>
                 <value>
                     <fullName>JSBMR</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JSBMR</label>
                 </value>
                 <value>
                     <fullName>JSCI</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JSCI</label>
                 </value>
                 <value>
                     <fullName>JSCO</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JSCO</label>
                 </value>
                 <value>
                     <fullName>JSCRRR</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JSCRRR</label>
                 </value>
                 <value>
                     <fullName>JSIM</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JSIM</label>
                 </value>
                 <value>
                     <fullName>JSMO</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JSMO</label>
                 </value>
                 <value>
                     <fullName>JSPR</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JSPR</label>
                 </value>
                 <value>
                     <fullName>JSSR</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>JSSR</label>
                 </value>
                 <value>
                     <fullName>Japan Diabetes Society</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japan Diabetes Society</label>
                 </value>
                 <value>
                     <fullName>Japan Epilepsy Society</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japan Epilepsy Society</label>
                 </value>
                 <value>
                     <fullName>Japan Osteoporosis Society</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japan Osteoporosis Society</label>
                 </value>
                 <value>
                     <fullName>Japanese Circulation Society</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japanese Circulation Society</label>
                 </value>
                 <value>
                     <fullName>Japanese Dermatological Association</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japanese Dermatological Association</label>
                 </value>
                 <value>
                     <fullName>Japanese Society for Medical History</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japanese Society for Medical History</label>
                 </value>
                 <value>
                     <fullName>Japanese Society of Anxiety Disorder</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japanese Society of Anxiety Disorder</label>
                 </value>
                 <value>
                     <fullName>Japanese Society of Mood Disorde</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japanese Society of Mood Disorde</label>
                 </value>
                 <value>
                     <fullName>Japanese Society of Sleep Research</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japanese Society of Sleep Research</label>
                 </value>
                 <value>
                     <fullName>Japanese Urological Association</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Japanese Urological Association</label>
                 </value>
                 <value>
                     <fullName>Neuropenic Bladder Society</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Neuropenic Bladder Society</label>
                 </value>
                 <value>
                     <fullName>The Japan Endocrine Society</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>The Japan Endocrine Society</label>
                 </value>
                 <value>
                     <fullName>The Japanese Association of Anatomists</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>The Japanese Association of Anatomists</label>
                 </value>
                 <value>
                     <fullName>The Japanese Orthopaedic Association</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>The Japanese Orthopaedic Association</label>
                 </value>
                 <value>
                     <fullName>The Japanese Society for Fracture Repair</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>The Japanese Society for Fracture Repair</label>
                 </value>
                 <value>
                     <fullName>WJOG</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>WJOG</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -397,30 +448,37 @@
                 <value>
                     <fullName>Animal Health</fullName>
                     <default>false</default>
+                    <label>Animal Health</label>
                 </value>
                 <value>
                     <fullName>Biotech</fullName>
                     <default>false</default>
+                    <label>Biotech</label>
                 </value>
                 <value>
                     <fullName>Consumer Health</fullName>
                     <default>false</default>
+                    <label>Consumer Health</label>
                 </value>
                 <value>
                     <fullName>Generics</fullName>
                     <default>false</default>
+                    <label>Generics</label>
                 </value>
                 <value>
                     <fullName>Medical Devices</fullName>
                     <default>false</default>
+                    <label>Medical Devices</label>
                 </value>
                 <value>
                     <fullName>Pharmaceuticals</fullName>
                     <default>false</default>
+                    <label>Pharmaceuticals</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -431,10 +489,6 @@
         <externalId>false</externalId>
         <label>Contact ID</label>
         <type>AutoNumber</type>
-    </fields>
-    <fields>
-        <fullName>CurrencyIsoCode</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Department</fullName>
@@ -486,46 +540,66 @@
                 <value>
                     <fullName>Chinese</fullName>
                     <default>false</default>
+                    <label>Chinese</label>
                 </value>
                 <value>
                     <fullName>English</fullName>
                     <default>false</default>
+                    <label>English</label>
                 </value>
                 <value>
                     <fullName>French</fullName>
                     <default>false</default>
+                    <label>French</label>
                 </value>
                 <value>
                     <fullName>German</fullName>
                     <default>false</default>
+                    <label>German</label>
                 </value>
                 <value>
                     <fullName>Italian</fullName>
                     <default>false</default>
+                    <label>Italian</label>
                 </value>
                 <value>
                     <fullName>Japanese</fullName>
                     <default>false</default>
+                    <label>Japanese</label>
                 </value>
                 <value>
                     <fullName>Polish</fullName>
                     <default>false</default>
+                    <label>Polish</label>
                 </value>
                 <value>
                     <fullName>Portuguese</fullName>
                     <default>false</default>
+                    <label>Portuguese</label>
                 </value>
                 <value>
                     <fullName>Russian</fullName>
                     <default>false</default>
+                    <label>Russian</label>
                 </value>
                 <value>
                     <fullName>Spanish</fullName>
                     <default>false</default>
+                    <label>Spanish</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Languages__c</fullName>
+        <externalId>false</externalId>
+        <label>Languages</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>LastCURequestDate</fullName>
@@ -537,6 +611,34 @@
         <fullName>LeadSource</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Level</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Secondary</fullName>
+                    <default>false</default>
+                    <label>Secondary</label>
+                </value>
+                <value>
+                    <fullName>Tertiary</fullName>
+                    <default>false</default>
+                    <label>Tertiary</label>
+                </value>
+                <value>
+                    <fullName>Primary</fullName>
+                    <default>false</default>
+                    <label>Primary</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>MailingAddress</fullName>
@@ -556,46 +658,57 @@
                 <value>
                     <fullName>Address</fullName>
                     <default>false</default>
+                    <label>Address</label>
                 </value>
                 <value>
                     <fullName>NearAddress</fullName>
                     <default>false</default>
+                    <label>NearAddress</label>
                 </value>
                 <value>
                     <fullName>Block</fullName>
                     <default>false</default>
+                    <label>Block</label>
                 </value>
                 <value>
                     <fullName>Street</fullName>
                     <default>false</default>
+                    <label>Street</label>
                 </value>
                 <value>
                     <fullName>ExtendedZip</fullName>
                     <default>false</default>
+                    <label>ExtendedZip</label>
                 </value>
                 <value>
                     <fullName>Zip</fullName>
                     <default>false</default>
+                    <label>Zip</label>
                 </value>
                 <value>
                     <fullName>Neighborhood</fullName>
                     <default>false</default>
+                    <label>Neighborhood</label>
                 </value>
                 <value>
                     <fullName>City</fullName>
                     <default>false</default>
+                    <label>City</label>
                 </value>
                 <value>
                     <fullName>County</fullName>
                     <default>false</default>
+                    <label>County</label>
                 </value>
                 <value>
                     <fullName>State</fullName>
                     <default>false</default>
+                    <label>State</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -658,22 +771,27 @@
                 <value>
                     <fullName>Contact to assistant</fullName>
                     <default>false</default>
+                    <label>Contact to assistant</label>
                 </value>
                 <value>
                     <fullName>Email</fullName>
                     <default>false</default>
+                    <label>Email</label>
                 </value>
                 <value>
                     <fullName>Phone (mobile)</fullName>
                     <default>false</default>
+                    <label>Phone (mobile)</label>
                 </value>
                 <value>
                     <fullName>Phone (office)</fullName>
                     <default>false</default>
+                    <label>Phone (office)</label>
                 </value>
                 <value>
                     <fullName>In Person Visit</fullName>
                     <default>false</default>
+                    <label>In Person Visit</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -692,86 +810,107 @@
                 <value>
                     <fullName>Monday Morning</fullName>
                     <default>false</default>
+                    <label>Monday Morning</label>
                 </value>
                 <value>
                     <fullName>Monday Afternoon</fullName>
                     <default>false</default>
+                    <label>Monday Afternoon</label>
                 </value>
                 <value>
                     <fullName>Monday Evening</fullName>
                     <default>false</default>
+                    <label>Monday Evening</label>
                 </value>
                 <value>
                     <fullName>Tuesday Morning</fullName>
                     <default>false</default>
+                    <label>Tuesday Morning</label>
                 </value>
                 <value>
                     <fullName>Tuesday Afternoon</fullName>
                     <default>false</default>
+                    <label>Tuesday Afternoon</label>
                 </value>
                 <value>
                     <fullName>Tuesday Evening</fullName>
                     <default>false</default>
+                    <label>Tuesday Evening</label>
                 </value>
                 <value>
                     <fullName>Wednesday Morning</fullName>
                     <default>false</default>
+                    <label>Wednesday Morning</label>
                 </value>
                 <value>
                     <fullName>Wednesday Afternoon</fullName>
                     <default>false</default>
+                    <label>Wednesday Afternoon</label>
                 </value>
                 <value>
                     <fullName>Wednesday Evening</fullName>
                     <default>false</default>
+                    <label>Wednesday Evening</label>
                 </value>
                 <value>
                     <fullName>Thursday Morning</fullName>
                     <default>false</default>
+                    <label>Thursday Morning</label>
                 </value>
                 <value>
                     <fullName>Thursday Afternoon</fullName>
                     <default>false</default>
+                    <label>Thursday Afternoon</label>
                 </value>
                 <value>
                     <fullName>Thursday Evening</fullName>
                     <default>false</default>
+                    <label>Thursday Evening</label>
                 </value>
                 <value>
                     <fullName>Friday Morning</fullName>
                     <default>false</default>
+                    <label>Friday Morning</label>
                 </value>
                 <value>
                     <fullName>Friday Afternoon</fullName>
                     <default>false</default>
+                    <label>Friday Afternoon</label>
                 </value>
                 <value>
                     <fullName>Friday Evening</fullName>
                     <default>false</default>
+                    <label>Friday Evening</label>
                 </value>
                 <value>
                     <fullName>Saturday Morning</fullName>
                     <default>false</default>
+                    <label>Saturday Morning</label>
                 </value>
                 <value>
                     <fullName>Saturday Afternoon</fullName>
                     <default>false</default>
+                    <label>Saturday Afternoon</label>
                 </value>
                 <value>
                     <fullName>Saturday Evening</fullName>
                     <default>false</default>
+                    <label>Saturday Evening</label>
                 </value>
                 <value>
                     <fullName>Sunday Morning</fullName>
                     <default>false</default>
+                    <label>Sunday Morning</label>
                 </value>
                 <value>
                     <fullName>Sunday Afternoon</fullName>
                     <default>false</default>
+                    <label>Sunday Afternoon</label>
                 </value>
                 <value>
                     <fullName>Sunday Evening</fullName>
                     <default>false</default>
+                    <label>Sunday Evening</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -796,58 +935,72 @@
                 <value>
                     <fullName>Budgets</fullName>
                     <default>false</default>
+                    <label>Budgets</label>
                 </value>
                 <value>
                     <fullName>CEO</fullName>
                     <default>false</default>
+                    <label>CEO</label>
                 </value>
                 <value>
                     <fullName>Clinical Nurse Specialist</fullName>
                     <default>false</default>
+                    <label>Clinical Nurse Specialist</label>
                 </value>
                 <value>
                     <fullName>COO</fullName>
                     <default>false</default>
+                    <label>COO</label>
                 </value>
                 <value>
                     <fullName>Dietician</fullName>
                     <default>false</default>
+                    <label>Dietician</label>
                 </value>
                 <value>
                     <fullName>Director</fullName>
                     <default>false</default>
+                    <label>Director</label>
                 </value>
                 <value>
                     <fullName>Manager/Supervisor</fullName>
                     <default>false</default>
+                    <label>Manager/Supervisor</label>
                 </value>
                 <value>
                     <fullName>Nurse Practitioner</fullName>
                     <default>false</default>
+                    <label>Nurse Practitioner</label>
                 </value>
                 <value>
                     <fullName>Pathologist</fullName>
                     <default>false</default>
+                    <label>Pathologist</label>
                 </value>
                 <value>
                     <fullName>Pharmacist</fullName>
                     <default>false</default>
+                    <label>Pharmacist</label>
                 </value>
                 <value>
                     <fullName>Physician</fullName>
                     <default>false</default>
+                    <label>Physician</label>
                 </value>
                 <value>
                     <fullName>Physician Assistant</fullName>
                     <default>false</default>
+                    <label>Physician Assistant</label>
                 </value>
                 <value>
                     <fullName>Radiologist</fullName>
                     <default>false</default>
+                    <label>Radiologist</label>
                 </value>
                 <value>
                     <fullName>Regulatory</fullName>
                     <default>false</default>
+                    <label>Regulatory</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -866,14 +1019,17 @@
                 <value>
                     <fullName>Existing Contact</fullName>
                     <default>false</default>
+                    <label>Existing Contact</label>
                 </value>
                 <value>
                     <fullName>Industry Meeting</fullName>
                     <default>false</default>
+                    <label>Industry Meeting</label>
                 </value>
                 <value>
                     <fullName>Key Opinion Leader</fullName>
                     <default>false</default>
+                    <label>Key Opinion Leader</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -892,86 +1048,107 @@
                 <value>
                     <fullName>Cardiology</fullName>
                     <default>false</default>
+                    <label>Cardiology</label>
                 </value>
                 <value>
                     <fullName>Critical Care</fullName>
                     <default>false</default>
+                    <label>Critical Care</label>
                 </value>
                 <value>
                     <fullName>Dementia</fullName>
                     <default>false</default>
+                    <label>Dementia</label>
                 </value>
                 <value>
                     <fullName>Dermatology</fullName>
                     <default>false</default>
+                    <label>Dermatology</label>
                 </value>
                 <value>
                     <fullName>Endocrinology</fullName>
                     <default>false</default>
+                    <label>Endocrinology</label>
                 </value>
                 <value>
                     <fullName>Family Practice</fullName>
                     <default>false</default>
+                    <label>Family Practice</label>
                 </value>
                 <value>
                     <fullName>Hematology</fullName>
                     <default>false</default>
+                    <label>Hematology</label>
                 </value>
                 <value>
                     <fullName>Infectious Disease</fullName>
                     <default>false</default>
+                    <label>Infectious Disease</label>
                 </value>
                 <value>
                     <fullName>Internal Medicine</fullName>
                     <default>false</default>
+                    <label>Internal Medicine</label>
                 </value>
                 <value>
                     <fullName>Microbiology</fullName>
                     <default>false</default>
+                    <label>Microbiology</label>
                 </value>
                 <value>
                     <fullName>Neurology</fullName>
                     <default>false</default>
+                    <label>Neurology</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Ophthalmology</fullName>
                     <default>false</default>
+                    <label>Ophthalmology</label>
                 </value>
                 <value>
                     <fullName>Orthopedic Surgery</fullName>
                     <default>false</default>
+                    <label>Orthopedic Surgery</label>
                 </value>
                 <value>
                     <fullName>Osteology</fullName>
                     <default>false</default>
+                    <label>Osteology</label>
                 </value>
                 <value>
                     <fullName>Pain Management</fullName>
                     <default>false</default>
+                    <label>Pain Management</label>
                 </value>
                 <value>
                     <fullName>Psychiatry</fullName>
                     <default>false</default>
+                    <label>Psychiatry</label>
                 </value>
                 <value>
                     <fullName>Pulmonology</fullName>
                     <default>false</default>
+                    <label>Pulmonology</label>
                 </value>
                 <value>
                     <fullName>Respiratory Therapy</fullName>
                     <default>false</default>
+                    <label>Respiratory Therapy</label>
                 </value>
                 <value>
                     <fullName>Rheumatoid Arthritis</fullName>
                     <default>false</default>
+                    <label>Rheumatoid Arthritis</label>
                 </value>
                 <value>
                     <fullName>Sleep Disorders</fullName>
                     <default>false</default>
+                    <label>Sleep Disorders</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -991,10 +1168,12 @@
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
+                    <label>Inactive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1021,89 +1200,110 @@
                 <value>
                     <fullName>Autoimmune Diseases</fullName>
                     <default>false</default>
+                    <label>Autoimmune Diseases</label>
                 </value>
                 <value>
                     <fullName>Cardiovascular</fullName>
                     <default>false</default>
+                    <label>Cardiovascular</label>
                 </value>
                 <value>
                     <fullName>Critical Care</fullName>
                     <default>false</default>
+                    <label>Critical Care</label>
                 </value>
                 <value>
                     <fullName>Dermatology</fullName>
                     <default>false</default>
+                    <label>Dermatology</label>
                 </value>
                 <value>
                     <fullName>Diabetes</fullName>
                     <default>false</default>
+                    <label>Diabetes</label>
                 </value>
                 <value>
                     <fullName>Endocrinology</fullName>
                     <default>false</default>
+                    <label>Endocrinology</label>
                 </value>
                 <value>
                     <fullName>Gastroenterology</fullName>
                     <default>false</default>
+                    <label>Gastroenterology</label>
                 </value>
                 <value>
                     <fullName>Gynecology</fullName>
                     <default>false</default>
+                    <label>Gynecology</label>
                 </value>
                 <value>
                     <fullName>Immunology</fullName>
                     <default>false</default>
+                    <label>Immunology</label>
                 </value>
                 <value>
                     <fullName>Neurology</fullName>
                     <default>false</default>
+                    <label>Neurology</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Osteoporosis</fullName>
                     <default>false</default>
+                    <label>Osteoporosis</label>
                 </value>
                 <value>
                     <fullName>Psychiatry &amp; Pain</fullName>
                     <default>false</default>
+                    <label>Psychiatry &amp; Pain</label>
                 </value>
                 <value>
                     <fullName>Rheumatology</fullName>
                     <default>false</default>
+                    <label>Rheumatology</label>
                 </value>
                 <value>
                     <fullName>Surgery</fullName>
                     <default>false</default>
+                    <label>Surgery</label>
                 </value>
                 <value>
                     <fullName>Urology</fullName>
                     <default>false</default>
+                    <label>Urology</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
                 <value>
                     <fullName>Non-Therapeutic Area Specific</fullName>
                     <default>false</default>
+                    <label>Non-Therapeutic Area Specific</label>
                 </value>
                 <value>
                     <fullName>Pain</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Pain</label>
                 </value>
                 <value>
                     <fullName>Pediatrics</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Pediatrics</label>
                 </value>
                 <value>
                     <fullName>Women&apos;s Health</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Women&apos;s Health</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1126,26 +1326,32 @@
                 <value>
                     <fullName>Mr.</fullName>
                     <default>false</default>
+                    <label>Mr.</label>
                 </value>
                 <value>
                     <fullName>Mrs.</fullName>
                     <default>false</default>
+                    <label>Mrs.</label>
                 </value>
                 <value>
                     <fullName>Dr.</fullName>
                     <default>false</default>
+                    <label>Dr.</label>
                 </value>
                 <value>
                     <fullName>Assoc. Prof</fullName>
                     <default>false</default>
+                    <label>Assoc. Prof</label>
                 </value>
                 <value>
                     <fullName>Asst. Prof</fullName>
                     <default>false</default>
+                    <label>Asst. Prof</label>
                 </value>
                 <value>
                     <fullName>Ms.</fullName>
                     <default>false</default>
+                    <label>Ms.</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1230,7 +1436,7 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Contact_MailingStreet}+{!Contact_MailingCity}+{!Contact_MailingState}&amp;om=1</url>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Contact.MailingStreet}+{!Contact.MailingCity}+{!Contact.MailingState}&amp;om=1</url>
     </webLinks>
     <webLinks>
         <fullName>GoogleSearch</fullName>
@@ -1249,7 +1455,7 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>http://www.google.com/search?q={!Contact_FirstName} {!Contact_LastName}</url>
+        <url>http://www.google.com/search?q={!Contact.FirstName} {!Contact.LastName}</url>
     </webLinks>
     <webLinks>
         <fullName>SendGmail</fullName>
@@ -1268,7 +1474,7 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>https://mail.google.com/mail?view=cm&amp;tf=0&amp;to={!Contact_Email}&lt;{!Contact_LastName}, {!Contact_FirstName}&gt;&amp;tf=1</url>
+        <url>https://mail.google.com/mail?view=cm&amp;tf=0&amp;to={!Contact.Email}&lt;{!Contact.LastName}, {!Contact.FirstName}&gt;&amp;tf=1</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>
@@ -1287,7 +1493,7 @@
         <protected>false</protected>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
-        <url>http://maps.yahoo.com/py/maps.py?cn={!Contact_MailingCountry}&amp;csz={!Contact_MailingCity}+{!Contact_MailingState}+{!Contact_MailingPostalCode}+&amp;addr={!Contact_MailingAddress}</url>
+        <url>http://maps.yahoo.com/py/maps.py?cn={!Contact.MailingCountry}&amp;csz={!Contact.MailingCity}+{!Contact.MailingState}+{!Contact.MailingPostalCode}+&amp;addr={!Contact.MailingStreet}</url>
     </webLinks>
     <webLinks>
         <fullName>YahooWeather</fullName>
@@ -1306,6 +1512,6 @@
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>http://weather.yahoo.com/search/weather2?p={!Contact_MailingPostalCode}</url>
+        <url>http://weather.yahoo.com/search/weather2?p={!Contact.MailingPostalCode}</url>
     </webLinks>
 </CustomObject>

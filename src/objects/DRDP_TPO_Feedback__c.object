@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -121,14 +122,17 @@ IF(CONTAINS( TEXT(Project_Management__c), &quot;3&quot;), 3,0)) )</formula>
                 <value>
                     <fullName>1 - Poor</fullName>
                     <default>false</default>
+                    <label>1 - Poor</label>
                 </value>
                 <value>
                     <fullName>2 - Average</fullName>
                     <default>false</default>
+                    <label>2 - Average</label>
                 </value>
                 <value>
                     <fullName>3 - Excellent</fullName>
                     <default>false</default>
+                    <label>3 - Excellent</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -164,14 +168,17 @@ IF(CONTAINS( TEXT(Quality__c), &quot;3&quot;), 3,0)) )</formula>
                 <value>
                     <fullName>1 - Poor - Multiple issues, poor documentation, little to no understanding of local requirements, serious deviation(s)</fullName>
                     <default>false</default>
+                    <label>1 - Poor - Multiple issues, poor documentation, little to no understanding of local requirements, serious deviation(s)</label>
                 </value>
                 <value>
                     <fullName>2 - Average - no to a single non-serious deviation, good documentation, needed some assistance with local requirements</fullName>
                     <default>false</default>
+                    <label>2 - Average - no to a single non-serious deviation, good documentation, needed some assistance with local requirements</label>
                 </value>
                 <value>
                     <fullName>3 - Excellent - no deviations, excellent understanding of local requirements, no quality issues</fullName>
                     <default>false</default>
+                    <label>3 - Excellent - no deviations, excellent understanding of local requirements, no quality issues</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -190,22 +197,27 @@ IF(CONTAINS( TEXT(Quality__c), &quot;3&quot;), 3,0)) )</formula>
                 <value>
                     <fullName>1 Star - Lowest Rating</fullName>
                     <default>false</default>
+                    <label>1 Star - Lowest Rating</label>
                 </value>
                 <value>
                     <fullName>2 Stars</fullName>
                     <default>false</default>
+                    <label>2 Stars</label>
                 </value>
                 <value>
                     <fullName>3 Stars</fullName>
                     <default>false</default>
+                    <label>3 Stars</label>
                 </value>
                 <value>
                     <fullName>4 Stars</fullName>
                     <default>false</default>
+                    <label>4 Stars</label>
                 </value>
                 <value>
                     <fullName>5 Stars - Highest Rating</fullName>
                     <default>false</default>
+                    <label>5 Stars - Highest Rating</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -277,14 +289,17 @@ IF(CONTAINS( TEXT(TPO_Oversight__c ), &quot;3&quot;), 3,0)) )</formula>
                 <value>
                     <fullName>1 - Vendor needed extensive oversight</fullName>
                     <default>false</default>
+                    <label>1 - Vendor needed extensive oversight</label>
                 </value>
                 <value>
                     <fullName>2 - Vendor needed elevated oversight</fullName>
                     <default>false</default>
+                    <label>2 - Vendor needed elevated oversight</label>
                 </value>
                 <value>
                     <fullName>3 - Vendor needed appropriate oversight</fullName>
                     <default>false</default>
+                    <label>3 - Vendor needed appropriate oversight</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -345,14 +360,17 @@ IF(CONTAINS( TEXT(Therapeutic_and_Scientific_Excellence__c), &quot;3&quot;), 3,0
                 <value>
                     <fullName>1 - Poor</fullName>
                     <default>false</default>
+                    <label>1 - Poor</label>
                 </value>
                 <value>
                     <fullName>2 - Average</fullName>
                     <default>false</default>
+                    <label>2 - Average</label>
                 </value>
                 <value>
                     <fullName>3 - Excellent</fullName>
                     <default>false</default>
+                    <label>3 - Excellent</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -407,4 +425,5 @@ IF(CONTAINS( TEXT(Therapeutic_and_Scientific_Excellence__c), &quot;3&quot;), 3,0
     <pluralLabel>TPO Feedbacks</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

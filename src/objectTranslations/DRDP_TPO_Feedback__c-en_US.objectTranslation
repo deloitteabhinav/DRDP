@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>TPO Feedback</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>TPO Feedbacks</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please provide any specific comments regarding this TPO in relation to this study/project.  Examples include: exceptional or lacking skills or knowledge, quality concerns, or exceptional service. --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Experience TF --></label>
+        <name>Experience_TF__c</name>
+    </fields>
+    <fields>
+        <label><!-- IsFeedbackComplete --></label>
+        <name>IsFeedbackComplete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Management TF --></label>
+        <name>Project_Management_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- TPO effectively moved the project forward, drove towards the timeline, and effectively organized and facilitated meetings, etc. --></help>
+        <label><!-- Project Management --></label>
+        <name>Project_Management__c</name>
+        <picklistValues>
+            <masterLabel>1 - Poor</masterLabel>
+            <translation><!-- 1 - Poor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - Average</masterLabel>
+            <translation><!-- 2 - Average --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Excellent</masterLabel>
+            <translation><!-- 3 - Excellent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Quality TF --></label>
+        <name>Quality_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- How would you assess the TPO&apos;s execution of the study/project related to quality based on your personal observation or team feedback? --></help>
+        <label><!-- Quality --></label>
+        <name>Quality__c</name>
+        <picklistValues>
+            <masterLabel>1 - Poor - Multiple issues, poor documentation, little to no understanding of local requirements, serious deviation(s)</masterLabel>
+            <translation><!-- 1 - Poor - Multiple issues, poor documentation, little to no understanding of local requirements, serious deviation(s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - Average - no to a single non-serious deviation, good documentation, needed some assistance with local requirements</masterLabel>
+            <translation><!-- 2 - Average - no to a single non-serious deviation, good documentation, needed some assistance with local requirements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Excellent - no deviations, excellent understanding of local requirements, no quality issues</masterLabel>
+            <translation><!-- 3 - Excellent - no deviations, excellent understanding of local requirements, no quality issues --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rating --></label>
+        <name>Rate_this_experience_with_this_TPO__c</name>
+        <picklistValues>
+            <masterLabel>1 Star - Lowest Rating</masterLabel>
+            <translation><!-- 1 Star - Lowest Rating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Stars</masterLabel>
+            <translation><!-- 2 Stars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 Stars</masterLabel>
+            <translation><!-- 3 Stars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 Stars</masterLabel>
+            <translation><!-- 4 Stars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 Stars - Highest Rating</masterLabel>
+            <translation><!-- 5 Stars - Highest Rating --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Study ID --></label>
+        <name>Study_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study --></label>
+        <name>Study__c</name>
+        <relationshipLabel><!-- TPO Feedback --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- TPO Country --></label>
+        <name>TPO_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO Oversight TF --></label>
+        <name>TPO_Oversight_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- Taking into account timelines, team dynamics, and complexity of project, what level of oversight did you need to provide to the TPO? --></help>
+        <label><!-- TPO Oversight --></label>
+        <name>TPO_Oversight__c</name>
+        <picklistValues>
+            <masterLabel>1 - Vendor needed extensive oversight</masterLabel>
+            <translation><!-- 1 - Vendor needed extensive oversight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - Vendor needed elevated oversight</masterLabel>
+            <translation><!-- 2 - Vendor needed elevated oversight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Vendor needed appropriate oversight</masterLabel>
+            <translation><!-- 3 - Vendor needed appropriate oversight --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- TPO Status --></label>
+        <name>TPO_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPO --></label>
+        <name>TPO__c</name>
+        <relationshipLabel><!-- TPO Feedback --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Therapeutic and Scientific Excellence TF --></label>
+        <name>Therapeutic_and_Scientific_Excellence_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rate the TPO&apos;s understanding of therapeutic area, skill or knowledge for particular study/project type, understanding of tools/technologies used. --></help>
+        <label><!-- Therapeutic and Scientific Excellence --></label>
+        <name>Therapeutic_and_Scientific_Excellence__c</name>
+        <picklistValues>
+            <masterLabel>1 - Poor</masterLabel>
+            <translation><!-- 1 - Poor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - Average</masterLabel>
+            <translation><!-- 2 - Average --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Excellent</masterLabel>
+            <translation><!-- 3 - Excellent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unique Study TPO Location --></label>
+        <name>Unique_Study_TPO_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Provided By --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- TPO Feedbacks --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>RWE TPO Feedback Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Questions --></label>
+            <section>Questions</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

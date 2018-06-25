@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RWE BP Molecule</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RWE BP Molecules</value>
+    </caseValues>
+    <fields>
+        <label><!-- RWE Business Planning --></label>
+        <name>RWE_Business_Planning__c</name>
+        <relationshipLabel><!-- RWE BP Molecules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RWE Molecule --></label>
+        <name>RWE_Molecule__c</name>
+        <relationshipLabel><!-- RWE BP Molecules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Unique BP Molecule --></label>
+        <name>Unique_BP_Molecule__c</name>
+    </fields>
+    <layouts>
+        <layout>RWE BP Molecule Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

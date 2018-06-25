@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Tool Inventory</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Tool Inventory</value>
+    </caseValues>
+    <fields>
+        <label><!-- Available to Relate to a Project --></label>
+        <name>Available_to_Relate_to_a_Project__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Rule Development Cost --></label>
+        <name>Business_Rule_Development_Cost__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Capability Description --></label>
+        <name>Capability_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capability --></label>
+        <name>Capability__c</name>
+        <picklistValues>
+            <masterLabel>Full Cycle</masterLabel>
+            <translation><!-- Full Cycle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Limited Cycle</masterLabel>
+            <translation><!-- Limited Cycle --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Current Release --></label>
+        <name>Current_Release__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Preparation --></label>
+        <name>Data_Preparation__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Evaluated</masterLabel>
+            <translation><!-- Not Evaluated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data Storage/Movement/Architecture --></label>
+        <name>Data_Storage_Movement_Architecture__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Evaluated</masterLabel>
+            <translation><!-- Not Evaluated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Development --></label>
+        <name>Development__c</name>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Duration of Access and Use Description --></label>
+        <name>Duration_of_Access_and_Use_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration of Access and Use --></label>
+        <name>Duration_of_Access_and_Use__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Permanent</masterLabel>
+            <translation><!-- Permanent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yearly Renewal</masterLabel>
+            <translation><!-- Yearly Renewal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Final Ranking --></label>
+        <name>Final_Ranking__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Evaluated</masterLabel>
+            <translation><!-- Not Evaluated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hosting Cost --></label>
+        <name>Hosting_Cost__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Level of Familiarity --></label>
+        <name>Level_of_Familiarity__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- License Cost --></label>
+        <name>License_Cost__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes(by user)</masterLabel>
+            <translation><!-- Yes(by user) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes(corporate)</masterLabel>
+            <translation><!-- Yes(corporate) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Function --></label>
+        <name>Primary_Function__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reporting (BI, Visualization) --></label>
+        <name>Reporting_BI_Visualization__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Evaluated</masterLabel>
+            <translation><!-- Not Evaluated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Requires Custom Code Development --></label>
+        <name>Requires_Custom_Code_Development__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Resides --></label>
+        <name>Resides__c</name>
+        <picklistValues>
+            <masterLabel>External (Cloud)</masterLabel>
+            <translation><!-- External (Cloud) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External (Other)</masterLabel>
+            <translation><!-- External (Other) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inhouse</masterLabel>
+            <translation><!-- Inhouse --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Secondary Function --></label>
+        <name>Secondary_Function__c</name>
+    </fields>
+    <fields>
+        <label><!-- Statistical Analysis --></label>
+        <name>Statistical_Analysis__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Evaluated</masterLabel>
+            <translation><!-- Not Evaluated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tool Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Evaluation</masterLabel>
+            <translation><!-- Evaluation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold</masterLabel>
+            <translation><!-- Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Development</masterLabel>
+            <translation><!-- In Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Recommended</masterLabel>
+            <translation><!-- Not Recommended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production</masterLabel>
+            <translation><!-- Production --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tool Accessibility --></label>
+        <name>Tool_Accessibility__c</name>
+        <picklistValues>
+            <masterLabel>External Power Users</masterLabel>
+            <translation><!-- External Power Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Users/Canned Reports</masterLabel>
+            <translation><!-- External Users/Canned Reports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Power Users</masterLabel>
+            <translation><!-- Internal Power Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal/External Power Users</masterLabel>
+            <translation><!-- Internal/External Power Users --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User Type --></label>
+        <name>User_Type_Picklist__c</name>
+        <picklistValues>
+            <masterLabel>Analyst</masterLabel>
+            <translation><!-- Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business</masterLabel>
+            <translation><!-- Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scientist</masterLabel>
+            <translation><!-- Scientist --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User Type Other --></label>
+        <name>User_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Utilized Release(s) --></label>
+        <name>Utilized_Release_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Name --></label>
+        <name>Vendor_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Related --></label>
+        <name>Vendor_Related__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Evaluated</masterLabel>
+            <translation><!-- Not Evaluated --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please specify the User Type --></errorMessage>
+        <name>Valid_Tool_User_Other</name>
+    </validationRules>
+</CustomObjectTranslation>

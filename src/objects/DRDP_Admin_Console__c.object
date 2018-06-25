@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>false</enableReports>
@@ -110,15 +111,18 @@
                 <value>
                     <fullName>Links Page</fullName>
                     <default>false</default>
+                    <label>Links Page</label>
                 </value>
                 <value>
                     <fullName>About Digital R&amp;D Workbench</fullName>
                     <default>false</default>
+                    <label>About Digital R&amp;D Workbench</label>
                 </value>
                 <value>
                     <fullName>Search Tips Page</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Search Tips Page</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -129,6 +133,7 @@
         <columns>NAME</columns>
         <columns>Sequence__c</columns>
         <columns>Content__c</columns>
+        <columns>Page_TF__c</columns>
         <columns>Type__c</columns>
         <columns>Active__c</columns>
         <filterScope>Everything</filterScope>
@@ -138,18 +143,6 @@
             <value>About Digital R&amp;D Workbench</value>
         </filters>
         <label>About Digital R&amp;D Workbench</label>
-    </listViews>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Sequence__c</columns>
-        <columns>Content__c</columns>
-        <columns>Page_TF__c</columns>
-        <columns>Type__c</columns>
-        <columns>Active__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>Links_Page</fullName>
@@ -173,8 +166,13 @@
     </nameField>
     <pluralLabel>Digital Foundry Help Content</pluralLabel>
     <searchLayouts>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Active__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Content__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sequence__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

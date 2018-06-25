@@ -21,14 +21,15 @@
                     <div class="col-xs-8 zero-left-padding center-text">
                         <ul class="nav">
                             <li>
-                                <a href="/DigitalFoundry/sfc/#workspaceView?selectedWorkspaceId={!$Label.PartnerCommunityLibrary}" class="tab-documents"><span>My Documents</span></a>
-                                <a href="/DigitalFoundry/007" class="tab-tasks"><span>My Tasks</span></a>
+                                <a href="/{!communityName}/sfc/#workspaces" target="_blank" class="tab-documents"><span>My Documents</span></a>
+                                <a href="/{!communityName}/007" class="tab-tasks" target="_blank"><span>My Tasks</span></a>
+                                <a href="/{!communityName}/partnerSelection" class="tab-tasks" target="_blank"><span>My Accounts</span></a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-xs-1">
                         <div class="logout pull-right">
-                            <a href="/DigitalFoundry/secur/logout.jsp">
+                            <a href="/{!communityName}/secur/logout.jsp">
                                 <span class="glyphicon glyphicon-log-out"></span>
                             </a>
                         </div>

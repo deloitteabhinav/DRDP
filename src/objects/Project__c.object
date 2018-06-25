@@ -47,6 +47,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -236,6 +237,20 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Approver_Table__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Approver</label>
+        <referenceTo>Approver__c</referenceTo>
+        <relationshipLabel>Research</relationshipLabel>
+        <relationshipName>Research</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Business_Unit_Primary__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Business unit that is funding the activity.</inlineHelpText>
@@ -251,30 +266,37 @@
                 <value>
                     <fullName>Animal Health</fullName>
                     <default>false</default>
+                    <label>Animal Health</label>
                 </value>
                 <value>
                     <fullName>Biotech</fullName>
                     <default>false</default>
+                    <label>Biotech</label>
                 </value>
                 <value>
                     <fullName>Consumer Health</fullName>
                     <default>false</default>
+                    <label>Consumer Health</label>
                 </value>
                 <value>
                     <fullName>Generics</fullName>
                     <default>false</default>
+                    <label>Generics</label>
                 </value>
                 <value>
                     <fullName>Medical Devices</fullName>
                     <default>false</default>
+                    <label>Medical Devices</label>
                 </value>
                 <value>
                     <fullName>Pharmaceuticals</fullName>
                     <default>false</default>
+                    <label>Pharmaceuticals</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -295,22 +317,27 @@
                 <value>
                     <fullName>Basic Research</fullName>
                     <default>false</default>
+                    <label>Basic Research</label>
                 </value>
                 <value>
                     <fullName>Clinical Research</fullName>
                     <default>false</default>
+                    <label>Clinical Research</label>
                 </value>
                 <value>
                     <fullName>Epidemiological Research</fullName>
                     <default>false</default>
+                    <label>Epidemiological Research</label>
                 </value>
                 <value>
                     <fullName>Pre-Clinical Research</fullName>
                     <default>false</default>
+                    <label>Pre-Clinical Research</label>
                 </value>
                 <value>
                     <fullName>Secondary Research</fullName>
                     <default>false</default>
+                    <label>Secondary Research</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -356,10 +383,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -723,35 +752,43 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>HR</fullName>
                     <default>false</default>
+                    <label>HR</label>
                 </value>
                 <value>
                     <fullName>Finance</fullName>
                     <default>false</default>
+                    <label>Finance</label>
                 </value>
                 <value>
                     <fullName>Marketing</fullName>
                     <default>false</default>
+                    <label>Marketing</label>
                 </value>
                 <value>
                     <fullName>R&amp;D - Pre-Clinical</fullName>
                     <default>false</default>
+                    <label>R&amp;D - Pre-Clinical</label>
                 </value>
                 <value>
                     <fullName>R&amp;D - Clinical Dev</fullName>
                     <default>false</default>
+                    <label>R&amp;D - Clinical Dev</label>
                 </value>
                 <value>
                     <fullName>R&amp;D - Discovery</fullName>
                     <default>false</default>
+                    <label>R&amp;D - Discovery</label>
                 </value>
                 <value>
                     <fullName>Sales</fullName>
                     <default>false</default>
+                    <label>Sales</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <color>#0B24BE</color>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -773,10 +810,12 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Internal</fullName>
                     <default>false</default>
+                    <label>Internal</label>
                 </value>
                 <value>
                     <fullName>TPO</fullName>
                     <default>false</default>
+                    <label>TPO</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -896,14 +935,17 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>N/A</fullName>
                     <default>false</default>
+                    <label>N/A</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1112,34 +1154,42 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Advancing Health Policy Environment</fullName>
                     <default>false</default>
+                    <label>Advancing Health Policy Environment</label>
                 </value>
                 <value>
                     <fullName>Benefit Risk Assessment</fullName>
                     <default>false</default>
+                    <label>Benefit Risk Assessment</label>
                 </value>
                 <value>
                     <fullName>Clinical Outcomes Assessment Measure Development</fullName>
                     <default>false</default>
+                    <label>Clinical Outcomes Assessment Measure Development</label>
                 </value>
                 <value>
                     <fullName>Commercial Commitment</fullName>
                     <default>false</default>
+                    <label>Commercial Commitment</label>
                 </value>
                 <value>
                     <fullName>Medical Communications</fullName>
                     <default>false</default>
+                    <label>Medical Communications</label>
                 </value>
                 <value>
                     <fullName>Regulatory Commitment</fullName>
                     <default>false</default>
+                    <label>Regulatory Commitment</label>
                 </value>
                 <value>
                     <fullName>Regulatory Strategy</fullName>
                     <default>false</default>
+                    <label>Regulatory Strategy</label>
                 </value>
                 <value>
                     <fullName>Strategic Input</fullName>
                     <default>false</default>
+                    <label>Strategic Input</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1186,38 +1236,47 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Pending Approval</fullName>
                     <default>false</default>
+                    <label>Pending Approval</label>
                 </value>
                 <value>
                     <fullName>Approved</fullName>
                     <default>false</default>
+                    <label>Approved</label>
                 </value>
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>On Hold</fullName>
                     <default>false</default>
+                    <label>On Hold</label>
                 </value>
                 <value>
                     <fullName>Completed</fullName>
                     <default>false</default>
+                    <label>Completed</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
+                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Cancelled</fullName>
                     <default>false</default>
+                    <label>Cancelled</label>
                 </value>
                 <value>
                     <fullName>Rejected</fullName>
                     <default>false</default>
+                    <label>Rejected</label>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
                     <default>false</default>
+                    <label>In Progress</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1248,10 +1307,12 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Yes</fullName>
                     <default>true</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1283,6 +1344,29 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Related_Business_Planning__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Business Planning</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Business_Planning__c.Business_Planning_Approval_Status__c</field>
+                <operation>equals</operation>
+                <value>Approved</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Business_Planning__c</referenceTo>
+        <relationshipLabel>Research</relationshipLabel>
+        <relationshipName>Research</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Research_Area__c</fullName>
         <externalId>false</externalId>
         <label>Research Area</label>
@@ -1298,146 +1382,182 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Affective neuroscience</fullName>
                     <default>false</default>
+                    <label>Affective neuroscience</label>
                 </value>
                 <value>
                     <fullName>Biochemistry</fullName>
                     <default>false</default>
+                    <label>Biochemistry</label>
                 </value>
                 <value>
                     <fullName>Biocontrol</fullName>
                     <default>false</default>
+                    <label>Biocontrol</label>
                 </value>
                 <value>
                     <fullName>Biodynamics</fullName>
                     <default>false</default>
+                    <label>Biodynamics</label>
                 </value>
                 <value>
                     <fullName>Bioinformatics</fullName>
                     <default>false</default>
+                    <label>Bioinformatics</label>
                 </value>
                 <value>
                     <fullName>Biology</fullName>
                     <default>false</default>
+                    <label>Biology</label>
                 </value>
                 <value>
                     <fullName>Biomaterials</fullName>
                     <default>false</default>
+                    <label>Biomaterials</label>
                 </value>
                 <value>
                     <fullName>Biomechanics</fullName>
                     <default>false</default>
+                    <label>Biomechanics</label>
                 </value>
                 <value>
                     <fullName>Biomonitoring</fullName>
                     <default>false</default>
+                    <label>Biomonitoring</label>
                 </value>
                 <value>
                     <fullName>Biopolymers</fullName>
                     <default>false</default>
+                    <label>Biopolymers</label>
                 </value>
                 <value>
                     <fullName>Botany</fullName>
                     <default>false</default>
+                    <label>Botany</label>
                 </value>
                 <value>
                     <fullName>Cell biology</fullName>
                     <default>false</default>
+                    <label>Cell biology</label>
                 </value>
                 <value>
                     <fullName>Cognitive neuroscience</fullName>
                     <default>false</default>
+                    <label>Cognitive neuroscience</label>
                 </value>
                 <value>
                     <fullName>Computational neuroscience</fullName>
                     <default>false</default>
+                    <label>Computational neuroscience</label>
                 </value>
                 <value>
                     <fullName>Conservation biology</fullName>
                     <default>false</default>
+                    <label>Conservation biology</label>
                 </value>
                 <value>
                     <fullName>Developmental biology</fullName>
                     <default>false</default>
+                    <label>Developmental biology</label>
                 </value>
                 <value>
                     <fullName>Ecology</fullName>
                     <default>false</default>
+                    <label>Ecology</label>
                 </value>
                 <value>
                     <fullName>Evolutionary genetics</fullName>
                     <default>false</default>
+                    <label>Evolutionary genetics</label>
                 </value>
                 <value>
                     <fullName>Genetics</fullName>
                     <default>false</default>
+                    <label>Genetics</label>
                 </value>
                 <value>
                     <fullName>Genomics</fullName>
                     <default>false</default>
+                    <label>Genomics</label>
                 </value>
                 <value>
                     <fullName>Immunogenetics</fullName>
                     <default>false</default>
+                    <label>Immunogenetics</label>
                 </value>
                 <value>
                     <fullName>Immunology</fullName>
                     <default>false</default>
+                    <label>Immunology</label>
                 </value>
                 <value>
                     <fullName>Immunotherapy</fullName>
                     <default>false</default>
+                    <label>Immunotherapy</label>
                 </value>
                 <value>
                     <fullName>Medical imaging</fullName>
                     <default>false</default>
+                    <label>Medical imaging</label>
                 </value>
                 <value>
                     <fullName>Microbiology</fullName>
                     <default>false</default>
+                    <label>Microbiology</label>
                 </value>
                 <value>
                     <fullName>Molecular biology</fullName>
                     <default>false</default>
+                    <label>Molecular biology</label>
                 </value>
                 <value>
                     <fullName>Neuroscience</fullName>
                     <default>false</default>
+                    <label>Neuroscience</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Optometry</fullName>
                     <default>false</default>
+                    <label>Optometry</label>
                 </value>
                 <value>
                     <fullName>Pathology</fullName>
                     <default>false</default>
+                    <label>Pathology</label>
                 </value>
                 <value>
                     <fullName>Pharmacogenomics</fullName>
                     <default>false</default>
+                    <label>Pharmacogenomics</label>
                 </value>
                 <value>
                     <fullName>Pharmacology</fullName>
                     <default>false</default>
+                    <label>Pharmacology</label>
                 </value>
                 <value>
                     <fullName>Physiology</fullName>
                     <default>false</default>
+                    <label>Physiology</label>
                 </value>
                 <value>
                     <fullName>Proteomics</fullName>
                     <default>false</default>
+                    <label>Proteomics</label>
                 </value>
                 <value>
                     <fullName>Structural biology</fullName>
                     <default>false</default>
+                    <label>Structural biology</label>
                 </value>
                 <value>
                     <fullName>Systems biology</fullName>
                     <default>false</default>
+                    <label>Systems biology</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1490,14 +1610,17 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Completed</fullName>
                     <default>false</default>
+                    <label>Completed</label>
                 </value>
                 <value>
                     <fullName>Cancelled</fullName>
                     <default>false</default>
+                    <label>Cancelled</label>
                 </value>
                 <value>
                     <fullName>On Hold</fullName>
                     <default>false</default>
+                    <label>On Hold</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1519,11 +1642,13 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                     <fullName>Research Topic</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Research Topic</label>
                 </value>
                 <value>
                     <fullName>Research Study</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Research Study</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1665,110 +1790,137 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Method Development</fullName>
                     <default>false</default>
+                    <label>Method Development</label>
                 </value>
                 <value>
                     <fullName>Analytical Measurement Procedure</fullName>
                     <default>false</default>
+                    <label>Analytical Measurement Procedure</label>
                 </value>
                 <value>
                     <fullName>Imaging Procedure</fullName>
                     <default>false</default>
+                    <label>Imaging Procedure</label>
                 </value>
                 <value>
                     <fullName>Biometric Procedure</fullName>
                     <default>false</default>
+                    <label>Biometric Procedure</label>
                 </value>
                 <value>
                     <fullName>Test Development Assessment Procedure</fullName>
                     <default>false</default>
+                    <label>Test Development Assessment Procedure</label>
                 </value>
                 <value>
                     <fullName>Animal Study</fullName>
                     <default>false</default>
+                    <label>Animal Study</label>
                 </value>
                 <value>
                     <fullName>Cell Study</fullName>
                     <default>false</default>
+                    <label>Cell Study</label>
                 </value>
                 <value>
                     <fullName>Genetic Engineering</fullName>
                     <default>false</default>
+                    <label>Genetic Engineering</label>
                 </value>
                 <value>
                     <fullName>Biochemistry</fullName>
                     <default>false</default>
+                    <label>Biochemistry</label>
                 </value>
                 <value>
                     <fullName>Material Development</fullName>
                     <default>false</default>
+                    <label>Material Development</label>
                 </value>
                 <value>
                     <fullName>Genetic Studies</fullName>
                     <default>false</default>
+                    <label>Genetic Studies</label>
                 </value>
                 <value>
                     <fullName>Phase I</fullName>
                     <default>false</default>
+                    <label>Phase I</label>
                 </value>
                 <value>
                     <fullName>Phase II</fullName>
                     <default>false</default>
+                    <label>Phase II</label>
                 </value>
                 <value>
                     <fullName>Phase III</fullName>
                     <default>false</default>
+                    <label>Phase III</label>
                 </value>
                 <value>
                     <fullName>Phase IV</fullName>
                     <default>false</default>
+                    <label>Phase IV</label>
                 </value>
                 <value>
                     <fullName>Intervention Study - Field Study</fullName>
                     <default>false</default>
+                    <label>Intervention Study - Field Study</label>
                 </value>
                 <value>
                     <fullName>Intervention Study - Group Study</fullName>
                     <default>false</default>
+                    <label>Intervention Study - Group Study</label>
                 </value>
                 <value>
                     <fullName>Cohort Study - Prospective</fullName>
                     <default>false</default>
+                    <label>Cohort Study - Prospective</label>
                 </value>
                 <value>
                     <fullName>Cohort Study - Historical</fullName>
                     <default>false</default>
+                    <label>Cohort Study - Historical</label>
                 </value>
                 <value>
                     <fullName>Case Control Study</fullName>
                     <default>false</default>
+                    <label>Case Control Study</label>
                 </value>
                 <value>
                     <fullName>Cross-Sectional Study</fullName>
                     <default>false</default>
+                    <label>Cross-Sectional Study</label>
                 </value>
                 <value>
                     <fullName>Ecological Study</fullName>
                     <default>false</default>
+                    <label>Ecological Study</label>
                 </value>
                 <value>
                     <fullName>Monitoring, surveillance</fullName>
                     <default>false</default>
+                    <label>Monitoring, surveillance</label>
                 </value>
                 <value>
                     <fullName>Description with registry data</fullName>
                     <default>false</default>
+                    <label>Description with registry data</label>
                 </value>
                 <value>
                     <fullName>Pharmacokinetics (PK)</fullName>
                     <default>false</default>
+                    <label>Pharmacokinetics (PK)</label>
                 </value>
                 <value>
                     <fullName>Pharmacodynamics (PD)</fullName>
                     <default>false</default>
+                    <label>Pharmacodynamics (PD)</label>
                 </value>
                 <value>
                     <fullName>Toxicology</fullName>
                     <default>false</default>
+                    <label>Toxicology</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -1984,74 +2136,92 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Clinical Study</fullName>
                     <default>false</default>
+                    <label>Clinical Study</label>
                 </value>
                 <value>
                     <fullName>Applied</fullName>
                     <default>false</default>
+                    <label>Applied</label>
                 </value>
                 <value>
                     <fullName>Theoretical</fullName>
                     <default>false</default>
+                    <label>Theoretical</label>
                 </value>
                 <value>
                     <fullName>Therapy Study</fullName>
                     <default>false</default>
+                    <label>Therapy Study</label>
                 </value>
                 <value>
                     <fullName>Prognostic Study</fullName>
                     <default>false</default>
+                    <label>Prognostic Study</label>
                 </value>
                 <value>
                     <fullName>Diagnostic Study</fullName>
                     <default>false</default>
+                    <label>Diagnostic Study</label>
                 </value>
                 <value>
                     <fullName>Observational Study w/ Drugs</fullName>
                     <default>false</default>
+                    <label>Observational Study w/ Drugs</label>
                 </value>
                 <value>
                     <fullName>Secondary Data Analysis</fullName>
                     <default>false</default>
+                    <label>Secondary Data Analysis</label>
                 </value>
                 <value>
                     <fullName>Case Series</fullName>
                     <default>false</default>
+                    <label>Case Series</label>
                 </value>
                 <value>
                     <fullName>Single Case Report</fullName>
                     <default>false</default>
+                    <label>Single Case Report</label>
                 </value>
                 <value>
                     <fullName>Experimental</fullName>
                     <default>false</default>
+                    <label>Experimental</label>
                 </value>
                 <value>
                     <fullName>Observational</fullName>
                     <default>false</default>
+                    <label>Observational</label>
                 </value>
                 <value>
                     <fullName>Meta Analysis</fullName>
                     <default>false</default>
+                    <label>Meta Analysis</label>
                 </value>
                 <value>
                     <fullName>Review</fullName>
                     <default>false</default>
+                    <label>Review</label>
                 </value>
                 <value>
                     <fullName>Systematic</fullName>
                     <default>false</default>
+                    <label>Systematic</label>
                 </value>
                 <value>
                     <fullName>Simple (Narrative)</fullName>
                     <default>false</default>
+                    <label>Simple (Narrative)</label>
                 </value>
                 <value>
                     <fullName>In Vivo</fullName>
                     <default>false</default>
+                    <label>In Vivo</label>
                 </value>
                 <value>
                     <fullName>In Vitro</fullName>
                     <default>false</default>
+                    <label>In Vitro</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -2103,6 +2273,14 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <valueName>Observational</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>Pre-Clinical Research</controllingFieldValue>
+                <valueName>In Vivo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pre-Clinical Research</controllingFieldValue>
+                <valueName>In Vitro</valueName>
+            </valueSettings>
+            <valueSettings>
                 <controllingFieldValue>Secondary Research</controllingFieldValue>
                 <valueName>Meta Analysis</valueName>
             </valueSettings>
@@ -2117,14 +2295,6 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
             <valueSettings>
                 <controllingFieldValue>Secondary Research</controllingFieldValue>
                 <valueName>Simple (Narrative)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Pre-Clinical Research</controllingFieldValue>
-                <valueName>In Vivo</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Pre-Clinical Research</controllingFieldValue>
-                <valueName>In Vitro</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -2159,10 +2329,12 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2181,6 +2353,16 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Study_Lock__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Freeze</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Study_Project_ID__c</fullName>
@@ -2219,30 +2401,36 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Asia Pacific</fullName>
                     <default>false</default>
+                    <label>Asia Pacific</label>
                 </value>
                 <value>
                     <fullName>EMEA</fullName>
                     <default>false</default>
+                    <label>EMEA</label>
                 </value>
                 <value>
                     <fullName>Emerging Markets</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Emerging Markets</label>
                 </value>
                 <value>
                     <fullName>Global (Multiple Regions)</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
+                    <label>Global (Multiple Regions)</label>
                 </value>
                 <value>
                     <fullName>Latin America</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Latin America</label>
                 </value>
                 <value>
                     <fullName>North America</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>North America</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2273,10 +2461,12 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                 <value>
                     <fullName>Yes</fullName>
                     <default>true</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2319,61 +2509,73 @@ TEXT(YEAR(Anticipated_Start_Date__c)))</formula>
                     <fullName>Questionnaire Needs Review</fullName>
                     <color>#0B6FCE</color>
                     <default>false</default>
+                    <label>Questionnaire Needs Review</label>
                 </value>
                 <value>
                     <fullName>Questionnaire</fullName>
                     <color>#78C953</color>
                     <default>false</default>
+                    <label>Questionnaire</label>
                 </value>
                 <value>
                     <fullName>Ideation</fullName>
                     <color>#E27001</color>
                     <default>false</default>
+                    <label>Ideation</label>
                 </value>
                 <value>
                     <fullName>Secure Resources</fullName>
                     <color>#A845DC</color>
                     <default>false</default>
+                    <label>Secure Resources</label>
                 </value>
                 <value>
                     <fullName>Study Development</fullName>
                     <color>#F3D904</color>
                     <default>false</default>
+                    <label>Study Development</label>
                 </value>
                 <value>
                     <fullName>Study Execution</fullName>
                     <color>#A53711</color>
                     <default>false</default>
+                    <label>Study Execution</label>
                 </value>
                 <value>
                     <fullName>Oversee Execution of Research</fullName>
                     <color>#66E9BD</color>
                     <default>false</default>
+                    <label>Oversee Execution of Research</label>
                 </value>
                 <value>
                     <fullName>Data Analysis and Reporting</fullName>
                     <color>#0B24BE</color>
                     <default>false</default>
+                    <label>Data Analysis and Reporting</label>
                 </value>
                 <value>
                     <fullName>Study Deliverable(s) and Results</fullName>
                     <color>#419249</color>
                     <default>false</default>
+                    <label>Study Deliverable(s) and Results</label>
                 </value>
                 <value>
                     <fullName>Review/ Approve Study Deliverable</fullName>
                     <color>#B6E32E</color>
                     <default>false</default>
+                    <label>Review/ Approve Study Deliverable</label>
                 </value>
                 <value>
                     <fullName>Finalize, Store Study Deliverables</fullName>
                     <color>#641CCF</color>
                     <default>false</default>
+                    <label>Finalize, Store Study Deliverables</label>
                 </value>
                 <value>
                     <fullName>Close Out</fullName>
                     <color>#F96FB7</color>
                     <default>false</default>
+                    <label>Close Out</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2424,10 +2626,12 @@ If TPO is not listed, search and select *Other* from the list.</inlineHelpText>
                 <value>
                     <fullName>External</fullName>
                     <default>false</default>
+                    <label>External</label>
                 </value>
                 <value>
                     <fullName>Internal</fullName>
                     <default>false</default>
+                    <label>Internal</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2447,62 +2651,77 @@ If TPO is not listed, search and select *Other* from the list.</inlineHelpText>
                 <value>
                     <fullName>Autoimmune Diseases</fullName>
                     <default>false</default>
+                    <label>Autoimmune Diseases</label>
                 </value>
                 <value>
                     <fullName>Cardiovascular</fullName>
                     <default>false</default>
+                    <label>Cardiovascular</label>
                 </value>
                 <value>
                     <fullName>Dermatology</fullName>
                     <default>false</default>
+                    <label>Dermatology</label>
                 </value>
                 <value>
                     <fullName>Diabetes</fullName>
                     <default>false</default>
+                    <label>Diabetes</label>
                 </value>
                 <value>
                     <fullName>Endocrinology</fullName>
                     <default>false</default>
+                    <label>Endocrinology</label>
                 </value>
                 <value>
                     <fullName>Gastroenterology</fullName>
                     <default>false</default>
+                    <label>Gastroenterology</label>
                 </value>
                 <value>
                     <fullName>Gynecology</fullName>
                     <default>false</default>
+                    <label>Gynecology</label>
                 </value>
                 <value>
                     <fullName>Immunology</fullName>
                     <default>false</default>
+                    <label>Immunology</label>
                 </value>
                 <value>
                     <fullName>Neurology</fullName>
                     <default>false</default>
+                    <label>Neurology</label>
                 </value>
                 <value>
                     <fullName>Oncology</fullName>
                     <default>false</default>
+                    <label>Oncology</label>
                 </value>
                 <value>
                     <fullName>Psychiatry &amp; Pain</fullName>
                     <default>false</default>
+                    <label>Psychiatry &amp; Pain</label>
                 </value>
                 <value>
                     <fullName>Rheumatology</fullName>
                     <default>false</default>
+                    <label>Rheumatology</label>
                 </value>
                 <value>
                     <fullName>Urology</fullName>
                     <default>false</default>
+                    <label>Urology</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
                 <value>
                     <fullName>Non-Therapeutic Area Specific</fullName>
                     <default>false</default>
+                    <label>Non-Therapeutic Area Specific</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2516,6 +2735,37 @@ If TPO is not listed, search and select *Other* from the list.</inlineHelpText>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Will_HCPs_be_paid_for_participation__c</fullName>
+        <externalId>false</externalId>
+        <label>Will HCPs be paid for participation?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>Not Sure</fullName>
+                    <default>false</default>
+                    <label>Not Sure</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Will_be_Topic_be_executed_internally__c</fullName>
@@ -2533,10 +2783,12 @@ If TPO is not listed, search and select *Other* from the list.</inlineHelpText>
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2561,46 +2813,6 @@ If TPO is not listed, search and select *Other* from the list.</inlineHelpText>
         <label>All Studies</label>
     </listViews>
     <listViews>
-        <fullName>BioMed_Projects</fullName>
-        <columns>NAME</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>OWNER.FIRST_NAME</columns>
-        <columns>Therapeutic_Area_Primary__c</columns>
-        <columns>Project_Status__c</columns>
-        <columns>LAST_ACTIVITY</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project_Status__c</field>
-            <operation>notEqual</operation>
-            <value>Closed,Archived,Cancelled</value>
-        </filters>
-        <label>BioMed Studies</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>DBU_Jansen_Test</fullName>
-        <booleanFilter>1 AND (2 or 3)</booleanFilter>
-        <columns>NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Therapeutic_Area_Primary__c</field>
-            <operation>equals</operation>
-            <value>Diabetes</value>
-        </filters>
-        <filters>
-            <field>OWNER.LAST_NAME</field>
-            <operation>equals</operation>
-            <value>Jansen</value>
-        </filters>
-        <filters>
-            <field>Project_Manager__c</field>
-            <operation>contains</operation>
-            <value>Jansen</value>
-        </filters>
-        <label>DBU-Jansen_Test</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>DRDP_Study_Approval_Queue_Project</fullName>
         <filterScope>Queue</filterScope>
         <label>Study Approval Queue</label>
@@ -2608,85 +2820,6 @@ If TPO is not listed, search and select *Other* from the list.</inlineHelpText>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>GPS_Projects1</fullName>
-        <columns>NAME</columns>
-        <columns>Business_Unit_Primary__c</columns>
-        <columns>Project_Status__c</columns>
-        <columns>LAST_UPDATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project_Status__c</field>
-            <operation>notEqual</operation>
-            <value>Closed</value>
-        </filters>
-        <filters>
-            <field>Project_Status__c</field>
-            <operation>notEqual</operation>
-            <value>Archived</value>
-        </filters>
-        <filters>
-            <field>Project_Status__c</field>
-            <operation>notEqual</operation>
-            <value>Cancelled</value>
-        </filters>
-        <label>GPS Projects</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Oncology_Studies</fullName>
-        <columns>LAST_UPDATE</columns>
-        <columns>NAME</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Project_Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Therapeutic_Area_Primary__c</field>
-            <operation>equals</operation>
-            <value>Oncology</value>
-        </filters>
-        <label>Oncology Studies</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Oncology_requests</fullName>
-        <columns>LAST_UPDATE</columns>
-        <columns>NAME</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Project_Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Therapeutic_Area_Primary__c</field>
-            <operation>equals</operation>
-            <value>Oncology</value>
-        </filters>
-        <label>Oncology Studies</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>R3_Study_View_for_Testing_UI</fullName>
-        <columns>NAME</columns>
-        <columns>Therapeutic_Area_Primary__c</columns>
-        <columns>Project_Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>R3 Study View for Testing UI</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Test1</fullName>
-        <columns>NAME</columns>
-        <columns>Therapeutic_Area_Primary__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Therapeutic_Area_Primary__c</field>
-            <operation>equals</operation>
-            <value>Cardiovascular</value>
-        </filters>
-        <label>Test1</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <label>Title</label>
@@ -2774,6 +2907,20 @@ NOT(ISNEW())
         <errorDisplayField>Actual_Start_Date__c</errorDisplayField>
         <errorMessage>Do you have a time machine? The Actual Start Date cannot be a future date.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>New_Related_Research</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Related Research</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/RedirectStudy?Id={!Business_Planning__c.Id}</url>
+    </webLinks>
     <webLinks>
         <fullName>Study_Home_Page</fullName>
         <availability>online</availability>

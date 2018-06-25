@@ -1,7 +1,7 @@
 <apex:component allowDML="True" controller="DRDP_ComponentControl">
 <div class="footer">
         <div class="container">
-            <a href="" class="dd-logo">Deloitte Digital</a>
+            <a href=""><apex:image url="{!HomeHeader1}" height="49" width="103" style="text-indent: -99999px; display: block; float: left!important;"/></a>
             <span class="copyright-text pull-right">&copy; Copyright 2017. All rights reserved.</span>
             <a href="#" class="pull-right feedback-button" data-toggle="modal" data-target="#myModal">
                 <!-- <span class="bracket">[</span>

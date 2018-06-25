@@ -142,20 +142,6 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Check_Payer_Dossier</fullName>
-        <actions>
-            <name>Check_Payer_Dossier</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Project__c.Primary_Purpose__c</field>
-            <operation>equals</operation>
-            <value>Local Payer Dossier/HTA Submission</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>StudyTypeChange</fullName>
         <actions>
             <name>UpdateStudyStage</name>

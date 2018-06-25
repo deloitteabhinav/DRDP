@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -74,10 +75,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -107,10 +110,12 @@
                 <value>
                     <fullName>Full Cycle</fullName>
                     <default>false</default>
+                    <label>Full Cycle</label>
                 </value>
                 <value>
                     <fullName>Limited Cycle</fullName>
                     <default>false</default>
+                    <label>Limited Cycle</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -140,18 +145,22 @@
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Not Evaluated</fullName>
                     <default>false</default>
+                    <label>Not Evaluated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -170,18 +179,22 @@
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Not Evaluated</fullName>
                     <default>false</default>
+                    <label>Not Evaluated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -200,10 +213,12 @@
                 <value>
                     <fullName>External</fullName>
                     <default>false</default>
+                    <label>External</label>
                 </value>
                 <value>
                     <fullName>Internal</fullName>
                     <default>false</default>
+                    <label>Internal</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -233,14 +248,17 @@
                 <value>
                     <fullName>Permanent</fullName>
                     <default>false</default>
+                    <label>Permanent</label>
                 </value>
                 <value>
                     <fullName>Yearly Renewal</fullName>
                     <default>false</default>
+                    <label>Yearly Renewal</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -259,18 +277,22 @@
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Not Evaluated</fullName>
                     <default>false</default>
+                    <label>Not Evaluated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -289,10 +311,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -311,14 +335,17 @@
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -337,14 +364,17 @@
                 <value>
                     <fullName>Yes(corporate)</fullName>
                     <default>false</default>
+                    <label>Yes(corporate)</label>
                 </value>
                 <value>
                     <fullName>Yes(by user)</fullName>
                     <default>false</default>
+                    <label>Yes(by user)</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -373,18 +403,22 @@
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Not Evaluated</fullName>
                     <default>false</default>
+                    <label>Not Evaluated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -403,10 +437,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -425,14 +461,17 @@
                 <value>
                     <fullName>Inhouse</fullName>
                     <default>false</default>
+                    <label>Inhouse</label>
                 </value>
                 <value>
                     <fullName>External (Other)</fullName>
                     <default>false</default>
+                    <label>External (Other)</label>
                 </value>
                 <value>
                     <fullName>External (Cloud)</fullName>
                     <default>false</default>
+                    <label>External (Cloud)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -461,18 +500,22 @@
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Not Evaluated</fullName>
                     <default>false</default>
+                    <label>Not Evaluated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -491,22 +534,27 @@
                 <value>
                     <fullName>Production</fullName>
                     <default>false</default>
+                    <label>Production</label>
                 </value>
                 <value>
                     <fullName>Evaluation</fullName>
                     <default>false</default>
+                    <label>Evaluation</label>
                 </value>
                 <value>
                     <fullName>Hold</fullName>
                     <default>false</default>
+                    <label>Hold</label>
                 </value>
                 <value>
                     <fullName>In Development</fullName>
                     <default>false</default>
+                    <label>In Development</label>
                 </value>
                 <value>
                     <fullName>Not Recommended</fullName>
                     <default>false</default>
+                    <label>Not Recommended</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -526,18 +574,22 @@
                 <value>
                     <fullName>Internal Power Users</fullName>
                     <default>false</default>
+                    <label>Internal Power Users</label>
                 </value>
                 <value>
                     <fullName>External Power Users</fullName>
                     <default>false</default>
+                    <label>External Power Users</label>
                 </value>
                 <value>
                     <fullName>Internal/External Power Users</fullName>
                     <default>false</default>
+                    <label>Internal/External Power Users</label>
                 </value>
                 <value>
                     <fullName>External Users/Canned Reports</fullName>
                     <default>false</default>
+                    <label>External Users/Canned Reports</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -557,18 +609,22 @@
                 <value>
                     <fullName>Analyst</fullName>
                     <default>false</default>
+                    <label>Analyst</label>
                 </value>
                 <value>
                     <fullName>Business</fullName>
                     <default>false</default>
+                    <label>Business</label>
                 </value>
                 <value>
                     <fullName>Scientist</fullName>
                     <default>false</default>
+                    <label>Scientist</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -621,18 +677,22 @@
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Not Evaluated</fullName>
                     <default>false</default>
+                    <label>Not Evaluated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -722,4 +782,5 @@
         <errorDisplayField>User_Type__c</errorDisplayField>
         <errorMessage>Please specify the User Type</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

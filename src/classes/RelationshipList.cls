@@ -132,8 +132,11 @@ Public with sharing class RelationshipList {
         
         lPicklist = new List < wFilterWrapper > ();
         lPicklist.add(new wFilterWrapper('Partners', false));
+        mCategoyCount.put('Partners', 0);
         lPicklist.add(new wFilterWrapper('Vendor / Service Providers', false));
+        mCategoyCount.put('Vendor / Service Providers', 0);
         lPicklist.add(new wFilterWrapper('Research Institutes', false));
+        mCategoyCount.put('Research Institutes', 0);
         
         mRelationshipObjectStructure.put('Account.RecordType.Name', lPicklist);
         

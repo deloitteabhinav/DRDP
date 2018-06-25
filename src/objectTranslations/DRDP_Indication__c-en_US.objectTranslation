@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Indication</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Indications</value>
+    </caseValues>
+    <fields>
+        <label><!-- Molecule --></label>
+        <name>Molecule__c</name>
+        <relationshipLabel><!-- Indications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SAP ID --></label>
+        <name>SAP_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>DRDP Indication Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

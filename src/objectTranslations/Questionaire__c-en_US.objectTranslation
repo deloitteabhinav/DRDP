@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Questionnaire</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Questionnaires</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Questions --></label>
+        <name>Questions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sequence Unique Check --></label>
+        <name>Sequence_Unique_Check__c</name>
+    </fields>
+    <fields>
+        <label><!-- Study Type --></label>
+        <name>Study_Type__c</name>
+        <picklistValues>
+            <masterLabel>Applied</masterLabel>
+            <translation><!-- Applied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case Series</masterLabel>
+            <translation><!-- Case Series --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Study</masterLabel>
+            <translation><!-- Clinical Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diagnostic Study</masterLabel>
+            <translation><!-- Diagnostic Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Experimental</masterLabel>
+            <translation><!-- Experimental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Vitro</masterLabel>
+            <translation><!-- In Vitro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Vivo</masterLabel>
+            <translation><!-- In Vivo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meta Analysis</masterLabel>
+            <translation><!-- Meta Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Observational</masterLabel>
+            <translation><!-- Observational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Observational Study w/ Drugs</masterLabel>
+            <translation><!-- Observational Study w/ Drugs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prognostic Study</masterLabel>
+            <translation><!-- Prognostic Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review</masterLabel>
+            <translation><!-- Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secondary Data Analysis</masterLabel>
+            <translation><!-- Secondary Data Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simple (Narrative)</masterLabel>
+            <translation><!-- Simple (Narrative) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Case Report</masterLabel>
+            <translation><!-- Single Case Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Systematic</masterLabel>
+            <translation><!-- Systematic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Theoretical</masterLabel>
+            <translation><!-- Theoretical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Therapy Study</masterLabel>
+            <translation><!-- Therapy Study --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Give a reason for creating a new version of the questionnaire --></help>
+        <label><!-- Version Comments --></label>
+        <name>Version_Comments__c</name>
+    </fields>
+    <layouts>
+        <layout>DRDP Questionnaire Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Cannot Add/Delete Questions from an already Activated Questionnaire. --></errorMessage>
+        <name>No_Questions_when_Active</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Push_Questionnaire --></label>
+        <name>Push_Questionnaire</name>
+    </webLinks>
+</CustomObjectTranslation>

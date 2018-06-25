@@ -46,7 +46,7 @@ Public list<selectoption> roleLovOptions{
     public Checklist(ApexPages.StandardController controller) {
         mChecklistToBeDisplayed = new Map<String,wObject>();
         oProject = (Project__c)controller.getrecord();
-        Study_Checklist_Version__c oStudyChecklistVersion  = [Select id,(select id,Checklist_Item__r.Process__c,newly_added__c,Role__c,comment__c,comment_date__c,Checklist_Item__r.Instructions__c,completed__c,sequence__c,milestone__c from Study_Checklists__r order by  Checklist_Item__r.Process__c,sequence__c,milestone__c) from Study_Checklist_Version__c where Study__c = : oProject.Id order by createddate desc Limit 1]; 
+        Study_Checklist_Version__c oStudyChecklistVersion  = [Select id,(select id,Checklist_Item__r.Process__c,newly_added__c,Role__c,comment__c,comment_date__c,Checklist_Item__r.Instructions__c,completed__c,sequence__c,milestone__c from Study_Checklists__r Where id <> NULL order by  Checklist_Item__r.Process__c,sequence__c,milestone__c) from Study_Checklist_Version__c where Study__c = : oProject.Id order by createddate desc Limit 1]; 
         Map<String,Map<Study_Checklist__c,List<Study_Checklist__c>>> mAssortedChecklistCollection = new Map<String,Map<Study_Checklist__c,List<Study_Checklist__c>>>();
         Study_Checklist__c oMilestone = new Study_Checklist__c();
         if(oProject.Study_stage__c == 'Questionnaire')
@@ -199,6 +199,7 @@ Public void makeEdit(){
 Public void save(){
     Study_Checklist__c oStudyCheckList;
     mChecklistToBeDisplayed.get(sProcess).sProcessCount =0;
+    List<Project__c> lPro = new List<Project__c>();
     for(wMilestoneChecklistItems oChecklist : mChecklistToBeDisplayed.get(sProcess).lCheckListItems){
         if(oChecklist.oMilestone!=null && iSelectedCheckListItem ==  oChecklist.oMilestone.Id){
             oStudyCheckList = oChecklist.oMilestone;
@@ -212,7 +213,8 @@ Public void save(){
             if(oChecklist.oMilestone.completed__c && oChecklist.oMilestone.newly_added__c == true){
                 oChecklist.oMilestone.newly_added__c = false;   
                 mChecklistToBeDisplayed.get(sProcess).bNewlyAdded = false;
-                update oProject;
+                lPro.add(oProject);
+                //update oProject;
             }
         }
         if(oChecklist.oMilestone!=null && oChecklist.oMilestone.completed__c ==true)
@@ -237,8 +239,12 @@ Public void save(){
                 oChecklist.iCompleted++;
         }
     }
-    
-    update oStudyCheckList;
+    if(!lPro.isEmpty()){
+        insert lPro;
+    }
+    if(oStudyCheckList != null){
+        update oStudyCheckList;
+    }
 }
 
 /* 
@@ -270,8 +276,9 @@ Public void Submit(){
      } 
     } 
      sProcess = oProject.Study_Stage__c;
+     if(oProject != null){
      Update oProject;
-     
+     }
     
 }
 

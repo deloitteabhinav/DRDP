@@ -6,6 +6,8 @@
  *****************************************************************************************************************************************/
 Public with sharing class InformationLandscapeList {
 
+    public String f { get; set; }
+
     Public ApexPages.StandardSetController cLandscapeListController {
         get;
         set;
@@ -64,7 +66,7 @@ Public with sharing class InformationLandscapeList {
         get;
         set;
     }
-    
+    public boolean isAdmin{get; set;}
     public List < wFieldSelected > lFieldWrapper;
 
     public set < id > sSelectedLandscapeId {get; set;}
@@ -82,7 +84,7 @@ Public with sharing class InformationLandscapeList {
     Public List<wOrganisation> lwOrganisation{get;set;}
     Public Boolean bShowButton{get;set;}
      
-
+    
     /* 
      * @Method Name                    :  getLandscapes
      * @Description                    :  Initialize cLandscapeListController and return a list of records
@@ -97,6 +99,11 @@ Public with sharing class InformationLandscapeList {
 
     //Loading the constructor the page
     Public InformationLandscapeList() {
+        isAdmin = false;
+        Id profileId = UserInfo.getProfileId();
+        Profile adminProfile = [select id from Profile where Name = 'System Administrator'];
+        if(profileId == adminProfile.Id)
+            isAdmin = true; 
         pNoLimit = 20;
         // Initialisation 
         sField = 'Name';
@@ -105,7 +112,7 @@ Public with sharing class InformationLandscapeList {
         bShowMoreFlag = TRUE;
         mInfoLandscapeStructure = new Map < String, List < wLandscapeObject >> ();
         lwOrganisation = new List<wOrganisation>();
-        
+        system.debug('test');
         //Initialisation for compare report collections
         sSelectedFields = new Set < String > ();
         lSelectedFields = new List < String > ();
@@ -162,32 +169,32 @@ Public with sharing class InformationLandscapeList {
         mCategoyCount = new Map < String, Integer > ();
 
         // Not using global describe which is taking longer time, hence hardcoding the field for describe
-        for (Schema.Picklistentry oPicklistValues: Information_Landscape__c.Source_Type__c.getDescribe().getPicklistValues()) {
+        for (Schema.Picklistentry oPicklistValues: Information_Landscape__c.Client_Functional_Group__c.getDescribe().getPicklistValues()) {
             lPicklist.add(new wLandscapeObject(oPicklistValues.Value, false));
             mCategoyCount.put(oPicklistValues.Label, 0);
         }
-        mInfoLandscapeStructure.put('Source_Type__c', lPicklist);
+        mInfoLandscapeStructure.put('Client_Functional_Group__c', lPicklist);
 
         lPicklist = new List < wLandscapeObject > ();
-        for (Schema.Picklistentry oPicklistValues: Information_Landscape__c.Information_Type__c.getDescribe().getPicklistValues()) {
+        for (Schema.Picklistentry oPicklistValues: Information_Landscape__c.Application_Type__c.getDescribe().getPicklistValues()) {
             lPicklist.add(new wLandscapeObject(oPicklistValues.Value, false));
             mCategoyCount.put(oPicklistValues.Label, 0);
         }
-        mInfoLandscapeStructure.put('Information_Type__c', lPicklist);
+        mInfoLandscapeStructure.put('Application_Type__c', lPicklist);
 
         lPicklist = new List < wLandscapeObject > ();
-        for (Schema.Picklistentry oPicklistValues: Information_Landscape__c.Regulatory_Indicator__c.getDescribe().getPicklistValues()) {
+        for (Schema.Picklistentry oPicklistValues: Information_Landscape__c.App_Retention_Decision__c.getDescribe().getPicklistValues()) {
             lPicklist.add(new wLandscapeObject(oPicklistValues.Value, false));
             mCategoyCount.put(oPicklistValues.Label, 0);
         }
-        mInfoLandscapeStructure.put('Regulatory_Indicator__c', lPicklist);
+        mInfoLandscapeStructure.put('App_Retention_Decision__c', lPicklist);
 
         lPicklist = new List < wLandscapeObject > ();
-        for (Schema.Picklistentry oPicklistValues: Information_Landscape__c.Sensitivity__c.getDescribe().getPicklistValues()) {
+        for (Schema.Picklistentry oPicklistValues: Information_Landscape__c.Contract_Decision_Contract_Integration_D__c.getDescribe().getPicklistValues()) {
             lPicklist.add(new wLandscapeObject(oPicklistValues.Value, false));
             mCategoyCount.put(oPicklistValues.Label, 0);
         }
-        mInfoLandscapeStructure.put('Sensitivity__c', lPicklist);
+        mInfoLandscapeStructure.put('Contract_Decision_Contract_Integration_D__c', lPicklist);
 
     }
 
@@ -243,24 +250,24 @@ Public with sharing class InformationLandscapeList {
         String sSearchClause = '';
         List < Information_Landscape__c > lSearchWordProjects = new List < Information_Landscape__c > ();
 
-        sRegionClause = FrameClause(mInfoLandscapeStructure.get('Source_Type__c'));
+        sRegionClause = FrameClause(mInfoLandscapeStructure.get('Client_Functional_Group__c'));
         if (sRegionClause != '') {
-            sRegionClause = ' Source_Type__c IN ' + sRegionClause;
+            sRegionClause = ' Client_Functional_Group__c IN ' + sRegionClause;
         }
 
-        sAccessMethodClause = FrameClause(mInfoLandscapeStructure.get('Information_Type__c'));
+        sAccessMethodClause = FrameClause(mInfoLandscapeStructure.get('Application_Type__c'));
         if (sAccessMethodClause != '') {
-            sAccessMethodClause = ' Information_Type__c IN ' + sAccessMethodClause;
+            sAccessMethodClause = ' Application_Type__c IN ' + sAccessMethodClause;
         }
 
-        sTherapeuticAreaClause = FrameClause(mInfoLandscapeStructure.get('Regulatory_Indicator__c'));
+        sTherapeuticAreaClause = FrameClause(mInfoLandscapeStructure.get('App_Retention_Decision__c'));
         if (sTherapeuticAreaClause != '') {
-            sTherapeuticAreaClause = ' Regulatory_Indicator__c IN ' + sTherapeuticAreaClause;
+            sTherapeuticAreaClause = ' App_Retention_Decision__c IN ' + sTherapeuticAreaClause;
         }
 
-        sTypeofDatabaseClause = FrameClause(mInfoLandscapeStructure.get('Sensitivity__c'));
+        sTypeofDatabaseClause = FrameClause(mInfoLandscapeStructure.get('Contract_Decision_Contract_Integration_D__c'));
         if (sTypeofDatabaseClause != '') {
-            sTypeofDatabaseClause = ' Sensitivity__c IN ' + sTypeofDatabaseClause;
+            sTypeofDatabaseClause = ' Contract_Decision_Contract_Integration_D__c IN ' + sTypeofDatabaseClause;
         }
         
         If(sAccessDetailType != null && sAccessDetailType != '') {
@@ -273,14 +280,14 @@ Public with sharing class InformationLandscapeList {
 
         if ((sSearchWord != null && sSearchWord.length()>1) && sSearchWord.trim() != '') {
 
-            List < List < sObject >> lDynamicSearchResult = search.query('FIND \'' + string.escapeSingleQuotes(sSearchWord) + '\' IN ALL FIELDS RETURNING Information_Landscape__c (Id,Name,Source_Type__c,Information_Type__c,Regulatory_Indicator__c, Sensitivity__c, SDLC_Classification__c, Source_Description__c, Group_Name__c, Target_Decommissioning_Indicator__c, Integration_Mechanism__c ' + CombineQuery('WHERE', new List < String > {
+            List < List < sObject >> lDynamicSearchResult = search.query('FIND \'' + string.escapeSingleQuotes(sSearchWord) + '\' IN ALL FIELDS RETURNING Information_Landscape__c (Id,Name,Acquiree_App_ID__c ,Vendor__r.Name,Product__c,Client_Functional_Area__c,Client_Functional_Group__c,Application_Type__c,App_Retention_Decision__c, Organization_Owner__c, Contract_Decision_Contract_Integration_D__c, SDLC_Classification__c, Source_Description__c, Group_Name__c, Target_Decommissioning_Indicator__c, Integration_Mechanism__c ' + CombineQuery('WHERE', new List < String > {
                 sRegionClause, sAccessMethodClause, sTherapeuticAreaClause, sTypeofDatabaseClause, sAccessDetailClause
             }) +  ' ORDER BY ' + sOrder + ')');
             lSearchWordProjects = lDynamicSearchResult[0];
             cLandscapeListController = new ApexPages.StandardSetController(lDynamicSearchResult[0]);
         } else {
             cLandscapeListController = new ApexPages.StandardSetController(Database.getQueryLocator(
-                'SELECT Source_Type__c,SDLC_Classification__c,Information_Type__c,Regulatory_Indicator__c, Sensitivity__c, Name, Source_Description__c, Group_Name__c, Target_Decommissioning_Indicator__c, Integration_Mechanism__c  FROM Information_Landscape__c ' + CombineQuery('WHERE', new List < String > {
+                'SELECT Client_Functional_Group__c,Acquiree_App_ID__c ,Vendor__r.Name,Product__c,SDLC_Classification__c,Application_Type__c,Organization_Owner__c, Contract_Decision_Contract_Integration_D__c, Name, App_Retention_Decision__c,Source_Description__c, Group_Name__c, Target_Decommissioning_Indicator__c, Integration_Mechanism__c,Client_Functional_Area__c  FROM Information_Landscape__c ' + CombineQuery('WHERE', new List < String > {
                     sRegionClause, sAccessMethodClause, sTherapeuticAreaClause, sTypeofDatabaseClause, sAccessDetailClause
                 }) + ' ORDER BY ' + sOrder));
         }
@@ -301,27 +308,27 @@ Public with sharing class InformationLandscapeList {
         for (String mCount: mCategoyCount.keyset()) {
             mCategoyCount.put(mCount, 0);
         }
-        for (AggregateResult ar: database.query('SELECT count(Id),Source_Type__c FROM Information_Landscape__c where Source_Type__c!=null ' + CombineQuery('AND', new List < String > {
+        for (AggregateResult ar: database.query('SELECT count(Id),Client_Functional_Group__c FROM Information_Landscape__c where Client_Functional_Group__c!=null ' + CombineQuery('AND', new List < String > {
                 sRegionClause, sAccessMethodClause, sTherapeuticAreaClause, sTypeofDatabaseClause,sAccessDetailClause,sSearchClause
-            }) + ' Group BY Source_Type__c')) {
-            mCategoyCount.put((String) ar.get('Source_Type__c'), (Integer) ar.get('expr0'));
+            }) + ' Group BY Client_Functional_Group__c')) {
+            mCategoyCount.put((String) ar.get('Client_Functional_Group__c'), (Integer) ar.get('expr0'));
         }
-        for (AggregateResult ar: database.query('SELECT count(Id),Information_Type__c FROM Information_Landscape__c where Information_Type__c !=null ' + CombineQuery('AND', new List < String > {
+        for (AggregateResult ar: database.query('SELECT count(Id),Application_Type__c FROM Information_Landscape__c where Application_Type__c !=null ' + CombineQuery('AND', new List < String > {
                 sRegionClause, sAccessMethodClause, sTherapeuticAreaClause, sTypeofDatabaseClause,sAccessDetailClause,sSearchClause
-            }) + ' Group BY Information_Type__c')) {
-            mCategoyCount.put((String) ar.get('Information_Type__c'), (Integer) ar.get('expr0'));
-        }
-
-        for (AggregateResult ar: database.query('SELECT count(Id),Regulatory_Indicator__c FROM Information_Landscape__c where Regulatory_Indicator__c!=null ' + CombineQuery('AND', new List < String > {
-                sRegionClause, sAccessMethodClause, sTherapeuticAreaClause, sTypeofDatabaseClause,sAccessDetailClause,sSearchClause
-            }) + ' Group BY Regulatory_Indicator__c')) {
-            mCategoyCount.put((String) ar.get('Regulatory_Indicator__c'), (Integer) ar.get('expr0'));
+            }) + ' Group BY Application_Type__c')) {
+            mCategoyCount.put((String) ar.get('Application_Type__c'), (Integer) ar.get('expr0'));
         }
 
-        for (AggregateResult ar: database.query('SELECT count(Id),Sensitivity__c FROM Information_Landscape__c where Sensitivity__c!=null ' + CombineQuery('AND', new List < String > {
+        for (AggregateResult ar: database.query('SELECT count(Id),App_Retention_Decision__c FROM Information_Landscape__c where App_Retention_Decision__c!=null ' + CombineQuery('AND', new List < String > {
                 sRegionClause, sAccessMethodClause, sTherapeuticAreaClause, sTypeofDatabaseClause,sAccessDetailClause,sSearchClause
-            }) + ' Group BY Sensitivity__c')) {
-            mCategoyCount.put((String) ar.get('Sensitivity__c'), (Integer) ar.get('expr0'));
+            }) + ' Group BY App_Retention_Decision__c')) {
+            mCategoyCount.put((String) ar.get('App_Retention_Decision__c'), (Integer) ar.get('expr0'));
+        }
+
+        for (AggregateResult ar: database.query('SELECT count(Id),Contract_Decision_Contract_Integration_D__c FROM Information_Landscape__c where Contract_Decision_Contract_Integration_D__c!=null ' + CombineQuery('AND', new List < String > {
+                sRegionClause, sAccessMethodClause, sTherapeuticAreaClause, sTypeofDatabaseClause,sAccessDetailClause,sSearchClause
+            }) + ' Group BY Contract_Decision_Contract_Integration_D__c')) {
+            mCategoyCount.put((String) ar.get('Contract_Decision_Contract_Integration_D__c'), (Integer) ar.get('expr0'));
         }
 
         //Initialise dropdown of OwnerType
@@ -424,19 +431,25 @@ Public with sharing class InformationLandscapeList {
         //Map for Getting all the Fields from Data Landscape Object
         Map < String, Schema.SObjectField > M = new Map < String, Schema.SObjectField > ();
         M = Schema.SObjectType.Information_Landscape__c.fields.getMap();
-
+        system.debug('******'+M);
         //Querying the Console object to get the data
         //Adding Fields Names and Label to the Map which are used for Reporting
 
         List < Console__c > lConsole = [Select Name, Id from Console__c where Name = 'Information Landscape'
                                              LIMIT 1
                                             ];
+                                           
         For(Note oNote: [Select Title, Body from Note where ParentId IN: lConsole Order By CreatedDate]) {
             lSections.add(oNote.Title);
+            
             For(String sField: oNote.Body.split(',')) {
                 sField = sField.trim();
                 For(String key: M.KeySet()) {
+                    system.debug('*******'+sField);
+                    system.debug('*******'+key);
+                    system.debug('********'+ M.get(key).getDescribe().getLabel());
                     If(sField == M.get(key).getDescribe().getLabel()) {
+                        system.debug('*****'+sField);
                         mFieldList.put(key, oNote.Title);
                     }
                 }
@@ -457,7 +470,9 @@ Public with sharing class InformationLandscapeList {
 
         //Adding the Selected Fields to the Wrapper
         lFieldWrapper = new List < wFieldSelected > ();
+        system.debug('********'+mFieldList);
         For(String sWrap: mFieldList.keySet()) {
+            system.debug('********'+sWrap);
             wFieldSelected wField = new wFieldSelected(Schema.SObjectType.Information_Landscape__c.fields.getMap().get(sWrap).getDescribe().getLabel(), sWrap, false, mFieldList.get(sWrap));
             if (this.sSelectedFields.contains(sWrap)) {
                 wField.fselected = True;
@@ -548,7 +563,7 @@ Public with sharing class InformationLandscapeList {
     }
     
     Public void FetchOrgs(){
-        For(Account a: [Select Id,Name from Account ORDER BY NAME Limit 50000]){
+        For(Account a: [Select Id,Name from Account where RecordType.Name = 'Partners' ORDER BY NAME Limit 50000]){
             wOrganisation oW = new wOrganisation(False,a);
             lwOrganisation.add(oW);
         }
@@ -658,8 +673,4 @@ Public with sharing class InformationLandscapeList {
             oAccount = a;
         }
     }
-
-
-
-
 }

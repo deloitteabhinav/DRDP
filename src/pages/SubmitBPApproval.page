@@ -1,0 +1,34 @@
+<apex:page standardcontroller="Business_Planning__c" recordSetVar="bpItems" extensions="SubmitBPApproval" action="{!Submit}">
+    <style type="text/css">
+        .ct {
+            text-align: center;
+        }
+        
+        .requiredblock {
+            align: center;
+        }
+        
+        .rank-order {
+            width: 55px;
+        }
+    </style>
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock title="Result" rendered="{!bIsBPAdmin}">
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Back to List View" action="{!Back}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockTable value="{!lwPlanning}" var="wPlan">  
+                <apex:column headerValue="Title">
+                    <apex:outputlink target="_blank" value="/{!wPlan.oPlanning.id}">{!wPlan.oPlanning.Title__c}</apex:outputlink>
+                </apex:column>
+                <apex:column value="{!wPlan.oPlanning.Business_Planning_Approval_Status__c}" />
+                <apex:column value="{!wPlan.oPlanning.Approver__c}" />
+                <apex:column value="{!wPlan.oPlanning.Lock__c}" />
+                <apex:column style="{!IF(wPlan.sMsg = "Record Successfully Submitted for Approval",'color:green','color:red')}" value="{!wPlan.sMsg}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Related Data Asset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Data Assets</value>
+    </caseValues>
+    <fields>
+        <label><!-- RWD Data Asset --></label>
+        <name>Related_Data_Asset__c</name>
+        <relationshipLabel><!-- Related Tools --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Tool Inventory --></label>
+        <name>Related_Tool_Inventory__c</name>
+        <relationshipLabel><!-- Related Data Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Unique Tool Data Asset TF --></label>
+        <name>Unique_Tool_Data_Asset_TF__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

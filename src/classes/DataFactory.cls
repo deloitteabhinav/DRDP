@@ -139,33 +139,7 @@ public with sharing class DataFactory
         return lContact;
     }
     
-    /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
-    /* 
-     * @Method Name                    :  createQuestion
-     * @Description                    :  creates a set of Test Questions
-     * @Return Type                    :  List of Questions
-     * @Parameters                     :  
-     */
-    public static List<Question__c> createQuestion(integer countQuestion, integer countContactQuestion)
-    {
-        List<Question__c> lQuestion=new List<Question__c>();
-        Question__c ques;
-        for (integer i = 0; i < countQuestion; i++)
-        {
-            ques=new Question__c();
-            ques.Question__c='This is a test Question '+i;
-            lQuestion.add(ques);
-        }
-        for (integer i = 0; i < countContactQuestion; i++)
-        {
-            ques=new Question__c();
-            ques.Question__c='This is a test Question '+i;
-            ques.Is_Contact_Specific__c=true;
-            lQuestion.add(ques);
-        }
-        return lQuestion;
-    }
-    
+   
      /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
     /* 
      * @Method Name                    :  CreateContactAttachments

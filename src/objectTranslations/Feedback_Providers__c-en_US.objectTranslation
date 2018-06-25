@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Feedback Provider</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Feedback Providers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Feedback Id --></label>
+        <name>Feedback_Id__c</name>
+        <relationshipLabel><!-- Feedback Providers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Feedback Provider First Name --></label>
+        <name>Feedback_Provider_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Feedback Provider --></label>
+        <name>Feedback_Provider__c</name>
+        <relationshipLabel><!-- Feedback Providers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- OrgAddress_TF --></label>
+        <name>OrgAddress_TF__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box to send a reminder to the Feedback Provider. Please note that this is a one time event. Please edit the record and check this box again to send another reminder. --></help>
+        <label><!-- Reminder Sent --></label>
+        <name>Send_Reminder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Saved</masterLabel>
+            <translation><!-- Saved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Supplier Name --></label>
+        <name>Supplier_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -35,7 +35,8 @@ Public with sharing class CreateDataAssetController {
                 }
     
                 string query = 'select ' + string.escapeSingleQuotes(commaSepratedFields) + ' from ' + string.escapeSingleQuotes(SobjectApiName) + ' where id =\'' + string.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('id')) + '\' limit 1';
-                oDataAsset = Database.query(query);
+                getDataAsset(query);
+                //oDataAsset = Database.query(query);
             }
           }
        Catch(Exception e) {
@@ -47,5 +48,9 @@ Public with sharing class CreateDataAssetController {
         
       //Method to be removed after R20
       Public pagereference saveApplicant() {return null;}
+      
+      Public void getDataAsset(String query){
+          oDataAsset = Database.query(query);
+      }
 
 }

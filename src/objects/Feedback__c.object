@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -88,33 +89,5 @@
         <excludedStandardButtons>Accept</excludedStandardButtons>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
-    <webLinks>
-        <fullName>Link_to_Report</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <linkType>page</linkType>
-        <masterLabel>Feedback Report</masterLabel>
-        <openType>replace</openType>
-        <page>FeedbackReport</page>
-        <protected>false</protected>
-    </webLinks>
-    <webLinks>
-        <fullName>Send_Reminder</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>400</height>
-        <isResizable>false</isResizable>
-        <linkType>page</linkType>
-        <masterLabel>Send Reminder</masterLabel>
-        <openType>newWindow</openType>
-        <page>Send_Reminder</page>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>true</showsLocation>
-        <showsStatus>true</showsStatus>
-        <width>400</width>
-    </webLinks>
+    <visibility>Public</visibility>
 </CustomObject>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Global List of Values</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Global List of Values</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please select if the created record is active or not. --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- App Retention Decision --></label>
+        <name>App_Retention_Decision</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Contract Decision --></label>
+        <name>Contract_Decision</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

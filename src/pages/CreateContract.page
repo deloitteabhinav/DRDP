@@ -1,0 +1,403 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" id="thePage" Standardcontroller="Contracts__c" extensions="DRDP_CreateContractController">
+ 
+    <head>
+    <title>Create Contract</title>
+    <c:R3_Styles />
+     <script type='text/javascript'>
+        function isValidSearchString(searchString) {
+            var SEARCH_TRIGGER_THRESHOLD = 2;
+            var trimmedSearchString = searchString.trim();
+
+            if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function noenter(ev) {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                var searchString = (document.getElementsByClassName("keyword_DataAsset_Search_Text"))[0].value;
+                if (isValidSearchString(searchString)) {
+                    doSearchAf();
+                }
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+   </head>
+    <body>
+    <style>  
+    .hideDropdown select{
+        visibility: hidden !important;
+        display: block !important;
+    }
+</style>
+
+        <div class='df_drdw content'>
+        <!-- Using df_drdws Index component for the Top Header- -->
+        <c:DRDP_IndexNew /> 
+        <!-- <c:DRDP_IndexNew /> -->
+        <div class="df_drdw-createstudy">
+        <!-- <div class="datasourcingrequest container-fluid">  -->
+             <header>
+            <div class="pattern"></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 banner-properties">
+                            <!-- ------------------  Conditional header & buttons  here ----------------- -->
+                             <div class="container">
+                             <apex:outputPanel rendered="{!IF($CurrentPage.parameters.id == NULL,true,false)}">
+                                <h1><apex:outputText value="Create Contract"/></h1>
+                                </apex:outputPanel>
+                             <apex:outputPanel rendered="{!IF($CurrentPage.parameters.id != NULL,true,false)}">
+                                <h1><apex:outputText value="Contract"/></h1>
+                                </apex:outputPanel>
+                                <apex:outputpanel rendered="{!IF($CurrentPage.parameters.id != NULL,true,false)}">
+                                <h1><apex:outputField value="{!oContract.Name}"/></h1>
+                                <p></p>
+                                </apex:outputpanel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </header>
+                <!-- ------------------  Error OutputPanel start here ---------------- -->
+
+                <div class="sfdc-errorMessage font-s">
+                    <apex:pagemessages escape="false"></apex:pagemessages>
+                </div>
+                <script>
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                </script>
+
+                <!-- ------------------  Error OutputPanel ends here ---------------- --->
+
+        <!--------------------  Overall MAIN container starts here ------------------->
+
+        <main class="container">
+            <apex:outputpanel id="EditContracts__cPanel" rendered="{!IF($CurrentPage.parameters.isEdit=='true',true,false)}">
+            <apex:form id="editContracts__c" styleclass="create-study-form accordion">
+
+           <section class="row">
+                <div class="col-xs-12 required-label">* REQUIRED FIELD</div>
+            </section>
+
+
+            <!--------------------------------Edit Contract Section starts---------------------------------------------------------->
+            <section class="row">
+                <div class="col-xs-12">
+                    <h2 class="accordion-parent">Contract Details
+                    <span class="icon-large-caret pull-right down"></span></h2>
+                    <fieldset class="accordion-child">
+                    <apex:outputPanel id="Contract">
+                    <apex:actionregion >
+
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Name.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Name.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Name.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oContract.Name}" required="true"/>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Client_Contract_Lead__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Client_Contract_Lead__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Client_Contract_Lead__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper" style="margin-top:0px">
+                            <apex:inputField styleClass="hideDropdown" value="{!oContract.Client_Contract_Lead__c}" required="true"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Category__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Category__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Category__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oContract.Contract_Category__c}" required="true"/>
+                        </div>
+                    </div>
+ 
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Decision_Contract_Integration_D__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Decision_Contract_Integration_D__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Decision_Contract_Integration_D__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oContract.Contract_Decision_Contract_Integration_D__c}" required="true"/>
+                        </div>
+                    </div>
+ 
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Notes__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Notes__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Notes__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oContract.Contract_Notes__c}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Specific_Type__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Specific_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Specific_Type__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oContract.Contract_Specific_Type__c}" required="true"/>
+                        </div>
+                    </div>
+                                        
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Status__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Status__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Status__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oContract.Contract_Status__c}" required="true"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Type__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Type__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oContract.Contract_Type__c}" required="true"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Cost_of_this_purchase__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Cost_of_this_purchase__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Cost_of_this_purchase__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:inputField value="{!oContract.Cost_of_this_purchase__c}" />
+                        </div>
+                    </div>
+
+
+    
+
+                    </apex:actionRegion>
+                    </apex:outputPanel>
+                    </fieldset>
+                </div>
+            </section>
+
+            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+            <section class="row submit">
+                <div class="col-xs-12">
+                    <apex:commandButton action="{!save}" styleclass="submit-study button" value="Save" />
+                    <apex:actionFunction name="doSubmit" rerender="error" oncomplete="return false;"/>
+                    <apex:outputLink styleClass="button" value="/apex/CreateContract?id={!$CurrentPage.parameters.id}&isEdit=false" rendered="{!$CurrentPage.parameters.id != null}">Cancel</apex:outputLink>
+                    <apex:outputLink styleClass="button" value="/apex/RequestList" rendered="{!$CurrentPage.parameters.id == null}">Cancel</apex:outputLink>                    
+                </div>
+            </section>
+            <!---------------------------------------------------------Buttons Section---------------------------------------------------------------------------------------------->
+
+
+
+            </apex:form>
+            </apex:outputPanel>
+
+<!------ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  EDIT Information_Landscape__c Form ends  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~---->
+
+    <apex:outputpanel rendered="{!IF(AND($CurrentPage.parameters.id != NULL,OR($CurrentPage.parameters.isEdit=='false',$CurrentPage.parameters.isEdit==NULL)),true,false)}">
+        <span class="hidden-xs">
+        <chatter:feedWithFollowers entityId="{!$CurrentPage.parameters.id}"/> 
+        </span>
+        <apex:form Styleclass="create-study-form accordion">
+
+
+            <!---------------------------------------------------------Buttons Section on the top---------------------------------------------------------------------------------------------->
+                    <section class="row submit hidden-xs">
+                        <div class="col-xs-12">
+                            <apex:commandButton styleClass="button" value="Edit" action="{!EditRecord}"/>
+                        </div>
+                    </section>
+
+            <!--------------------------------Read-only Contract Section starts---------------------------------------------------------->
+            <section class="row">
+                <div class="col-xs-12">
+                    <h2 class="accordion-parent">Contract Details
+                    <span class="icon-large-caret pull-right down"></span></h2>
+                    <fieldset class="accordion-child">
+                    <apex:outputPanel id="Contract">
+                    <apex:actionregion >
+
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Name.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Name.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Name.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Name}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Client_Contract_Lead__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Client_Contract_Lead__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Client_Contract_Lead__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Client_Contract_Lead__c}"/>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Category__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Category__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Category__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Contract_Category__c}"/>
+                        </div>
+                    </div>
+ 
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Decision_Contract_Integration_D__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Decision_Contract_Integration_D__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Decision_Contract_Integration_D__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Contract_Decision_Contract_Integration_D__c}"/>
+                        </div>
+                    </div>
+ 
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Notes__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Notes__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Notes__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Contract_Notes__c}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Specific_Type__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Specific_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Specific_Type__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Contract_Specific_Type__c}" />
+                        </div>
+                    </div>
+                                        
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Status__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Status__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Status__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Contract_Status__c}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Contract_Type__c.Label}</label><span class="required-label"> *</span>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Contract_Type__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Contract_Type__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Contract_Type__c}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 label-wrapper">
+                            <label>{!$ObjectType.Contracts__c.Fields.Cost_of_this_purchase__c.Label}</label>
+                            <apex:outputpanel rendered="{!IF($ObjectType.Contracts__c.Fields.Cost_of_this_purchase__c.inlinehelptext != NULL,true,false)}">
+                            <div class="helpOrb tooltip"><span>{!$ObjectType.Contracts__c.Fields.Cost_of_this_purchase__c.inlinehelptext}</span></div>
+                            </apex:outputpanel>
+                        </div>
+                        <div class="col-xs-6 field-wrapper">
+                            <apex:outputField value="{!oContract.Cost_of_this_purchase__c}" />
+                        </div>
+                    </div>
+
+
+    
+
+                    </apex:actionRegion>
+                    </apex:outputPanel>
+                    </fieldset>
+                </div>
+            </section>
+
+
+
+
+            <!---------------------------------------------------------Buttons Section on the end---------------------------------------------------------------------------------------------->
+                    <section class="row submit hidden-xs">
+                        <div class="col-xs-12">
+                            <apex:commandButton styleClass="button" value="Edit" action="{!EditRecord}"/>
+                        </div>
+                    </section>
+
+
+       </apex:form>
+    </apex:outputpanel>  
+    
+    
+
+           
+ 
+    </main>
+    </div>
+    </div>
+    <apex:form >
+    <c:SR2_FooterComponent />
+    </apex:form>
+    </body>
+    
+</apex:page>

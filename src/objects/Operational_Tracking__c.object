@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Actual_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amount</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Acutal_Date_of_payment__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Date of Payment</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Business_Planning_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Planning ID</label>
+        <referenceTo>Business_Planning__c</referenceTo>
+        <relationshipName>RWE_Business_Planning_Financials</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Contracted_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Contracted Amount</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contracted_Date_of_Payment__c</fullName>
+        <externalId>false</externalId>
+        <label>Contracted Date of Payment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Estimate_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Forecast Amount</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Date_of_payment__c</fullName>
+        <externalId>false</externalId>
+        <label>Forecast Date of Payment</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_ID__c</fullName>
+        <defaultValue>&quot;N/A&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>HCP ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Invoice Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Milestone_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Milestone Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Initial Payment</fullName>
+                    <default>false</default>
+                    <label>Initial Payment</label>
+                </value>
+                <value>
+                    <fullName>Kickoff</fullName>
+                    <default>false</default>
+                    <label>Kickoff</label>
+                </value>
+                <value>
+                    <fullName>Protocol Draft</fullName>
+                    <default>false</default>
+                    <label>Protocol Draft</label>
+                </value>
+                <value>
+                    <fullName>Protocol Final</fullName>
+                    <default>false</default>
+                    <label>Protocol Final</label>
+                </value>
+                <value>
+                    <fullName>IRB/ERB Approval</fullName>
+                    <default>false</default>
+                    <label>IRB/ERB Approval</label>
+                </value>
+                <value>
+                    <fullName>Consent Forms</fullName>
+                    <default>false</default>
+                    <label>Consent Forms</label>
+                </value>
+                <value>
+                    <fullName>HCP Professional Services</fullName>
+                    <default>false</default>
+                    <label>HCP Professional Services</label>
+                </value>
+                <value>
+                    <fullName>HCP Consulting</fullName>
+                    <default>false</default>
+                    <label>HCP Consulting</label>
+                </value>
+                <value>
+                    <fullName>HCP Payment Other</fullName>
+                    <default>false</default>
+                    <label>HCP Payment Other</label>
+                </value>
+                <value>
+                    <fullName>SAP</fullName>
+                    <default>false</default>
+                    <label>SAP</label>
+                </value>
+                <value>
+                    <fullName>TFLs</fullName>
+                    <default>false</default>
+                    <label>TFLs</label>
+                </value>
+                <value>
+                    <fullName>Data Collection</fullName>
+                    <default>false</default>
+                    <label>Data Collection</label>
+                </value>
+                <value>
+                    <fullName>Data Analysis</fullName>
+                    <default>false</default>
+                    <label>Data Analysis</label>
+                </value>
+                <value>
+                    <fullName>Draft Deliverable</fullName>
+                    <default>false</default>
+                    <label>Draft Deliverable</label>
+                </value>
+                <value>
+                    <fullName>Final Deliverable</fullName>
+                    <default>false</default>
+                    <label>Final Deliverable</label>
+                </value>
+                <value>
+                    <fullName>Medical Writing</fullName>
+                    <default>false</default>
+                    <label>Medical Writing</label>
+                </value>
+                <value>
+                    <fullName>Translation</fullName>
+                    <default>false</default>
+                    <label>Translation</label>
+                </value>
+                <value>
+                    <fullName>Project Planning</fullName>
+                    <default>false</default>
+                    <label>Project Planning</label>
+                </value>
+                <value>
+                    <fullName>Amendment</fullName>
+                    <default>false</default>
+                    <label>Amendment</label>
+                </value>
+                <value>
+                    <fullName>Review</fullName>
+                    <default>false</default>
+                    <label>Review</label>
+                </value>
+                <value>
+                    <fullName>Execution</fullName>
+                    <default>false</default>
+                    <label>Execution</label>
+                </value>
+                <value>
+                    <fullName>Fee</fullName>
+                    <default>false</default>
+                    <label>Fee</label>
+                </value>
+                <value>
+                    <fullName>Pass Thru</fullName>
+                    <default>false</default>
+                    <label>Pass Thru</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Quarter_Actuals_TF__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarter_Actuals_TF</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Actuals__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH(  Acutal_Date_of_payment__c ), 
+1, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q1&quot; , 
+2, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q1&quot;, 
+3, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q1&quot;, 
+4, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q2&quot;, 
+5, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q2&quot;, 
+6, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q2&quot;, 
+7, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q3&quot;, 
+8, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q3&quot;, 
+9, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q3&quot;, 
+10, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q4&quot;, 
+11, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q4&quot;, 
+12, TEXT(YEAR(Acutal_Date_of_payment__c ))&amp;&quot;-Q4&quot;, 
+&quot;None&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quarter (Actuals)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Contracted_TF__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarter_Contracted_TF</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Contracted__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH( Contracted_Date_of_Payment__c), 
+1, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q1&quot; , 
+2, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q1&quot;, 
+3, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q1&quot;, 
+4, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q2&quot;, 
+5, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q2&quot;, 
+6, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q2&quot;, 
+7, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q3&quot;, 
+8, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q3&quot;, 
+9, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q3&quot;, 
+10, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q4&quot;, 
+11, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q4&quot;, 
+12, TEXT(YEAR(Contracted_Date_of_Payment__c))&amp;&quot;-Q4&quot;, 
+&quot;None&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quarter (Contracted)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Estimate_TF__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarter_Estimate_TF</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Estimate__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH( Estimated_Date_of_payment__c ), 
+1, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q1&quot;, 
+2, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q1&quot;, 
+3, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q1&quot;, 
+4, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q2&quot;, 
+5, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q2&quot;, 
+6, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q2&quot;, 
+7, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q3&quot;, 
+8, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q3&quot;, 
+9, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q3&quot;, 
+10, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q4&quot;, 
+11, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q4&quot;, 
+12, TEXT(YEAR(Estimated_Date_of_payment__c ))&amp;&quot;-Q4&quot;, 
+&quot;None&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quarter (Forecast)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Indication_Actuals_TF__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarter Indication - Actuals</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Indication_Estimates_TF__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarter Indication - Estimates</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Milestone</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Variance_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Variance Comments</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Variance_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Variance Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Strategic in our control</fullName>
+                    <default>false</default>
+                    <label>Strategic in our control</label>
+                </value>
+                <value>
+                    <fullName>Strategic out of our control</fullName>
+                    <default>false</default>
+                    <label>Strategic out of our control</label>
+                </value>
+                <value>
+                    <fullName>Operational in our control</fullName>
+                    <default>false</default>
+                    <label>Operational in our control</label>
+                </value>
+                <value>
+                    <fullName>Operational out of our control</fullName>
+                    <default>false</default>
+                    <label>Operational out of our control</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Variance__c</fullName>
+        <description>difference between the contracted amount and the actual amount (Actual Amount - Contracted Amount)</description>
+        <externalId>false</externalId>
+        <formula>Actual_amount__c-Contracted_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Variance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Actual</label>
+    <nameField>
+        <displayFormat>FN-{0000}</displayFormat>
+        <label>Forecast Id</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Actuals</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Valid_Milestone_dates</fullName>
+        <active>true</active>
+        <description>To validate Estimated date should not be more than Anticipated End Date</description>
+        <errorConditionFormula>Estimated_Date_of_payment__c &gt; Business_Planning_ID__r.Estimated_End_Date__c</errorConditionFormula>
+        <errorMessage>Milestones cannot have a date that is after the Anticipated End Date of the Study.  Please update the Anticipated End Date of the study/project to a later date.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>EditOperationalForecasts</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Manage Forecasts</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/EditBPForecasts?id={!Business_Planning__c.Id}&amp;type=OPF</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Operational_Forecasts</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Generate Operational Forecasts</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&apos;)} 
+	{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js&apos;)} 
+	try{ 
+	jQuery(function() { 
+	/*Append the jQuery CSS CDN Link to the Head tag.*/ 
+	jQuery(&apos;head&apos;).append(&apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/start/jquery-ui.css&quot; type=&quot;text/css&quot; /&gt;&apos;); 
+
+	/*Create the HTML(DIV Tag) for the Dialog.*/ 
+	var html = 
+	&apos;&lt;div id=&quot;dialog&quot; title=&quot;Confirm&quot;&gt;&lt;p&gt;Are You sure you want to Auto-Generate Operational Tracking Records? All the Previous Operational Tracking Records will be lost.&lt;/p&gt;&lt;/div&gt;&apos;; 
+
+	/*Check if the Dialog(DIV Tag) already exists if not then Append the same to the Body tag.*/ 
+	if(!jQuery(&apos;[id=dialog]&apos;).size()){ 
+	jQuery(&apos;body&apos;).append(html); 
+	} 
+
+	/*Open the jQuery Dialog.*/ 
+	jQuery( &quot;#dialog&quot; ).dialog({ 
+	autoOpen: true, 
+	modal: true, 
+	show: { 
+	duration: 1000 
+	}, 
+	hide: { 
+	duration: 1000 
+	}, 
+	buttons: { 
+	&quot;Continue&quot;: function() { 
+	var cId=&apos;{!Business_Planning__c.Id}&apos; 
+	location.replace(&apos;/apex/BPCreateOperationalForecasts?Id=&apos;+cId); 
+	}, 
+	Cancel: function() { 
+	jQuery( this ).dialog( &quot;close&quot; ); 
+	} 
+	} 
+	}); 
+	}); 
+	} 
+	catch(e){ 
+	alert(&apos;An Error has Occured. Error: &apos; + e); 
+	}</url>
+    </webLinks>
+</CustomObject>

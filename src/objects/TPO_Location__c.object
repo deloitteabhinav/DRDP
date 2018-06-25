@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -79,82 +80,102 @@
                 <value>
                     <fullName>Chart Reviews</fullName>
                     <default>false</default>
+                    <label>Chart Reviews</label>
                 </value>
                 <value>
                     <fullName>Compound/Submission Documents</fullName>
                     <default>false</default>
+                    <label>Compound/Submission Documents</label>
                 </value>
                 <value>
                     <fullName>Computer_Systems</fullName>
                     <default>false</default>
+                    <label>Computer_Systems</label>
                 </value>
                 <value>
                     <fullName>Database Study</fullName>
                     <default>false</default>
+                    <label>Database Study</label>
                 </value>
                 <value>
                     <fullName>Data Extractions</fullName>
                     <default>false</default>
+                    <label>Data Extractions</label>
                 </value>
                 <value>
                     <fullName>Data Management</fullName>
                     <default>false</default>
+                    <label>Data Management</label>
                 </value>
                 <value>
                     <fullName>Literature Reviews</fullName>
                     <default>false</default>
+                    <label>Literature Reviews</label>
                 </value>
                 <value>
                     <fullName>Meta-Analysis</fullName>
                     <default>false</default>
+                    <label>Meta-Analysis</label>
                 </value>
                 <value>
                     <fullName>Modeling</fullName>
                     <default>false</default>
+                    <label>Modeling</label>
                 </value>
                 <value>
                     <fullName>Observational Studies- Site Based</fullName>
                     <default>false</default>
+                    <label>Observational Studies- Site Based</label>
                 </value>
                 <value>
                     <fullName>Patient Reported Outcomes Development</fullName>
                     <default>false</default>
+                    <label>Patient Reported Outcomes Development</label>
                 </value>
                 <value>
                     <fullName>Payer Engagement</fullName>
                     <default>false</default>
+                    <label>Payer Engagement</label>
                 </value>
                 <value>
                     <fullName>Physician Engagement</fullName>
                     <default>false</default>
+                    <label>Physician Engagement</label>
                 </value>
                 <value>
                     <fullName>Pragmatic Trials</fullName>
                     <default>false</default>
+                    <label>Pragmatic Trials</label>
                 </value>
                 <value>
                     <fullName>Publication Deliverables</fullName>
                     <default>false</default>
+                    <label>Publication Deliverables</label>
                 </value>
                 <value>
                     <fullName>Qualitative Research</fullName>
                     <default>false</default>
+                    <label>Qualitative Research</label>
                 </value>
                 <value>
                     <fullName>Statistics</fullName>
                     <default>false</default>
+                    <label>Statistics</label>
                 </value>
                 <value>
                     <fullName>Study Documents</fullName>
                     <default>false</default>
+                    <label>Study Documents</label>
                 </value>
                 <value>
                     <fullName>Survey</fullName>
                     <default>false</default>
+                    <label>Survey</label>
                 </value>
                 <value>
                     <fullName>Utility Assessment</fullName>
                     <default>false</default>
+                    <label>Utility Assessment</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -237,26 +258,32 @@
                 <value>
                     <fullName>Approved</fullName>
                     <default>false</default>
+                    <label>Approved</label>
                 </value>
                 <value>
                     <fullName>Did not take forward for approval</fullName>
                     <default>false</default>
+                    <label>Did not take forward for approval</label>
                 </value>
                 <value>
                     <fullName>On-Hold</fullName>
                     <default>false</default>
+                    <label>On-Hold</label>
                 </value>
                 <value>
                     <fullName>Pending</fullName>
                     <default>false</default>
+                    <label>Pending</label>
                 </value>
                 <value>
                     <fullName>Proposed</fullName>
                     <default>false</default>
+                    <label>Proposed</label>
                 </value>
                 <value>
                     <fullName>Terminated</fullName>
                     <default>false</default>
+                    <label>Terminated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -278,10 +305,12 @@
                 <value>
                     <fullName>Regulated vendor</fullName>
                     <default>false</default>
+                    <label>Regulated vendor</label>
                 </value>
                 <value>
                     <fullName>Non-Regulated vendor</fullName>
                     <default>false</default>
+                    <label>Non-Regulated vendor</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -407,4 +436,5 @@
         <lookupDialogsAdditionalFields>Location__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

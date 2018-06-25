@@ -9,6 +9,71 @@
     <apex:stylesheet value="{!URLFOR($Resource.KMSR,'css/digitalfoundry.css')}" />
     <apex:stylesheet value="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <apex:stylesheet value="https://jqueryui.com//resources/demos/style.css"/>
+     <style>
+        /* Homepage Styles */
+        #wrap.homepage {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin-bottom: -80px;
+            padding-bottom: 80px;
+        }
+
+        .homepage #main {
+            padding-bottom: 0 !important;
+            display: flex;
+            flex: 1 0 auto;
+            flex-direction: column;
+        }
+
+        .homepage section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+            padding: 15px;
+            justify-content: center;
+        }
+    
+    .side-menu {
+        margin-top: 5px;
+    }
+    .profile-dropdown-div{
+        margin-left: -120px;
+        margin-top: 4px;
+     }
+    .profile-dropdown {
+        margin-left:30px;
+    }
+    .profile-dropdown .profile-menu{
+        background: transparent;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 180px;      
+    }
+    .profile-dropdown .dropdown-menu {
+        background: black;
+        color: white;
+    }
+    .profile-dropdown.open .profile-menu {
+        color: #92d400;
+    }
+    .profile-dropdown .profile-menu:hover{
+        color: #92d400;
+    }
+    .profile-dropdown.open .profile-menu:hover{
+        color: #92d400;
+    }
+    .profile-dropdown .dropdown-menu li a{
+        background: black;
+        color: white;
+        padding-bottom: 5px;
+    }
+    .profile-dropdown .dropdown-menu li a:hover{
+        background: black;
+        color: #92d400;
+    }
+    </style>
     <apex:includeScript value="https://code.jquery.com/jquery-1.12.4.js"/>
     <apex:includeScript value="https://code.jquery.com/ui/1.12.1/jquery-ui.js"/>
     <apex:includeScript value="{!URLFOR($Resource.KMSR,'vendor/jquery/jquery-3.1.1.min.js')}"/>
@@ -54,32 +119,49 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3 zero-right-padding">
-                        <a class="dd-logo">Deloitte Digital</a>
-                        <a class="drdw-logo">DRDP logo</a>
+                        <a><apex:image url="{!HomeHeader1}" height="49" width="103" style="text-indent: -99999px; display: inline-block;"/></a>
+                        <a><apex:image url="{!HomeHeader2}" height="49" width="103" style="text-indent: -99999px; display: inline-block; background-size: contain; margin-left: 10px;"/></a>
+                        <!--a class="dd-logo">Deloitte Digital</a>
+                        <a class="drdw-logo">DRDP logo</a-->
                     </div>
                     <div class="col-xs-8 zero-left-padding">
                         <ul class="nav">
                             <li>
-                            <a href ="/apex/StudyList" class="tab-research"><span>Research</span></a>
+                            <apex:repeat value="{!lHomeTabs}" var="HomeTab">
+                                <a href="{!HomeTab.URL__c}" class="{!If(HomeTab.Tab_Sequence__c==1,'tab-research',If(HomeTab.Tab_Sequence__c==2,'tab-info-landscape',If(HomeTab.Tab_Sequence__c==3,'tab-partnerships',If(HomeTab.Tab_Sequence__c==4,'tab-relationships',If(HomeTab.Tab_Sequence__c==5,'tab-requests',If(HomeTab.Tab_Sequence__c==6,'tab-admin hidden-sm hidden-md',''))))))}">                        
+                                    <span class="menu-text">{!HomeTab.Value__c}</span>
+                                </a>
+                            </apex:repeat>
+                            <!--a href ="/apex/StudyList" class="tab-research"><span>Research</span></a>
                             <a href ="/apex/DRDP_InformationLandscapeList" class="tab-info-landscape"><span>Info Landscape</span></a>
                             <a href ="/apex/PartnerShipList" class="tab-partnerships"><span>Partnerships</span></a>
                             <a href ="/apex/DRDP_RelationshipList" class="tab-relationships"><span>Relationships</span></a>
                             <a href ="/apex/RequestList" class="tab-requests"><span>Requests</span></a>
-                            <a href="/home/home.jsp?tsid=null" class="tab-admin hidden-sm hidden-md"><span>Admin</span></a>
+                            <a href="/home/home.jsp?tsid=null" class="tab-admin hidden-sm hidden-md"><span>Admin</span></a-->
                             </li>
                         </ul>
                     </div>
-                    <div class="col-xs-1 zero-padding">
-                        <div class="dashboard pull-left">
-                            <a href="/apex/Clipboard">
+                    <div class="col-xs-1 zero-padding profile-dropdown-div">
+                        <!--div class="dashboard pull-left">
+                            <a href="#">
                                 <span class="glyphicon glyphicon glyphicon-list-alt"></span>
                             </a>
-                        </div>
-                        <div class="logout pull-right">
+                        </div-->
+                        <!--div class="logout pull-right">
                             <a href="/secur/logout.jsp">
                                 <span class="glyphicon glyphicon-log-out"></span>
                             </a>
-                        </div>
+                        </div-->
+                        <div class="dashbaord dropdown profile-dropdown">
+                          <button class="btn dropdown-toggle profile-menu" type="button" data-toggle="dropdown">Hi, {!$User.LastName}
+                          <span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="/setup/forcecomHomepage.apexp">Classic Home</a></li>
+                            <li><a href="/ui/setup/Setup?setupid=PersonalSetup">My settings</a></li>
+                            <li><a href="/_ui/core/userprofile/UserProfilePage">My Profile</a></li>
+                            <li><a href="/secur/logout.jsp">Logout</a></li>
+                          </ul>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -90,9 +172,12 @@
                     <a class="hamburger pull-left">
                         <span class="glyphicon glyphicon-menu-hamburger show-menu"></span>
                         <span class="glyphicon glyphicon-remove hide-menu"></span>                        
-                    </a>                    
-                    <a class="logo dd-logo pull-left">Deloitte Digital</a>
-                    <a class="logo drdw-logo pull-left">DRDP logo</a>
+                    </a>
+                    <a><apex:image url="{!HomeHeader1}" height="49" width="103" style="text-indent: -99999px; display: block; float: left!important;"/></a>
+                    <a><apex:image url="{!HomeHeader2}" height="49" width="103" style="text-indent: -99999px; display: block; background-size: contain; margin-left: 10px;float: left!important;"/></a>
+                                      
+                    <!--a class="logo dd-logo pull-left">Deloitte Digital</a>
+                    <a class="logo drdw-logo pull-left">DRDP logo</a-->
                     <a class="logout-button pull-right" href="#" title="Logout">
                         <span class="icon-logout glyphicon glyphicon-log-out"></span>
                     </a>
@@ -102,36 +187,13 @@
         <!-- Mobile menu begins -->
         <div class="navbar navbar-fixed-left navbar-mobile hidden-lg hidden-md hidden-sm hidden">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="/apex/StudyList">                        
-                        <span class="menu-text">Research</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/DRDP_InformationLandscapeList" class="">
-                        <span class="menu-text">Info Landscape</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/PartnerShipList" class="">
-                        <span class="menu-text">Partnerships</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/DRDP_RelationshipList" class="">
-                        <span class="menu-text">Relationships</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/RequestList" class="">
-                        <span class="menu-text">Requests</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/Clipboard" class="">
-                        <span class="menu-text">My Dashboard</span>
-                    </a>
-                </li>
+                <apex:repeat value="{!lHomeTabs}" var="HomeTab">
+                    <li>
+                        <a href="{!HomeTab.URL__c}">                        
+                            <span class="menu-text">{!HomeTab.Value__c}</span>
+                        </a>
+                    </li>
+                </apex:repeat>
             </ul>
         </div>
         <!-- Mobile menu ends -->
@@ -145,34 +207,39 @@
                         <div class="col-md-offset-2 col-md-8 col-xs-12">
                             <div class="media ">
                                 <div class="media-left pull-right">
-                                    <div class="media-object logo-brain"/>
+                                    <div class="media-object">
+                                        <apex:image url="{!HomeBanner}" height="155" width="155" style="text-indent: -99999px; display: inline-block; background-size: contain;"/>
+                                    </div>
                                 </div>
                                 <div class="media-body">
-                                    <h1 class="media-heading">Digital Research Workbench</h1>
+                                    <h1 class="media-heading">{!HomeTitle}</h1>
                                     <hr/>
-                                    <p class="media-tagline">Digitization of Research Processes - Process Automation, Electronic Data Capture and Linking Data
-                                    </p>
+                                    <p class="media-tagline">{!HomeTitleDiscription}</p>
+                                    <!-- Commented out Global Search
                                     <apex:inputText rendered="{!!IsMobile}" id="auto11" required="false" html-placeholder="Search..." onkeypress="return clickSearch(event);" styleclass="keyword_Global_Search" value="{!searchWord}">
                                     <apex:outputPanel rendered="{!!IsMobile}">
                                     <c:Nugget_AutoCompleteComponent objectname="Project__c" input_id="{!$Component.auto11}" numberOfResultsToDisplay="10" wildcardBefore="false"/>
                                     </apex:outputPanel>
                                     </apex:inputText>
-
+                                    
+                
                                     <apex:inputText rendered="{!IsMobile}" id="auto13" required="false" html-placeholder="Search..." onkeypress="return clickSearch(event);" styleclass="keyword_Global_Search" value="{!searchWord}">
                                     <apex:outputPanel rendered="{!IsMobile}">
                                     <c:Nugget_AutoCompleteComponent objectname="Project__c" input_id="{!$Component.auto13}" numberOfResultsToDisplay="10" wildcardBefore="false"/>
                                     </apex:outputPanel>
                                     </apex:inputText>
-
+                                    --> 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="container">
                     <div class="search-box">
                     </div>
                 </div>
+                -->
             </section>
             
             <section class="section-1 mobile-mods container-fluid banner-color-black visible-xs">
@@ -182,15 +249,16 @@
                         <div class="col-md-offset-2 col-md-8 col-xs-12">
                             <div class="media ">
                                 <div class="media-left pull-right">
-                                    <div class="media-object logo-brain" />
+                                    <div class="media-object">
+                                        <apex:image url="{!HomeBanner}" height="75" width="75" style="text-indent: -99999px; display: inline-block; background-size: contain;"/>
+                                    </div>
                                 </div>
                                 <div class="media-body">
-                                    <h1 class="media-heading">Digital Research Workbench</h1>
+                                    <h1 class="media-heading">{!HomeTitle}</h1>
                                 </div>
                             </div>
                             <hr/>
-                            <p class="media-tagline">Digitization of Research Processes - Process Automation, Electronic Data Capture and Linking Data
-                            </p>
+                            <p class="media-tagline">{!HomeTitleDiscription}</p>
                             <apex:inputText id="auto12" required="false" html-placeholder="Search..." onkeypress="return clickSearch(event);" styleclass="keyword_Global_SearchMobile" value="{!searchWordMobile}">
                             <apex:outputPanel rendered="{!IsMobile}">
                             <c:Nugget_AutoCompleteComponent objectname="Project__c" input_id="{!$Component.auto12}" numberOfResultsToDisplay="10" wildcardBefore="false"/>
@@ -199,10 +267,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="container">
+                <!-- <div class="container">
                     <div class="search-box">
                     </div>
-                </div>
+                </div> -->
             </section>
             
             <section class="section-2 container-fluid">
@@ -210,27 +278,31 @@
                     <div class="row">
                         <div class="text-center">
                             <div class="center-block">
-                                <a href="/{!$Label.DashboardLink}">
+                                <a href="{!HomeCard1URL}">
                                     <div class="card">
-                                        <img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/analytics.png')}"/>
+                                        <apex:image url="{!HomeCard1}" styleClass="card-icon"/>
+                                        <!--img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/analytics.png')}"/-->
                                         <div class="card-content">
-                                            Reports
+                                            {!HomeCard1Text}
                                         </div>
                                     </div>
                                 </a>
-                                <a href="/_ui/core/chatter/ui/ChatterPage">
+                                <!-- 
+                                <a href="{!HomeCard2URL}">
                                     <div class="card">
-                                        <img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/users-1.png')}"/>
+                                        <apex:image url="{!HomeCard2}" styleClass="card-icon"/>
                                         <div class="card-content">
-                                            Connect
+                                            {!HomeCard2Text}
                                         </div>
                                     </div>
                                 </a>
-                                <a href="/apex/DRDP_Contents?page=linkspage">
+                                -->                            
+                                <a href="{!HomeCard3URL}">
                                     <div class="card">
-                                        <img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/green-link.png')}"/>
+                                        <apex:image url="{!HomeCard3}" styleClass="card-icon"/>
+                                        <!-- <img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/green-link.png')}"> -->
                                         <div class="card-content">
-                                            Links
+                                            {!HomeCard3Text}
                                         </div>
                                     </div>
                                 </a>
@@ -243,6 +315,7 @@
                 <div class="pattern"></div>
                 <div class="container">
                     <div class="row">
+                        <!--
                         <div class="col-lg-6 col-md-5 hidden-xs hidden-sm hidden-md">
                             <div class="card">
                                 <h3>Help Us Grow</h3>
@@ -252,7 +325,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-12 col-xs-12">
+                        -->
+                        <!-- <div class="col-lg-6 col-md-5 hidden-xs hidden-sm hidden-md">
+                        <div class="col-lg-6 col-md-12 col-xs-12"> -->
+                        <div>
                             <div class="card">
                                 <h3>Support</h3>
                                 <p class="hidden-xs">Access training materials, FAQs, technical support</p>
@@ -268,7 +344,8 @@
     </div>
     <div id="footer">
         <div class="container">
-            <a href="" class="dd-logo hidden-xs">Deloitte Digital</a>
+            <a><apex:image url="{!HomeHeader1}" height="49" width="103" styleClass="hidden-xs" style="text-indent: -99999px; display: inline-block;"/></a>
+            <!--a href="" class="dd-logo hidden-xs">Deloitte Digital</a-->
             <span class="copyright-text pull-right">&copy; Copyright 2017. All rights reserved.</span>
             <a href="#" class="pull-right feedback-button" data-toggle="modal" data-target="#myModal">
                 <!-- <span class="bracket">[</span>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Feedback</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Feedbacks</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Experience --></label>
+        <name>Experience__c</name>
+        <picklistValues>
+            <masterLabel>Good</masterLabel>
+            <translation><!-- Good --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poor</masterLabel>
+            <translation><!-- Poor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Satisfactory</masterLabel>
+            <translation><!-- Satisfactory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Very Good</masterLabel>
+            <translation><!-- Very Good --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Very Poor</masterLabel>
+            <translation><!-- Very Poor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Feedback Page --></label>
+        <name>Feedback_Page__c</name>
+        <picklistValues>
+            <masterLabel>Data Asset List Page</masterLabel>
+            <translation><!-- Data Asset List Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Page</masterLabel>
+            <translation><!-- Home Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Relationship List Page</masterLabel>
+            <translation><!-- Relationship List Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request List Page</masterLabel>
+            <translation><!-- Request List Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study List Page</masterLabel>
+            <translation><!-- Study List Page --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>DRDP Feedback Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

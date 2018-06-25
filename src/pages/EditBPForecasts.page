@@ -1,0 +1,151 @@
+<apex:page controller="EditBPForecastsController" sidebar="false" showHeader="true">
+    <title>Manage Forecasts</title>
+    <style type="text/css">
+    .totaltext {
+        font-weight: bold;
+        color: Teal;
+    }
+    
+    .ctr {
+        margin-left: 60px;
+    }
+    
+    .red {
+        font-weight: bold;
+        color: Red;
+    }
+    
+    .dateFormat {
+        visibility: hidden;
+        display: none;
+    }
+    </style>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="3" id="section1">
+                <apex:pageBlockSectionItem >
+                    <apex:actionRegion >
+                        <apex:outputLabel value="Select Type of Forecasts" />&nbsp;&nbsp;
+                        <apex:selectList value="{!sChoice}" size="1">
+                            <apex:actionSupport event="onchange" action="{!DisplayForecasts}" rerender="PageMessage,BPFTable,OPFTable" />
+                            <apex:selectOptions value="{!lChoice}" />
+                        </apex:selectList>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputlink value="/{!oBusinessPlanning.ID}">Back to Business Plan</apex:outputLink>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <br></br>
+            <apex:outputpanel id="PageMessage">
+            <apex:pageMessages />
+            </apex:outputpanel>
+            <br></br>
+            <apex:outputpanel id="BPFTable">
+                <apex:outputpanel rendered="{!IF(sChoice=='BPF',TRUE,FALSE)}">
+                    <!-- <apex:variable var="BPCurrencyBPF" value="{!oBusinessPlanning.CurrencyIsoCode}"> </apex:variable> -->
+                    <apex:variable var="BPBudgetEstimate" value="{!IF(oBusinessPlanning.Initial_budget_estimate_for_each_item__c!=NULL,oBusinessPlanning.Initial_budget_estimate_for_each_item__c,0)}"> </apex:variable>
+                    <apex:outputlabel styleclass="totaltext">Total Budget Estimate =
+                        <apex:outputfield value="{!oBusinessPlanning.Initial_budget_estimate_for_each_item__c}" /></apex:outputlabel>
+                    <br></br>
+                    <br></br>
+                    <apex:pageBlockTable border="2" value="{!lBPForecasts}" var="BPF">
+                        <apex:column headerValue="Quarter">
+                            <apex:outputfield value="{!BPF.Quarter__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Estimate Amount">
+                            <!-- <apex:outputfield value="{!BPF.CurrencyIsoCode}" /> -->
+                            <apex:inputfield value="{!BPF.Estimate_Amount__c}" />
+                            <apex:facet name="footer">
+                                <apex:outputLabel styleclass="{!IF(sumBPFEstimate != BPBudgetEstimate,'red','')}">Total Estimated Amount: {!sISOCode}
+                                    <apex:outputText value="{0, number, ###,###.##}">
+                                        <apex:param value="{!sumBPFEstimate}" />
+                                    </apex:outputText>
+                                </apex:outputLabel>
+                            </apex:facet>
+                        </apex:column>
+                        <apex:column headerValue="Estimate Date">
+                            <apex:inputfield value="{!BPF.Estimate_Date__c}" />
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:outputpanel>
+            </apex:outputpanel>
+            <apex:outputpanel id="OPFTable">
+                <apex:outputpanel rendered="{!IF(sChoice=='OPF',TRUE,FALSE)}">
+                    <apex:variable var="BPTotalEstimate" value="{!IF(oBusinessPlanning.Initial_budget_estimate_for_each_item__c!=NULL,oBusinessPlanning.Initial_budget_estimate_for_each_item__c,0)}"> </apex:variable>
+                    <apex:variable var="BPActualContracted" value="{!IF(oBusinessPlanning.Actual_Contracted_Budget__c!=NULL,oBusinessPlanning.Actual_Contracted_Budget__c,0)}"> </apex:variable>
+                    <!-- <apex:variable var="BPCurrencyOPF" value="{!oBusinessPlanning.CurrencyIsoCode}"> </apex:variable> -->
+                    <apex:outputlabel styleclass="totaltext">Total Budget Estimate =
+                        <apex:outputfield value="{!oBusinessPlanning.Initial_budget_estimate_for_each_item__c}" /></apex:outputlabel>
+                    <apex:outputlabel styleclass="totaltext ctr">Actual Contracted Budget =
+                        <apex:outputfield value="{!oBusinessPlanning.Actual_Contracted_Budget__c}" /></apex:outputlabel>
+                    <br></br>
+                    <br></br>
+                    <apex:pageBlockTable border="2" value="{!lOperationalForecasts}" var="OPF">
+                        <apex:column headerValue="Milestone">
+                            <apex:inputfield value="{!OPF.Title__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Milestone category">
+                            <apex:inputfield value="{!OPF.Milestone_Category__c}" />
+                        </apex:column>
+                        <apex:column headerValue="HCP ID">
+                            <apex:inputfield value="{!OPF.HCP_ID__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Contracted Amount">
+                            <!-- <apex:outputfield value="{!OPF.CurrencyIsoCode}" /> -->
+                            <apex:inputfield value="{!OPF.Contracted_Amount__c}" />
+                            <apex:facet name="footer">
+                                <apex:outputLabel styleclass="{!IF(sumOPFContracted != BPActualContracted,'red','')}">Total : {!sISOCode}
+                                    <apex:outputText value="{0, number, ###,###.##}">
+                                        <apex:param value="{!sumOPFContracted}" />
+                                    </apex:outputText>
+                                </apex:outputLabel>
+                            </apex:facet>
+                        </apex:column>
+                        <apex:column headerValue="Contracted Date">
+                            <apex:inputfield value="{!OPF.Contracted_Date_of_Payment__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Forecast Amount">
+                            <!-- <apex:outputfield value="{!OPF.CurrencyIsoCode}" /> -->
+                            <apex:inputfield value="{!OPF.Estimate_amount__c}" />
+                            <apex:facet name="footer">
+                                <apex:outputLabel styleclass="{!IF(sumOPFEstimate != BPTotalEstimate,'red','')}">Total : {!sISOCode}
+                                    <apex:outputText value="{0, number, ###,###.##}">
+                                        <apex:param value="{!sumOPFEstimate}" />
+                                    </apex:outputText>
+                                </apex:outputLabel>
+                            </apex:facet>
+                        </apex:column>
+                        <apex:column headerValue="Forecast Date">
+                            <apex:inputfield value="{!OPF.Estimated_Date_of_payment__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Actual Amount">
+                            <!-- <apex:outputfield value="{!OPF.CurrencyIsoCode}" /> -->
+                            <apex:inputfield value="{!OPF.Actual_amount__c}" />
+                            <apex:facet name="footer">
+                                <apex:outputLabel styleclass="{!IF(sumOPFActual != BPActualContracted,'red','')}">Total : {!sISOCode}
+                                    <apex:outputText value="{0, number, ###,###.##}">
+                                        <apex:param value="{!sumOPFActual}" />
+                                    </apex:outputText>
+                                </apex:outputLabel>
+                            </apex:facet>
+                        </apex:column>
+                        <apex:column headerValue="Actual Date">
+                            <apex:inputfield value="{!OPF.Acutal_Date_of_payment__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Variance Amount">
+                            <apex:outputfield value="{!OPF.Variance__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Variance Reason">
+                            <apex:inputfield value="{!OPF.Variance_Reason__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Variance Comments">
+                            <apex:inputfield value="{!OPF.Variance_Comments__c}" />
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:outputpanel>
+            </apex:outputpanel>
+        </apex:pageBlock>
+        <apex:commandButton value="Update Forecasts" action="{!UpdateForecasts}" />
+    </apex:form>
+</apex:page>

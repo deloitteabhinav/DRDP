@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -119,14 +120,17 @@
                 <value>
                     <fullName>Sent</fullName>
                     <default>false</default>
+                    <label>Sent</label>
                 </value>
                 <value>
                     <fullName>Saved</fullName>
                     <default>false</default>
+                    <label>Saved</label>
                 </value>
                 <value>
                     <fullName>Submitted</fullName>
                     <default>false</default>
+                    <label>Submitted</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -150,4 +154,5 @@
     <pluralLabel>Feedback Providers</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>
