@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Deliverable</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Deliverables</value>
+    </caseValues>
+    <fields>
+        <label><!-- Deliverable Type --></label>
+        <name>Deliverable_Type__c</name>
+        <picklistValues>
+            <masterLabel>Clinical Trial Submission Document</masterLabel>
+            <translation><!-- Clinical Trial Submission Document --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communication Document</masterLabel>
+            <translation><!-- Communication Document --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Design Document</masterLabel>
+            <translation><!-- Design Document --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Report</masterLabel>
+            <translation><!-- Executive Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Program Overview</masterLabel>
+            <translation><!-- Program Overview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Plan</masterLabel>
+            <translation><!-- Project Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protocol</masterLabel>
+            <translation><!-- Protocol --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Summary Report</masterLabel>
+            <translation><!-- Summary Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Document</masterLabel>
+            <translation><!-- Technical Document --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Program Type --></label>
+        <name>Program_Type__c</name>
+    </fields>
+    <layouts>
+        <layout>DRDW Deliverable Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

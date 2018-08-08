@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- DRDW Project Label --></label>
+        <name>DRDW_Project_Label</name>
+    </fieldSets>
+    <fields>
+        <label><!-- Actual End Date --></label>
+        <name>Actual_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Start Date --></label>
+        <name>Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anticipated End Date --></label>
+        <name>Anticipated_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anticipated Start Date --></label>
+        <name>Anticipated_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Unit --></label>
+        <name>Business_Unit__c</name>
+        <picklistValues>
+            <masterLabel>CMC</masterLabel>
+            <translation><!-- CMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical</masterLabel>
+            <translation><!-- Clinical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Operations</masterLabel>
+            <translation><!-- Commercial Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate Finance</masterLabel>
+            <translation><!-- Corporate Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation><!-- HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT</masterLabel>
+            <translation><!-- IT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal &amp; Compliance</masterLabel>
+            <translation><!-- Legal &amp; Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Access</masterLabel>
+            <translation><!-- Market Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Affairs</masterLabel>
+            <translation><!-- Medical Affairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory</masterLabel>
+            <translation><!-- Regulatory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>Classification__c</name>
+        <picklistValues>
+            <masterLabel>Manufacturing</masterLabel>
+            <translation><!-- Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations</masterLabel>
+            <translation><!-- Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R&amp;D</masterLabel>
+            <translation><!-- R&amp;D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulatory</masterLabel>
+            <translation><!-- Regulatory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conducted with a Partner --></label>
+        <name>Conducted_with_a_Partner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Active --></label>
+        <name>Date_Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Approved --></label>
+        <name>Date_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Cancelled --></label>
+        <name>Date_Cancelled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Closed --></label>
+        <name>Date_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delayed Activities --></label>
+        <name>Delayed_Activities__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Geography --></label>
+        <name>Geography__c</name>
+        <picklistValues>
+            <masterLabel>Geography 1</masterLabel>
+            <translation><!-- Geography 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geography 2</masterLabel>
+            <translation><!-- Geography 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geography 3</masterLabel>
+            <translation><!-- Geography 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Indication --></label>
+        <name>Indication__c</name>
+        <picklistValues>
+            <masterLabel>Indication 1</masterLabel>
+            <translation><!-- Indication 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indication 2</masterLabel>
+            <translation><!-- Indication 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indication 3</masterLabel>
+            <translation><!-- Indication 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project involve internal compound? --></label>
+        <name>Is_Molecule__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Molecule --></label>
+        <name>Molecule__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Partner --></label>
+        <name>Project_Partner_Y__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval</masterLabel>
+            <translation><!-- Pending Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for Approval</masterLabel>
+            <translation><!-- Submitted for Approval --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Therapeutic Area --></label>
+        <name>Therapeutic_Area__c</name>
+        <picklistValues>
+            <masterLabel>Autoimmune Diseases</masterLabel>
+            <translation><!-- Autoimmune Diseases --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular</masterLabel>
+            <translation><!-- Cardiovascular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dermatology</masterLabel>
+            <translation><!-- Dermatology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Endocrinology</masterLabel>
+            <translation><!-- Endocrinology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gastroenterology</masterLabel>
+            <translation><!-- Gastroenterology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gynecology</masterLabel>
+            <translation><!-- Gynecology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immunology</masterLabel>
+            <translation><!-- Immunology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neurology</masterLabel>
+            <translation><!-- Neurology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Therapeutic Area Specific</masterLabel>
+            <translation><!-- Non-Therapeutic Area Specific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psychiatry and Pain</masterLabel>
+            <translation><!-- Psychiatry and Pain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rheumatology</masterLabel>
+            <translation><!-- Rheumatology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urology</masterLabel>
+            <translation><!-- Urology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccines</masterLabel>
+            <translation><!-- Vaccines --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>DRDW Project Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Timeline --></label>
+            <section>Timeline</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Gantt Chart --></label>
+        <name>Gantt_Chart</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Actual End Date needs to be after Actual Start Date --></errorMessage>
+        <name>Actual_Date_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Anticipated End Date has to be after Anticipated End Date --></errorMessage>
+        <name>Anticipated_Date_Check</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Gantt_Chart --></label>
+        <name>Gantt_Chart</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,9 +1,0 @@
-Hi,
-
-<br/><br/>
-Your {!DRDW_Cap_Request__c.Related_Project_Name__c}, {!DRDW_Cap_Request__c.Study_Title__c} is still in Draft and projected to start in 90 days. Please immediately complete the critical information on the Study Initiation Form and submit, or else your study is in jeopardy of being considered for scheduling. In addition, the SIF needs to be completed in its entirety within the next 30 days to be locked into the schedule. 
-<br/>
-Related Project : <a href="{!DRDW_Cap_Request__c.Related_Project_link__c}">{!DRDW_Cap_Request__c.Related_Project_Name__c}</a>
-<br/><br/>
-Thank you,<br/>
-Elanco R&D

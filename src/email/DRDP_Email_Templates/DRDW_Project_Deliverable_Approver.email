@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font size="4">Hello,</font><div style=""><font size="4"><br></font></div><div style=""><font size="4">Your approval is needed for <b>Deliverable:</b> {!DRDW_Project_Deliverable__c.Name} related to <b>Project:&nbsp;</b></font><span style="font-size: large;">{!DRDW_Project_Deliverable__c.DRDW_Project__c</span><span style="font-size: large;">}</span><span style="font-size: large;">&nbsp;</span></div><div style=""><font size="4"><br></font></div><div style=""><font size="4">Please <a href="{!DRDW_Proj_Deliverable__c.Link}">click on this link</a> to take action.</font></div><div style=""><font size="4"><br></font></div><div style=""><div style=""><font size="4">Your action is important.</font></div><div style=""><font size="4"><br></font></div><div style=""><font size="4">Thank you.</font></div><div style=""><font size="4" style="">Leadership Team</font></div></div><div style="font-size: 12pt;"><br></div>]]></td>
+</tr>
+</table>

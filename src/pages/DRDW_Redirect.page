@@ -1,3 +1,0 @@
-<apex:page controller="DRDW_CycleTime" action="{!redirect}">
- 
-</apex:page>

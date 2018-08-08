@@ -1,8 +1,0 @@
-Hi,
-<br/><br/>
-RESUBMISSION REQUIRED: Your {!DRDW_Cap_Request__c.Related_Project_Name__c}, {!DRDW_Cap_Request__c.Study_Title__c} is still in Queue and projected to start in 30 days. The Study Initiation Form has not been completed in its entirety and your study has been canceled on the GO schedule. You are now required to resubmit your Study Initiation Form for review and potentially scheduled at a later date. 
-<br/>
-Related Project : <a href="{!DRDW_Cap_Request__c.Related_Project_link__c}">{!DRDW_Cap_Request__c.Related_Project_Name__c}</a>
-<br/><br/>
-Thank you,<br/>
-Elanco R&D

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project Deliverable</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Project Deliverables</value>
+    </caseValues>
+    <fields>
+        <label><!-- Attachment --></label>
+        <name>Attachment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Name --></label>
+        <name>DRDW_Project__c</name>
+        <relationshipLabel><!-- Project Deliverables --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deliverable Type --></label>
+        <name>Deliverable_Type__c</name>
+        <relationshipLabel><!-- Project Deliverables --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Link --></label>
+        <name>Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for Approval</masterLabel>
+            <translation><!-- Submitted for Approval --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Attachment</masterLabel>
+            <translation><!-- Attachment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Link</masterLabel>
+            <translation><!-- Link --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>DRDW Project-Deliverable Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

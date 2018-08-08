@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>DRDP_FeedbackLetterhead</letterhead>
+    <name>End Date is approaching</name>
+    <style>freeForm</style>
+    <subject>NOTIFICATION : {!DRDW_Proj_Activity__c.Parent_Project__c} - End Date is approaching for {!DRDW_Proj_Activity__c.Name}</subject>
+    <textOnly>Hi {!DRDW_Proj_Activity__c.OwnerFullName},
+
+Planned End date for {!DRDW_Proj_Activity__c.Name} for Project {!DRDW_Proj_Activity__c.Parent_Project__c} is approaching and is due tomorrow.
+
+Please click on the link below to access the item
+
+{!DRDW_Proj_Activity__c.Link}
+
+Your action is important as this will avoiding delaying overall project.
+
+Thank you.
+Leadership Team</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

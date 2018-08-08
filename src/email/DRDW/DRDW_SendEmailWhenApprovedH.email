@@ -1,8 +1,0 @@
-Hi,
-<br/><br/>
-APPROVED / LOCKED: Your Study Initiation Form for {!DRDW_Cap_Request__c.Related_Project_Name__c}{!DRDW_Cap_Request__c.Study_Title__c} is now complete in its entirety, including study events schedule. Your study will now be “locked” and finalized in the Master Plan. Should you require any additional changes from this point on, you are now required to re-submit your Study Initiation Form for review and potentially schedule at a later date. 
-
-<br/>Related Project : <a href="{!DRDW_Cap_Request__c.Related_Project_link__c}">{!DRDW_Cap_Request__c.Related_Project_Name__c}</a>
-<br/><br/>
-Thank you,<br/>
-Elanco R&D
