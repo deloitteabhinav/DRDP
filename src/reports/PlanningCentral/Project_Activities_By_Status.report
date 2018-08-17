@@ -34,7 +34,7 @@
         <field>DRDW_Proj_Activity__c.Status__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Project Activities By Status</name>
+    <name>Capability Activities By Status</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -42,6 +42,8 @@
     <reportType>CustomEntity$DRDW_Proj_Activity__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>DRDW_Proj_Activity__c.End_Date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

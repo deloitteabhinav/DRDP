@@ -102,7 +102,7 @@
         <externalId>false</externalId>
         <label>Business Unit</label>
         <required>true</required>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -201,7 +201,7 @@
         <externalId>false</externalId>
         <label>Classification</label>
         <required>true</required>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -319,17 +319,17 @@
                 <value>
                     <fullName>Geography 1</fullName>
                     <default>false</default>
-                    <label>Geography 1</label>
+                    <label>US-Canada-Mexico</label>
                 </value>
                 <value>
                     <fullName>Geography 2</fullName>
                     <default>false</default>
-                    <label>Geography 2</label>
+                    <label>EU-Latin America</label>
                 </value>
                 <value>
                     <fullName>Geography 3</fullName>
                     <default>false</default>
-                    <label>Geography 3</label>
+                    <label>Emerging Markets (Asia, Africa, Australia)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -486,7 +486,7 @@
         <externalId>false</externalId>
         <label>Therapeutic Area</label>
         <required>true</required>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -571,7 +571,7 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <label>Project</label>
+    <label>Capability</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -581,6 +581,8 @@
         <columns>Indication__c</columns>
         <columns>Classification__c</columns>
         <columns>Business_Unit__c</columns>
+        <columns>Geography__c</columns>
+        <columns>Conducted_with_a_Partner__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -604,10 +606,10 @@
     </listViews>
     <nameField>
         <label>DRDW Project Name</label>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Projects</pluralLabel>
+    <pluralLabel>Capabilities</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>

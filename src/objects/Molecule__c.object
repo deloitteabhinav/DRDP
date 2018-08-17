@@ -154,7 +154,7 @@
                 <value>
                     <fullName>Cardiovascular and Metabolic</fullName>
                     <default>false</default>
-                    <label>Cardiovascular and Metabolic</label>
+                    <label>Cardiovascular</label>
                 </value>
                 <value>
                     <fullName>Gastroenterology</fullName>

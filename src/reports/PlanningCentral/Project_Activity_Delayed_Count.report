@@ -40,7 +40,7 @@
         <field>DRDW_Proj_Activity__c.Delayed__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Project Activity Delayed Count</name>
+    <name>Capability Activity Delayed Count</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -48,6 +48,8 @@
     <reportType>CustomEntity$DRDW_Proj_Activity__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <sortColumn>CUST_NAME</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>

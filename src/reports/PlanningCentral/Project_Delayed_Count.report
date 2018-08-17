@@ -34,7 +34,7 @@
         <field>DRDW_Project__c.Delayed_Activities__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Project Delayed Count</name>
+    <name>Capability Delayed Count</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -42,6 +42,8 @@
     <reportType>CustomEntity$DRDW_Project__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>DRDW_Project__c.Actual_End_Date__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

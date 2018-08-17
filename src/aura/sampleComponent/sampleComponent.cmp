@@ -1,6 +1,0 @@
-<aura:component>
-<div>
-   Hello world Component!
-</div>
-	<aura:handler event="c:sampleEvent" action="{!c.handleevent}"/>
-</aura:component>

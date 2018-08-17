@@ -15,7 +15,7 @@
         <field>DRDW_Project_Deliverable__c.Type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Project Deliverables by Link _Attachment</name>
+    <name>Capability Deliverables by Type</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -23,6 +23,8 @@
     <reportType>CustomEntity$DRDW_Project_Deliverable__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CUST_CREATED_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

@@ -188,7 +188,9 @@
              * since the funcationality is used in a couple places.
              */
         	function saveTaskToBackend(id, taskDXHT, is_new){
+                pprint('this is the task to save before fix', taskDXHT);
                 var task = stripFields(taskDXHT);
+                pprint('this is the task to save after fix', task);
                 remoteAction('upsertTask', task, function(result, event){
                         if(event.status){
                             //console.log('Successfull callback: result = ' + JSON.stringify(result, undefined, 2));
@@ -204,6 +206,8 @@
                             }
                         }
                 });
+                /*
+                */
             }
             /**
              * Pretty print function for better JSON readability.
@@ -246,7 +250,7 @@
                 
                 // Check if task is a subtask
                 if(taskDXHT.parent != project.id){
-                    task.parent         = null; //project.id;
+                    task.parent         = project.id;
                     task.parentActivity = taskDXHT.parent;
                 }else{
                     task.parent = taskDXHT.parent;

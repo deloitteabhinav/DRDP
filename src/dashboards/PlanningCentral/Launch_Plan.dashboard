@@ -14,20 +14,20 @@
                     <axisBinding>y</axisBinding>
                     <column>RowCount</column>
                 </chartSummary>
-                <componentType>ColumnGrouped</componentType>
+                <componentType>Bar</componentType>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
-                <enableHover>true</enableHover>
+                <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <groupingColumn>DRDW_Project__c.Therapeutic_Area__c</groupingColumn>
-                <groupingColumn>DRDW_Project__c.Indication__c</groupingColumn>
-                <header>Project - Therapeutic Area (TA) Count</header>
+                <groupingColumn>DRDW_Project__c.Geography__c</groupingColumn>
+                <header>Capability Geography Count</header>
                 <legendPosition>Bottom</legendPosition>
-                <report>PlanningCentral/Project_TA_Count</report>
+                <report>PlanningCentral/Capability_By_Geo_Count</report>
                 <showPercentage>false</showPercentage>
+                <showPicturesOnCharts>false</showPicturesOnCharts>
                 <showValues>true</showValues>
-                <sortBy>RowLabelAscending</sortBy>
+                <sortBy>RowValueDescending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>0</rowIndex>
@@ -50,7 +50,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>DRDW_Proj_Activity__c.Status__c</groupingColumn>
-                <header>Project Activities  - Status Count</header>
+                <header>Capability Activities  - Status Count</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>PlanningCentral/Project_Activities_By_Status</report>
                 <showPercentage>false</showPercentage>
@@ -79,7 +79,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>DRDW_Project_Deliverable__c.Status__c</groupingColumn>
-                <header>Project Deliverable - Status Count</header>
+                <header>Capability Deliverable - Status Count</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>PlanningCentral/Project_Deliverable_By_Status</report>
                 <showPercentage>false</showPercentage>
@@ -108,7 +108,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>DRDW_Project__c.Status__c</groupingColumn>
-                <header>Project - Status Count</header>
+                <header>Capability - Status Count</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>PlanningCentral/Project_count_by_Status</report>
                 <showPercentage>false</showPercentage>
@@ -137,7 +137,7 @@
                 <expandOthers>false</expandOthers>
                 <groupingColumn>DRDW_Proj_Activity__c.Parent_Project__c</groupingColumn>
                 <groupingColumn>DRDW_Proj_Activity__c.Delayed__c</groupingColumn>
-                <header>Project Activity  - Delayed Count</header>
+                <header>Capability Activity  - Delayed Count</header>
                 <legendPosition>Right</legendPosition>
                 <report>PlanningCentral/Project_Activity_Delayed_Count</report>
                 <showPercentage>false</showPercentage>
@@ -165,7 +165,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>DRDW_Project_Deliverable__c.Type__c</groupingColumn>
-                <header>Project Deliverables - Link vs Attachments</header>
+                <header>Capability Deliverables - Link vs Attachments</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>PlanningCentral/Project_Deliverables_by_Link_Attachment</report>
                 <showPercentage>false</showPercentage>
@@ -193,7 +193,7 @@
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
                 <groupingColumn>DRDW_Project__c.Delayed_Activities__c</groupingColumn>
-                <header>Project - Delayed Count</header>
+                <header>Capability - Delayed Count</header>
                 <legendPosition>Bottom</legendPosition>
                 <report>PlanningCentral/Project_Delayed_Count</report>
                 <showPercentage>false</showPercentage>
@@ -203,6 +203,35 @@
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>8</rowIndex>
+            <rowSpan>4</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>3</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <axisBinding>y</axisBinding>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>BarGrouped</componentType>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>true</enableHover>
+                <expandOthers>false</expandOthers>
+                <groupingColumn>DRDW_Project__c.Therapeutic_Area__c</groupingColumn>
+                <groupingColumn>DRDW_Project__c.Indication__c</groupingColumn>
+                <header>Capability TA Count</header>
+                <legendPosition>Right</legendPosition>
+                <report>PlanningCentral/Project_TA_Count</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowValueDescending</sortBy>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>12</rowIndex>
             <rowSpan>4</rowSpan>
         </dashboardGridComponents>
         <numberOfColumns>9</numberOfColumns>

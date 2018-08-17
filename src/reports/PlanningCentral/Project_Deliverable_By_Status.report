@@ -34,7 +34,7 @@
         <field>DRDW_Project_Deliverable__c.Status__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Project Deliverable By Status</name>
+    <name>Capability Deliverable By Status</name>
     <params>
         <name>co</name>
         <value>1</value>
@@ -42,6 +42,8 @@
     <reportType>CustomEntity$DRDW_Project_Deliverable__c</reportType>
     <scope>user</scope>
     <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CUST_CREATED_DATE</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

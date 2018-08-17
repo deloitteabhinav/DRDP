@@ -13,15 +13,19 @@
         <headerColor>#0070D2</headerColor>
         <logo>DRDW_Logo_1</logo>
         <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
     <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>PlanningCentral</label>
     <navType>Standard</navType>
-    <tab>DRDW_New</tab>
-    <tab>DRDW_Project__c</tab>
-    <tab>DRDW_Proj_Activity__c</tab>
-    <tab>DRDW_Project_Deliverable__c</tab>
-    <tab>Molecule__c</tab>
-    <tab>Launch_Plan_Dashboard</tab>
+    <tabs>DRDW_New</tabs>
+    <tabs>DRDW_Project__c</tabs>
+    <tabs>DRDW_Proj_Activity__c</tabs>
+    <tabs>DRDW_Project_Deliverable__c</tabs>
+    <tabs>Related_Capability_Activity__c</tabs>
+    <tabs>Launch_Plan_Dashboard</tabs>
+    <tabs>Molecule__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

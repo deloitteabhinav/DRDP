@@ -2,6 +2,11 @@
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
     <name>DRDW Project Approvers</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>Project_Approvers</publicGroup>
+        </publicGroups>
+    </queueMembers>
     <queueSobject>
         <sobjectType>DRDW_Project__c</sobjectType>
     </queueSobject>

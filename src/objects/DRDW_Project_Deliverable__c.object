@@ -164,7 +164,7 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <label>Project Deliverable</label>
+    <label>Capability Deliverable</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -200,7 +200,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Project Deliverables</pluralLabel>
+    <pluralLabel>Capability Deliverables</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

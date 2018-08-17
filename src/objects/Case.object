@@ -70,15 +70,6 @@
         <label>My Open Cases</label>
     </listViews>
     <listViews>
-        <fullName>PartnerRelations_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Partner Relations</label>
-        <queue>PartnerRelations</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>USEscalations_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>US - Escalations</label>
@@ -105,23 +96,4 @@
             <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
-    <webLinks>
-        <fullName>UpsellCrosssellOpportunity</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>true</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>true</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Up-sell / Cross-sell Opportunity</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>true</showsLocation>
-        <showsStatus>true</showsStatus>
-        <url>https://na1.salesforce.com/opp/oppedit.jsp?accid={!Account_ID}&amp;opp3=Up-sell+/+Cross-sell&amp;opp5=Existing+Customer&amp;opp6=Customer+Support</url>
-    </webLinks>
 </CustomObject>

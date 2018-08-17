@@ -8,13 +8,11 @@
             <axisBinding>y</axisBinding>
             <column>RowCount</column>
         </chartSummaries>
-        <chartType>HorizontalBarGrouped</chartType>
+        <chartType>HorizontalBar</chartType>
         <enableHoverLabels>true</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>DRDW_Project__c.Therapeutic_Area__c</groupingColumn>
-        <legendPosition>Right</legendPosition>
+        <groupingColumn>DRDW_Project__c.Geography__c</groupingColumn>
         <location>CHART_TOP</location>
-        <secondaryGroupingColumn>DRDW_Project__c.Indication__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -32,15 +30,15 @@
     <format>Matrix</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>DRDW_Project__c.Therapeutic_Area__c</field>
+        <field>DRDW_Project__c.Geography__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>DRDW_Project__c.Indication__c</field>
+        <field>DRDW_Project__c.Therapeutic_Area__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Capability TA Count</name>
+    <name>Capability By Geo Count</name>
     <params>
         <name>co</name>
         <value>1</value>

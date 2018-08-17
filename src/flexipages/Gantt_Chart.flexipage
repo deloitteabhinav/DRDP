@@ -32,11 +32,7 @@
             <componentName>flexipage:visualforcePage</componentName>
         </componentInstances>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>relatedListComponentOverride</name>
-                <value>NONE</value>
-            </componentInstanceProperties>
-            <componentName>force:relatedListContainer</componentName>
+            <componentName>force:relatedListQuickLinksContainer</componentName>
         </componentInstances>
         <name>main</name>
         <type>Region</type>
@@ -44,6 +40,20 @@
     <flexiPageRegions>
         <componentInstances>
             <componentName>force:detailPanel</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>context</name>
+                <value>RECORD</value>
+            </componentInstanceProperties>
+            <componentName>forceChatter:publisher</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>context</name>
+                <value>RECORD</value>
+            </componentInstanceProperties>
+            <componentName>forceChatter:exposedFeed</componentName>
         </componentInstances>
         <name>sidebar</name>
         <type>Region</type>

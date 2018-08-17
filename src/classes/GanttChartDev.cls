@@ -1,6 +1,6 @@
 /**
  * Class GanttChartDev
- * Author Victor Fuentes Sangabriel <vfuentessangabrie@deloitte.com> 
+ * @author Victor Fuentes Sangabriel <vfuentessangabrie@deloitte.com> 
  */
 public class GanttChartDev {
     private static String SUBQUERY = '(SELECT Id, Name, planned_start_date__c, planned_end_date__c, Parent_Activity__c, Parent_Project__c, Sequence__c, Activity_Owner__c, Previous_Proj_Activity__c, Next_Proj_Activity__c, Type__c FROM Proj_Activities__r ORDER BY Sequence__c ASC)';

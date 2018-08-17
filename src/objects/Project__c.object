@@ -1,0 +1,3945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Research_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CRO__c</fullName>
+        <externalId>false</externalId>
+        <label>CRO</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Covance</fullName>
+                    <default>false</default>
+                    <label>Covance</label>
+                </value>
+                <value>
+                    <fullName>Quintiles</fullName>
+                    <default>false</default>
+                    <label>Quintiles</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Conducted_with_an_Partner__c</fullName>
+        <externalId>false</externalId>
+        <label>Conducted with a Partner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Director__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Study Director</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Studies</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dosing_Duration_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Dosing Duration Number</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dosing_Duration_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Dosing Duration Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Days</fullName>
+                    <default>false</default>
+                    <label>Days</label>
+                </value>
+                <value>
+                    <fullName>Weeks</fullName>
+                    <default>false</default>
+                    <label>Weeks</label>
+                </value>
+                <value>
+                    <fullName>Months</fullName>
+                    <default>false</default>
+                    <label>Months</label>
+                </value>
+                <value>
+                    <fullName>Years</fullName>
+                    <default>false</default>
+                    <label>Years</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Dosing_Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Dosing_Duration_Number__c ) &amp; &quot; &quot; &amp; TEXT(Dosing_Duration_Type__c)</formula>
+        <label>Dosing Duration</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dosing_Frequency__c</fullName>
+        <externalId>false</externalId>
+        <label>Dosing Frequency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>End_Date_of_Dosing__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date of Dosing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Protocol_Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use the enter key to add descriptions on a new line.</inlineHelpText>
+        <label>Study Protocol Description</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Final_Protocol__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please add comma separated URLs if you are adding more than one</inlineHelpText>
+        <label>Study Protocol Link</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Final_Protocol_checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Study Protocol</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Functional_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Functional Area</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TBOS</fullName>
+                    <default>false</default>
+                    <label>TBOS</label>
+                </value>
+                <value>
+                    <fullName>TCAL</fullName>
+                    <default>false</default>
+                    <label>TCAL</label>
+                </value>
+                <value>
+                    <fullName>Japan</fullName>
+                    <default>false</default>
+                    <label>Japan</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GLP_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>GLP</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GSTS_Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>GSTS_Project__c</referenceTo>
+        <relationshipName>Studies</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GS_External_Study_Number__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>false</externalId>
+        <inlineHelpText>External Study Number generated by CRO</inlineHelpText>
+        <label>External Study Number</label>
+        <length>85</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Study_Number__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>Internal Study ID generated externally and captured here</description>
+        <externalId>false</externalId>
+        <label>Internal Study Number</label>
+        <length>85</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Monitor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Study Monitor</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Studies1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pathology_Peer_Review_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Pathology Peer Review Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Peer_Review_Finish_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Peer Review Finish Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Peer_Review_Pathologist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Peer Review Pathologist</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Studies4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Peer_Review_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Peer Review Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Necropsy_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Necropsy Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Read_Date_Finish__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Read Date Finish</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Read_Date_Start__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Read Date Start</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Reading_Pathologist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Primary Reading Pathologist</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Studies3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Study__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Primary Study</label>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipName>Studies</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Study_check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Primary Study?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Protocol_Approval_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Protocol Approved</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Recovery_Necropsy_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Recovery Necropsy Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Representative__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Study Representative</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Studies2</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Research_Topic_Report_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Research Topic Report Description</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Research_Topic_Report_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Research Topic Report URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Research_Topic_Report__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Research Topic Report</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Research_Topic_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Research Topic Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                    <label>On Hold</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Research_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Study Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Analytical Method</fullName>
+                    <default>false</default>
+                    <label>Analytical Method</label>
+                </value>
+                <value>
+                    <fullName>Bioanalysis</fullName>
+                    <default>false</default>
+                    <label>Bioanalysis</label>
+                </value>
+                <value>
+                    <fullName>Cancer Pharmacology</fullName>
+                    <default>false</default>
+                    <label>Cancer Pharmacology</label>
+                </value>
+                <value>
+                    <fullName>Carcinogenicity</fullName>
+                    <default>false</default>
+                    <label>Carcinogenicity</label>
+                </value>
+                <value>
+                    <fullName>Clinical</fullName>
+                    <default>false</default>
+                    <label>Clinical</label>
+                </value>
+                <value>
+                    <fullName>Cross-Reactivity</fullName>
+                    <default>false</default>
+                    <label>Cross-Reactivity</label>
+                </value>
+                <value>
+                    <fullName>Dose Analysis</fullName>
+                    <default>false</default>
+                    <label>Dose Analysis</label>
+                </value>
+                <value>
+                    <fullName>Dose Escalation</fullName>
+                    <default>false</default>
+                    <label>Dose Escalation</label>
+                </value>
+                <value>
+                    <fullName>Drug Product</fullName>
+                    <default>false</default>
+                    <label>Drug Product</label>
+                </value>
+                <value>
+                    <fullName>Drug Substance</fullName>
+                    <default>false</default>
+                    <label>Drug Substance</label>
+                </value>
+                <value>
+                    <fullName>Drug Substance/Drug Product</fullName>
+                    <default>false</default>
+                    <label>Drug Substance/Drug Product</label>
+                </value>
+                <value>
+                    <fullName>Facility Audit</fullName>
+                    <default>false</default>
+                    <label>Facility Audit</label>
+                </value>
+                <value>
+                    <fullName>Formulation Stability</fullName>
+                    <default>false</default>
+                    <label>Formulation Stability</label>
+                </value>
+                <value>
+                    <fullName>Genotoxicity</fullName>
+                    <default>false</default>
+                    <label>Genotoxicity</label>
+                </value>
+                <value>
+                    <fullName>Immunogenicity</fullName>
+                    <default>false</default>
+                    <label>Immunogenicity</label>
+                </value>
+                <value>
+                    <fullName>In Vitro</fullName>
+                    <default>false</default>
+                    <label>In Vitro</label>
+                </value>
+                <value>
+                    <fullName>Investigative Toxicology</fullName>
+                    <default>false</default>
+                    <label>Investigative Toxicology</label>
+                </value>
+                <value>
+                    <fullName>Knockout Phenotyping</fullName>
+                    <default>false</default>
+                    <label>Knockout Phenotyping</label>
+                </value>
+                <value>
+                    <fullName>Local Irritation</fullName>
+                    <default>false</default>
+                    <label>Local Irritation</label>
+                </value>
+                <value>
+                    <fullName>Long Term Stability</fullName>
+                    <default>false</default>
+                    <label>Long Term Stability</label>
+                </value>
+                <value>
+                    <fullName>Mass Balance</fullName>
+                    <default>false</default>
+                    <label>Mass Balance</label>
+                </value>
+                <value>
+                    <fullName>Method</fullName>
+                    <default>false</default>
+                    <label>Method</label>
+                </value>
+                <value>
+                    <fullName>PKPD Modeling</fullName>
+                    <default>false</default>
+                    <label>PKPD Modeling</label>
+                </value>
+                <value>
+                    <fullName>Pathology</fullName>
+                    <default>false</default>
+                    <label>Pathology</label>
+                </value>
+                <value>
+                    <fullName>Pharmacodynamic</fullName>
+                    <default>false</default>
+                    <label>Pharmacodynamic</label>
+                </value>
+                <value>
+                    <fullName>Pharmacokinetic</fullName>
+                    <default>false</default>
+                    <label>Pharmacokinetic</label>
+                </value>
+                <value>
+                    <fullName>Pharmacokinetic-Pharmacodynamic</fullName>
+                    <default>false</default>
+                    <label>Pharmacokinetic-Pharmacodynamic</label>
+                </value>
+                <value>
+                    <fullName>Pharmacology</fullName>
+                    <default>false</default>
+                    <label>Pharmacology</label>
+                </value>
+                <value>
+                    <fullName>Phototoxicity</fullName>
+                    <default>false</default>
+                    <label>Phototoxicity</label>
+                </value>
+                <value>
+                    <fullName>Plasma Protein Binding</fullName>
+                    <default>false</default>
+                    <label>Plasma Protein Binding</label>
+                </value>
+                <value>
+                    <fullName>Plasma Stability</fullName>
+                    <default>false</default>
+                    <label>Plasma Stability</label>
+                </value>
+                <value>
+                    <fullName>Platelet Aggregation</fullName>
+                    <default>false</default>
+                    <label>Platelet Aggregation</label>
+                </value>
+                <value>
+                    <fullName>Process Characterization</fullName>
+                    <default>false</default>
+                    <label>Process Characterization</label>
+                </value>
+                <value>
+                    <fullName>Safety Pharmacology</fullName>
+                    <default>false</default>
+                    <label>Safety Pharmacology</label>
+                </value>
+                <value>
+                    <fullName>Stability</fullName>
+                    <default>false</default>
+                    <label>Stability</label>
+                </value>
+                <value>
+                    <fullName>Technical Visit</fullName>
+                    <default>false</default>
+                    <label>Technical Visit</label>
+                </value>
+                <value>
+                    <fullName>Tissue Distribution</fullName>
+                    <default>false</default>
+                    <label>Tissue Distribution</label>
+                </value>
+                <value>
+                    <fullName>Tox Modeling</fullName>
+                    <default>false</default>
+                    <label>Tox Modeling</label>
+                </value>
+                <value>
+                    <fullName>Toxicity</fullName>
+                    <default>false</default>
+                    <label>Toxicity</label>
+                </value>
+                <value>
+                    <fullName>Toxicokinetic</fullName>
+                    <default>false</default>
+                    <label>Toxicokinetic</label>
+                </value>
+                <value>
+                    <fullName>Toxicology</fullName>
+                    <default>false</default>
+                    <label>Toxicology</label>
+                </value>
+                <value>
+                    <fullName>Worker Safety</fullName>
+                    <default>false</default>
+                    <label>Worker Safety</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Route_of_Administration__c</fullName>
+        <externalId>false</externalId>
+        <label>Route of Administration</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Capsule</fullName>
+                    <default>false</default>
+                    <label>Capsule</label>
+                </value>
+                <value>
+                    <fullName>Dermal</fullName>
+                    <default>false</default>
+                    <label>Dermal</label>
+                </value>
+                <value>
+                    <fullName>Diet</fullName>
+                    <default>false</default>
+                    <label>Diet</label>
+                </value>
+                <value>
+                    <fullName>Gavage, Nasogastric</fullName>
+                    <default>false</default>
+                    <label>Gavage, Nasogastric</label>
+                </value>
+                <value>
+                    <fullName>Gavage, Oral</fullName>
+                    <default>false</default>
+                    <label>Gavage, Oral</label>
+                </value>
+                <value>
+                    <fullName>In Situ</fullName>
+                    <default>false</default>
+                    <label>In Situ</label>
+                </value>
+                <value>
+                    <fullName>In Vitro</fullName>
+                    <default>false</default>
+                    <label>In Vitro</label>
+                </value>
+                <value>
+                    <fullName>Inhalation</fullName>
+                    <default>false</default>
+                    <label>Inhalation</label>
+                </value>
+                <value>
+                    <fullName>Intra-articular</fullName>
+                    <default>false</default>
+                    <label>Intra-articular</label>
+                </value>
+                <value>
+                    <fullName>Intradermal</fullName>
+                    <default>false</default>
+                    <label>Intradermal</label>
+                </value>
+                <value>
+                    <fullName>Intralateral Ventricular</fullName>
+                    <default>false</default>
+                    <label>Intralateral Ventricular</label>
+                </value>
+                <value>
+                    <fullName>Intramuscular</fullName>
+                    <default>false</default>
+                    <label>Intramuscular</label>
+                </value>
+                <value>
+                    <fullName>Intranasal</fullName>
+                    <default>false</default>
+                    <label>Intranasal</label>
+                </value>
+                <value>
+                    <fullName>Intraperitoneal</fullName>
+                    <default>false</default>
+                    <label>Intraperitoneal</label>
+                </value>
+                <value>
+                    <fullName>Intraperitoneal/Oral</fullName>
+                    <default>false</default>
+                    <label>Intraperitoneal/Oral</label>
+                </value>
+                <value>
+                    <fullName>Intratracheal</fullName>
+                    <default>false</default>
+                    <label>Intratracheal</label>
+                </value>
+                <value>
+                    <fullName>Intravenous</fullName>
+                    <default>false</default>
+                    <label>Intravenous</label>
+                </value>
+                <value>
+                    <fullName>Intravenous/Intraperitoneal</fullName>
+                    <default>false</default>
+                    <label>Intravenous/Intraperitoneal</label>
+                </value>
+                <value>
+                    <fullName>Intravenous/Oral</fullName>
+                    <default>false</default>
+                    <label>Intravenous/Oral</label>
+                </value>
+                <value>
+                    <fullName>Intravenous/PO/SC</fullName>
+                    <default>false</default>
+                    <label>Intravenous/PO/SC</label>
+                </value>
+                <value>
+                    <fullName>Intravenous/Subcutaneous</fullName>
+                    <default>false</default>
+                    <label>Intravenous/Subcutaneous</label>
+                </value>
+                <value>
+                    <fullName>Jejunal</fullName>
+                    <default>false</default>
+                    <label>Jejunal</label>
+                </value>
+                <value>
+                    <fullName>Ocular</fullName>
+                    <default>false</default>
+                    <label>Ocular</label>
+                </value>
+                <value>
+                    <fullName>Ocular/Intranasal</fullName>
+                    <default>false</default>
+                    <label>Ocular/Intranasal</label>
+                </value>
+                <value>
+                    <fullName>Oral</fullName>
+                    <default>false</default>
+                    <label>Oral</label>
+                </value>
+                <value>
+                    <fullName>Oral/Subcutaneous</fullName>
+                    <default>false</default>
+                    <label>Oral/Subcutaneous</label>
+                </value>
+                <value>
+                    <fullName>Portal</fullName>
+                    <default>false</default>
+                    <label>Portal</label>
+                </value>
+                <value>
+                    <fullName>Subcutaneous</fullName>
+                    <default>false</default>
+                    <label>Subcutaneous</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Species__c</fullName>
+        <externalId>false</externalId>
+        <label>Species</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>GST_Species</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Start_Date_of_Dosing__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date of Dosing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Study_Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Study Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Study_Entry_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the study number was issued</inlineHelpText>
+        <label>Study Entry Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Study_Imitation_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Study Initiation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Study_Project_Report_Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use the enter key to add descriptions on a new line.</inlineHelpText>
+        <label>Study Report Description</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Study_Proposed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Study Proposed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Study_Report_URL__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please add comma separated URLs if you are adding more than one</inlineHelpText>
+        <label>Study Report URL</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Study_Report__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Study Report</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Study_Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Study Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Study_Termination_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Study Termination Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Research_Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Range-Finder</fullName>
+                    <default>false</default>
+                    <label>Range-Finder</label>
+                </value>
+                <value>
+                    <fullName>Bacterial Reverse Mutation</fullName>
+                    <default>false</default>
+                    <label>Bacterial Reverse Mutation</label>
+                </value>
+                <value>
+                    <fullName>CHO Aberration Assay</fullName>
+                    <default>false</default>
+                    <label>CHO Aberration Assay</label>
+                </value>
+                <value>
+                    <fullName>HPBL Aberration Assay</fullName>
+                    <default>false</default>
+                    <label>HPBL Aberration Assay</label>
+                </value>
+                <value>
+                    <fullName>In Vitro Micronucleus</fullName>
+                    <default>false</default>
+                    <label>In Vitro Micronucleus</label>
+                </value>
+                <value>
+                    <fullName>In Vivo Micronucleus</fullName>
+                    <default>false</default>
+                    <label>In Vivo Micronucleus</label>
+                </value>
+                <value>
+                    <fullName>Mouse Lymphoma</fullName>
+                    <default>false</default>
+                    <label>Mouse Lymphoma</label>
+                </value>
+                <value>
+                    <fullName>Binding</fullName>
+                    <default>false</default>
+                    <label>Binding</label>
+                </value>
+                <value>
+                    <fullName>Hemolysis</fullName>
+                    <default>false</default>
+                    <label>Hemolysis</label>
+                </value>
+                <value>
+                    <fullName>Induction</fullName>
+                    <default>false</default>
+                    <label>Induction</label>
+                </value>
+                <value>
+                    <fullName>Inhibition</fullName>
+                    <default>false</default>
+                    <label>Inhibition</label>
+                </value>
+                <value>
+                    <fullName>Metabolism</fullName>
+                    <default>false</default>
+                    <label>Metabolism</label>
+                </value>
+                <value>
+                    <fullName>Platelet Aggregation</fullName>
+                    <default>false</default>
+                    <label>Platelet Aggregation</label>
+                </value>
+                <value>
+                    <fullName>Production</fullName>
+                    <default>false</default>
+                    <label>Production</label>
+                </value>
+                <value>
+                    <fullName>Tissue Culture</fullName>
+                    <default>false</default>
+                    <label>Tissue Culture</label>
+                </value>
+                <value>
+                    <fullName>Transport</fullName>
+                    <default>false</default>
+                    <label>Transport</label>
+                </value>
+                <value>
+                    <fullName>Efficacy</fullName>
+                    <default>false</default>
+                    <label>Efficacy</label>
+                </value>
+                <value>
+                    <fullName>CNS</fullName>
+                    <default>false</default>
+                    <label>CNS</label>
+                </value>
+                <value>
+                    <fullName>Cardiovascular</fullName>
+                    <default>false</default>
+                    <label>Cardiovascular</label>
+                </value>
+                <value>
+                    <fullName>FOB</fullName>
+                    <default>false</default>
+                    <label>FOB</label>
+                </value>
+                <value>
+                    <fullName>In Vitro</fullName>
+                    <default>false</default>
+                    <label>In Vitro</label>
+                </value>
+                <value>
+                    <fullName>Lipid and Carbohydrate Metabolism</fullName>
+                    <default>false</default>
+                    <label>Lipid and Carbohydrate Metabolism</label>
+                </value>
+                <value>
+                    <fullName>Respiratory</fullName>
+                    <default>false</default>
+                    <label>Respiratory</label>
+                </value>
+                <value>
+                    <fullName>hERG Binding</fullName>
+                    <default>false</default>
+                    <label>hERG Binding</label>
+                </value>
+                <value>
+                    <fullName>Environmental Risk Assessment</fullName>
+                    <default>false</default>
+                    <label>Environmental Risk Assessment</label>
+                </value>
+                <value>
+                    <fullName>Fertility</fullName>
+                    <default>false</default>
+                    <label>Fertility</label>
+                </value>
+                <value>
+                    <fullName>In Silico</fullName>
+                    <default>false</default>
+                    <label>In Silico</label>
+                </value>
+                <value>
+                    <fullName>Juvenile</fullName>
+                    <default>false</default>
+                    <label>Juvenile</label>
+                </value>
+                <value>
+                    <fullName>Molecular</fullName>
+                    <default>false</default>
+                    <label>Molecular</label>
+                </value>
+                <value>
+                    <fullName>Peri-Postnatal</fullName>
+                    <default>false</default>
+                    <label>Peri-Postnatal</label>
+                </value>
+                <value>
+                    <fullName>Range-Finder Teratology</fullName>
+                    <default>false</default>
+                    <label>Range-Finder Teratology</label>
+                </value>
+                <value>
+                    <fullName>Repeat Dose</fullName>
+                    <default>false</default>
+                    <label>Repeat Dose</label>
+                </value>
+                <value>
+                    <fullName>Single Dose</fullName>
+                    <default>false</default>
+                    <label>Single Dose</label>
+                </value>
+                <value>
+                    <fullName>Teratology</fullName>
+                    <default>false</default>
+                    <label>Teratology</label>
+                </value>
+                <value>
+                    <fullName>Tissue Cross-Reactivity</fullName>
+                    <default>false</default>
+                    <label>Tissue Cross-Reactivity</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Pharmacology</controllingFieldValue>
+                <valueName>Efficacy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety Pharmacology</controllingFieldValue>
+                <valueName>CNS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety Pharmacology</controllingFieldValue>
+                <valueName>Cardiovascular</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety Pharmacology</controllingFieldValue>
+                <valueName>FOB</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety Pharmacology</controllingFieldValue>
+                <valueName>In Vitro</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety Pharmacology</controllingFieldValue>
+                <valueName>Lipid and Carbohydrate Metabolism</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety Pharmacology</controllingFieldValue>
+                <valueName>Respiratory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety Pharmacology</controllingFieldValue>
+                <valueName>hERG Binding</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Genotoxicity</controllingFieldValue>
+                <valueName>Bacterial Reverse Mutation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Genotoxicity</controllingFieldValue>
+                <valueName>CHO Aberration Assay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Genotoxicity</controllingFieldValue>
+                <valueName>HPBL Aberration Assay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Genotoxicity</controllingFieldValue>
+                <valueName>In Vitro Micronucleus</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Genotoxicity</controllingFieldValue>
+                <valueName>In Vivo Micronucleus</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Genotoxicity</controllingFieldValue>
+                <valueName>Mouse Lymphoma</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Binding</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Hemolysis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Induction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Inhibition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Metabolism</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Platelet Aggregation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Production</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Tissue Culture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>In Vitro</controllingFieldValue>
+                <valueName>Transport</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Carcinogenicity</controllingFieldValue>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Range-Finder</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Environmental Risk Assessment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Fertility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>In Silico</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Juvenile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Molecular</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Peri-Postnatal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Range-Finder Teratology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Repeat Dose</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Single Dose</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Teratology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Toxicity</controllingFieldValue>
+                <valueName>Tissue Cross-Reactivity</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subspecies__c</fullName>
+        <externalId>false</externalId>
+        <label>Subspecies</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Species__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>GST_Strain</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>A/J</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>ACE2 KO/WT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>B6C3F1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>B6C3F1/Crlj</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>B6C3F1/J</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>B6 CCR10 KO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>BALB/c</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>BALB/cAjc1-nu/nu</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>BALB/cByJ</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>Bcrp -/-</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>C3H/HeJ</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>C3H/HeN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>C57/BC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>C57BL/6</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>C57BL/6J</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>C57BL/6J DIO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>C57L/J</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>CB-17 SCID</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>CBA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>CBA/J</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>CCR10 KO/WT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>CCR1 KO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>CCR8 KO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>CD-1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>DBA-1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>F3312</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>F3316</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>F3318</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>HR-1 Hairless</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>Hsd:Athymic Nude-Foxn1nu</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>I5E KO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>ICR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>ICR CD-1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>LDLR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>Mdr1a/b-Bcrp Triple KO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>MDR KO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>MRL/lpr</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>Muta</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>NCR Nude (Taconic)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>NMRI BR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>nu/nu nude</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Nude</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>PDGF KO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>PKCtheta KO/DBA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <controllingFieldValue>Rabbit</controllingFieldValue>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <controllingFieldValue>Dog</controllingFieldValue>
+                <controllingFieldValue>Human</controllingFieldValue>
+                <controllingFieldValue>Monkey</controllingFieldValue>
+                <valueName>Plasma</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>Poly(I:C)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>SCID-NOD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>Sencar</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>SJL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>SM/J</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>Strain &quot;C&quot;</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>Swiss-Webster</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mouse</controllingFieldValue>
+                <valueName>XenoMouse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Nonhuman Primate</controllingFieldValue>
+                <valueName>Cotton-Top Tamarin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pig</controllingFieldValue>
+                <valueName>Hanford Mini-Pig</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rabbit</controllingFieldValue>
+                <valueName>Agouti</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rabbit</controllingFieldValue>
+                <valueName>Albino</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rabbit</controllingFieldValue>
+                <valueName>CHBB: HM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rabbit</controllingFieldValue>
+                <valueName>Fauve de Mourgogne</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rabbit</controllingFieldValue>
+                <valueName>New Zealand White</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rabbit</controllingFieldValue>
+                <valueName>White Tail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rabbit</controllingFieldValue>
+                <valueName>CHBB: SPF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Dark Agouti</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Fischer 344</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Gunn</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Harlan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Lewis</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Long Evans</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>SPF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Sprague-Dawley</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Wistar</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rat</controllingFieldValue>
+                <valueName>Zucker</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cells</controllingFieldValue>
+                <valueName>CHO</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cells</controllingFieldValue>
+                <valueName>Eukaryotic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cells</controllingFieldValue>
+                <valueName>Prokaryotic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cells</controllingFieldValue>
+                <controllingFieldValue>Human</controllingFieldValue>
+                <valueName>Whole Blood</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dog</controllingFieldValue>
+                <valueName>Beagle</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fish</controllingFieldValue>
+                <valueName>Flathead Minnow</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Guinea Pig</controllingFieldValue>
+                <valueName>Cobaye</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Guinea Pig</controllingFieldValue>
+                <valueName>Cochon d&apos; Inde</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Guinea Pig</controllingFieldValue>
+                <valueName>Dunkin Hartley</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Guinea Pig</controllingFieldValue>
+                <valueName>Hartley</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Guinea Pig</controllingFieldValue>
+                <valueName>Pirbright White Strain (Tif: DHP)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hamster</controllingFieldValue>
+                <valueName>Chinese</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hamster</controllingFieldValue>
+                <valueName>Golden Syrian Lak</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human</controllingFieldValue>
+                <valueName>Cells</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human</controllingFieldValue>
+                <valueName>Platelets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Human</controllingFieldValue>
+                <valueName>Urine</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Monkey</controllingFieldValue>
+                <valueName>Baboon</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Monkey</controllingFieldValue>
+                <valueName>Chimpanzee</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Monkey</controllingFieldValue>
+                <valueName>Cynomolgus</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Monkey</controllingFieldValue>
+                <valueName>Marmoset</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Monkey</controllingFieldValue>
+                <valueName>Rhesus</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Monkey</controllingFieldValue>
+                <valueName>Squirrel</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Test_Facility_Names__c</fullName>
+        <description>A list of test facilities and their addresses</description>
+        <externalId>false</externalId>
+        <label>Test Facility Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>CRO__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Boston</fullName>
+                    <default>false</default>
+                    <label>Boston</label>
+                </value>
+                <value>
+                    <fullName>Tokyo</fullName>
+                    <default>false</default>
+                    <label>Tokyo</label>
+                </value>
+                <value>
+                    <fullName>San Jose</fullName>
+                    <default>false</default>
+                    <label>San Jose</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Covance</controllingFieldValue>
+                <valueName>Boston</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Covance</controllingFieldValue>
+                <valueName>Tokyo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Quintiles</controllingFieldValue>
+                <valueName>San Jose</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <label>Project NU</label>
+    <nameField>
+        <label>Study Title</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Projects</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Standard</fullName>
+        <active>true</active>
+        <label>Standard</label>
+        <picklistValues>
+            <picklist>CRO__c</picklist>
+            <values>
+                <fullName>Covance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quintiles</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Conducted_with_an_Partner__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dosing_Duration_Type__c</picklist>
+            <values>
+                <fullName>Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dosing_Frequency__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Functional_Area__c</picklist>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TCAL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>GLP_Status__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Research_Topic_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Research_Type__c</picklist>
+            <values>
+                <fullName>Analytical Method</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bioanalysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancer Pharmacology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carcinogenicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cross-Reactivity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dose Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dose Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drug Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drug Substance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drug Substance%2FDrug Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facility Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formulation Stability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Genotoxicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immunogenicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investigative Toxicology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Knockout Phenotyping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Irritation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Stability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Method</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PKPD Modeling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pathology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacodynamic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacokinetic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacokinetic-Pharmacodynamic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phototoxicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plasma Protein Binding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plasma Stability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platelet Aggregation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Characterization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safety Pharmacology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tissue Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tox Modeling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toxicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toxicokinetic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toxicology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Worker Safety</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Route_of_Administration__c</picklist>
+            <values>
+                <fullName>Capsule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gavage%2C Nasogastric</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gavage%2C Oral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Situ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inhalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intra-articular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intradermal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intralateral Ventricular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intramuscular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intranasal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intraperitoneal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intraperitoneal%2FOral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intratracheal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous%2FIntraperitoneal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous%2FOral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous%2FPO%2FSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous%2FSubcutaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jejunal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ocular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ocular%2FIntranasal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oral%2FSubcutaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subcutaneous</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Species__c</picklist>
+            <values>
+                <fullName>Cells</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferret</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guinea Pig</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hamster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Human</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro %28No Specified%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonhuman Primate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pig</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rabbit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rat</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Study_Stage__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>Bacterial Reverse Mutation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Binding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHO Aberration Assay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Efficacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Risk Assessment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FOB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fertility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HPBL Aberration Assay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hemolysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Silico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro Micronucleus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vivo Micronucleus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Induction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inhibition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Juvenile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lipid and Carbohydrate Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Molecular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mouse Lymphoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peri-Postnatal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platelet Aggregation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range-Finder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range-Finder Teratology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat Dose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respiratory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Dose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teratology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tissue Cross-Reactivity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tissue Culture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>hERG Binding</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subspecies__c</picklist>
+            <values>
+                <fullName>A%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ACE2 KO%2FWT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agouti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Albino</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B6 CCR10 KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B6C3F1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B6C3F1%2FCrlj</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B6C3F1%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BALB%2Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BALB%2FcAjc1-nu%2Fnu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BALB%2FcByJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baboon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bcrp -%2F-</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beagle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brown Norway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C3H%2FHeJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C3H%2FHeN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57%2FBC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57BL%2F6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57BL%2F6J</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57BL%2F6J DIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57L%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CB-17 SCID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CBA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CBA%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCR1 KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCR10 KO%2FWT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCR8 KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CD-1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHBB%3A HM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHBB%3A SPF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cells</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chimpanzee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cobaye</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cochon d%27 Inde</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colworth-Wistar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cotton-Top Tamarin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crl%3ACD%28SD%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cynomolgus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DBA-1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dark Agouti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dunkin Hartley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eukaryotic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F3312</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F3316</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F3318</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fauve de Mourgogne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fischer 344</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flathead Minnow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golden Syrian Lak</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gunn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR-1 Hairless</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hanford Mini-Pig</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Harlan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hartley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hsd%3AAthymic Nude-Foxn1nu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>I5E KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICR CD-1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LDLR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lewis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Evans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MDR KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MRL%2Flpr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marmoset</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mdr1a%2Fb-Bcrp Triple KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NCR Nude %28Taconic%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NMRI BR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand White</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nude</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PDGF KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PKCtheta KO%2FDBA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pirbright White Strain %28Tif%3A DHP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plasma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platelets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poly%28I%3AC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prokaryotic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rhesus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCID-NOD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SJL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SM%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sencar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sprague-Dawley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Squirrel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strain %22C%22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swiss-Webster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Tail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Whole Blood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wistar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>XenoMouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zucker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>nu%2Fnu nude</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Test_Facility_Names__c</picklist>
+            <values>
+                <fullName>Boston</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Jose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokyo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Test</fullName>
+        <active>true</active>
+        <label>Test</label>
+        <picklistValues>
+            <picklist>CRO__c</picklist>
+            <values>
+                <fullName>Covance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quintiles</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Conducted_with_an_Partner__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dosing_Duration_Type__c</picklist>
+            <values>
+                <fullName>Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weeks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dosing_Frequency__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Functional_Area__c</picklist>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TCAL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>GLP_Status__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Research_Topic_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Research_Type__c</picklist>
+            <values>
+                <fullName>Analytical Method</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bioanalysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancer Pharmacology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carcinogenicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cross-Reactivity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dose Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dose Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drug Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drug Substance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drug Substance%2FDrug Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facility Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formulation Stability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Genotoxicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immunogenicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investigative Toxicology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Knockout Phenotyping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Irritation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Stability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Method</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PKPD Modeling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pathology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacodynamic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacokinetic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacokinetic-Pharmacodynamic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phototoxicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plasma Protein Binding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plasma Stability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platelet Aggregation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Characterization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safety Pharmacology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technical Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tissue Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tox Modeling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toxicity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toxicokinetic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toxicology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Worker Safety</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Route_of_Administration__c</picklist>
+            <values>
+                <fullName>Capsule</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gavage%2C Nasogastric</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gavage%2C Oral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Situ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inhalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intra-articular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intradermal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intralateral Ventricular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intramuscular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intranasal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intraperitoneal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intraperitoneal%2FOral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intratracheal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous%2FIntraperitoneal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous%2FOral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous%2FPO%2FSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intravenous%2FSubcutaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jejunal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ocular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ocular%2FIntranasal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oral%2FSubcutaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subcutaneous</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Species__c</picklist>
+            <values>
+                <fullName>Cells</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferret</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guinea Pig</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hamster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Human</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro %28No Specified%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonhuman Primate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pig</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rabbit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rat</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Study_Stage__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>Bacterial Reverse Mutation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Binding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHO Aberration Assay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Efficacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Risk Assessment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FOB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fertility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HPBL Aberration Assay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hemolysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Silico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro Micronucleus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vivo Micronucleus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Induction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inhibition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Juvenile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lipid and Carbohydrate Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Molecular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mouse Lymphoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peri-Postnatal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platelet Aggregation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range-Finder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range-Finder Teratology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat Dose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respiratory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Dose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teratology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tissue Cross-Reactivity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tissue Culture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>hERG Binding</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subspecies__c</picklist>
+            <values>
+                <fullName>A%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ACE2 KO%2FWT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agouti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Albino</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B6 CCR10 KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B6C3F1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B6C3F1%2FCrlj</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B6C3F1%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BALB%2Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BALB%2FcAjc1-nu%2Fnu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BALB%2FcByJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baboon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bcrp -%2F-</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beagle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brown Norway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C3H%2FHeJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C3H%2FHeN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57%2FBC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57BL%2F6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57BL%2F6J</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57BL%2F6J DIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C57L%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CB-17 SCID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CBA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CBA%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCR1 KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCR10 KO%2FWT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CCR8 KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CD-1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHBB%3A HM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHBB%3A SPF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cells</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chimpanzee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cobaye</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cochon d%27 Inde</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colworth-Wistar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cotton-Top Tamarin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crl%3ACD%28SD%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cynomolgus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DBA-1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dark Agouti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dunkin Hartley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eukaryotic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F3312</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F3316</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F3318</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fauve de Mourgogne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fischer 344</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flathead Minnow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golden Syrian Lak</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gunn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR-1 Hairless</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hanford Mini-Pig</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Harlan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hartley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hsd%3AAthymic Nude-Foxn1nu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>I5E KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ICR CD-1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LDLR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lewis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Evans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MDR KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MRL%2Flpr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marmoset</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mdr1a%2Fb-Bcrp Triple KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NCR Nude %28Taconic%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NMRI BR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand White</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nude</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PDGF KO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PKCtheta KO%2FDBA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pirbright White Strain %28Tif%3A DHP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plasma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platelets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poly%28I%3AC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prokaryotic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rhesus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCID-NOD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SJL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SM%2FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sencar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sprague-Dawley</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Squirrel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strain %22C%22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swiss-Webster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Tail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Whole Blood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wistar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>XenoMouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zucker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>nu%2Fnu nude</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Test_Facility_Names__c</picklist>
+            <values>
+                <fullName>Boston</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Jose</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokyo</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>OWNER.FIRST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.LAST_NAME</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.FIRST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.LAST_NAME</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>OWNER.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.LAST_NAME</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>CRO_test_facilities_required</fullName>
+        <active>true</active>
+        <description>If Conducted with a CRO is “Yes” then CRO and Test Facilities Names are required</description>
+        <errorConditionFormula>AND(
+     ISPICKVAL(Conducted_with_an_Partner__c , &quot;Yes&quot;),
+     OR(ISPICKVAL(CRO__c , &quot;&quot;),
+     ISPICKVAL(Test_Facility_Names__c , &quot;&quot;))
+)</errorConditionFormula>
+        <errorMessage>CRO and Test Facility name are required when Conducted with CRO is Yes. Please populate the required fields.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Functional_Areas_required</fullName>
+        <active>true</active>
+        <description>If Conducted with a CRO is “No” then Functional Areas is required</description>
+        <errorConditionFormula>AND(
+     ISPICKVAL(Conducted_with_an_Partner__c , &quot;No&quot;),
+     ISPICKVAL( Functional_Area__c , &quot;&quot;)
+     
+)</errorConditionFormula>
+        <errorMessage>Functional Area is mandatory when Conducted with CRO is No. Please populate the required field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Peer_Review_Primary_Rdng_Pathologist_req</fullName>
+        <active>true</active>
+        <description>If Pathology Peer Review Required then the Primary Reading Pathologist and Peer Review Pathologist fields should be required to be populated</description>
+        <errorConditionFormula>AND(
+      Pathology_Peer_Review_Required__c = true,
+      OR(Primary_Reading_Pathologist__c = null,
+      Peer_Review_Pathologist__c = null )
+)</errorConditionFormula>
+        <errorMessage>Primary Reading Pathologist and Peer Review Pathologist are required if Pathology Peer Review is required. Please enter the required fields</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Study_Home_Page</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Study Home Page</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if(&apos;{!Project__c.Research_Type__c}&apos; != &apos;Research Topic&apos;) {
+window.location = &quot;/apex/CreateStudy?id={!Project__c.Id}&amp;isEdit=false&quot;;
+} else {
+window.location = &quot;/apex/Research_Topics?id={!Project__c.Id}&amp;isEdit=false&quot;;
+}</url>
+    </webLinks>
+</CustomObject>
