@@ -27,11 +27,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
-            <table>Information_Landscape__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
             <table>Information_Landscape__c</table>
         </columns>

@@ -15,25 +15,25 @@
     <apex:includeScript value="{!URLFOR($Resource.KMSR,'vendor/bootstrap-3.3.7-dist/js/bootstrap.min.js')}"/>
     <apex:includeScript value="{!URLFOR($Resource.KMSR,'js/index.js')}"/>
     <script type='text/javascript'>
-          
+
             function isValidSearchString(searchString) {
                 var SEARCH_TRIGGER_THRESHOLD = 2;
                 var trimmedSearchString = searchString.trim();
-    
+
                     if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
                         return true;
                     } else {
                         return false;
                     }
             }
-            
+
             function clickSearch(ev)  {
                 if (window.event && window.event.keyCode == 13 || ev.which == 13) {
                         var searchString = (document.getElementsByClassName("keyword_Global_Search"))[0].value;
                         if (isValidSearchString(searchString)){
                             doSearchglobal();
                         }
-                        searchString = (document.getElementsByClassName("keyword_Global_SearchMobile"))[0].value;      
+                        searchString = (document.getElementsByClassName("keyword_Global_SearchMobile"))[0].value;
                         if (isValidSearchString(searchString)){
                             doSearchglobal();
                         }
@@ -42,33 +42,40 @@
                     return true;
                 }
              }
-             
-            </script> 
+
+            </script>
 </head>
 
 <body>
     <apex:form >
     <apex:actionFunction name="doSearchglobal" action="{!populateGlobalURL}"/>
+
     <div id="wrap">
+
         <div id="header" class="hidden-xs">
             <div class="container">
+                
                 <div class="row">
                     <div class="col-xs-3 zero-right-padding">
-                        <a class="dd-logo">Deloitte Digital</a>
-                        <a class="drdw-logo">DRDP logo</a>
+                        
+                        <a><apex:image url="{!HomeHeader1}" height="49" width="103" style="text-indent: -99999px; display: inline-block;"/></a>
+                        <a><apex:image url="{!HomeHeader2}" height="49" width="103" style="text-indent: -99999px; display: inline-block; background-size: contain; margin-left: 10px;"/></a>
+                        
                     </div>
+
+                    
                     <div class="col-xs-8 zero-left-padding">
                         <ul class="nav">
                             <li>
-                            <a href ="/apex/StudyList" class="tab-research"><span>Research</span></a>
-                            <a href ="/apex/DRDP_InformationLandscapeList" class="tab-info-landscape"><span>Info Landscape</span></a>
-                            <a href ="/apex/PartnerShipList" class="tab-partnerships"><span>Partnerships</span></a>
-                            <a href ="/apex/DRDP_RelationshipList" class="tab-relationships"><span>Relationships</span></a>
-                            <a href ="/apex/RequestList" class="tab-requests"><span>Requests</span></a>
-                            <a href="/home/home.jsp?tsid=null" class="tab-admin hidden-sm hidden-md"><span>Admin</span></a>
+                            <apex:repeat value="{!lHomeTabs}" var="HomeTab">
+                                <a href="{!HomeTab.URL__c}" class="{!If(HomeTab.Tab_Sequence__c==1,'tab-research',If(HomeTab.Tab_Sequence__c==2,'tab-info-landscape',If(HomeTab.Tab_Sequence__c==3,'tab-partnerships',If(HomeTab.Tab_Sequence__c==4,'tab-relationships',If(HomeTab.Tab_Sequence__c==5,'tab-requests',If(HomeTab.Tab_Sequence__c==6,'tab-admin hidden-sm hidden-md',''))))))}">
+                                    <span class="menu-text">{!HomeTab.Value__c}</span>
+                                </a>
+                            </apex:repeat>
                             </li>
                         </ul>
                     </div>
+
                     <div class="col-xs-1 zero-padding">
                         <div class="dashboard pull-left">
                             <a href="/apex/Clipboard">
@@ -84,15 +91,20 @@
                 </div>
             </div>
         </div>
+
+
         <div class="mobile-header visible-xs navbar navbar-fixed-top navbar-inverse">
             <div class="container-fluid zero-padding">
                 <div class="navbar-brand">
                     <a class="hamburger pull-left">
                         <span class="glyphicon glyphicon-menu-hamburger show-menu"></span>
-                        <span class="glyphicon glyphicon-remove hide-menu"></span>                        
-                    </a>                    
-                    <a class="logo dd-logo pull-left">Deloitte Digital</a>
-                    <a class="logo drdw-logo pull-left">DRDP logo</a>
+                        <span class="glyphicon glyphicon-remove hide-menu"></span>
+                    </a>
+                    <a><apex:image url="{!HomeHeader1}" height="49" width="103" style="text-indent: -99999px; display: block; float: left!important;"/></a>
+                    <a><apex:image url="{!HomeHeader2}" height="49" width="103" style="text-indent: -99999px; display: block; background-size: contain; margin-left: 10px;float: left!important;"/></a>
+
+                    <!--a class="logo dd-logo pull-left">Deloitte Digital</a>
+                    <a class="logo drdw-logo pull-left">DRDP logo</a-->
                     <a class="logout-button pull-right" href="#" title="Logout">
                         <span class="icon-logout glyphicon glyphicon-log-out"></span>
                     </a>
@@ -102,40 +114,17 @@
         <!-- Mobile menu begins -->
         <div class="navbar navbar-fixed-left navbar-mobile hidden-lg hidden-md hidden-sm hidden">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="/apex/StudyList">                        
-                        <span class="menu-text">Research</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/DRDP_InformationLandscapeList" class="">
-                        <span class="menu-text">Info Landscape</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/PartnerShipList" class="">
-                        <span class="menu-text">Partnerships</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/DRDP_RelationshipList" class="">
-                        <span class="menu-text">Relationships</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/RequestList" class="">
-                        <span class="menu-text">Requests</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/apex/Clipboard" class="">
-                        <span class="menu-text">My Dashboard</span>
-                    </a>
-                </li>
+                <apex:repeat value="{!lHomeTabs}" var="HomeTab">
+                    <li>
+                        <a href="{!HomeTab.URL__c}">
+                            <span class="menu-text">{!HomeTab.Value__c}</span>
+                        </a>
+                    </li>
+                </apex:repeat>
             </ul>
         </div>
         <!-- Mobile menu ends -->
-        <div class="offset visible-xs">            
+        <div class="offset visible-xs">
         </div>
         <div id="main">
             <section class="section-1 container-fluid banner-color-black hidden-xs">
@@ -144,14 +133,17 @@
                     <div class="row">
                         <div class="col-md-offset-2 col-md-8 col-xs-12">
                             <div class="media ">
+                                
                                 <div class="media-left pull-right">
-                                    <div class="media-object logo-brain"/>
+                                    <div class="media-object">
+                                        <apex:image url="{!HomeBanner}" height="155" width="155" style="text-indent: -99999px; display: inline-block; background-size: contain;"/>
+                                    </div>
                                 </div>
+                               
                                 <div class="media-body">
-                                    <h1 class="media-heading">Digital Research Workbench</h1>
+                                    <h1 class="media-heading">{!HomeTitle}</h1>
                                     <hr/>
-                                    <p class="media-tagline">Digitization of Research Processes - Process Automation, Electronic Data Capture and Linking Data
-                                    </p>
+                                    <p class="media-tagline">{!HomeTitleDiscription}</p>
                                     <apex:inputText rendered="{!!IsMobile}" id="auto11" required="false" html-placeholder="Search..." onkeypress="return clickSearch(event);" styleclass="keyword_Global_Search" value="{!searchWord}">
                                     <apex:outputPanel rendered="{!!IsMobile}">
                                     <c:Nugget_AutoCompleteComponent objectname="Project__c" input_id="{!$Component.auto11}" numberOfResultsToDisplay="10" wildcardBefore="false"/>
@@ -174,7 +166,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <section class="section-1 mobile-mods container-fluid banner-color-black visible-xs">
                 <div class="pattern"></div>
                 <div class="container">
@@ -182,15 +174,16 @@
                         <div class="col-md-offset-2 col-md-8 col-xs-12">
                             <div class="media ">
                                 <div class="media-left pull-right">
-                                    <div class="media-object logo-brain" />
+                                    <div class="media-object">
+                                        <apex:image url="{!HomeBanner}" height="75" width="75" style="text-indent: -99999px; display: inline-block; background-size: contain;"/>
+                                    </div>
                                 </div>
                                 <div class="media-body">
-                                    <h1 class="media-heading">Digital Research Workbench</h1>
+                                    <h1 class="media-heading">{!HomeTitle}</h1>
                                 </div>
                             </div>
                             <hr/>
-                            <p class="media-tagline">Digitization of Research Processes - Process Automation, Electronic Data Capture and Linking Data
-                            </p>
+                            <p class="media-tagline">{!HomeTitleDiscription}</p>
                             <apex:inputText id="auto12" required="false" html-placeholder="Search..." onkeypress="return clickSearch(event);" styleclass="keyword_Global_SearchMobile" value="{!searchWordMobile}">
                             <apex:outputPanel rendered="{!IsMobile}">
                             <c:Nugget_AutoCompleteComponent objectname="Project__c" input_id="{!$Component.auto12}" numberOfResultsToDisplay="10" wildcardBefore="false"/>
@@ -204,33 +197,36 @@
                     </div>
                 </div>
             </section>
-            
+
             <section class="section-2 container-fluid">
                 <div class="container">
                     <div class="row">
                         <div class="text-center">
                             <div class="center-block">
-                                <a href="/{!$Label.DashboardLink}">
+                                <a href="{!HomeCard1URL}">
                                     <div class="card">
-                                        <img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/analytics.png')}"/>
+                                        <apex:image url="{!HomeCard1}" styleClass="card-icon"/>
+                                        <!--img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/analytics.png')}"/-->
                                         <div class="card-content">
-                                            Reports
+                                            {!HomeCard1Text}
                                         </div>
                                     </div>
                                 </a>
-                                <a href="/_ui/core/chatter/ui/ChatterPage">
+                                <a href="{!HomeCard2URL}">
                                     <div class="card">
-                                        <img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/users-1.png')}"/>
+                                        <apex:image url="{!HomeCard2}" styleClass="card-icon"/>
+                                        <!--img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/users-1.png')}"/-->
                                         <div class="card-content">
-                                            Connect
+                                            {!HomeCard2Text}
                                         </div>
                                     </div>
                                 </a>
-                                <a href="/apex/DRDP_Contents?page=linkspage">
+                                <a href="{!HomeCard3URL}">
                                     <div class="card">
-                                        <img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/green-link.png')}"/>
+                                        <apex:image url="{!HomeCard3}" styleClass="card-icon"/>
+                                        <!--img class="card-icon" src="{!URLFOR($Resource.KMSR,'assets/img/green-link.png')}"/-->
                                         <div class="card-content">
-                                            Links
+                                            {!HomeCard3Text}
                                         </div>
                                     </div>
                                 </a>
@@ -268,7 +264,8 @@
     </div>
     <div id="footer">
         <div class="container">
-            <a href="" class="dd-logo hidden-xs">Deloitte Digital</a>
+            <a><apex:image url="{!HomeHeader1}" height="49" width="103" styleClass="hidden-xs" style="text-indent: -99999px; display: inline-block;"/></a>
+            <!--a href="" class="dd-logo hidden-xs">Deloitte Digital</a-->
             <span class="copyright-text pull-right">&copy; Copyright 2017. All rights reserved.</span>
             <a href="#" class="pull-right feedback-button" data-toggle="modal" data-target="#myModal">
                 <!-- <span class="bracket">[</span>

@@ -35,11 +35,12 @@ Public with sharing class Index_Controller {
     * @Parameters                     :  None
     */   
     public PageReference populateGlobalURL() {
+        GlobalStrings gblStr = new GlobalStrings();
         if (searchWord != NULL && searchWord != '') {
             string reference;
             string encodedString;
-            searchWord = EncodingUtil.urlEncode(searchWord, 'UTF-8');
-            reference = '/apex/Global_Search?searchWord=' + searchWord ;
+            searchWord =  EncodingUtil.urlEncode(searchWord, gblStr.searchWord);
+            reference = gblStr.referenceUrl + searchWord ;
             PageReference pageRef = new PageReference(reference);
             pageRef.setRedirect(true);
             return pageRef;

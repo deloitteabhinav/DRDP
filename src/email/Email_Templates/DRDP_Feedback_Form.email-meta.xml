@@ -18,4 +18,5 @@ Click here
 Thank You.
 {!User.Name}</textOnly>
     <type>html</type>
+    <uiType>Aloha</uiType>
 </EmailTemplate>

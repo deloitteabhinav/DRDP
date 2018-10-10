@@ -1,4 +1,4 @@
-<apex:component id="theComponent">
+<apex:component id="theComponent" controller="SR2IndexController">
    
     <apex:form >  
      
@@ -34,18 +34,30 @@
             <header class = 'container hidden-xs'>
             <div class="row">
                 <div class="col-xs-3 zero-right-padding">
+                    <!-- 
                     <a href="/apex/DRDP_DFHomePage" class="dd-logo">Deloitte Digital</a>
                     <a href="/apex/DRDP_DFHomePage" class="drdw-logo">DRDP logo</a>
+                    -->
+                    <a href="/apex/DRDP_DFHomePage"><apex:image url="{!HomeHeader1}" height="49" width="103" style="text-indent: -99999px; display: inline-block;"/></a>
+                    <a href="/apex/DRDP_DFHomePage"><apex:image url="{!HomeHeader2}" height="49" width="103" style="text-indent: -99999px; display: inline-block; background-size: contain; margin-left: 10px;"/></a>
+
+                    
                 </div>
                 <div class="col-xs-8 zero-left-padding">
                     <ul class="nav">
                         <li>
-                            <a href ="/apex/StudyList" class="{!IF($CurrentPage.name=='StudyList','tab-research active','tab-research')}"><span>Research</span></a>
-                            <a href ="/apex/DRDP_InformationLandscapeList" class="{!IF($CurrentPage.name=='DRDP_InformationLandscapeList','tab-info-landscape active','tab-info-landscape')}"><span>Info Landscape</span></a>
+                            <!--
+                            <a href ="/apex/StudyList" class="{!IF($CurrentPage.name=='StudyList','tab-research active','tab-research')}"><span>Study</span></a>
                             <a href ="/apex/PartnerShipList" class="{!IF(OR($CurrentPage.name=='PartnerShipList',$CurrentPage.name=='CreatePartnership'),'tab-partnerships active','tab-partnerships')}"><span>Partnerships</span></a>
-                            <a href ="/apex/DRDP_RelationshipList" class="{!IF(OR($CurrentPage.name=='DRDP_RelationshipList',$CurrentPage.name=='DRDP_SelectRelationship'),'tab-relationships active','tab-relationships')}"><span>Relationships</span></a>
+                            <a href ="/apex/DRDP_RelationshipList" class="{!IF(OR($CurrentPage.name=='DRDP_RelationshipList',$CurrentPage.name=='DRDP_SelectRelationship'),'tab-relationships active','tab-relationships')}"><span>Relationships</span></a> 
                             <a href ="/apex/RequestList" class="{!IF(OR($CurrentPage.name=='RequestList',$CurrentPage.name=='CreateRequests',$CurrentPage.name=='SelectRequest'),'tab-requests active','tab-requests')}"><span>Requests</span></a>
                             <a href="/home/home.jsp?tsid=null" class="tab-admin"><span>Admin</span></a>
+                            -->
+                            <apex:repeat value="{!lHomeTabs}" var="HomeTab">
+                                <a href="{!HomeTab.URL__c}" class="{!If(HomeTab.Tab_Sequence__c==1,'tab-research',If(HomeTab.Tab_Sequence__c==2,'tab-info-landscape',If(HomeTab.Tab_Sequence__c==3,'tab-partnerships',If(HomeTab.Tab_Sequence__c==4,'tab-relationships',If(HomeTab.Tab_Sequence__c==5,'tab-requests',If(HomeTab.Tab_Sequence__c==6,'tab-admin hidden-sm hidden-md',''))))))}">                        
+                                    <span class="menu-text">{!HomeTab.Value__c}</span>
+                                </a>
+                            </apex:repeat>
                         </li>
                     </ul>
                 </div>

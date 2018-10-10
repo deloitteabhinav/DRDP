@@ -1,0 +1,78 @@
+<apex:page standardStylesheets="false" showHeader="false">
+    <style>
+        body {font-size:12px; background: #F3F3EC; padding-top: 0px;}
+        .{font-family:arial;font-size:12px}
+        h1 {cursor:hand;font-size:16px;margin-left:10px;line-height:10px}
+        xmp {color:green;font-size:12px;margin:0px;font-family:courier;background-color:#e6e6fa;padding:2px}
+        .hdr{
+            background-color:lightgrey;
+            margin-bottom:10px;
+            padding-left:10px;
+        }
+    </style>
+
+    <head>
+    <apex:stylesheet value="{!URLFOR($Resource.dhtmlxgantt, 'codebase/dhtmlxgantt.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.dhtmlxgantt, 'codebase/dhtmlxgantt.js')}"/>
+
+    <!--
+    <script language="JavaScript" type="text/javascript">
+        function createChartControl(htmlDiv1)
+        {
+            //project 1
+            var project1 = new GanttProjectInfo(1, "Institutional Sales", new Date(2010, 5, 11));
+            var parentTask1 = new GanttTaskInfo(1, "IS Planning Timeline", new Date(2010, 5, 11), 208, 100, "");
+            parentTask1.addChildTask(new GanttTaskInfo(2, "Plan Development", new Date(2010, 5, 11), 100, 100, ""));
+            parentTask1.addChildTask(new GanttTaskInfo(3, "Finalize Your Plan", new Date(2010, 5, 21), 24, 100, ""));
+            parentTask1.addChildTask(new GanttTaskInfo(4, "Manager Discussions", new Date(2010, 5, 24), 80, 100, ""));
+            parentTask1.addChildTask(new GanttTaskInfo(4, "Final Revisions", new Date(2010, 6, 4), 24, 100, ""));
+            project1.addTask(parentTask1);
+            var ganttChartControl = new GanttChart();
+            //ganttChartControl.setImagePath("{!URLFOR($Resource.dhtmlxgantt, 'codebase/locale/')}");
+            // ganttChartControl.setImagePath("{!URLFOR($Resource.dhtmlxgantt, 'codebase/imgs/')}");
+            ganttChartControl.setEditable(false);
+            ganttChartControl.addProject(project1);
+            ganttChartControl.showTooltip(false);
+            ganttChartControl.create(htmlDiv1);
+        }
+
+    </script>
+    -->
+
+<script>
+    var tasks = {
+        data: [
+            {
+                id: 1, text: "Project #2", start_date: "01-04-2018", duration: 18, order: 10,
+                progress: 0.4, open: true
+            },
+            {
+                id: 2, text: "Task #1", start_date: "02-04-2018", duration: 8, order: 10,
+                progress: 0.6, parent: 1
+            },
+            {
+                id: 3, text: "Task #2", start_date: "11-04-2018", duration: 8, order: 20,
+                progress: 0.6, parent: 1
+            }
+        ],
+        links: [
+            {id: 1, source: 1, target: 2, type: "1"},
+            {id: 2, source: 2, target: 3, type: "0"}
+        ]
+    };
+
+    gantt.init("gantt_here");
+
+
+    gantt.parse(tasks);
+
+</script>
+    
+    </head>
+
+<body>
+<div id="gantt_here" style='width:350; height:500;'></div>
+</body>
+
+
+</apex:page>

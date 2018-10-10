@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>DRDW_Project_Record</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>DRDW_Project_Label</fullName>
+        <description>In LE</description>
+        <label>DRDW Project Label</label>
+    </fieldSets>
+    <fields>
+        <fullName>Actual_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Anticipated_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Anticipated End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Anticipated_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Anticipated Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Medical Affairs</fullName>
+                    <default>false</default>
+                    <label>Medical Affairs</label>
+                </value>
+                <value>
+                    <fullName>Clinical</fullName>
+                    <default>false</default>
+                    <label>Clinical</label>
+                </value>
+                <value>
+                    <fullName>Market Access</fullName>
+                    <default>false</default>
+                    <label>Market Access</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Commercial Operations</fullName>
+                    <default>false</default>
+                    <label>Commercial Operations</label>
+                </value>
+                <value>
+                    <fullName>CMC</fullName>
+                    <default>false</default>
+                    <label>CMC</label>
+                </value>
+                <value>
+                    <fullName>Legal &amp; Compliance</fullName>
+                    <default>false</default>
+                    <label>Legal &amp; Compliance</label>
+                </value>
+                <value>
+                    <fullName>Regulatory</fullName>
+                    <default>false</default>
+                    <label>Regulatory</label>
+                </value>
+                <value>
+                    <fullName>Corporate Finance</fullName>
+                    <default>false</default>
+                    <label>Corporate Finance</label>
+                </value>
+                <value>
+                    <fullName>HR</fullName>
+                    <default>false</default>
+                    <label>HR</label>
+                </value>
+                <value>
+                    <fullName>IT</fullName>
+                    <default>false</default>
+                    <label>IT</label>
+                </value>
+                <value>
+                    <fullName>Corporate</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Corporate</label>
+                </value>
+                <value>
+                    <fullName>Finance</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Finance</label>
+                </value>
+                <value>
+                    <fullName>Manufacturing</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Manufacturing</label>
+                </value>
+                <value>
+                    <fullName>R&amp;D</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>R&amp;D</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Classification__c</fullName>
+        <externalId>false</externalId>
+        <label>Classification</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>R&amp;D</fullName>
+                    <default>false</default>
+                    <label>R&amp;D</label>
+                </value>
+                <value>
+                    <fullName>Operations</fullName>
+                    <default>false</default>
+                    <label>Operations</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Regulatory</fullName>
+                    <default>false</default>
+                    <label>Regulatory</label>
+                </value>
+                <value>
+                    <fullName>Manufacturing</fullName>
+                    <default>false</default>
+                    <label>Manufacturing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Conducted_with_a_Partner__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Conducted with a Partner</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Date_Active__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Active</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Approved__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Approved</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Cancelled__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Cancelled</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Closed__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Closed</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Delayed_Activities__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Delayed Activities</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Geography__c</fullName>
+        <externalId>false</externalId>
+        <label>Geography</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Geography 1</fullName>
+                    <default>false</default>
+                    <label>US-Canada-Mexico</label>
+                </value>
+                <value>
+                    <fullName>Geography 2</fullName>
+                    <default>false</default>
+                    <label>EU-Latin America</label>
+                </value>
+                <value>
+                    <fullName>Geography 3</fullName>
+                    <default>false</default>
+                    <label>Emerging Markets (Asia, Africa, Australia)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Indication__c</fullName>
+        <externalId>false</externalId>
+        <label>Indication</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Indication 1</fullName>
+                    <default>true</default>
+                    <label>Indication 1</label>
+                </value>
+                <value>
+                    <fullName>Indication 2</fullName>
+                    <default>false</default>
+                    <label>Indication 2</label>
+                </value>
+                <value>
+                    <fullName>Indication 3</fullName>
+                    <default>false</default>
+                    <label>Indication 3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_Molecule__c</fullName>
+        <externalId>false</externalId>
+        <label>Project involve internal compound?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Molecule__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Molecule</label>
+        <referenceTo>Molecule__c</referenceTo>
+        <relationshipName>DRDW_Projects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Project_Partner_Y__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Conducted_with_a_Partner__c = TRUE,&quot;True&quot;,null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Partner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending Approval</fullName>
+                    <default>true</default>
+                    <label>Pending Approval</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Submitted for Approval</fullName>
+                    <default>false</default>
+                    <label>Submitted for Approval</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>On Hold</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Therapeutic_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Therapeutic Area</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Autoimmune Diseases</fullName>
+                    <default>false</default>
+                    <label>Autoimmune Diseases</label>
+                </value>
+                <value>
+                    <fullName>Cardiovascular</fullName>
+                    <default>false</default>
+                    <label>Cardiovascular</label>
+                </value>
+                <value>
+                    <fullName>Dermatology</fullName>
+                    <default>false</default>
+                    <label>Dermatology</label>
+                </value>
+                <value>
+                    <fullName>Diabetes</fullName>
+                    <default>false</default>
+                    <label>Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Endocrinology</fullName>
+                    <default>false</default>
+                    <label>Endocrinology</label>
+                </value>
+                <value>
+                    <fullName>Gastroenterology</fullName>
+                    <default>false</default>
+                    <label>Gastroenterology</label>
+                </value>
+                <value>
+                    <fullName>Gynecology</fullName>
+                    <default>false</default>
+                    <label>Gynecology</label>
+                </value>
+                <value>
+                    <fullName>Immunology</fullName>
+                    <default>false</default>
+                    <label>Immunology</label>
+                </value>
+                <value>
+                    <fullName>Neurology</fullName>
+                    <default>false</default>
+                    <label>Neurology</label>
+                </value>
+                <value>
+                    <fullName>Oncology</fullName>
+                    <default>false</default>
+                    <label>Oncology</label>
+                </value>
+                <value>
+                    <fullName>Psychiatry and Pain</fullName>
+                    <default>false</default>
+                    <label>Psychiatry and Pain</label>
+                </value>
+                <value>
+                    <fullName>Rheumatology</fullName>
+                    <default>false</default>
+                    <label>Rheumatology</label>
+                </value>
+                <value>
+                    <fullName>Urology</fullName>
+                    <default>false</default>
+                    <label>Urology</label>
+                </value>
+                <value>
+                    <fullName>Vaccines</fullName>
+                    <default>false</default>
+                    <label>Vaccines</label>
+                </value>
+                <value>
+                    <fullName>Non-Therapeutic Area Specific</fullName>
+                    <default>false</default>
+                    <label>Non-Therapeutic Area Specific</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Capability</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Therapeutic_Area__c</columns>
+        <columns>Status__c</columns>
+        <columns>Delayed_Activities__c</columns>
+        <columns>Indication__c</columns>
+        <columns>Classification__c</columns>
+        <columns>Business_Unit__c</columns>
+        <columns>Geography__c</columns>
+        <columns>Conducted_with_a_Partner__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>DRDW_Project_Approvers_DRDW_Project</fullName>
+        <filterScope>Queue</filterScope>
+        <label>DRDW Project Approvers</label>
+        <queue>DRDW_Project_Approvers</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DRDW_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Therapeutic_Area__c</columns>
+        <columns>Classification__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Capability List</label>
+    </listViews>
+    <nameField>
+        <label>Capability Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Capabilities</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Actual_Date_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>Actual_End_Date__c  &gt;  Actual_Start_Date__c</errorConditionFormula>
+        <errorDisplayField>Actual_End_Date__c</errorDisplayField>
+        <errorMessage>Actual End Date needs to be after Actual Start Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Anticipated_Date_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>Anticipated_End_Date__c  &gt;  Anticipated_End_Date__c</errorConditionFormula>
+        <errorDisplayField>Actual_End_Date__c</errorDisplayField>
+        <errorMessage>Anticipated End Date has to be after Anticipated End Date</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Gantt_Chart</fullName>
+        <availability>online</availability>
+        <description>View gantt chart.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Gantt Chart</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/20.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/20.0/apex.js&quot;)} 
+
+var recId = window.location.href.substring(window.location.href.lastIndexOf(&apos;/&apos;) + 1); 
+window.location = &apos;/apex/GanttChartDev?id=&apos; + recId;</url>
+    </webLinks>
+</CustomObject>

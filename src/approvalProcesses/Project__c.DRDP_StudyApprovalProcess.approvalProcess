@@ -25,10 +25,6 @@
     <enableMobileDeviceAccess>true</enableMobileDeviceAccess>
     <finalApprovalActions>
         <action>
-            <name>DRDP_Approved</name>
-            <type>FieldUpdate</type>
-        </action>
-        <action>
             <name>DRDP_SendApproveEmail</name>
             <type>Alert</type>
         </action>
@@ -36,21 +32,11 @@
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionActions>
         <action>
-            <name>DRDP_Rejected</name>
-            <type>FieldUpdate</type>
-        </action>
-        <action>
             <name>DRDP_SendRejectEmail</name>
             <type>Alert</type>
         </action>
     </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
-    <initialSubmissionActions>
-        <action>
-            <name>DRDP_PendingApproval</name>
-            <type>FieldUpdate</type>
-        </action>
-    </initialSubmissionActions>
     <label>DRDP_StudyApprovalProcess</label>
     <recordEditability>AdminOnly</recordEditability>
     <showApprovalHistory>true</showApprovalHistory>

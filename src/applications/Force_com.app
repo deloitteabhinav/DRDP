@@ -3,7 +3,17 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Start Here</description>
     <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Force.com</label>
-    <logo>SharedDocuments/Foundry_Logo.png</logo>
-    <tab>standard-Chatter</tab>
+    <tabs>standard-Chatter</tabs>
+    <tabs>DRDP_Configuration__c</tabs>
+    <tabs>DRDW_Project__c</tabs>
+    <tabs>DRDW_Proj_Activity__c</tabs>
+    <tabs>DRDW_New</tabs>
+    <tabs>DRDW_Deliverable__c</tabs>
+    <tabs>DRDW_Project_Deliverable__c</tabs>
+    <tabs>Launch_Home</tabs>
+    <tabs>ProjectGantt</tabs>
+    <tabs>Related_Capability_Activity__c</tabs>
 </CustomApplication>

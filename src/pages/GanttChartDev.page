@@ -1,0 +1,383 @@
+<apex:page sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" 
+           docType="html-5.0" showHeader="false" controller="GanttChartDev">
+<html>
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.dhtmlxgantt, '/dhtmlx-gantt/codebase/dhtmlxgantt.css')}"/>
+        <style type="text/css" media="screen">
+            html, body{
+                margin:0px;
+                padding:0px;
+                height:100%;
+                overflow:hidden;
+            }
+            .gantt_grid_scale .gantt_grid_head_cell {
+                color: rgb(0, 0, 0);
+                font-size: large;
+            }
+            .gantt_task .gantt_task_scale .gantt_scale_cell {
+                color: #000;
+                font-size: small;
+            }
+            .gantt_grid_head_add{
+                display: none;
+            }
+            .gantt_gridd_data .gantt_cell{
+                color:#000;
+            }
+            .controls-container{
+                border-top-color: rgb(206, 206, 206);
+                border-top-style: solid;
+                border-top-width: 1px;
+                border-right-color: rgb(206, 206, 206);
+                border-right-style: solid;
+                border-right-width: 1px;
+                border-left-color: rgb(206, 206, 206);
+                border-left-style: solid;
+                border-left-width: 1px;
+                padding: 10px;
+                font-family: Arial;
+                font-size: large;
+            }
+        </style>
+    </head>
+    <body onload="fetchPageInfo();">
+        <div class="controls-container">
+            Scale&nbsp;
+            <select id="scale" onchange="changeScale()">
+                <!-- <option value="1">Day</option> -->
+                <option value="2">Week</option>
+                <option value="3">Month</option>
+                <option value="4">Year</option>
+            </select>
+        </div>
+        <div id="myGanttChart" style='width:100%; height:80%;'/>
+        <!-- JS -->
+        <apex:includeScript value="{!URLFOR($Resource.dhtmlxgantt, '/dhtmlx-gantt/codebase/dhtmlxgantt.js')}"/>
+        <script type="text/javascript">
+            var project;
+            var linkId = 1;
+            /**
+             * called on page load, fetch project, tasks, users
+             */
+            function fetchPageInfo(){
+                var id = new URL(window.location.href).searchParams.get('id');
+                console.log('Fetching page info for record id = ' + id);
+                remoteAction('getProjectInfo', id, getProjectInfoCallback);
+            }
+            /***************************************************************************************
+                                                CALLBACKS 
+            ***************************************************************************************/
+            /**
+             * Initialze the gantt chart
+             */
+            function getProjectInfoCallback(data, event){
+                //console.log('The result = ' + JSON.stringify(data, undefined, 2));
+                project = data.data[0];
+
+                ganttConfig(data.users);
+                ganttAttachEvents();
+
+                gantt.init("myGanttChart");
+                
+                
+                /* Added text below to show milestones in a different color  */
+                gantt.templates.task_class = function (start, end, task) {
+                    switch (task.duration) {
+                        case "0":
+                            return task.color = '#ce4c2f';
+                        break;
+                    }
+                };                
+                
+                
+                gantt.parse(data);
+            }
+            /**
+             * Currently does nothing. Left for debugging purposes.
+             */
+            function deleteTaskCallback(result, event){
+                if(event.status) console.log('successfull delete task calback');
+            }
+
+            /**
+             * Helps with plotting Quarters for YEAR scale
+             */
+
+            function quarterLabel(date) {
+                var month = date.getMonth();
+                var q_num;
+
+                if (month >= 9) {
+                    q_num = 4;
+                } else if (month >= 6) {
+                    q_num = 3;
+                } else if (month >= 3) {
+                    q_num = 2;
+                } else {
+                    q_num = 1;
+                }
+
+                return "Q" + q_num;
+            }
+
+
+
+
+            /***************************************************************************************
+                                                HELPER FUNCTIONS 
+            ***************************************************************************************/
+            function setScaleConfig(level) {
+                switch (level) {
+                    case "1":
+                        gantt.config.scale_unit = "day";
+                        gantt.config.step = 1;
+                        gantt.config.date_scale = "%d %M";
+                        gantt.templates.date_scale = null;
+            
+                        gantt.config.scale_height = 27;
+            
+                        gantt.config.subscales = [];
+                        break;
+                    case "2":
+                        var weekScaleTemplate = function (date) {
+                        var dateToStr = gantt.date.date_to_str("%d %M");
+                        var endDate = gantt.date.add(gantt.date.add(date, 1, "week"), -1, "day");
+                        return dateToStr(date) + " - " + dateToStr(endDate);
+                        };
+            
+                        gantt.config.scale_unit = "week";
+                        gantt.config.step = 1;
+                        gantt.templates.date_scale = weekScaleTemplate;
+            
+                        gantt.config.scale_height = 50;
+            
+                        gantt.config.subscales = [
+                            {unit: "day", step: 1, date: "%D"}
+                        ];
+                        break;
+                    case "3":
+                        gantt.config.scale_unit = "month";
+                        gantt.config.date_scale = "%F, %Y";
+                        gantt.templates.date_scale = null;
+            
+                        gantt.config.scale_height = 50;
+            
+                        gantt.config.subscales = [
+                            /*  {unit: "day", step: 1, date: "%j, %D"}  */
+                            {unit: "month", step: 1, date: "%M"}
+                        ];
+            
+                        break;
+                    case "4":
+                        gantt.config.scale_unit = "year";
+                        gantt.config.step = 1;
+                        gantt.config.date_scale = "%Y";
+                        gantt.templates.date_scale = null;
+            
+                        gantt.config.min_column_width = 50;
+                        gantt.config.scale_height = 90;
+            
+                        gantt.config.subscales = [
+                            /* {unit: "month", step: 1, date: "%M"} 
+                            {unit: "year", step: 1, date: "%Y"} 
+                            {unit: "quarter", step: 1, date: "%M"} */
+                            {unit: "quarter", step: 1, template: quarterLabel}
+                        ];
+                        break;
+                }
+            }
+            /**
+             * Attach all events of interest.
+             * Mostly DML related events that need to be sent off to backend.
+             */
+            function ganttAttachEvents(){
+                // Task related events
+                gantt.attachEvent('onLightboxSave', onLightboxSave);
+                gantt.attachEvent("onBeforeTaskDelete", onBeforeTaskDelete);
+                gantt.attachEvent("onBeforeLightbox", onBeforeLightbox);
+                
+                gantt.attachEvent("onTaskSelected", onTaskSelected);
+                gantt.attachEvent("onAfterTaskAdd", onAfterTaskAdd);
+                gantt.attachEvent("onAfterTaskMove", onAfterTaskMove);
+                gantt.attachEvent("onAfterTaskDrag", onAfterTaskDrag);  
+            }
+            /**
+             * Configure our Gantt chart i.e date format, event listeners, etc..
+             */
+            function ganttConfig(users){
+                gantt.config.xml_date = ("%m/%d/%Y");
+                setScaleConfig('2');
+
+                gantt.locale.labels.section_owner = 'Owner';
+                gantt.config.drag_links = false;
+
+                gantt.config.lightbox.sections = [
+                            {name:"description", height:38, map_to:"text", type:"textarea",focus:true},
+                            {name:"owner", height:22, map_to:"owner", type:"select", options: users},                                                                      
+                            /* {name: "type", type: "typeselect", map_to: "type"}, */
+                            {name:"time", height:72, type:"duration", map_to:"auto"}
+                ];
+            }
+            
+            function changeScale(){
+                var scale = document.getElementById("scale").value;
+                //console.log('Set scale to: ' + scale);
+                setScaleConfig(scale);
+                gantt.render();
+            }
+            /**
+             * Save the task (new/existing) to the backend. Implemented as helper funciton
+             * since the funcationality is used in a couple places.
+             */
+            function saveTaskToBackend(id, taskDXHT, is_new){
+                pprint('this is the task to save before fix', taskDXHT);
+                var task = stripFields(taskDXHT);
+                pprint('this is the task to save after fix', task);
+                remoteAction('upsertTask', task, function(result, event){
+                        if(event.status){
+                            //console.log('Successfull callback: result = ' + JSON.stringify(result, undefined, 2));
+                            if(is_new){
+                                gantt.changeTaskId(id, result.id);
+                                gantt.addLink({
+                                    id: linkId++,
+                                    target: result.id,
+                                    source: taskDXHT.parent,
+                                    type: 1,
+                                    readonly: true
+                                });
+                            }
+                        }
+                });
+                /*
+                */
+            }
+            /**
+             * Pretty print function for better JSON readability.
+             */
+            function pprint(msg, obj){
+                console.log(msg +' ' +JSON.stringify(obj, undefined, 2));
+            }
+            /**
+             * Remote action method to provided shorter remote call syntax.
+             */
+            function remoteAction(methodName, param, callback){
+                Visualforce.remoting.Manager.invokeAction(raHelper(methodName), param, callback);
+            }
+            /**
+             * Remote action helper method to provided controller wrapper to page that
+             * can then be used in JS. All remote actions declared in controller need to 
+             * explicitly made vailable here.
+             */
+            function raHelper(methodName){
+                switch(methodName) {
+                    case 'deleteTask':
+                        return '{!$RemoteAction.GanttChartDev.deleteTask}';       
+                    case 'upsertTask':
+                        return '{!$RemoteAction.GanttChartDev.upsertTask}';  
+                    case 'getProjectInfo':
+                        return '{!$RemoteAction.GanttChartDev.getProjectInfo}';
+                }
+            }
+            /**
+             * Strip extraneous fields from the task object provided by DXHT api
+             * In this method we will also fix parent project & parent activity fields
+             */
+            function stripFields(taskDXHT){
+                var task = {};
+                task.id = taskDXHT.$new == true ?  null : taskDXHT.id;
+                task.start_date = formatDate(taskDXHT.start_date);
+                task.end_date   = formatDate(taskDXHT.end_date);
+                task.index      = taskDXHT.$index;
+                task.text       = taskDXHT.text;
+                
+                // Check if task is a subtask
+                if(taskDXHT.parent != project.id){
+                    task.parent         = project.id;
+                    task.parentActivity = taskDXHT.parent;
+                }else{
+                    task.parent = taskDXHT.parent;
+                }
+                
+                task.owner      = taskDXHT.owner;
+                return task;
+            }
+            /**
+             * Format the date to MM DD YY for SF backend. 
+             * Consider Moment.js or other library for this.
+             */
+            function formatDate(date) {
+              var day = date.getDate();
+              var month = date.getMonth() + 1;
+              var year = date.getFullYear();
+              return month + '/' + day + '/' + year;
+            }
+            /**
+             * Get all children since that DHTMLX getChildren function only supports 1st level child tasks. 
+             */
+            function getChildren(childIds){
+                if(childIds.length == 0) return [];
+                childIds.forEach(function(item, index){
+                    childIds = childIds.concat(getChildren(gantt.getChildren(item)));
+                });
+                return childIds;
+            }
+            /***************************************************************************************
+                                                EVENT HANDLERS 
+            ***************************************************************************************/
+            /**
+             * onLightboxSave
+             */
+            function onLightboxSave(id, taskDXHT, is_new){
+                //pprint('lightbox save:', taskDXHT);
+                saveTaskToBackend(id, taskDXHT, is_new);
+                return true;
+            }
+            /**
+             * Send request to backend to delelte task & its children
+             */
+            function onBeforeTaskDelete(id, item){
+                pprint('onBeforeTaskDelete', item);
+                var task = stripFields(item);
+                var listOfTasksToDel = getChildren(gantt.getChildren(task.id));
+                listOfTasksToDel.push(task.id);
+                pprint('listOfTasksToDel:', listOfTasksToDel);
+                remoteAction('deleteTask', listOfTasksToDel, deleteTaskCallback);
+                return true;
+            }
+            /**
+             * Do not open lightbox if it is the project
+             */
+            function onBeforeLightbox(id){
+                if(id == project.id) return false;
+                return true;
+            }
+            /**
+             * onTaskSelected - used for debug purposes
+             */
+            function onTaskSelected(id){
+                //pprint('ontaskselected', gantt.getTask(id));
+            }
+            /**
+             * onAfterTaskAdd
+             */
+            function onAfterTaskAdd(id, item){
+                //location.reload();
+            }
+            /**
+             * onAfterTaskMove - Thought this would be triggered when task date is moved but
+             * that is called on task drag. Keep here for future enhancements.
+             */
+            function onAfterTaskMove(id, parent, tindex){
+                //console.log('onAfterTaskMove');
+            }
+            /**
+             * onAfterTaskDrag
+             */
+            function onAfterTaskDrag(id, mode, e){
+                //console.log('onAfterTaskDrag');
+                saveTaskToBackend(id, gantt.getTask(id), false);
+            }
+        </script>
+    </body>
+</html>
+</apex:page>
