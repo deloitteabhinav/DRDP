@@ -1,2 +1,0 @@
-<apex:page standardController="Request__c" extensions="AutoPopulateFieldsOnRequest" action="{!autoPopulateFieldsOnRequest}" >
-</apex:page>

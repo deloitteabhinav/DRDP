@@ -1,2 +1,0 @@
-<apex:page sidebar="false" Standardcontroller="Checklist_Version__c" extensions="CloneChecklistMasterController" action="{!CloneRec}">
-</apex:page>

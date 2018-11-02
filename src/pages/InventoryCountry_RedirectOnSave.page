@@ -1,2 +1,0 @@
-<apex:page standardController="Data_Asset_Country__c" extensions="RedirectOnSave" action="{!onloadFromInventory}" >
-</apex:page>
