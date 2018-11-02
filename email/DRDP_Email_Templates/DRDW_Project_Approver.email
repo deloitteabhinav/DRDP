@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<font style="color: rgb(0, 0, 0); font-family: arial;">Hello,</font><div style="color: rgb(0, 0, 0); font-family: arial;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial;">Your approval is needed for <b>Project</b>: {!DRDW_Project__c.Name}.</div><div style="color: rgb(0, 0, 0); font-family: arial;"><br></div><div style="">Please <a href="https://planningcentral.lightning.force.com/lightning/r/DRDW_Project__c/{!DRDW_Project__c.Id}/view">click on this link</a>&nbsp;to take action.</div><div style="color: rgb(0, 0, 0); font-family: arial;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial;"><div style="">Your action is important as this will prevent any project execution delays.</div><div style=""><br></div><div style="">Thank you.</div><div style="">Leadership Team</div></div><div style="font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><br></div>]]></td>
+</tr>
+</table>

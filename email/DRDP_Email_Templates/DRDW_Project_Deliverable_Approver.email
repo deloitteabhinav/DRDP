@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<div style=""><font style="color: rgb(0, 0, 0); font-family: arial;">Hello,</font><div style="color: rgb(0, 0, 0); font-family: arial;"><br></div><div style=""><font style="color: rgb(0, 0, 0); font-family: arial;">Your approval is needed for&nbsp;<b>Deliverable:</b>&nbsp;{!DRDW_Project_Deliverable__c.Name} related to&nbsp;<b>Project:&nbsp;</b></font><font face="arial">{!DRDW_Project_Deliverable__c.DRDW_Project__c}</font></div><div style="color: rgb(0, 0, 0); font-family: arial;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial;">Please&nbsp;<a href="https://planningcentral.lightning.force.com/lightning/r/DRDW_Project_Deliverable__c/{!DRDW_Project_Deliverable__c.Id}/view">click on this link</a>&nbsp;to take action.</div><div style="color: rgb(0, 0, 0); font-family: arial;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial;"><div>Your action is important.</div><div><br></div><div>Thank you.</div><div>Leadership Team</div></div><div style="font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size="4"><br></font></div></div>]]></td>
+</tr>
+</table>

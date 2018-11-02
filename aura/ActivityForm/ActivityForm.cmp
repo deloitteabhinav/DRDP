@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="record" type="Object" 
+                    description="The record object to be displayed"/>
+    <aura:attribute name="simpleRecord" type="Object" 
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError" type="String" 
+                    description="An error message bound to force:recordData"/>
+    <force:recordData aura:id="recordEditor"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields ="{!v.simpleRecord}"
+                      mode="EDIT"/>
+    <aura:attribute name="headerTitle" type="Aura.Component[]">
+        <h2>
+            Percent Complete (<b><lightning:formattedNumber value="{!v.simpleRecord.Percent_Complete__c==Null?0:v.simpleRecord.Percent_Complete__c}" maximumFractionDigits="0"/>%</b>)
+        </h2>
+    </aura:attribute>
+    <!-- <aura:attribute name="value" type="Integer" default="{!v.simpleRecord.Percent_Complete__c}"/> -->
+    <lightning:card title="{!v.headerTitle}">
+        <p class="slds-p-horizontal_small">
+            <lightning:slider 
+                              aura:id="mySlider"
+                              min="0"
+                              max="100"
+                              value="{!v.simpleRecord.Percent_Complete__c}"
+                              variant="base"
+                              onchange="{!c.handleRangeChange}"
+                              />
+        </p>
+    </lightning:card>    
+</aura:component>

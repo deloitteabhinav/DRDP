@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Activity_Dependency_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Capability_Activity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Source SI Activity</label>
+        <referenceTo>DRDW_Proj_Activity__c</referenceTo>
+        <relationshipLabel>Activity Dependencies (Capability Activity)</relationshipLabel>
+        <relationshipName>Related_Capability_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Capability_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Capability_Activity__r.Parent_Project__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Source SI Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dependency_Type__c</fullName>
+        <description>Finish to start (FS)  -&gt; A FS B means &quot;activity A must finish before activity B can begin&quot;
+Finish to finish (FF) -&gt; A FF B means &quot;activity A must finish before activity B can finish&quot;
+Start to start (SS)    -&gt; A SS B means &quot;activity A must start before activity B can start&quot;
+Start to finish (SF)   -&gt; A SF B means &quot;activity A must start before activity B finishes&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>FS  -&gt; activity A must finish before activity B can begin
+FF -&gt; activity A must finish before activity B can finish
+SS -&gt; activity A must start before activity B can start
+SF -&gt; activity A must start before activity B finishes</inlineHelpText>
+        <label>Dependency Type</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Finish to start (FS)</fullName>
+                    <default>false</default>
+                    <label>Finish to start (FS)</label>
+                </value>
+                <value>
+                    <fullName>Finish to finish (FF)</fullName>
+                    <default>false</default>
+                    <label>Finish to finish (FF)</label>
+                </value>
+                <value>
+                    <fullName>Start to start (SS)</fullName>
+                    <default>false</default>
+                    <label>Start to start (SS)</label>
+                </value>
+                <value>
+                    <fullName>Start to finish (SF)</fullName>
+                    <default>false</default>
+                    <label>Start to finish (SF)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Dependent_Capability_Activity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Dependent SI Activity</label>
+        <referenceTo>DRDW_Proj_Activity__c</referenceTo>
+        <relationshipLabel>Activity Dependencies (Dependent Capability Activity)</relationshipLabel>
+        <relationshipName>Related_Capability_Activities1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dependent_Capability_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Dependent_Capability_Activity__r.Parent_Project__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dependent SI Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Activity Dependency</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Capability_Activity__c</columns>
+        <columns>Capability_Name__c</columns>
+        <columns>Dependency_Type__c</columns>
+        <columns>Dependent_Capability_Activity__c</columns>
+        <columns>Dependent_Capability_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Activity Dependencies</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CA-{000000000}</displayFormat>
+        <label>Related SI Activity Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Activity Dependencies</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Same_Parent</fullName>
+        <active>true</active>
+        <errorConditionFormula>Capability_Activity__r.Parent_Project__c =  Dependent_Capability_Activity__r.Parent_Project__c</errorConditionFormula>
+        <errorDisplayField>Dependent_Capability_Activity__c</errorDisplayField>
+        <errorMessage>Dependent Activity CANNOT belong to same Capability.  Please select activity from another Capability as the dependent activity instead.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,43 @@
+<apex:page sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" 
+           docType="html-5.0" showHeader="false" controller="GanttChartTest">
+<html>
+    <head>
+        <apex:stylesheet value="{!URLFOR($Resource.dhtmlxgantt, '/dhtmlx-gantt/codebase/dhtmlxgantt.css')}"/>
+        <style type="text/css" media="screen">
+            html, body{
+                margin:0px;
+                padding:0px;
+                height:100%;
+                overflow:hidden;
+            }
+        </style>
+    </head>
+    <body onload="fetchPageInfo();">
+        <div id="myGanttChart" style='width:1000px; height:400px;'></div>
+        <div id="gantt_here" style='width:1000px; height:400px;'></div>
+        
+        <apex:includeScript value="{!URLFOR($Resource.dhtmlxgantt, '/dhtmlx-gantt/codebase/dhtmlxgantt.js')}"/>
+        <script type="text/javascript">
+            function myCallback(data, event){
+                console.log('The result = ' + JSON.stringify(data));
+                gantt.init("myGanttChart");
+                var tasks = {data};
+                console.log(JSON.stringify(tasks));
+                gantt.parse(tasks);
+            }
+        
+            function fetchPageInfo(){
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var id = url.searchParams.get('id');
+                console.log('Fetching page info for record id = ' + id);
+                
+                // This remoting call will use the page's timeout value
+                Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.GanttChartTest.getProjectInfo}',
+                    id, myCallback);
+            }
+        </script>
+    </body>
+</html>
+</apex:page>

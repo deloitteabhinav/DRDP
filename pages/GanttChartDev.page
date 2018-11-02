@@ -1,0 +1,589 @@
+<apex:page sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" 
+           docType="html-5.0" showHeader="false" controller="GanttChartDev">
+    <html>
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.dhtmlxgantt, '/codebase/dhtmlxgantt.css')}"/>
+            <style type="text/css" media="screen">
+                html, body{
+                margin:0px;
+                padding:0px;
+                height:100%;
+                overflow:hidden;
+                }
+                
+                .gantt_row.gantt_project,.gantt_row.odd.gantt_project {background-color:#edffef}
+                
+                
+                .gantt_grid_scale .gantt_grid_head_cell {
+                color: rgb(0, 0, 0);
+                font-size: large;
+                }
+                .gantt_task .gantt_task_scale .gantt_scale_cell {
+                color: #000;
+                font-size: small;
+                }
+                .gantt_grid_head_add{
+                display: none;
+                }
+                .gantt_gridd_data .gantt_cell{
+                color:#000;
+                }
+                .controls-container{
+                border-top-color: rgb(206, 206, 206);
+                border-top-style: solid;
+                border-top-width: 1px;
+                border-right-color: rgb(206, 206, 206);
+                border-right-style: solid;
+                border-right-width: 1px;
+                border-left-color: rgb(206, 206, 206);
+                border-left-style: solid;
+                border-left-width: 1px;
+                padding: 10px;
+                font-family: Arial;
+                font-size: large;
+                }
+                .exportbtn{
+                background-color: #3bc1ce;
+                border: none;
+                color: white;
+                padding: 6px 13px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                float: right;
+                }
+                .slds-button {
+                position: relative;
+                display: inline-block;
+                padding: 0;
+                background: transparent;
+                background-clip: border-box;
+                border: 1px solid transparent;
+                border-radius: .25rem;
+                line-height: 1.875rem;
+                color: #0070d2;
+                -webkit-appearance: none;
+                white-space: normal;
+                user-select: none;
+                float: right;
+                margin-right:2px;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                text-align: center;
+                vertical-align: middle;
+                border: 1px solid rgb(221, 219, 218);
+                transition: border .15s linear;
+                background-color: rgba(27, 82, 151, 1.0);
+                border-color: rgba(27, 82, 151, 1.0);
+                color: rgb(255, 255, 255);
+                }
+                .slds-button:hover {
+                background-color: rgba(0, 68, 135, 1.0);
+                border-color: rgba(0, 68, 135, 1.0);
+                color: rgb(255, 255, 255);
+                }
+                .help{
+                float: right;
+                color: white;
+                background: white;
+                border: 0px;
+                margin-top: -5px;
+                padding: 0px;
+                cursor: pointer;
+                border: none;
+                outline:none;
+                }
+                .overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.5);
+                transition: opacity 200ms;
+                visibility: hidden;
+                opacity: 0;
+                }
+                .overlay.light {
+                background: rgba(255, 255, 255, 0.5);
+                }
+                .overlay .cancel {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                cursor: default;
+                }
+                .overlay:target {
+                visibility: visible;
+                opacity: 1;
+                }
+                
+                .popup {
+                margin: 75px auto;
+                padding: 20px;
+                background: #fff;
+                border: 1px solid #666;
+                width: 660px;
+                box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+                position: relative;
+                border-radius: 6px;
+                }
+                .light .popup {
+                border-color: #aaa;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+                }
+                .popup h2 {
+                margin-top: 0;
+                color: #666;
+                font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+                }
+                .popup .close {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: 20px;
+                right: 20px;
+                opacity: 0.8;
+                transition: all 200ms;
+                font-size: 24px;
+                font-weight: bold;
+                text-decoration: none;
+                color: #666;
+                }
+                .popup .close:hover {
+                opacity: 1;
+                }
+                .popup .content {
+                max-height: 400px;
+                overflow: auto;
+                }
+                .popup p {
+                margin: 0 0 1em;
+                }
+                .popup p:last-child {
+                margin: 0;
+                }
+                
+            </style>
+        </head>
+        <body onload="fetchPageInfo();">
+            <div class="controls-container">
+                Scale&nbsp;
+                <select id="scale" onchange="changeScale()">
+                    <!-- <option value="1">Day</option> -->
+                    <option value="2">Week</option>
+                    <option value="3">Month</option>
+                    <option value="4">Year</option>
+                </select>  
+                <!--  <button id="fullscreen_button" class="fullscreen"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD/SURBVGhD7dg9agJBHIbxTaEkCopViE3A3sYTBDyBoBJyiNxEwUMEJYdI5SXEO0Txo018ZsRGZmX/yrCi7wM/cAoH38rVRCl13z2gZlDFORURui9NGabcB/s3msDSK1YI3ZXmC6YOQ/7wm9EQlp4xQ+iuYxtcNGTpT/n3AQ3RkAhpiIZESkNuZkgF7o0Lf8q/d5w1xDWG9bEjVi+You9PSimllFLqamqgvn95FbXwtH+ZvQLWmPtT/rXhHuNH/mRIvxAjpSEaEikN0ZBIachhyBa9DLpw/z1Ze0PovmPuG/2iIRY/sNRE6J5TzENK+DbqwNIjBgjdleYTSqn7LUl2Bci5+aD+MsEAAAAASUVORK5CYII=" height="36px"  title="Full Screen"/></button>   -->                              
+                <a class="help" href="#popup1" ><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxMjgiIGhlaWdodD0iMTI4cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB3aWR0aD0iMTI4cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0xMDYsMjRjMy4zLDAsNiwyLjcsNiw2djYwYzAsMy4zLTIuNyw2LTYsNkg5NWgtNHY0djYuOWwtMTMtMTBMNzcsOTZoLTEuNEgyM2MtMy4zLDAtNi0yLjctNi02VjMwICBjMC0zLjMsMi43LTYsNi02SDEwNiBNMTA2LDIwSDIzYy01LjUsMC0xMCw0LjUtMTAsMTB2NjBjMCw1LjUsNC41LDEwLDEwLDEwaDUyLjZMOTUsMTE1di0xNWgxMWM1LjUsMCwxMC00LjUsMTAtMTBWMzAgIEMxMTYsMjQuNSwxMTEuNSwyMCwxMDYsMjBMMTA2LDIweiIgZmlsbD0iIzNCOTdEMyIvPjxwYXRoIGQ9Ik03MS40LDYxLjFjLTQuMywzLjItNC41LDQuNC00LjUsNi4xVjY5aC02LjRjMCwwLTEuOS0yLTEuOS01LjVjMC0xLjYsMS4xLTMuMSw0LjMtNS42YzQuNC0zLjUsNS00LjQsNS02LjcgIGMwLTItMS4xLTMuNS01LjEtMy41cy04LjYsMS04LjYsMWwtMC40LTYuMWMwLDAsNS4yLTIuMSwxMC4yLTIuMWM4LjYsMCwxMi4zLDIuOSwxMi4zLDkuOEM3Ni4zLDU1LjgsNzUuNSw1Ny45LDcxLjQsNjEuMXogICBNNTkuMSw3Mi4zaDguNlY4MmgtOC42VjcyLjN6IiBmaWxsPSIjMkMzRTUwIi8+PC9zdmc+" height="36px"  title="Help"/></a>    
+                <input value="FullScreen" id="fullscreen_button" type="button" class="slds-button"/>  
+                <input value="Export to PDF" type="button" class="slds-button slds-button_outline-brand" onclick='gantt.exportToPDF()'/>   
+                <input value="Export to Image" type="button" class="slds-button slds-button_outline-brand" onclick='gantt.exportToPNG()'/>              
+            </div>
+            <div id="myGanttChart" style='width:100%; height:80%;'/>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>How to Use Gantt Chart</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <p>Please follow below instructions</p>
+                        <p><strong>To add Task: </strong></p>
+                        <p>1. Click on (+) icon on the right side of the entity.</p>
+                        <p>2. Select type as task and provide other details.</p>
+                        <p>3. Click on Save.</p>
+                        
+                        <p><strong>To add Milestone: </strong></p>
+                        <p>1. Click on (+) icon on the right side of the entity.</p>
+                        <p>2. Select type as Milestone and provide other details.</p>
+                        <p>3. Click on Save.</p>
+                        
+                        <p><strong>To Export the Gantt Chart: </strong></p>
+                        <p>There are two ways to export the Gantt Chart: </p>
+                        <p>1. Click on "Export to Image" to download the Gantt chart view as a .png image.</p>
+                        <p>2. Click on "Export to PDF" to download the Gantt chart view as a .pdf file.</p>
+                        
+                        <p><strong>To view in Full Screen: </strong></p>
+                        <p>1. Click on Full Screen button to view the chart in full screen and click on Esc key to exit Full Screen.</p>
+                        
+                        <p><strong>To update the progress of the task on Gantt Chart: </strong></p>
+                        <p>1. There is a slider provided on every task, when slided updates the progress on the task automatically.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- JS -->
+            <apex:includeScript value="{!URLFOR($Resource.dhtmlxgantt, '/codebase/dhtmlxgantt.js')}"/>
+            <!-- adding export js and fullscreen js --->
+            <apex:includeScript value="{!URLFOR($Resource.dxhtmlexport)}"/>
+            <apex:includeScript value="{!URLFOR($Resource.dhtmlxgantt, '/codebase/ext/dhtmlxgantt_fullscreen.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.dhtmlxgantt,'/codebase/ext/dhtmlxgantt_tooltip.js')}"/>
+            <!-- adding export js --->
+            <script type="text/javascript">
+            var project;
+            var linkId = 1;
+            /**
+             * called on page load, fetch project, tasks, users
+             */
+        function fetchPageInfo(){
+            var id = new URL(window.location.href).searchParams.get('id');
+            console.log('Fetching page info for record id = ' + id);
+            remoteAction('getProjectInfo', id, getProjectInfoCallback);
+        }
+        /***************************************************************************************
+                                                CALLBACKS 
+            ***************************************************************************************/
+        /**
+             * Initialze the gantt chart
+             */
+        function getProjectInfoCallback(data, event){
+            console.log('The result = ' + JSON.stringify(data, undefined, 2));
+            
+            project = data.data[0];                
+            
+            /* Added text below to show progress */
+            gantt.config.show_progress = true;
+            gantt.config.drag_progress = true;
+            gantt.templates.progress_text = function(start, end, task){
+                return "<span style='text-align:left !important;color:white;'>"+Math.round(task.progress * 100)+ "% </span>";
+            };
+            var id = new URL(window.location.href).searchParams.get('id');
+            
+            /* Added text below to show milestones in a different color  */
+            
+            gantt.templates.tooltip_text = function(start,end,task){
+                var start1 = String(start).substr(0,15);
+                var end1 = String(end).substr(0,15);
+                return "<b>Task:</b>" + task.text + "<br/><b>Start:</b>" + start1 + "<br/><b>End:</b>" + end1;
+            };
+            gantt.config.tooltip_timeout = 50;
+            gantt.config.tooltip_hide_timeout = 500;
+            gantt.templates.task_class = function (start, end, task) {
+                if(task.id == id){
+                    return task.color = '#9BD35D';
+                }
+            };  
+            
+            gantt.templates.rightside_text = function(start, end, task){
+                if(task.type == 'milestone'){
+                    return task.text;
+                }
+                return "";
+            };
+            ganttConfig(data.users);
+            ganttAttachEvents();
+            gantt.init("myGanttChart");
+            
+            gantt.parse(data);
+        }
+        /**
+             * Currently does nothing. Left for debugging purposes.
+             */
+        function deleteTaskCallback(result, event){
+            if(event.status) console.log('successfull delete task calback');
+        }
+        
+        /**
+             * Helps with plotting Quarters for YEAR scale
+             */
+        
+        function quarterLabel(date) {
+            var month = date.getMonth();
+            var q_num;
+            
+            if (month >= 9) {
+                q_num = 4;
+            } else if (month >= 6) {
+                q_num = 3;
+            } else if (month >= 3) {
+                q_num = 2;
+            } else {
+                q_num = 1;
+            }
+            
+            return "Q" + q_num;
+        }
+        
+        
+        
+        
+        /***************************************************************************************
+                                                HELPER FUNCTIONS 
+            ***************************************************************************************/
+        function setScaleConfig(level) {
+            switch (level) {
+                case "1":
+                    gantt.config.scale_unit = "day";
+                    gantt.config.step = 1;
+                    gantt.config.date_scale = "%d %M";
+                    gantt.templates.date_scale = null;
+                    
+                    gantt.config.scale_height = 27;
+                    
+                    gantt.config.subscales = [];
+                    break;
+                case "2":
+                    var weekScaleTemplate = function (date) {
+                        var dateToStr = gantt.date.date_to_str("%d %M");
+                        var endDate = gantt.date.add(gantt.date.add(date, 1, "week"), -1, "day");
+                        return dateToStr(date) + " - " + dateToStr(endDate);
+                    };
+                    
+                    gantt.config.scale_unit = "week";
+                    gantt.config.step = 1;
+                    gantt.templates.date_scale = weekScaleTemplate;
+                    
+                    gantt.config.scale_height = 50;
+                    
+                    gantt.config.subscales = [
+                        {unit: "day", step: 1, date: "%D"}
+                    ];
+                    break;
+                case "3":
+                    gantt.config.scale_unit = "month";
+                    gantt.config.date_scale = "%F, %Y";
+                    gantt.templates.date_scale = null;
+                    
+                    gantt.config.scale_height = 50;
+                    
+                    gantt.config.subscales = [
+                        /*  {unit: "day", step: 1, date: "%j, %D"}  */
+                        {unit: "month", step: 1, date: "%M"}
+                    ];
+                    
+                    break;
+                case "4":
+                    gantt.config.scale_unit = "year";
+                    gantt.config.step = 1;
+                    gantt.config.date_scale = "%Y";
+                    gantt.templates.date_scale = null;
+                    
+                    gantt.config.min_column_width = 50;
+                    gantt.config.scale_height = 90;
+                    
+                    gantt.config.subscales = [
+                        /* {unit: "month", step: 1, date: "%M"} 
+                            {unit: "year", step: 1, date: "%Y"} 
+                            {unit: "quarter", step: 1, date: "%M"} */
+                            {unit: "quarter", step: 1, template: quarterLabel}
+                        ];
+                        break;
+                }
+            }
+        /**
+             * Attach all events of interest.
+             * Mostly DML related events that need to be sent off to backend.
+             */
+        function ganttAttachEvents(){
+            // Task related events
+            gantt.attachEvent('onLightboxSave', onLightboxSave);
+            gantt.attachEvent("onBeforeTaskDelete", onBeforeTaskDelete);
+            gantt.attachEvent("onBeforeLightbox", onBeforeLightbox);
+            
+            gantt.attachEvent("onTaskSelected", onTaskSelected);
+            gantt.attachEvent("onAfterTaskAdd", onAfterTaskAdd);
+            gantt.attachEvent("onAfterTaskMove", onAfterTaskMove);
+            gantt.attachEvent("onAfterTaskDrag", onAfterTaskDrag);  
+        }
+        /**
+             * Configure our Gantt chart i.e date format, event listeners, etc..
+             */
+        function ganttConfig(users){
+            gantt.config.xml_date = ("%m/%d/%Y");
+            setScaleConfig('2');
+            
+            gantt.locale.labels.section_owner = 'Owner';
+            gantt.config.drag_links = false;
+            console.log('gantt.config.types',gantt.config.types);
+            delete gantt.config.types.project;
+            delete gantt.config.types.placeholder;
+            gantt.config.lightbox.sections = [
+                {name:"description", height:38, map_to:"text", type:"textarea",focus:true},
+                {name:"owner", height:22, map_to:"owner", type:"select", options: users},                                                                      
+                {name: "type", height:22,type: "typeselect", map_to: "type"}, 
+                {name:"time", height:72, type:"duration", map_to:"auto"}
+            ];
+            
+        }
+        
+        
+        function changeScale(){
+            var scale = document.getElementById("scale").value;
+            //console.log('Set scale to: ' + scale);
+            setScaleConfig(scale);
+            gantt.render();
+        }
+        /**
+             * Save the task (new/existing) to the backend. Implemented as helper funciton
+             * since the funcationality is used in a couple places.
+             */
+        function saveTaskToBackend(id, taskDXHT, is_new){
+            pprint('this is the task to save before fix', taskDXHT);
+            var task = stripFields(taskDXHT);
+            pprint('this is the task to save after fix', task);
+            remoteAction('upsertTask', task, function(result, event){
+                if(event.status){
+                    //  console.log('Successfull callback: result = ' + JSON.stringify(result, undefined, 2));
+                    if(is_new){
+                        gantt.changeTaskId(id, result.id);
+                        gantt.addLink({
+                            id: linkId++,
+                            target: result.id,
+                            source: taskDXHT.parent,
+                            type: 1,
+                            readonly: true
+                        });
+                    }
+                }
+            });
+            /*
+                */
+            }
+        /**
+             * Pretty print function for better JSON readability.
+             */
+        function pprint(msg, obj){
+            console.log(msg +' ' +JSON.stringify(obj, undefined, 2));
+        }
+        /**
+             * Remote action method to provided shorter remote call syntax.
+             */
+        function remoteAction(methodName, param, callback){
+            Visualforce.remoting.Manager.invokeAction(raHelper(methodName), param, callback);
+        }
+        /**
+             * Remote action helper method to provided controller wrapper to page that
+             * can then be used in JS. All remote actions declared in controller need to 
+             * explicitly made vailable here.
+             */
+        function raHelper(methodName){
+            switch(methodName) {
+                case 'deleteTask':
+                    return '{!$RemoteAction.GanttChartDev.deleteTask}';       
+                case 'upsertTask':
+                    return '{!$RemoteAction.GanttChartDev.upsertTask}';  
+                case 'getProjectInfo':
+                    return '{!$RemoteAction.GanttChartDev.getProjectInfo}';
+            }
+        }
+        /**
+             * Strip extraneous fields from the task object provided by DXHT api
+             * In this method we will also fix parent project & parent activity fields
+             */
+        function stripFields(taskDXHT){
+            var task = {};
+            task.id = taskDXHT.$new == true ?  null : taskDXHT.id;
+            task.start_date = formatDate(taskDXHT.start_date);
+            task.end_date   = formatDate(taskDXHT.end_date);
+            task.index      = taskDXHT.$index;
+            task.text       = taskDXHT.text;
+            task.progress   = taskDXHT.progress;
+            task.type       = taskDXHT.type;
+            // Check if task is a subtask
+            if(taskDXHT.parent != project.id){
+                task.parent         = project.id;
+                task.parentActivity = taskDXHT.parent;
+            }else{
+                task.parent = taskDXHT.parent;
+            }
+            
+            task.owner      = taskDXHT.owner;
+            return task;
+        }
+        /**
+             * Format the date to MM DD YY for SF backend. 
+             * Consider Moment.js or other library for this.
+             */
+        function formatDate(date) {
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            return month + '/' + day + '/' + year;
+        }
+        /**
+             * Get all children since that DHTMLX getChildren function only supports 1st level child tasks. 
+             */
+        function getChildren(childIds){
+            if(childIds.length == 0) return [];
+            childIds.forEach(function(item, index){
+                childIds = childIds.concat(getChildren(gantt.getChildren(item)));
+            });
+            return childIds;
+        }
+        /***************************************************************************************
+                                                EVENT HANDLERS 
+            ***************************************************************************************/
+        /**
+             * onLightboxSave
+             */
+        function onLightboxSave(id, taskDXHT, is_new){
+            //pprint('lightbox save:', taskDXHT);
+            saveTaskToBackend(id, taskDXHT, is_new);
+            return true;
+        }
+        /**
+             * Send request to backend to delelte task & its children
+             */
+        function onBeforeTaskDelete(id, item){
+            pprint('onBeforeTaskDelete', item);
+            var task = stripFields(item);
+            var listOfTasksToDel = getChildren(gantt.getChildren(task.id));
+            listOfTasksToDel.push(task.id);
+            pprint('listOfTasksToDel:', listOfTasksToDel);
+            remoteAction('deleteTask', listOfTasksToDel, deleteTaskCallback);
+            return true;
+        }
+        /**
+             * Do not open lightbox if it is the project
+             */
+        function onBeforeLightbox(id){
+            if(id == project.id) return false;
+            return true;
+        }
+        /**
+             * onTaskSelected - used for debug purposes
+             */
+        function onTaskSelected(id){
+            //pprint('ontaskselected', gantt.getTask(id));
+        }
+        /**
+             * onAfterTaskAdd
+             */
+        function onAfterTaskAdd(id, item){
+            //location.reload();
+        }
+        /**
+             * onAfterTaskMove - Thought this would be triggered when task date is moved but
+             * that is called on task drag. Keep here for future enhancements.
+             */
+        function onAfterTaskMove(id, parent, tindex){
+            //console.log('onAfterTaskMove');
+        }
+        /**
+             * onAfterTaskDrag
+             */
+        function onAfterTaskDrag(id, mode, e){
+            //console.log('onAfterTaskDrag');
+            saveTaskToBackend(id, gantt.getTask(id), false);
+        }
+        /**
+             * Full screen
+             */
+        var button = document.getElementById("fullscreen_button");
+        button.addEventListener("click", function(){
+            if (!gantt.getState().fullscreen) {
+                // expanding the gantt to full screen
+                gantt.expand();
+            }
+            else {
+                // collapsing the gantt to the normal mode
+                gantt.collapse();
+            }
+        }, false);            
+        </script>
+    </body>
+    </html>
+</apex:page>
